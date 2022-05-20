@@ -47,7 +47,7 @@
                             <div class="form-control-icon">
                                 <i class="bi bi-shield-lock"></i>
                             </div>
-                            <label class="ms-5" for="email">Password</label>
+                            <label class="ms-5" for="password">Password</label>
                         </div>
                         <div class="form-check form-check-lg d-flex align-items-end">
                             <input class="form-check-input me-2" type="checkbox" value="" id="flexCheckDefault">
