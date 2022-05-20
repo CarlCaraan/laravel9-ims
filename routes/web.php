@@ -18,4 +18,5 @@ Route::middleware([
     })->name('dashboard');
 });
 
+// Logout Route
 Route::get('admin/logout', [AdminController::class, 'Logout'])->name('admin.logout');
