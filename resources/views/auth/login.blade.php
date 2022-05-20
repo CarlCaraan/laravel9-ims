@@ -25,7 +25,7 @@
                     <p class="auth-subtitle mb-5">Log in with your data that you entered during registration.</p>
 
                     <!-- Start Validation Message -->
-                    <x-jet-validation-errors class="alert alert-secondary text-danger" />
+                    <x-jet-validation-errors class="alert alert-secondary text-danger border border-danger" />
                     @if (session('status'))
                     <div class="mb-4 font-medium text-sm text-green-600">
                         {{ session('status') }}
@@ -35,17 +35,19 @@
 
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
-                        <div class="form-group position-relative has-icon-left mb-4">
+                        <div class="form-group form-floating position-relative has-icon-left mb-4">
                             <input type="email" id="email" name="email" class="form-control form-control-xl" placeholder="Email Address" :value="old('email')" required autofocus>
                             <div class="form-control-icon">
                                 <i class="bi bi-person"></i>
                             </div>
+                            <label class="ms-5" for="email">Email Address</label>
                         </div>
-                        <div class="form-group position-relative has-icon-left mb-4">
+                        <div class="form-group form-floating position-relative has-icon-left mb-4">
                             <input type="password" id="password" name="password" class="form-control form-control-xl" placeholder="Password" required autocomplete="current-password">
                             <div class="form-control-icon">
                                 <i class="bi bi-shield-lock"></i>
                             </div>
+                            <label class="ms-5" for="email">Password</label>
                         </div>
                         <div class="form-check form-check-lg d-flex align-items-end">
                             <input class="form-check-input me-2" type="checkbox" value="" id="flexCheckDefault">
