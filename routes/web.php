@@ -4,10 +4,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 
 Route::group(['middleware' => 'prevent-back-history'], function () {
+    // ========= Landing Page =========
     Route::get('/', function () {
         return view('welcome');
     });
 
+    // ========= Admin Routes =========
     Route::middleware([
         'auth:sanctum',
         config('jetstream.auth_session'),
