@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register | App</title>
+    <title>Register | School Division Office</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('admin/assets/css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('admin/assets/vendors/bootstrap-icons/bootstrap-icons.css') }}">
@@ -31,32 +31,48 @@
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
                         <div class="form-group form-floating position-relative has-icon-left mb-4">
-                            <input type="text" class="form-control form-control-xl" placeholder="Name" type="text" id="name" name="name" value="{{old('name')}}" required autofocus autocomplete="name">
+                            <input type="text" class="form-control form-control-xl" placeholder="First Name" type="text" id="first_name" name="first_name" value="{{old('first_name')}}" autofocus autocomplete="first_name">
                             <div class="form-control-icon">
                                 <i class="bi bi-person"></i>
                             </div>
-                            <label class="ms-5" for="name">Name</label>
+                            <label class="ms-5" for="name">First Name</label>
                         </div>
                         <div class="form-group form-floating position-relative has-icon-left mb-4">
-                            <input type="email" class="form-control form-control-xl" placeholder="Email Address" id="email" type="email" name="email" value="{{old('email')}}" required>
+                            <input type="text" class="form-control form-control-xl" placeholder="Last Name" type="text" id="last_name" name="last_name" value="{{old('last_name')}}" autocomplete="first_name">
+                            <div class="form-control-icon">
+                                <i class="bi bi-person"></i>
+                            </div>
+                            <label class="ms-5" for="name">Last Name</label>
+                        </div>
+                        <div class="form-group form-floating position-relative has-icon-left mb-4">
+                            <input type="email" class="form-control form-control-xl" placeholder="Email Address" id="email" type="email" name="email" value="{{old('email')}}">
                             <div class="form-control-icon">
                                 <i class="bi bi-envelope"></i>
                             </div>
                             <label class="ms-5" for="email">Email Address</label>
                         </div>
                         <div class="form-group form-floating position-relative has-icon-left mb-4">
-                            <input type="password" class="form-control form-control-xl" placeholder="Password" id="password" name="password" required autocomplete="new-password">
+                            <input type="password" class="form-control form-control-xl" placeholder="Password" id="password" name="password" autocomplete="new-password">
                             <div class="form-control-icon">
                                 <i class="bi bi-shield-lock"></i>
                             </div>
                             <label class="ms-5" for="password">Password</label>
                         </div>
                         <div class="form-group form-floating position-relative has-icon-left mb-4">
-                            <input type="password" class="form-control form-control-xl" placeholder="Confirm Password" id="password_confirmation" name="password_confirmation" required autocomplete="new-password">
+                            <input type="password" class="form-control form-control-xl" placeholder="Confirm Password" id="password_confirmation" name="password_confirmation" autocomplete="new-password">
                             <div class=" form-control-icon">
                                 <i class="bi bi-shield-lock"></i>
                             </div>
                             <label class="ms-5" for="password_confirmation">Confirm Password</label>
+                        </div>
+                        <div class="input-group mb-4">
+                            <label class="input-group-text" for="inputGroupSelect01">Gender</label>
+                            <select class="form-select form-control-xl" id="inputGroupSelect01" name="gender">
+                                <option selected value="">Select</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+
                         </div>
 
                         <!-- Start Terms and Condition -->

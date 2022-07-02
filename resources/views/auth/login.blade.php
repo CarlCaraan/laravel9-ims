@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login | App</title>
+    <title>Login | School Division Office</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('admin/assets/css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('admin/assets/vendors/bootstrap-icons/bootstrap-icons.css') }}">
@@ -61,7 +61,7 @@
                     <div class="text-center mt-5 text-lg fs-4">
                         <p class="text-gray-600">Don't have an account? <a href="{{ route('register')}}" class="font-bold">Sign
                                 up</a>.</p>
-                        <p><a class="font-bold" href="{{ route('password.request') }}">Forgot password?</a>.</p>
+                        <p><a class="font-bold" href="{{ route('password.request') }}">Forgot password?</a></p>
                     </div>
                 </div>
             </div>
