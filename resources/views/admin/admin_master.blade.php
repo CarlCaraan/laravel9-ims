@@ -4,18 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title')</title>
+    <title>Dashboard - Mazer Admin Dashboard</title>
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('admin/assets/css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/main/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/main/app-dark.css') }}">
+    <link rel="shortcut icon" href="{{ asset('admin/assets/images/logo/favicon.svg') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('admin/assets/images/logo/favicon.png') }}" type="image/png">
 
-    <link rel="stylesheet" href="{{ asset('admin/assets/vendors/iconly/bold.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/shared/iconly.css') }}">
 
-    <link rel="stylesheet" href="{{ asset('admin/assets/vendors/perfect-scrollbar/perfect-scrollbar.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/assets/vendors/bootstrap-icons/bootstrap-icons.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/assets/css/app.css') }}">
-    <link rel="shortcut icon" href="{{ asset('admin/assets/images/favicon.svg') }}" type="image/x-icon">
 </head>
 
 <body>
@@ -29,22 +26,22 @@
             @include('admin.body.header')
             <!-- End Header -->
 
-            <!-- Start Main Content -->
             <div id="main-content">
+                <!-- Start Content -->
                 @yield('content')
+                <!-- End Content -->
 
+                <!-- Start Footer -->
                 @include('admin.body.footer')
+                <!-- End Footer -->
             </div>
-            <!-- End Main Content -->
+
         </div>
     </div>
-    <script src="{{ asset('admin/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
-    <script src="{{ asset('admin/assets/js/bootstrap.bundle.min.js') }}"></script>
 
-    <script src="{{ asset('admin/assets/vendors/apexcharts/apexcharts.js') }}"></script>
+    <!-- ========= All SCRIPTS ========= -->
+    <script src="{{ asset('admin/assets/js/app.js') }}"></script>
     <script src="{{ asset('admin/assets/js/pages/dashboard.js') }}"></script>
-
-    <script src="{{ asset('admin/assets/js/main.js') }}"></script>
 </body>
 
 </html>
