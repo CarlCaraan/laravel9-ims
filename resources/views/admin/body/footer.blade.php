@@ -1,10 +1,10 @@
 <footer>
     <div class="footer clearfix mb-0 text-muted">
         <div class="float-start">
-            <p>2021 &copy; Mazer</p>
+            <p>All Rights Reserved &copy; 2022</p>
         </div>
         <div class="float-end">
-            <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a href="http://ahmadsaugi.com">A. Saugi</a></p>
+            <p>School Divison Office <span class="text-danger"><a href="http://ahmadsaugi.com">Team</a></p>
         </div>
     </div>
 </footer>

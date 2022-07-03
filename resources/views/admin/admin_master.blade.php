@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard | App</title>
+    <title>@yield('title')</title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -24,18 +24,18 @@
         @include('admin.body.sidebar')
         <!-- End Sidebar -->
 
-        <!-- Start Header -->
-        @include('admin.body.header')
-        <!-- End Header -->
+        <div id="main" class='layout-navbar'>
+            <!-- Start Header -->
+            @include('admin.body.header')
+            <!-- End Header -->
 
-        <div id="main">
             <!-- Start Main Content -->
-            @yield('content')
-            <!-- End Main Content -->
+            <div id="main-content">
+                @yield('content')
 
-            <!-- Start Footer -->
-            @include('admin.body.footer')
-            <!-- End Footer -->
+                @include('admin.body.footer')
+            </div>
+            <!-- End Main Content -->
         </div>
     </div>
     <script src="{{ asset('admin/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>

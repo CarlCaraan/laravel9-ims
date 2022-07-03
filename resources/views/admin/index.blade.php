@@ -1,4 +1,7 @@
 @extends('admin.admin_master')
+
+@section('title') Dashboard | School Division Office @endsection
+
 @section('content')
 <div class="page-heading">
     <h3>Dashboard</h3>
