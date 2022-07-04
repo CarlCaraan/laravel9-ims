@@ -8,13 +8,13 @@
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Account Settings</h3>
+                <h3 class="text-success">Account Settings</h3>
                 <p class="text-subtitle text-muted">General Account Settings.</p>
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
+                        <li class="breadcrumb-item"><a class="text-success" href="{{ route('dashboard') }}">Home</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Account Settings</li>
                     </ol>
                 </nav>
@@ -30,12 +30,12 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header border-bottom">
-                    <a href="{{ route('admin.profile.edit') }}" class="btn btn-info">Edit</a>
+                    <a href="{{ route('admin.profile.edit') }}" class="btn btn-success">Edit</a>
                     <!-- <small class="text-muted float-end mt-2">Last Updated: {{ date('d-m-Y', strtotime($user->updated_at)) }}</small> -->
                     <small class="text-muted float-end mt-2">Last Updated: {{ Carbon\Carbon::parse($user->updated_at)->diffForHumans() }}</small>
                 </div>
                 <div class="card-body px-4 py-4-5">
-                    <h4 class="mb-4"> Basic Information</h4>
+                    <h4 class="mb-4 text-success"> Basic Information</h4>
                     <div class="avatar avatar-xl me-3 mb-4">
                         @if (!empty($user->profile_photo_path))
                         <img class="img-fluid" style="width: 70px; height: 70px;" src="{{ url('upload/user_images/'.$user->profile_photo_path) }}" alt="User Avatar">

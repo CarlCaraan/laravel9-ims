@@ -9,13 +9,13 @@
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Add User</h3>
+                <h3 class="text-success">Add User</h3>
                 <p class="text-subtitle text-muted">Add Account.</p>
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
+                        <li class="breadcrumb-item"><a class="text-success" href="{{ route('dashboard') }}">Home</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Add User</li>
                     </ol>
                 </nav>
@@ -34,7 +34,7 @@
                     <div class="col-md-6">
                         <form class="form-horizontal" method="POST" action="{{ route('user.store') }}" enctype="multipart/form-data">
                             @csrf
-                            <h4 class="card-title">Basic Information</h4>
+                            <h4 class="card-title text-success">Basic Information</h4>
                             <br />
                             <div class="form-group row">
                                 <label for="" class="col-sm-3 text-right control-label col-form-label">Profile Avatar</label>
@@ -116,7 +116,7 @@
                             </div>
                             <div class="border-top mt-4">
                                 <div class="card-body">
-                                    <button type="submit" class="btn btn-primary">Add User</button>
+                                    <button type="submit" class="btn btn-success">Add User</button>
                                 </div>
                             </div>
                         </form>

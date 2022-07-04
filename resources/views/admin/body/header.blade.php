@@ -6,7 +6,7 @@ $route = Route::current()->getName();
     <nav class="navbar navbar-expand navbar-light ">
         <div class="container-fluid">
             <a href="#" class="burger-btn d-block">
-                <i class="bi bi-justify fs-3"></i>
+                <i class="bi bi-justify fs-3 text-success"></i>
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
