@@ -77,7 +77,9 @@
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <img class="img-fluid" src="{{ (!empty($user->profile_photo_path)) ? url('upload/user_images/'.$user->profile_photo_path) : asset('admin/assets/images/users/default_photo.png') }}" alt="User Avatar" data-bs-toggle="modal" data-bs-target="#galleryModal-{{ $user->id }}">
+                                            <div class="text-center">
+                                                <img class="img-fluid" src="{{ (!empty($user->profile_photo_path)) ? url('upload/user_images/'.$user->profile_photo_path) : asset('admin/assets/images/users/default_photo.png') }}" alt="User Avatar" data-bs-toggle="modal" data-bs-target="#galleryModal-{{ $user->id }}">
+                                            </div>
                                         </div>
 
                                         <div class="modal-footer">
@@ -86,7 +88,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             @endforeach
                         </tbody>
                     </table>
