@@ -54,7 +54,7 @@ $route = Route::current()->getName();
                             <a href="{{ route('user.view') }}">View Users</a>
                         </li>
                         <li class="submenu-item {{ ($route == 'user.add') ? 'active' : '' }}">
-                            <a href="{{ route('user.add') }}">Add Users</a>
+                            <a href="{{ route('user.add') }}">Add User</a>
                         </li>
                     </ul>
                 </li>
