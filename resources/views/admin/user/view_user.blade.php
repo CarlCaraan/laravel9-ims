@@ -1,6 +1,6 @@
 @extends('admin.admin_master')
 
-@section('title') View Users | School Division Office @endsection
+@section('title') View Users | Division of Laguna @endsection
 
 @section('content')
 <!-- Start Breadcrumb -->
@@ -67,7 +67,7 @@
                                 </td>
                             </tr>
 
-                            <div class="modal fade" id="galleryModal-{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="galleryModalTitle-{{ $user->id }}" aria-hidden="true">
+                            <div class="modal" id="galleryModal-{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="galleryModalTitle-{{ $user->id }}" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered modal-dialog-centered" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">

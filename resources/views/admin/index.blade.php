@@ -1,6 +1,6 @@
 @extends('admin.admin_master')
 
-@section('title') Dashboard | School Division Office @endsection
+@section('title') Dashboard | Division of Laguna @endsection
 
 @section('content')
 <!-- Start Breadcrumb -->
