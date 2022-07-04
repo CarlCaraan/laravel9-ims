@@ -34,7 +34,7 @@
                     <span class="float-end mt-2">Last Updated: {{ date('d-m-Y', strtotime($user->updated_at)) }}</span>
                 </div>
                 <div class="card-body px-4 py-4-5">
-                    <h4 class="mb-4">Basic Information</h4>
+                    <h4 class="mb-4"> Basic Information</h4>
                     <div class="avatar avatar-xl me-3 mb-4">
                         @if (!empty($user->profile_photo_path))
                         <img class="img-fluid" style="width: 70px; height: 70px;" src="{{ url('upload/user_images/'.$user->profile_photo_path) }}" alt="User Avatar">
