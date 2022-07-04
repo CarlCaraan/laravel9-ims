@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 // ========= Start All Admin Controller =========
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\UserController;
 
 Route::group(['middleware' => 'prevent-back-history'], function () {
     // ========= Landing Page =========
@@ -28,6 +29,16 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
             Route::post('admin/update', [ProfileController::class, 'ProfileUpdate'])->name('admin.profile.update');
             Route::post('admin/update_password', [ProfileController::class, 'PasswordUpdate'])->name('admin.password.update');
             Route::get('admin/remove_avatar', [ProfileController::class, 'RemoveAvatar'])->name('admin.remove.avatar');
+        });
+
+        // ========= Account Management =========
+        Route::prefix('accounts')->group(function () {
+            Route::get('admin/view', [UserController::class, 'UserView'])->name('user.view');
+            // Route::get('admin/add', [UserController::class, 'UserAdd'])->name('user.add');
+            // Route::post('admin/store', [UserController::class, 'UserStore'])->name('user.store');
+            Route::get('admin/edit/{id}', [UserController::class, 'UserEdit'])->name('user.edit');
+            // Route::post('admin/update/{id}', [UserController::class, 'UserUpdate'])->name('user.update');
+            Route::get('admin/delete/{id}', [UserController::class, 'UserDelete'])->name('user.delete');
         });
     }); // End Admin Routes
 

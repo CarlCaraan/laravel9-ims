@@ -31,7 +31,8 @@
             <div class="card">
                 <div class="card-header border-bottom">
                     <a href="{{ route('admin.profile.edit') }}" class="btn btn-info">Edit</a>
-                    <span class="float-end mt-2">Last Updated: {{ date('d-m-Y', strtotime($user->updated_at)) }}</span>
+                    <!-- <small class="text-muted float-end mt-2">Last Updated: {{ date('d-m-Y', strtotime($user->updated_at)) }}</small> -->
+                    <small class="text-muted float-end mt-2">Last Updated: {{ Carbon\Carbon::parse($user->updated_at)->diffForHumans() }}</small>
                 </div>
                 <div class="card-body px-4 py-4-5">
                     <h4 class="mb-4"> Basic Information</h4>
@@ -39,7 +40,7 @@
                         @if (!empty($user->profile_photo_path))
                         <img class="img-fluid" style="width: 70px; height: 70px;" src="{{ url('upload/user_images/'.$user->profile_photo_path) }}" alt="User Avatar">
                         @else
-                        <span class="avatar-content bg-warning rounded-circle">{{ substr(Auth::user()->first_name,0,1) . substr(Auth::user()->last_name,0,1)}}</span>
+                        <span class="avatar-content bg-warning rounded-circle">{{ substr($user->first_name,0,1) . substr($user->last_name,0,1)}}</span>
                         @endif
                     </div>
                     <div class="row">

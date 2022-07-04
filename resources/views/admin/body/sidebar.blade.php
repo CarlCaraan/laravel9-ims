@@ -44,14 +44,14 @@ $route = Route::current()->getName();
                 </li>
 
                 <li class="sidebar-title">Account Management</li>
-                <li class="sidebar-item  has-sub">
+                <li class="sidebar-item  has-sub {{ ($prefix == '/accounts') ? 'active' : '' }}">
                     <a href="#" class='sidebar-link'>
                         <i class="bi bi-people-fill"></i>
                         <span>Manage Account</span>
                     </a>
-                    <ul class="submenu ">
-                        <li class="submenu-item ">
-                            <a href="component-alert.html">View Users</a>
+                    <ul class="submenu {{ ($prefix == '/accounts') ? 'active' : '' }}">
+                        <li class="submenu-item {{ ($route == 'user.view') ? 'active' : '' }}">
+                            <a href="{{ route('user.view') }}">View Users</a>
                         </li>
                         <li class="submenu-item ">
                             <a href="component-alert.html">Add Users</a>

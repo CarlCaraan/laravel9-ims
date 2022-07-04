@@ -14,6 +14,9 @@
 
     <!-- Toastify CSS CDN -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+    <!-- Datatable CSS -->
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/pages/simple-datatables.css') }}">
 </head>
 
 <body>
@@ -79,6 +82,10 @@
             background: #0275d8;
         }
     </style>
+
+    <!-- Datatable JS -->
+    <script src="{{ asset('admin/assets/js/extensions/simple-datatables.js') }}"></script>
+
 
 </body>
 
