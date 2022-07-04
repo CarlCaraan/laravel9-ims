@@ -39,7 +39,7 @@ class ProfileController extends Controller
             ],
             // ~Custom Error messages
             [
-                'image' => 'File format must be JPG, PNG nad JPeG!',
+                'image' => 'File format must be JPG, PNG nad JPEG!',
             ]
         );
 

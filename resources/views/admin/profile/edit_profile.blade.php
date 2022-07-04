@@ -109,7 +109,7 @@
                                             <option disabled value="">Select</option>
                                             <optgroup label="Choose your role">
                                                 <option value="Admin" {{ ($editData->user_type == "Admin") ? "selected" : ""}}>Admin</option>
-                                                <option value="Customer" {{ ($editData->user_type == "Customer") ? "selected" : ""}}>Customer</option>
+                                                <option value="User" {{ ($editData->user_type == "User") ? "selected" : ""}}>User</option>
                                             </optgroup>
                                         </select>
                                         @error('user_type')

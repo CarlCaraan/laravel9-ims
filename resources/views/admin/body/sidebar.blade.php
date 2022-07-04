@@ -53,8 +53,8 @@ $route = Route::current()->getName();
                         <li class="submenu-item {{ ($route == 'user.view') ? 'active' : '' }}">
                             <a href="{{ route('user.view') }}">View Users</a>
                         </li>
-                        <li class="submenu-item ">
-                            <a href="component-alert.html">Add Users</a>
+                        <li class="submenu-item {{ ($route == 'user.add') ? 'active' : '' }}">
+                            <a href="{{ route('user.add') }}">Add Users</a>
                         </li>
                     </ul>
                 </li>

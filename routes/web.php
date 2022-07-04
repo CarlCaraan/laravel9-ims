@@ -34,10 +34,10 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
         // ========= Account Management =========
         Route::prefix('accounts')->group(function () {
             Route::get('admin/view', [UserController::class, 'UserView'])->name('user.view');
-            // Route::get('admin/add', [UserController::class, 'UserAdd'])->name('user.add');
-            // Route::post('admin/store', [UserController::class, 'UserStore'])->name('user.store');
+            Route::get('admin/add', [UserController::class, 'UserAdd'])->name('user.add');
+            Route::post('admin/store', [UserController::class, 'UserStore'])->name('user.store');
             Route::get('admin/edit/{id}', [UserController::class, 'UserEdit'])->name('user.edit');
-            // Route::post('admin/update/{id}', [UserController::class, 'UserUpdate'])->name('user.update');
+            Route::post('admin/update/{id}', [UserController::class, 'UserUpdate'])->name('user.update');
             Route::get('admin/delete/{id}', [UserController::class, 'UserDelete'])->name('user.delete');
         });
     }); // End Admin Routes

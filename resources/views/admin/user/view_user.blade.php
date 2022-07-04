@@ -62,8 +62,8 @@
                                 <td>{{ $user->user_type }}</td>
                                 <td>{{ date('m-d-Y', strtotime($user->created_at)) }}</td>
                                 <td>
-                                    <a href="{{ route('user.edit', $user->id) }}" class="btn btn-primary text-white">Edit</a>
-                                    <a href="{{ route('user.delete', $user->id) }}" class="btn btn-danger text-white" id="delete">Delete</a>
+                                    <a href="{{ route('user.edit', $user->id) }}" class="btn icon btn-primary"><i class="bi bi-pencil"></i></a>
+                                    <a href="{{ route('user.delete', $user->id) }}" class="btn icon btn-danger" id="delete"><i class="bi bi-trash"></i></a>
                                 </td>
                             </tr>
                             @endforeach
