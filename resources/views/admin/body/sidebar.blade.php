@@ -55,6 +55,9 @@ $route = Route::current()->getName();
                         <li class="submenu-item {{ ($route == 'admin.siteinfo.edit') ? 'active' : '' }}">
                             <a class="{{ ($route == 'admin.siteinfo.edit') ? 'text-success' : '' }}" href="{{ route('admin.siteinfo.edit') }}">Admin Site Info</a>
                         </li>
+                        <li class="submenu-item {{ ($route == 'admin.siteinfo.edit') ? 'active' : '' }}">
+                            <a class="{{ ($route == 'admin.siteinfo.edit') ? 'text-success' : '' }}" href="{{ route('admin.siteinfo.edit') }}">Landing Site Info</a>
+                        </li>
                         <li class="submenu-item {{ ($route == 'user.view') ? 'active' : '' }}">
                             <a class="{{ ($route == 'user.view') ? 'text-success' : '' }}" href="{{ route('user.view') }}">Herosection</a>
                         </li>

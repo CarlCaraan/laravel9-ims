@@ -35,6 +35,7 @@
                         <div class="col-12">
                             <form class="form-horizontal" method="POST" action="{{ route('admin.siteinfo.update', $editData->id) }}" enctype="multipart/form-data">
                                 @csrf
+                                <small class="text-muted float-end">Last Updated: {{ Carbon\Carbon::parse($editData->updated_at)->diffForHumans() }}</small>
                                 <h4 class="mb-5">Admin Panel Information</h4>
                                 <!-- Header Brand -->
                                 <div class="form-group row">

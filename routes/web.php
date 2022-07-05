@@ -10,7 +10,7 @@ use App\Http\Controllers\Admin\AdminSiteInfoController;
 Route::group(['middleware' => 'prevent-back-history'], function () {
     // ========= Landing Page =========
     Route::get('/', function () {
-        return view('welcome');
+        return view('landing_page.index');
     });
 
     // ========= Admin Routes =========
