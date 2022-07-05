@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 // ========= Start All Admin Controller =========
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\AdminSiteInfoController;
 
 Route::group(['middleware' => 'prevent-back-history'], function () {
     // ========= Landing Page =========
@@ -39,6 +40,14 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
             Route::get('admin/edit/{id}', [UserController::class, 'UserEdit'])->name('user.edit');
             Route::post('admin/update/{id}', [UserController::class, 'UserUpdate'])->name('user.update');
             Route::get('admin/delete/{id}', [UserController::class, 'UserDelete'])->name('user.delete');
+        });
+
+        // ========= SiteInfo Management =========
+        Route::prefix('siteinfo')->group(function () {
+            // Admin Site Info Management
+            Route::get('admin/edit', [AdminSiteInfoController::class, 'AdminSiteInfoEdit'])->name('admin.siteinfo.edit');
+            Route::post('admin/update/{id}', [AdminSiteInfoController::class, 'AdminSiteInfoUpdate'])->name('admin.siteinfo.update');
+            // Route::get('admin/remove_admin_brand', [AdminSiteInfoController::class, 'RemoveAdminBrand'])->name('remove.admin_brand');
         });
     }); // End Admin Routes
 

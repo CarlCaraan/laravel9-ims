@@ -58,6 +58,22 @@ $route = Route::current()->getName();
                         </li>
                     </ul>
                 </li>
+
+                <li class="sidebar-title">Site Info Management</li>
+                <li class="sidebar-item  has-sub }">
+                    <a href="#" class="sidebar-link {{ ($prefix == '/siteinfo') ? 'bg-success' : '' }}">
+                        <i class="fas fa-align-center {{ ($prefix == '/siteinfo') ? 'text-white' : '' }}"></i>
+                        <span class="{{ ($prefix == '/siteinfo') ? 'text-white' : '' }}">Manage Site Info</span>
+                    </a>
+                    <ul class="submenu {{ ($prefix == '/siteinfo') ? 'active' : '' }}">
+                        <li class="submenu-item {{ ($route == 'admin.siteinfo.edit') ? 'active' : '' }}">
+                            <a class="{{ ($route == 'admin.siteinfo.edit') ? 'text-success' : '' }}" href="{{ route('admin.siteinfo.edit') }}">Admin Site Info</a>
+                        </li>
+                        <li class="submenu-item {{ ($route == 'user.view') ? 'active' : '' }}">
+                            <a class="{{ ($route == 'user.view') ? 'text-success' : '' }}" href="{{ route('user.view') }}">Herosection</a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>

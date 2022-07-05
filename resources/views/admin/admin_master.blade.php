@@ -17,6 +17,9 @@
 
     <!-- Datatable CSS -->
     <link rel="stylesheet" href="{{ asset('admin/assets/css/pages/simple-datatables.css') }}">
+
+    <!-- Trix CSS CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.min.css" />
 </head>
 
 <body>
@@ -116,6 +119,12 @@
             });
         });
     </script>
+
+    <!-- Fontawesome JS CDN -->
+    <script src="https://kit.fontawesome.com/fbaf02a1c1.js"></script>
+
+    <!-- Trix Js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.js"></script>
 </body>
 
 </html>
