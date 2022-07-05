@@ -35,30 +35,16 @@ $route = Route::current()->getName();
         </div>
         <div class="sidebar-menu">
             <ul class="menu">
-
+                <!-- Start Dashboard -->
                 <li class="sidebar-item {{ ($route == 'dashboard') ? 'active' : ''}}">
                     <a href="{{ route('dashboard') }}" class="sidebar-link {{ ($route == 'dashboard') ? 'bg-success' : ''}}">
                         <i class="bi bi-grid-fill"></i>
                         <span class="{{ ($route == 'dashboard') ? 'text-white' : '' }}">Dashboard</span>
                     </a>
                 </li>
+                <!-- End Dashboard -->
 
-                <li class="sidebar-title">Account Management</li>
-                <li class="sidebar-item  has-sub }">
-                    <a href="#" class="sidebar-link {{ ($prefix == '/accounts') ? 'bg-success' : '' }}">
-                        <i class="bi bi-people-fill {{ ($prefix == '/accounts') ? 'text-white' : '' }}"></i>
-                        <span class="{{ ($prefix == '/accounts') ? 'text-white' : '' }}">Manage Account</span>
-                    </a>
-                    <ul class="submenu {{ ($prefix == '/accounts') ? 'active' : '' }}">
-                        <li class="submenu-item {{ ($route == 'user.view') ? 'active' : '' }}">
-                            <a class="{{ ($route == 'user.view') ? 'text-success' : '' }}" href="{{ route('user.view') }}">View Users</a>
-                        </li>
-                        <li class="submenu-item {{ ($route == 'user.add') ? 'active' : '' }}">
-                            <a class="{{ ($route == 'user.add') ? 'text-success' : '' }}" href="{{ route('user.add') }}">Add User</a>
-                        </li>
-                    </ul>
-                </li>
-
+                <!-- Start Site Info Management -->
                 <li class="sidebar-title">Site Info Management</li>
                 <li class="sidebar-item  has-sub }">
                     <a href="#" class="sidebar-link {{ ($prefix == '/siteinfo') ? 'bg-success' : '' }}">
@@ -74,6 +60,25 @@ $route = Route::current()->getName();
                         </li>
                     </ul>
                 </li>
+                <!-- End Site Info Management -->
+
+                <!-- Start Account Management -->
+                <li class="sidebar-title">Account Management</li>
+                <li class="sidebar-item  has-sub }">
+                    <a href="#" class="sidebar-link {{ ($prefix == '/accounts') ? 'bg-success' : '' }}">
+                        <i class="bi bi-people-fill {{ ($prefix == '/accounts') ? 'text-white' : '' }}"></i>
+                        <span class="{{ ($prefix == '/accounts') ? 'text-white' : '' }}">Manage Account</span>
+                    </a>
+                    <ul class="submenu {{ ($prefix == '/accounts') ? 'active' : '' }}">
+                        <li class="submenu-item {{ ($route == 'user.view') ? 'active' : '' }}">
+                            <a class="{{ ($route == 'user.view') ? 'text-success' : '' }}" href="{{ route('user.view') }}">View Users</a>
+                        </li>
+                        <li class="submenu-item {{ ($route == 'user.add') ? 'active' : '' }}">
+                            <a class="{{ ($route == 'user.add') ? 'text-success' : '' }}" href="{{ route('user.add') }}">Add User</a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- End Account Management -->
             </ul>
         </div>
     </div>

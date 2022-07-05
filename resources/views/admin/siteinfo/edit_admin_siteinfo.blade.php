@@ -76,7 +76,7 @@
                                 <hr />
                                 <br>
 
-                                <h4 class="mb-5">Admin Panel Information</h4>
+                                <h4 class="mb-5">Authentication Information</h4>
                                 <!-- Header Brand Mini -->
                                 <div class="form-group row">
                                     <label for="image" class="col-sm-3 text-right control-label col-form-label">Authentication Brand</label>

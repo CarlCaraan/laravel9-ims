@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms | Division of Laguna</title>
+    <title>404 | Division of Laguna</title>
     <link rel="stylesheet" href="{{ asset('admin/assets/css/main/app.css') }}">
     <link rel="stylesheet" href="{{ asset('admin/assets/css/main/app-dark.css') }}">
     <link rel="shortcut icon" href="{{ asset('admin/assets/images/logo/favicon.svg') }}" type="image/x-icon">
@@ -17,12 +17,11 @@
 
         <div class="error-page container">
             <div class="col-md-8 col-12 offset-md-2">
-                <h3 class="error-title text-center mb-5">Terms and Condition</h3>
-                @php
-                $adminsiteinfo = DB::table('admin_site_infos')->first();
-                @endphp
-                <div class="fs-5 text-gray-600">
-                    {!! $adminsiteinfo->terms !!}
+                <div class="text-center">
+                    <img class="img-error" src="{{ asset('admin/assets/images/samples/error-404.svg') }}" alt="Not Found">
+                    <h1 class="error-title">404 - NOT FOUND</h1>
+                    <p class='fs-5 text-gray-600'>The page you are looking not found.</p>
+                    <a href="{{ url()->previous() }}" class="btn btn-lg btn-outline-primary mt-3">Go Home</a>
                 </div>
             </div>
         </div>
