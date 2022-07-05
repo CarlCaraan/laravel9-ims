@@ -32,9 +32,10 @@
             <div class="card">
                 <div class="card-body px-4 py-4-5">
                     <div class="row">
-                        <div class="col-md-8">
+                        <div class="col-12">
                             <form class="form-horizontal" method="POST" action="{{ route('admin.siteinfo.update', $editData->id) }}" enctype="multipart/form-data">
                                 @csrf
+                                <h4 class="mb-5">Admin Panel Information</h4>
                                 <!-- Header Brand -->
                                 <div class="form-group row">
                                     <label for="image" class="col-sm-3 text-right control-label col-form-label">Header Brand</label>
@@ -57,14 +58,28 @@
                                 <div class="form-group row">
                                     <label for="image" class="col-sm-3 text-right control-label col-form-label"></label>
                                     <div class="col-md-9">
-                                        <a href="" class="btn btn-secondary">Remove</a>
+                                        <a href="{{ route('remove.admin_brand') }}" class="btn btn-secondary">Remove</a>
                                     </div>
                                 </div>
+                                <br>
+                                <div class="form-group row">
+                                    <label for="footer" class="col-sm-3 text-right control-label col-form-label">Footer Text</label>
+                                    <div class="col-sm-9">
+                                        <input id="footer" type="hidden" class="form-control" name="footer" value="{{ $editData->footer }}">
+                                        <trix-editor input="footer" placeholder="Footer"></trix-editor>
+                                        @error('footer')
+                                        <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <br>
                                 <hr />
+                                <br>
 
+                                <h4 class="mb-5">Admin Panel Information</h4>
                                 <!-- Header Brand Mini -->
                                 <div class="form-group row">
-                                    <label for="image" class="col-sm-3 text-right control-label col-form-label">Header Brand Mini</label>
+                                    <label for="image" class="col-sm-3 text-right control-label col-form-label">Authentication Brand</label>
                                     <div class="col-md-9 text-left">
                                         <img class="mb-3 img-fluid img-thumbnail" id="show_image2" src="{{ (!empty($editData->auth_brand)) ? url('upload/admin_siteinfo/'.$editData->auth_brand) : url('upload/admin_siteinfo/default_photo.png') }}" alt="Admin Brand">
                                     </div>
@@ -84,23 +99,33 @@
                                 <div class="form-group row">
                                     <label for="image" class="col-sm-3 text-right control-label col-form-label"></label>
                                     <div class="col-md-9">
-                                        <a href="" class="btn btn-secondary">Remove</a>
+                                        <a href="{{ route('remove.auth_brand') }}" class="btn btn-secondary">Remove</a>
                                     </div>
                                 </div>
-                                <hr />
-
+                                <br>
                                 <div class="form-group row">
-                                    <label for="footer" class="col-sm-3 text-right control-label col-form-label">Footer Text</label>
+                                    <label for="terms" class="col-sm-3 text-right control-label col-form-label">Terms and Conditions</label>
                                     <div class="col-sm-9">
-                                        <input id="content" type="hidden" class="form-control" name="footer" id="footer" placeholder="Footer Text" value="{{ $editData->footer }}">
-                                        <trix-editor input="content"></trix-editor>
-                                        @error('footer')
+                                        <input id="terms" type="hidden" class="form-control" name="terms" value="{{ $editData->terms }}">
+                                        <trix-editor input="terms" placeholder="Terms and Condition"></trix-editor>
+                                        @error('terms')
+                                        <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="form-group row">
+                                    <label for="privacy" class="col-sm-3 text-right control-label col-form-label">Privacy Policy</label>
+                                    <div class="col-sm-9">
+                                        <input id="privacy" type="hidden" class="form-control" name="privacy" value="{{ $editData->privacy }}">
+                                        <trix-editor input="privacy" placeholder="Privacy Policy"></trix-editor>
+                                        @error('privacy')
                                         <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
                                 </div>
 
-                                <div class="border-top">
+                                <div class="border-top mt-4">
                                     <div class="card-body">
                                         <button type="submit" class="btn btn-primary">Update</button>
                                     </div>

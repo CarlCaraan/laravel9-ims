@@ -47,7 +47,8 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
             // Admin Site Info Management
             Route::get('admin/edit', [AdminSiteInfoController::class, 'AdminSiteInfoEdit'])->name('admin.siteinfo.edit');
             Route::post('admin/update/{id}', [AdminSiteInfoController::class, 'AdminSiteInfoUpdate'])->name('admin.siteinfo.update');
-            // Route::get('admin/remove_admin_brand', [AdminSiteInfoController::class, 'RemoveAdminBrand'])->name('remove.admin_brand');
+            Route::get('admin/remove_admin_brand', [AdminSiteInfoController::class, 'RemoveAdminBrand'])->name('remove.admin_brand');
+            Route::get('admin/remove_auth_brand', [AdminSiteInfoController::class, 'RemoveAuthBrand'])->name('remove.auth_brand');
         });
     }); // End Admin Routes
 
