@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Division of Laguna</title>
+    <title>DEPED - Division of Laguna</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -26,6 +26,9 @@
 
     <!-- Template Main CSS File -->
     <link href="{{ asset('landing_page/assets/css/style.css') }}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{{ asset('landing_page/assets/css/custom.css') }}" rel="stylesheet">
 
     <!-- =======================================================
   * Template Name: Reveal - v4.7.0

@@ -1,0 +1,14 @@
+/* ========= GLOBAL CSS ========= */
+.html,
+body {
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+        Ubuntu, Cantarell, Fira Sans, Droid Sans, vetica Neue, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.center {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
