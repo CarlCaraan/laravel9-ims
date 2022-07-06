@@ -20,11 +20,8 @@ class AdminSiteInfoController extends Controller
 
         $validatedData = $request->validate(
             [
-                'footer' => 'required',
-                'terms' => 'required',
-                'privacy' => 'required',
                 'admin_brand' => 'image|mimes:jpeg,png,jpg|max:10000',
-                'auth_brand' => 'image|mimes:jpeg,png,jpg|max:10000',
+                'footer' => 'required',
             ],
             // ~Custom Error messages
             [
@@ -33,8 +30,6 @@ class AdminSiteInfoController extends Controller
         );
 
         $data->footer = $request->footer;
-        $data->terms = $request->terms;
-        $data->privacy = $request->privacy;
 
         // Working with Image
         if ($request->file('admin_brand')) {
@@ -44,18 +39,11 @@ class AdminSiteInfoController extends Controller
             $file->move(public_path('upload/admin_siteinfo'), $filename);
             $data['admin_brand'] = $filename;
         }
-        if ($request->file('auth_brand')) {
-            $file = $request->file('auth_brand');
-            @unlink(public_path('upload/admin_siteinfo/' . $data->auth_brand));
-            $filename = date('YmdHi') . $file->getClientOriginalName();
-            $file->move(public_path('upload/admin_siteinfo'), $filename);
-            $data['auth_brand'] = $filename;
-        }
 
         $data->save();
 
         $notification = array(
-            'message' => 'Site Info Updated Successfully',
+            'message' => 'Admin Site Info Updated Successfully',
             'alert-type' => 'success',
         );
         return redirect()->route('admin.siteinfo.edit')->with($notification);
@@ -75,19 +63,4 @@ class AdminSiteInfoController extends Controller
 
         return redirect()->route('admin.siteinfo.edit')->with($notification);
     } // End Method
-
-    public function RemoveAuthBrand()
-    {
-        $data = AdminSiteInfo::first();
-        @unlink(public_path('upload/admin_siteinfo/' . $data->auth_brand));
-        $data->auth_brand = NULL;
-        $data->save();
-
-        $notification = array(
-            'message' => 'Auth Brand Image removed successfully!',
-            'alert-type' => 'success',
-        );
-
-        return redirect()->route('admin.siteinfo.edit')->with($notification);
-    }
 }

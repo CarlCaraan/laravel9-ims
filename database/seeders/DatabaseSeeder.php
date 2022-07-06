@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\UserSiteInfo;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -24,6 +25,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserTableSeeder::class,
             AdminSiteInfoSeeder::class,
+            UserSiteInfoSeeder::class,
         ]);
     }
 }

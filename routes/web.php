@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\AdminSiteInfoController;
+use App\Http\Controllers\Admin\UserSiteInfoController;
 
 Route::group(['middleware' => 'prevent-back-history'], function () {
     // ========= Landing Page =========
@@ -48,7 +49,12 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
             Route::get('admin/edit', [AdminSiteInfoController::class, 'AdminSiteInfoEdit'])->name('admin.siteinfo.edit');
             Route::post('admin/update/{id}', [AdminSiteInfoController::class, 'AdminSiteInfoUpdate'])->name('admin.siteinfo.update');
             Route::get('admin/remove_admin_brand', [AdminSiteInfoController::class, 'RemoveAdminBrand'])->name('remove.admin_brand');
-            Route::get('admin/remove_auth_brand', [AdminSiteInfoController::class, 'RemoveAuthBrand'])->name('remove.auth_brand');
+
+            // User Site Info Management
+            Route::get('user/edit', [UserSiteInfoController::class, 'UserSiteInfoEdit'])->name('user.siteinfo.edit');
+            Route::post('user/update/{id}', [UserSiteInfoController::class, 'UserSiteInfoUpdate'])->name('user.siteinfo.update');
+            Route::get('user/remove_auth_brand', [UserSiteInfoController::class, 'RemoveAuthBrand'])->name('remove.auth_brand');
+            Route::get('user/remove_user_brand', [UserSiteInfoController::class, 'RemoveUserBrand'])->name('remove.user_brand');
         });
     }); // End Admin Routes
 

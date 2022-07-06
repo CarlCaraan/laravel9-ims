@@ -22,6 +22,9 @@ return new class extends Migration
             $table->text('address')->nullable();
             $table->text('footer')->nullable();
             $table->string('user_brand')->nullable();
+            $table->string('auth_brand')->nullable();
+            $table->text('terms')->nullable();
+            $table->text('privacy')->nullable();
             $table->timestamps();
         });
     }

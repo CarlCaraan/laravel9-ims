@@ -46,8 +46,8 @@ $route = Route::current()->getName();
 
                 <!-- Start Site Info Management -->
                 <li class="sidebar-title">Site Info Management</li>
-                <li class="sidebar-item  has-sub }">
-                    <a href="#" class="sidebar-link {{ ($prefix == '/siteinfo') ? 'bg-success' : '' }}">
+                <li class="sidebar-item  has-sub {{ ($prefix == '/siteinfo') ? 'active' : '' }}">
+                    <a href="#" class="sidebar-link {{ ($prefix == '/siteinfo') ? 'bg-success text-white' : '' }}">
                         <i class="fas fa-align-center {{ ($prefix == '/siteinfo') ? 'text-white' : '' }}"></i>
                         <span class="{{ ($prefix == '/siteinfo') ? 'text-white' : '' }}">Manage Site Info</span>
                     </a>
@@ -55,11 +55,8 @@ $route = Route::current()->getName();
                         <li class="submenu-item {{ ($route == 'admin.siteinfo.edit') ? 'active' : '' }}">
                             <a class="{{ ($route == 'admin.siteinfo.edit') ? 'text-success' : '' }}" href="{{ route('admin.siteinfo.edit') }}">Admin Site Info</a>
                         </li>
-                        <li class="submenu-item {{ ($route == 'admin.siteinfo.edit') ? 'active' : '' }}">
-                            <a class="{{ ($route == 'admin.siteinfo.edit') ? 'text-success' : '' }}" href="{{ route('admin.siteinfo.edit') }}">Landing Site Info</a>
-                        </li>
-                        <li class="submenu-item {{ ($route == 'user.view') ? 'active' : '' }}">
-                            <a class="{{ ($route == 'user.view') ? 'text-success' : '' }}" href="{{ route('user.view') }}">Herosection</a>
+                        <li class="submenu-item {{ ($route == 'user.siteinfo.edit') ? 'active' : '' }}">
+                            <a class="{{ ($route == 'user.siteinfo.edit') ? 'text-success' : '' }}" href="{{ route('user.siteinfo.edit') }}">Landing Site Info</a>
                         </li>
                     </ul>
                 </li>
@@ -67,7 +64,7 @@ $route = Route::current()->getName();
 
                 <!-- Start Account Management -->
                 <li class="sidebar-title">Account Management</li>
-                <li class="sidebar-item  has-sub }">
+                <li class="sidebar-item  has-sub {{ ($prefix == '/accounts') ? 'active' : '' }}">
                     <a href="#" class="sidebar-link {{ ($prefix == '/accounts') ? 'bg-success' : '' }}">
                         <i class="bi bi-people-fill {{ ($prefix == '/accounts') ? 'text-white' : '' }}"></i>
                         <span class="{{ ($prefix == '/accounts') ? 'text-white' : '' }}">Manage Account</span>

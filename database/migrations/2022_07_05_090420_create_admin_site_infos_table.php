@@ -16,9 +16,6 @@ return new class extends Migration
         Schema::create('admin_site_infos', function (Blueprint $table) {
             $table->id();
             $table->string('admin_brand')->nullable();
-            $table->string('auth_brand')->nullable();
-            $table->text('terms')->nullable();
-            $table->text('privacy')->nullable();
             $table->text('footer')->nullable();
             $table->timestamps();
         });

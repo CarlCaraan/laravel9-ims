@@ -35,14 +35,14 @@
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
                         <div class="form-group form-floating position-relative has-icon-left mb-4">
-                            <input type="email" id="email" name="email" class="form-control form-control-xl" placeholder="Email Address" :value="old('email')" required autofocus>
+                            <input type="email" id="email" name="email" class="form-control form-control-xl" placeholder="Email Address" :value="old('email')" autofocus>
                             <div class="form-control-icon">
                                 <i class="bi bi-person"></i>
                             </div>
                             <label class="ms-5" for="email">Email Address</label>
                         </div>
                         <div class="form-group form-floating position-relative has-icon-left mb-4">
-                            <input type="password" id="password" name="password" class="form-control form-control-xl" placeholder="Password" required autocomplete="current-password">
+                            <input type="password" id="password" name="password" class="form-control form-control-xl" placeholder="Password" autocomplete="current-password">
                             <div class="form-control-icon">
                                 <i class="bi bi-shield-lock"></i>
                             </div>

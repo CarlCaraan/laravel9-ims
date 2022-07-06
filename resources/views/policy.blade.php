@@ -19,7 +19,7 @@
             <div class="col-md-8 col-12 offset-md-2">
                 <h3 class="error-title text-center mb-5">Privacy Policy</h3>
                 @php
-                $adminsiteinfo = DB::table('admin_site_infos')->first();
+                $adminsiteinfo = DB::table('user_site_infos')->first();
                 @endphp
                 <div class="fs-5 text-gray-600">
                     {!! $adminsiteinfo->privacy !!}
