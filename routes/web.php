@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\GoogleController;
+use App\Http\Controllers\FacebookController;
 // ========= Start All Admin Controller =========
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\UserController;
@@ -9,6 +11,15 @@ use App\Http\Controllers\Admin\AdminSiteInfoController;
 use App\Http\Controllers\Admin\UserSiteInfoController;
 
 Route::group(['middleware' => 'prevent-back-history'], function () {
+    // ========= Google Authentication =========
+    Route::get('login/google', [GoogleController::class, 'login']);
+    Route::get('login/google/callback', [GoogleController::class, 'callback']);
+
+    // ========= Facebook Authentication =========
+    Route::get('login/facebook', [FacebookController::class, 'login']);
+    Route::get('login/facebook/callback', [FacebookController::class, 'callback']);
+
+
     // ========= Landing Page =========
     Route::get('/', function () {
         return view('landing_page.index');

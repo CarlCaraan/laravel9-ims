@@ -67,7 +67,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="gender" class="form-label">Gender</label>
-                                <input class="form-control" type="text" disabled value="{{ $user->gender }}">
+                                <input class="form-control" type="text" disabled value="{{ $user->gender }}" placeholder="Set your Gender">
                             </div>
                         </div>
                     </div>
