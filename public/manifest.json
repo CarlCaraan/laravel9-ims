@@ -1,0 +1,17 @@
+{
+    "name": "DEPED - Division of Laguna",
+    "short_name": "DEPED-SDO",
+    "start_url": "/index.php",
+    "background_color": "#6777ef",
+    "description": "DEPED - Division of Laguna",
+    "display": "fullscreen",
+    "theme_color": "#6777ef",
+    "icons": [
+        {
+            "src": "logo.PNG",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ]
+}

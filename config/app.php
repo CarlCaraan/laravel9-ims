@@ -181,6 +181,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Ladumor\LaravelPwa\PWAServiceProvider::class, // ~PWA
 
         /*
          * Package Service Providers...
@@ -212,6 +213,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
+        'LaravelPwa' => \Ladumor\LaravelPwa\LaravelPwa::class, //~PWA
     ])->toArray(),
 
 ];

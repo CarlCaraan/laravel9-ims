@@ -9,6 +9,11 @@
     <meta content="" name="description">
     <meta content="" name="keywords">
 
+    <!-- PWA  -->
+    <meta name="theme-color" content="#6777ef" />
+    <link rel="apple-touch-icon" href="{{ asset('logo.PNG') }}">
+    <link rel="manifest" href="{{ asset('/manifest.json') }}">
+
     <!-- Favicons -->
     <link href="{{ asset('landing_page/assets/img/favicon.png') }}" rel="icon">
     <link href="{{ asset('landing_page/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
@@ -82,6 +87,15 @@
     <!-- Template Main JS File -->
     <script src="{{ asset('landing_page/assets/js/main.js') }}"></script>
 
+    <!-- PWA SCRIPTS -->
+    <script src="{{ asset('/sw.js') }}"></script>
+    <script>
+        if (!navigator.serviceWorker.controller) {
+            navigator.serviceWorker.register("/sw.js").then(function(reg) {
+                console.log("Service worker has been registered for scope: " + reg.scope);
+            });
+        }
+    </script>
 </body>
 
 </html>
