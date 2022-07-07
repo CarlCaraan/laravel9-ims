@@ -17,11 +17,11 @@ class UserSiteInfoSeeder extends Seeder
     {
         DB::table('user_site_infos')->insert([
             'email' => 'sdo@gmail.com',
-            'mobile' => '09123456789',
+            'mobile' => '0912-345-6789',
             'facebook_link' => 'https://www.facebook.com/',
             'website_link' => 'sdo.com',
             'address' => 'address sample',
-            'footer' => "<p>All Rights Reserved &copy; 2022 By Division of Laguna <a class='text-success' href='https://github.com/CarlCaraan'>Team</a></p>",
+            'footer' => "<p>All Rights Reserved &copy; 2022 By DEPED - Division of Laguna <a class='text-success' href='https://github.com/CarlCaraan'>Team</a></p>",
             'auth_brand' => NULL,
             'user_brand' => NULL,
             'terms' => "<h2><strong>Terms and Conditions</strong></h2>

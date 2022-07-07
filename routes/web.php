@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\FacebookController;
+
+use App\Http\Controllers\WelcomeController;
+
 // ========= Start All Admin Controller =========
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\UserController;
@@ -21,9 +24,7 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
 
 
     // ========= Landing Page =========
-    Route::get('/', function () {
-        return view('landing_page.index');
-    });
+    Route::get('/', [WelcomeController::class, 'WelcomeView'])->name('welcome');
 
     // ========= Admin Routes =========
     Route::middleware([
