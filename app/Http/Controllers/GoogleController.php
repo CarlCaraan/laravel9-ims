@@ -31,7 +31,7 @@ class GoogleController extends Controller
                     'last_name' => ucwords($google_user->user['family_name']),
                     'email' => $google_user->email,
                     'user_type' => 'User',
-                    'email_verified_at' => now(),
+                    'email_verified_at' => date('Y-m-d H:i:s'),
                     'remember_token' => Str::random(10),
                 ]);
                 Auth::login($new_user);

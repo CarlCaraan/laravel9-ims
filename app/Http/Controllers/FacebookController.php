@@ -34,7 +34,7 @@ class FacebookController extends Controller
                     'last_name' => ucwords($facebook_user->user['last_name']),
                     'email' => $facebook_user->email,
                     'user_type' => 'User',
-                    'email_verified_at' => now(),
+                    'email_verified_at' => date('Y-m-d H:i:s'),
                     'remember_token' => Str::random(10),
                 ]);
                 Auth::login($new_user);
