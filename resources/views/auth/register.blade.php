@@ -102,9 +102,9 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-7 d-none d-lg-block">
+            <div class="col-xl-7 d-none d-xl-block">
                 <div id="auth-right">
-                    <img class="img-fluid h-100 w-100" src="{{ asset('auth/images/auth_background.jpg') }}" alt="background">
+                    <img class="img-fluid h-100" src="{{ asset('auth/images/auth_background.jpg') }}" alt="background">
                 </div>
             </div>
         </div>

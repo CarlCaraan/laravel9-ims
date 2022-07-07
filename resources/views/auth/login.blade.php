@@ -18,7 +18,7 @@
     <div id="auth">
 
         <div class="row h-100">
-            <div class="col-lg-5 col-12">
+            <div class="col-xl-5 col-12">
                 <div id="auth-left">
                     <div class="center mb-4">
                         <img class="img-fluid" width="150px" height="150px" src="{{ asset('auth/images/auth_brand.png') }}" alt="Logo">
@@ -58,7 +58,6 @@
                             </label>
                         </div>
 
-
                         <div class="text-center mt-4">
                             <a class="btn btn-light" href="{{ url('login/google')}}"><i class="bi bi-google text-danger"></i></a>
                             <a class="btn btn-light" href="{{ url('login/facebook')}}"><i class="bi bi-facebook text-primary"></i></a>
@@ -68,7 +67,6 @@
                         </div>
                         <button class="btn btn-success btn-block btn-lg shadow-lg">Log in</button>
 
-
                     </form>
                     <div class="text-center mt-5">
                         <p class="text-gray-600">Don't have an account? <a href="{{ route('register')}}" class="font-bold text-success">Sign
@@ -77,9 +75,9 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-7 d-none d-lg-block">
+            <div class="col-xl-7 d-none d-xl-block">
                 <div id="auth-right">
-                    <img class="img-fluid h-100 w-100" src="{{ asset('auth/images/auth_background.jpg') }}" alt="background">
+                    <img class="img-fluid h-100" src="{{ asset('auth/images/auth_background.jpg') }}" alt="background">
                 </div>
             </div>
         </div>
