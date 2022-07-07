@@ -10,8 +10,12 @@ use App\Http\Controllers\WelcomeController;
 // ========= Start All Admin Controller =========
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\Admin\AdminSiteInfoController;
-use App\Http\Controllers\Admin\UserSiteInfoController;
+use App\Http\Controllers\Admin\SiteInfo\AdminSiteInfoController;
+use App\Http\Controllers\Admin\SiteInfo\UserSiteInfoController;
+use App\Http\Controllers\Admin\SiteInfo\UserHerosectionController;
+
+// ========= Landing Page Controller =========
+use App\Http\Controllers\User\About\AboutController;
 
 Route::group(['middleware' => 'prevent-back-history'], function () {
     // ========= Google Authentication =========
@@ -25,6 +29,10 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
 
     // ========= Landing Page =========
     Route::get('/', [WelcomeController::class, 'WelcomeView'])->name('welcome');
+    // ========= About Routes =========
+    Route::prefix('about')->group(function () {
+        Route::get('mission-vission/view', [AboutController::class, 'MissionVissionView'])->name('about.mission.view');
+    });
 
     // ========= Admin Routes =========
     Route::middleware([
@@ -57,16 +65,24 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
 
         // ========= SiteInfo Management =========
         Route::prefix('siteinfo')->group(function () {
-            // Admin Site Info Management
+            // Admin Site Info 
             Route::get('admin/edit', [AdminSiteInfoController::class, 'AdminSiteInfoEdit'])->name('admin.siteinfo.edit');
             Route::post('admin/update/{id}', [AdminSiteInfoController::class, 'AdminSiteInfoUpdate'])->name('admin.siteinfo.update');
             Route::get('admin/remove_admin_brand', [AdminSiteInfoController::class, 'RemoveAdminBrand'])->name('remove.admin_brand');
 
-            // User Site Info Management
+            // User Site Info 
             Route::get('user/edit', [UserSiteInfoController::class, 'UserSiteInfoEdit'])->name('user.siteinfo.edit');
             Route::post('user/update/{id}', [UserSiteInfoController::class, 'UserSiteInfoUpdate'])->name('user.siteinfo.update');
             Route::get('user/remove_auth_brand', [UserSiteInfoController::class, 'RemoveAuthBrand'])->name('remove.auth_brand');
             Route::get('user/remove_user_brand', [UserSiteInfoController::class, 'RemoveUserBrand'])->name('remove.user_brand');
+
+            // User Herosection 
+            Route::get('herosection/view', [UserHerosectionController::class, 'UserHerosectionView'])->name('user.herosection.view');
+            Route::get('herosection/add', [UserHerosectionController::class, 'UserHerosectionAdd'])->name('user.herosection.add');
+            Route::post('herosection/store', [UserHerosectionController::class, 'UserHerosectionStore'])->name('user.herosection.store');
+            Route::get('herosection/edit/{id}', [UserHerosectionController::class, 'UserHerosectionEdit'])->name('user.herosection.edit');
+            Route::post('herosection/update/{id}', [UserHerosectionController::class, 'UserHerosectionUpdate'])->name('user.herosection.update');
+            Route::get('herosection/delete/{id}', [UserHerosectionController::class, 'UserHerosectionDelete'])->name('user.herosection.delete');
         });
     }); // End Admin Routes
 

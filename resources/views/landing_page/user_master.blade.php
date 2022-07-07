@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>DEPED - Division of Laguna</title>
+    <title>@yield('title')</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -46,6 +46,9 @@
 <body>
 
     <!-- ======= Top Bar ======= -->
+    @php
+    $userSiteInfos = DB::table('user_site_infos')->first();
+    @endphp
     <section id="topbar" class="d-flex align-items-center">
         <div class="container d-flex justify-content-center justify-content-md-between">
             <div class="contact-info d-flex align-items-center">
