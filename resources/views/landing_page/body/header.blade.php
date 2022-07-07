@@ -6,7 +6,7 @@ $route = Route::current()->getName();
     <div class="container d-flex justify-content-between">
 
         <div id="logo">
-            <h1><a href="index.html">Reve<span>al</span></a></h1>
+            <h1><a href="{{ route('welcome') }}">DepEd <span>SDO</span></a></h1>
             <!-- Uncomment below if you prefer to use an image logo -->
             <!-- <a href="index.html"><img src="assets/img/logo.png" alt=""></a>-->
         </div>
@@ -17,8 +17,8 @@ $route = Route::current()->getName();
                 <li class="dropdown"><a href="#"><span class="{{ ($prefix == '/about') ? 'active' : '' }}">About Us</span> <i class="bi bi-chevron-down {{ ($prefix == '/about') ? 'active' : '' }}"></i></a>
                     <ul>
                         <li><a class="{{ ($route == 'about.mission.view') ? 'active' : '' }}" href="{{ route('about.mission.view') }}">Mission Vission</a></li>
-                        <li><a href="#">Quality Policy</a></li>
-                        <li><a href="#">Message from SDS</a></li>
+                        <li><a class="{{ ($route == 'about.quality.view') ? 'active' : '' }}" href="{{ route('about.quality.view') }}">Quality Policy</a></li>
+                        <li><a class="{{ ($route == 'about.message.view') ? 'active' : '' }}" href="{{ route('about.message.view') }}">Message from SDS</a></li>
                         <!-- <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
                                 <ul>
                                     <li><a href="#">Deep Drop Down 1</a></li>

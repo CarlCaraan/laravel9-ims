@@ -11,4 +11,14 @@ class AboutController extends Controller
     {
         return view('landing_page.about.view_mission_vision');
     }
+
+    public function QualityPolicyView()
+    {
+        return view('landing_page.about.view_quality_policy');
+    }
+
+    public function MessageSDSView()
+    {
+        return view('landing_page.about.view_message_sds');
+    }
 }
