@@ -5,12 +5,15 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\UserInquiry;
+use App\Mail\ContactReceiverMail;
+use App\Mail\ContactSenderMail;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
     public function ContactAdd()
     {
-        return view('landing_page.contact');
+        return view('landing_page.contact.add_contact');
     }
     public function ContactStore(Request $request)
     {
@@ -27,8 +30,17 @@ class ContactController extends Controller
 
         $data->save();
 
+        // Working with Laravel Mailing
+        $data = [
+            'name' => $request->name,
+            'email' => $request->email,
+            'message' => $request->message,
+        ];
+        Mail::to('bannedefused3@gmail.com')->send(new ContactReceiverMail($data)); // Receivers Email Address
+        Mail::to($request->email)->send(new ContactSenderMail($data)); // Sender Email Address
+
         $notification = array(
-            'message' => 'Inquiries sent Successfully!',
+            'message' => 'Inquiries sent Successfully, Thank you for reaching us!',
             'alert-type' => 'success',
         );
         return redirect()->route('user.contact.add')->with($notification);
