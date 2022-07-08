@@ -18,8 +18,10 @@ return new class extends Migration
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
             $table->string('gender')->nullable();
-            $table->string('user_type');
+            $table->string('user_type')->comment('Admin, Hr, User');
             $table->string('email')->unique();
+            $table->string('identifier')->nullable()->comment('Local or Facebook, Google Identifier');
+            $table->string('tracking_id')->unique()->comment('User Unique Id, xxxx-xxxxx');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
             $table->rememberToken();

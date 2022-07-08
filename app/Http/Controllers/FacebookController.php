@@ -24,16 +24,49 @@ class FacebookController extends Controller
                 'email',
             ])->stateless()->user();
             // dd($facebook_user);
-            $user = User::where('email', $facebook_user->email)->first();
+            $user = User::where('identifier', $facebook_user->id)->first();
+            $user_local = User::where('identifier', 'local')->first();
             if ($user) {
                 Auth::login($user);
                 return redirect('dashboard');
+            } else if ($user_local) {
+                return redirect()->route('login')->withErrors(['msg' => 'Account already exist. Please use your Facebook Account instead!']);;
             } else {
+                // Generete Tracking Id
+                $check_user_exist = User::orderBy('id', 'DESC')->first();
+                if ($check_user_exist == NULL) {
+                    $first_register = 0;
+                    $user_id = $first_register + 1;
+                    if ($user_id < 10) {
+                        $tracking_id = '0000' . $user_id;
+                    } elseif ($user_id < 100) {
+                        $tracking_id = '000' . $user_id;
+                    } elseif ($user_id < 1000) {
+                        $tracking_id = '00' . $user_id;
+                    } elseif ($user_id < 10000) {
+                        $tracking_id = '0' . $user_id;
+                    }
+                } else {
+                    $exist_user = User::orderBy('id', 'DESC')->first()->id;
+                    $user_id = $exist_user + 1;
+                    if ($user_id < 10) {
+                        $tracking_id = '0000' . $user_id;
+                    } elseif ($user_id < 100) {
+                        $tracking_id = '000' . $user_id;
+                    } elseif ($user_id < 1000) {
+                        $tracking_id = '00' . $user_id;
+                    } elseif ($user_id < 10000) {
+                        $tracking_id = '0' . $user_id;
+                    }
+                }
+
                 $new_user = User::create([
                     'first_name' => ucwords($facebook_user->user['first_name']),
                     'last_name' => ucwords($facebook_user->user['last_name']),
                     'email' => $facebook_user->email,
                     'user_type' => 'User',
+                    'identifier' => $facebook_user->id,
+                    'tracking_id' => date('Y') . "-" . $tracking_id,
                     'email_verified_at' => date('Y-m-d H:i:s'),
                     'remember_token' => Str::random(10),
                 ]);

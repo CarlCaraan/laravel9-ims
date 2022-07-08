@@ -29,12 +29,42 @@ class CreateNewUser implements CreatesNewUsers
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['accepted', 'required'] : '',
         ])->validate();
 
+        // Generete Tracking Id
+        $check_user_exist = User::orderBy('id', 'DESC')->first();
+        if ($check_user_exist == NULL) {
+            $first_register = 0;
+            $user_id = $first_register + 1;
+            if ($user_id < 10) {
+                $tracking_id = '0000' . $user_id;
+            } elseif ($user_id < 100) {
+                $tracking_id = '000' . $user_id;
+            } elseif ($user_id < 1000) {
+                $tracking_id = '00' . $user_id;
+            } elseif ($user_id < 10000) {
+                $tracking_id = '0' . $user_id;
+            }
+        } else {
+            $exist_user = User::orderBy('id', 'DESC')->first()->id;
+            $user_id = $exist_user + 1;
+            if ($user_id < 10) {
+                $tracking_id = '0000' . $user_id;
+            } elseif ($user_id < 100) {
+                $tracking_id = '000' . $user_id;
+            } elseif ($user_id < 1000) {
+                $tracking_id = '00' . $user_id;
+            } elseif ($user_id < 10000) {
+                $tracking_id = '0' . $user_id;
+            }
+        }
+
         return User::create([
             'first_name' => $input['first_name'],
             'last_name' => $input['last_name'],
             'gender' => $input['gender'],
-            'user_type' => "User",
             'email' => $input['email'],
+            'user_type' => "User",
+            'identifier' => "local",
+            'tracking_id' => date('Y') . "-" . $tracking_id,
             'password' => Hash::make($input['password']),
         ]);
     }

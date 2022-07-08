@@ -23,6 +23,8 @@ class UserTableSeeder extends Seeder
             'gender' => "Male",
             'email' => "bannedefused@gmail.com",
             'user_type' => "Admin",
+            'identifier' => "local",
+            'tracking_id' => "2022-00001",
             'email_verified_at' => date('Y-m-d H:i:s'),
             'password' => Hash::make('password'),
         ]);
