@@ -34,6 +34,7 @@
                         <thead>
                             <tr>
                                 <th>ID No.</th>
+                                <th>User Tracking ID.</th>
                                 <th>Avatar</th>
                                 <th>Name</th>
                                 <th>Email</th>
@@ -47,6 +48,7 @@
                             @foreach ($allData as $key => $user)
                             <tr>
                                 <td>{{ $key+1 }}</td>
+                                <td>{{ $user->tracking_id }}</td>
                                 <td>
                                     <div class="avatar">
                                         @if (!empty($user->profile_photo_path))
