@@ -34,6 +34,9 @@
 
     <!-- Custom CSS -->
     <link href="{{ asset('landing_page/assets/css/custom.css') }}" rel="stylesheet">
+
+    <!-- Toastr CSS CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" />
 </head>
 
 <body>
@@ -92,6 +95,48 @@
             });
         }
     </script>
+
+    <!-- Start Google Translate API -->
+    <script>
+        function googleTranslateElementInit() {
+            var config = {
+                pageLanguage: 'en',
+                includedLanguages: 'en,tl',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            };
+            var langOptionsID = 'google_translate_element';
+            new google.translate.TranslateElement(config, langOptionsID);
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <!-- End Google Translate API -->
+
+    <!-- Toastr JS CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script>
+        // Toastr
+        @if(Session::has('message'))
+        var type = "{{ Session::get('alert-type', 'info') }}"
+        switch (type) {
+            case 'info':
+                toastr.info("{{ Session::get('message') }}")
+                break;
+
+            case 'success':
+                toastr.success("{{ Session::get('message') }}")
+                break;
+
+            case 'warning':
+                toastr.warning("{{ Session::get('message') }}")
+                break;
+
+            case 'error':
+                toastr.error("{{ Session::get('message') }}")
+                break;
+        }
+        @endif
+    </script>
+
 </body>
 
 </html>

@@ -12,3 +12,7 @@ body {
     justify-content: center;
     display: flex;
 }
+/* ========= Google Translate Api ========= */
+.goog-te-banner-frame.skiptranslate {
+    display: none !important;
+}

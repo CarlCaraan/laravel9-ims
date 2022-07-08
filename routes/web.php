@@ -36,7 +36,8 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
         Route::get('quality-policy', [AboutController::class, 'QualityPolicyView'])->name('about.quality.view');
         Route::get('message-sds', [AboutController::class, 'AboutMessageView'])->name('about.message.view');
     });
-    Route::get('contact', [contactcontroller::class, 'ContactView'])->name('user.contact.view');
+    Route::get('contact', [contactcontroller::class, 'ContactAdd'])->name('user.contact.add');
+    Route::post('contact/store', [contactcontroller::class, 'ContactStore'])->name('user.contact.store');
 
     // ========= Admin Routes =========
     Route::middleware([
