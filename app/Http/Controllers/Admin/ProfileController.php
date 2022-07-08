@@ -46,9 +46,20 @@ class ProfileController extends Controller
         $data = User::find(Auth::user()->id);
         $data->first_name = $request->first_name;
         $data->last_name = $request->last_name;
-        $data->email = $request->email;
         $data->gender = $request->gender;
         $data->user_type = $request->user_type;
+        if (auth()->user()->email != $request->email) {
+            auth()->user()->newEmail($request->email);
+            $notification = array(
+                'message' => 'Profile Updated, Please Check your mail to change your Email',
+                'alert-type' => 'success',
+            );
+        } else {
+            $notification = array(
+                'message' => 'User Profile Updated Successfully',
+                'alert-type' => 'success',
+            );
+        }
 
         if ($request->file('image')) {
             $file = $request->file('image');
@@ -59,10 +70,6 @@ class ProfileController extends Controller
         }
         $data->save();
 
-        $notification = array(
-            'message' => 'User Profile Updated Successfully',
-            'alert-type' => 'success',
-        );
         return redirect()->route('admin.profile.view')->with($notification);
     } //End Method
 

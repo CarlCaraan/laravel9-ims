@@ -90,4 +90,5 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
 
     // Logout Route
     Route::get('admin/logout', [AdminController::class, 'Logout'])->name('admin.logout');
+    Route::get('/password/logout', [AdminController::class, 'ChangePasswordLogout'])->name('password.logout');
 }); // End Prevent Back Middleware 

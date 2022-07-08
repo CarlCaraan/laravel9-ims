@@ -14,4 +14,11 @@ class AdminController extends Controller
         Session::flush();
         return Redirect()->route('login');
     }
+
+    public function ChangePasswordLogout()
+    {
+        Auth::logout();
+        Session::flush();
+        return redirect()->route('login')->with('success', 'User Password Updated Successfully');
+    }
 }

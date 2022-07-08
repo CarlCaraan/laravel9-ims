@@ -35,6 +35,15 @@
                     @endif
                     <!-- End Validation Message -->
 
+                    <!-- Start Success Message -->
+                    @if(session('success'))
+                    <div class="alert alert-success alert-dismissible show fade">
+                        {{ session('success') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    @endif
+                    <!-- End Success Message -->
+
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
                         <div class="form-group form-floating position-relative has-icon-left">
