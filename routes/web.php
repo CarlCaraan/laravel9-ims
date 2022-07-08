@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\SiteInfo\UserHerosectionController;
 
 // ========= Landing Page Controller =========
 use App\Http\Controllers\User\About\AboutController;
+use App\Http\Controllers\User\ContactController;
 
 
 Route::group(['middleware' => 'prevent-back-history'], function () {
@@ -31,10 +32,11 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
     Route::get('/', [WelcomeController::class, 'WelcomeView'])->name('welcome');
     //About Routes
     Route::prefix('about')->group(function () {
-        Route::get('mission-vission/view', [AboutController::class, 'MissionVissionView'])->name('about.mission.view');
-        Route::get('quality-policy/view', [AboutController::class, 'QualityPolicyView'])->name('about.quality.view');
-        Route::get('message-sds/view', [AboutController::class, 'MessageSDSView'])->name('about.message.view');
+        Route::get('mission-vission', [AboutController::class, 'MissionVissionView'])->name('about.mission.view');
+        Route::get('quality-policy', [AboutController::class, 'QualityPolicyView'])->name('about.quality.view');
+        Route::get('message-sds', [AboutController::class, 'AboutMessageView'])->name('about.message.view');
     });
+    Route::get('contact', [contactcontroller::class, 'ContactView'])->name('user.contact.view');
 
     // ========= Admin Routes =========
     Route::middleware([

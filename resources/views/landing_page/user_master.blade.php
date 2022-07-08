@@ -34,13 +34,6 @@
 
     <!-- Custom CSS -->
     <link href="{{ asset('landing_page/assets/css/custom.css') }}" rel="stylesheet">
-
-    <!-- =======================================================
-  * Template Name: Reveal - v4.7.0
-  * Template URL: https://bootstrapmade.com/reveal-bootstrap-corporate-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>

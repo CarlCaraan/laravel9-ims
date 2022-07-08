@@ -40,7 +40,7 @@ $route = Route::current()->getName();
                         <li><a href="#">Drop Down 1</a></li>
                     </ul>
                 </li>
-                <li><a class="nav-link scrollto" href="#contact">Contact Us</a></li>
+                <li><a class="nav-link {{ ($route == 'user.contact.view') ? 'active' : '' }}" href="{{ route('user.contact.view') }}">Contact Us</a></li>
                 <li><a class="nav-link scrollto" href="{{ route('login') }}">Login</a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
