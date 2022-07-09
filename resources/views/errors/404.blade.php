@@ -18,14 +18,16 @@
         <div class="error-page container">
             <div class="col-md-8 col-12 offset-md-2">
                 <div class="text-center">
-                    <h1 class="error-title">This Page Isn't Available or You don't have an internet connection.</h1>
-                    <p class='fs-5 text-gray-600'>The link may be broken, or the page may have been removed. Check to
-                        see if the link you're trying to open is correct.</p>
+                    <h1 class="error-title">This Page Isn't Available </h1>
+                    <p class='fs-5 text-gray-600'>
+                        The link may be broken, or the page may have been removed. Check to
+                        see if the link you're trying to open is correct.
+                        Check if you don't have an internet connection
+                    </p>
                     <a href="/" class="btn btn-lg btn-outline-primary mt-3">Go Home</a>
                 </div>
             </div>
         </div>
-
 
     </div>
 </body>
