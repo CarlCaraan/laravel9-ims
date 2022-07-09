@@ -70,6 +70,7 @@
                         <div class="text-center mt-4">
                             <a class="btn btn-light" href="{{ url('login/google')}}"><i class="bi bi-google text-danger"></i></a>
                             <a class="btn btn-light" href="{{ url('login/facebook')}}"><i class="bi bi-facebook text-primary"></i></a>
+                            <a class="btn btn-light" href="{{ url('login/google')}}"><img class="img-fluid" width="20px" src="{{ asset('admin\assets\images\brand.png') }}" alt=""></a>
                         </div>
                         <div class="divider">
                             <div class="divider-text">or</div>
