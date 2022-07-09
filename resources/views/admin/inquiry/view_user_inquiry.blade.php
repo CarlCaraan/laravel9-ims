@@ -29,6 +29,9 @@
     <section class="row">
         <div class="col-12">
             <div class="card">
+                <div class="card-header border-bottom">
+                    <small class="text-muted ms-2">Note: All User Inquiries will be automatically deleted Quarterly.</small>
+                </div>
                 <div class="card-body px-4 py-4-5">
                     <table class="table table-striped" id="table1">
                         <thead>
