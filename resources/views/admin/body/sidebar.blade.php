@@ -65,6 +65,15 @@ $route = Route::current()->getName();
                 </li>
                 <!-- End Site Info Management -->
 
+                <!-- Start User Inquiry -->
+                <li class="sidebar-item {{ ($route == 'user.inquiries.view') ? 'active' : ''}}">
+                    <a href="{{ route('user.inquiries.view') }}" class="sidebar-link {{ ($route == 'user.inquiries.view') ? 'bg-success' : ''}}">
+                        <i class="bi bi-mailbox"></i>
+                        <span class="{{ ($route == 'user.inquiries.view') ? 'text-white' : '' }}">User Inquiry</span>
+                    </a>
+                </li>
+                <!-- End User Inquiry -->
+
                 <!-- Start Account Management -->
                 <li class="sidebar-title">Account Management</li>
                 <li class="sidebar-item  has-sub {{ ($prefix == '/accounts') ? 'active' : '' }}">

@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\SiteInfo\AdminSiteInfoController;
 use App\Http\Controllers\Admin\SiteInfo\UserSiteInfoController;
 use App\Http\Controllers\Admin\SiteInfo\UserHerosectionController;
+use App\Http\Controllers\Admin\SiteInfo\UserInquiryController;
 
 // ========= Landing Page Controller =========
 use App\Http\Controllers\User\About\AboutController;
@@ -89,6 +90,10 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
             Route::post('herosection/update/{id}', [UserHerosectionController::class, 'UserHerosectionUpdate'])->name('user.herosection.update');
             Route::get('herosection/delete/{id}', [UserHerosectionController::class, 'UserHerosectionDelete'])->name('user.herosection.delete');
         });
+
+        // User Inquiries 
+        Route::get('inquiries/view', [UserInquiryController::class, 'UserInquiryView'])->name('user.inquiries.view');
+        Route::get('inquiries/delete/{id}', [UserInquiryController::class, 'UserInquiryDelete'])->name('user.inquiries.delete');
     }); // End Admin Routes
 
     // Logout Route

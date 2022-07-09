@@ -26,7 +26,7 @@ class UserTableSeeder extends Seeder
             'identifier' => "local",
             'tracking_id' => "2022-00001",
             'email_verified_at' => date('Y-m-d H:i:s'),
-            'password' => Hash::make('password'),
+            'password' => Hash::make('password'), // Password
         ]);
     }
 }
