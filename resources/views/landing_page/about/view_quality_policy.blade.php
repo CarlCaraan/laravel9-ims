@@ -30,6 +30,14 @@
                 <div class="card-content">
                     <p class="">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. A quisquam fuga dicta! Autem sint nemo, tempore pariatur aliquid iste, quos similique illo delectus vel velit eos magni atque, modi expedita.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. A quisquam fuga dicta! Autem sint nemo, tempore pariatur aliquid iste, quos similique illo delectus vel velit eos magni atque, modi expedita.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. A quisquam fuga dicta! Autem sint nemo, tempore pariatur aliquid iste, quos similique illo delectus vel velit eos magni atque, modi expedita.
+                        <br><br>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. A quisquam fuga dicta! Autem sint nemo, tempore pariatur aliquid iste, quos similique illo delectus vel velit eos magni atque, modi expedita.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. A quisquam fuga dicta! Autem sint nemo, tempore pariatur aliquid iste, quos similique illo delectus vel velit eos magni atque, modi expedita.
+                        <br><br>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. A quisquam fuga dicta! Autem sint nemo, tempore pariatur aliquid iste, quos similique illo delectus vel velit eos magni atque, modi expedita.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. A quisquam fuga dicta! Autem sint nemo, tempore pariatur aliquid iste, quos similique illo delectus vel velit eos magni atque, modi expedita.
                     </p>
                 </div>
             </div>

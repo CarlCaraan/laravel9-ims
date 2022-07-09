@@ -11,7 +11,7 @@
                      <div id="google_translate_element"></div>
                  </div>
              </div>
-             <div class="center">
+             <div class="text-center">
                  {!! $userSiteInfos->footer !!}
              </div>
 

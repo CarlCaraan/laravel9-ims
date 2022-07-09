@@ -16,3 +16,10 @@ body {
 .goog-te-banner-frame.skiptranslate {
     display: none !important;
 }
+/* ========= Herosection ========= */
+#hero {
+    height: 70vh !important;
+}
+#hero .hero-slider {
+    height: 70vh !important;
+}
