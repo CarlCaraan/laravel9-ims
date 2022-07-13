@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Fortify\Fortify;
+use App\Models\User;
 
 class FortifyServiceProvider extends ServiceProvider
 {
@@ -39,7 +40,16 @@ class FortifyServiceProvider extends ServiceProvider
         RateLimiter::for('login', function (Request $request) {
             $email = (string) $request->email;
 
-            return Limit::perMinute(5)->by($email.$request->ip());
+            // Start Custom Validation for Existing Social Account
+            $check_user_exist = User::where('email', $email)->first();
+            if ($check_user_exist != NULL) {
+                $check_user_local = User::where('email', $email)->where('identifier', 'local')->first();
+                if ($check_user_local == NULL)
+                    return redirect()->route('login')->withErrors(['msg' => 'Account already exist. Please use your Google or Facebook Account instead!']);
+            }
+            // End Custom Validation for Existing Social Account
+
+            return Limit::perMinute(5)->by($email . $request->ip());
         });
 
         RateLimiter::for('two-factor', function (Request $request) {

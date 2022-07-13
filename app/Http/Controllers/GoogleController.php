@@ -27,7 +27,7 @@ class GoogleController extends Controller
                 Auth::login($user);
                 return redirect('dashboard');
             } else if ($user_local) {
-                return redirect()->route('login')->withErrors(['msg' => 'Account already exist. Please use your Google Account instead!']);;
+                return redirect()->route('login')->withErrors(['msg' => 'Account already exist. Please use sign in form instead!']);
             } else {
                 // Generete Tracking Id
                 $check_user_exist = User::orderBy('id', 'DESC')->first();

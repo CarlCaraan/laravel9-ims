@@ -15,7 +15,7 @@
     <link rel="manifest" href="{{ asset('/manifest.json') }}">
 
     <!-- Favicons -->
-    <link href="{{ asset('landing_page/assets/img/favicon.png') }}" rel="icon">
+    <link href="{{ asset('landing_page/assets/img/favicons.png') }}" rel="icon">
     <link href="{{ asset('landing_page/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
     <!-- Google Fonts -->

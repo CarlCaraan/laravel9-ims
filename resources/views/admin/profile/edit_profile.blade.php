@@ -32,7 +32,7 @@
             <div class="card">
                 <div class="card-body px-4 py-4-5">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md">
                             <h4 class="mb-4 text-success"><i class="icon-mid bi bi-gear-fill me-2"></i>General</h4>
                             <form class="form-horizontal mt-5" method="POST" action="{{ route('admin.profile.update') }}" enctype="multipart/form-data">
                                 @csrf
@@ -129,7 +129,9 @@
                                 </div>
                             </form>
                         </div>
-                        <div class="col-md-6">
+                        @if ($editData->identifier != 'local')
+                        @else
+                        <div class="col-md">
                             <h4 class="mb-4 text-success"><i class="icon-mid bi bi-shield-fill me-2"></i>Security and Login</h4>
                             <form class="form-horizontal mt-5" method="POST" action="{{ route('admin.password.update') }}">
                                 @csrf
@@ -167,6 +169,7 @@
                                 </div>
                             </form>
                         </div>
+                        @endif
                     </div>
 
                 </div>

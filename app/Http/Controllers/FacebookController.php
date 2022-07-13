@@ -30,7 +30,7 @@ class FacebookController extends Controller
                 Auth::login($user);
                 return redirect('dashboard');
             } else if ($user_local) {
-                return redirect()->route('login')->withErrors(['msg' => 'Account already exist. Please use your Facebook Account instead!']);;
+                return redirect()->route('login')->withErrors(['msg' => 'Account already exist. Please use sign in form instead!']);;
             } else {
                 // Generete Tracking Id
                 $check_user_exist = User::orderBy('id', 'DESC')->first();
