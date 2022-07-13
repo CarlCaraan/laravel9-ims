@@ -9,15 +9,24 @@ self.addEventListener("install", function (event) {
     event.waitUntil(preLoad());
 });
 
-const filesToCache = [
-    '/',
-    '/offline.html'
-];
+const filesToCache = ["/", "/offline.html"];
+
+// const checkResponse = function (request) {
+//     return new Promise(function (fulfill, reject) {
+//         fetch(request).then(function (response) {
+//             if (response.status !== 404) {
+//                 fulfill(response);
+//             } else {
+//                 reject();
+//             }
+//         }, reject);
+//     });
+// };
 
 const checkResponse = function (request) {
     return new Promise(function (fulfill, reject) {
         fetch(request).then(function (response) {
-            if (response.status !== 404) {
+            if (response) {
                 fulfill(response);
             } else {
                 reject();
@@ -47,10 +56,12 @@ const returnFromCache = function (request) {
 };
 
 self.addEventListener("fetch", function (event) {
-    event.respondWith(checkResponse(event.request).catch(function () {
-        return returnFromCache(event.request);
-    }));
-    if(!event.request.url.startsWith('http')){
+    event.respondWith(
+        checkResponse(event.request).catch(function () {
+            return returnFromCache(event.request);
+        })
+    );
+    if (!event.request.url.startsWith("http")) {
         event.waitUntil(addToCache(event.request));
     }
 });
