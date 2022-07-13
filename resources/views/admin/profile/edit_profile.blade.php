@@ -82,7 +82,7 @@
                                     <label for="email" class="col-sm-3 text-right control-label col-form-label">Email Address</label>
                                     <div class="col-sm-9">
                                         @if ($editData->identifier != 'local')
-                                        <span class="form-control"><i class="bi bi-check-circle-fill"></i> Verified Account Linked</span>
+                                        <span class="form-control"><i class="bi bi-check-circle-fill"></i> Verified Account Linked | {{ $editData->email }}</span>
                                         <input type="hidden" class="form-control" name="email" id="email" placeholder="Email Address" value="{{ $editData->email }}">
                                         @else
                                         <input type="text" class="form-control" name="email" id="email" placeholder="Email Address" value="{{ $editData->email }}">
