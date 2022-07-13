@@ -22,7 +22,7 @@ class GoogleController extends Controller
             $google_user = Socialite::driver('google')->stateless()->user();
             // dd($google_user);
             $user = User::where('identifier', $google_user->id)->first();
-            $user_local = User::where('identifier', 'local')->first();
+            $user_local = User::where('identifier', 'local')->where('email', $google_user->email)->first();
             if ($user) {
                 Auth::login($user);
                 return redirect('dashboard');

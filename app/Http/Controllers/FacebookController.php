@@ -25,7 +25,7 @@ class FacebookController extends Controller
             ])->stateless()->user();
             // dd($facebook_user);
             $user = User::where('identifier', $facebook_user->id)->first();
-            $user_local = User::where('identifier', 'local')->first();
+            $user_local = User::where('identifier', 'local')->where('email', $facebook_user->email)->first();
             if ($user) {
                 Auth::login($user);
                 return redirect('dashboard');

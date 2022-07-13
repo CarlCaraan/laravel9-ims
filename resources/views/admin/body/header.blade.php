@@ -49,7 +49,7 @@ $route = Route::current()->getName();
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton" style="min-width: 11rem;">
                         <li>
-                            <h6 class="dropdown-header">{{ Auth::user()->first_name . " " . Auth::user()->last_name }}</h6>
+                            <h6 class="dropdown-header">{{ Auth::user()->email }}</h6>
                         </li>
                         <li><a class="dropdown-item {{ ($prefix == '/profile') ? 'active' : '' }} " href="{{ route('admin.profile.view') }}"><i class="icon-mid bi bi-gear me-2"></i>
                                 Account Settings

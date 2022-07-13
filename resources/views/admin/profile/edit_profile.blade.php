@@ -79,20 +79,6 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="email" class="col-sm-3 text-right control-label col-form-label">Email Address</label>
-                                    <div class="col-sm-9">
-                                        @if ($editData->identifier != 'local')
-                                        <span class="form-control"><i class="bi bi-check-circle-fill"></i> Verified Account Linked | {{ $editData->email }}</span>
-                                        <input type="hidden" class="form-control" name="email" id="email" placeholder="Email Address" value="{{ $editData->email }}">
-                                        @else
-                                        <input type="text" class="form-control" name="email" id="email" placeholder="Email Address" value="{{ $editData->email }}">
-                                        @endif
-                                        @error('email')
-                                        <span class="text-danger">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="form-group row">
                                     <label for="gender" class="col-sm-3 text-right control-label col-form-label">Gender</label>
                                     <div class="col-md-9">
                                         <select class="select2 form-select" style="width: 100%; height:36px;" name="gender">
@@ -118,6 +104,23 @@
                                             </optgroup>
                                         </select>
                                         @error('user_type')
+                                        <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="email" class="col-sm-3 text-right control-label col-form-label">Email Address</label>
+                                    <div class="col-sm-9">
+                                        @if ($editData->identifier != 'local')
+                                        <span class="badge bg-success py-2"><i class="bi bi-check-circle-fill"></i> Verified Account Linked | {{ $editData->email }}</span>
+                                        <input type="hidden" class="form-control" name="email" id="email" placeholder="Email Address" value="{{ $editData->email }}">
+                                        @else
+                                        <input type="text" class="form-control mb-1" name="email" id="email" placeholder="Email Address" value="{{ $editData->email }}">
+                                        <span class="badge bg-success">
+                                            <i class="bi bi-check-circle-fill"></i> Email Verified
+                                        </span>
+                                        @endif
+                                        @error('email')
                                         <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
