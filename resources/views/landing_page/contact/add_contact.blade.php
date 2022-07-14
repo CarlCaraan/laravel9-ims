@@ -38,14 +38,14 @@
                                 <div class="form-group row mb-2">
                                     <div class="col-md-6">
                                         <label for="name" class="form-label">Name</label>
-                                        <input type="text" name="name" class="form-control" placeholder="Full Name">
+                                        <input type="text" name="name" class="form-control" placeholder="Full Name" value="{{old('name')}}">
                                         @error('name')
                                         <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </div>
                                     <div class="col-md-6">
                                         <label for="name" class="form-label">Email</label>
-                                        <input type="text" name="email" class="form-control" placeholder="Email Address">
+                                        <input type="text" name="email" class="form-control" placeholder="Email Address" value="{{old('email')}}">
                                         @error('email')
                                         <small class="text-danger">{{ $message }}</small>
                                         @enderror
@@ -53,9 +53,9 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="name" class="form-label">Message</label>
-                                    <textarea placeholder="Message" class="form-control" name="message" id="message" rows="5"></textarea>
+                                    <textarea placeholder="Message" class="form-control" name="message" id="message" rows="5">{{old('message')}}</textarea>
                                     @error('message')
-                                    <small class="text-danger">{{ $message }}</small>
+                                    <small class=" text-danger">{{ $message }}</small>
                                     @enderror
                                 </div>
                                 <button class="btn mt-2 custom-btn">Submit</button>
