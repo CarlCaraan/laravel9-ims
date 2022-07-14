@@ -16,6 +16,7 @@
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a class="text-success" href="{{ route('dashboard') }}">Home</a></li>
+                        <li class="breadcrumb-item"><a class="text-success" href="{{ route('user.herosection.view') }}">Herosection</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Edit Herosection</li>
                     </ol>
                 </nav>
