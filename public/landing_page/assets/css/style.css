@@ -422,7 +422,6 @@ h6 {
 #hero .hero-slider {
     z-index: 8;
     height: 60vh;
-    cursor: grab;
 }
 #hero .hero-slider::before {
     content: "";

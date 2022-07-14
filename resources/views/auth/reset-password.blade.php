@@ -23,7 +23,7 @@
                     <div class="center mb-4">
                         <img class="img-fluid" width="150px" height="150px" src="{{ asset('auth/images/auth_brand.png') }}" alt="Logo">
                     </div>
-                    <h3 class="text-success text-center">Reset Password</h3>
+                    <h3 class="text-custom text-center">Reset Password</h3>
                     <p class="auth-subtitle mb-5">Input your email and new password.</p>
 
                     <!-- Start Validation Message -->
@@ -56,8 +56,9 @@
                             <label class="ms-5" for="password_confirmation">Confirm Password</label>
                         </div>
 
-                        <button class="btn btn-success btn-block btn-lg shadow-lg mt-4">Reset Password</button>
+                        <button class="btn btn-block btn-lg custom-btn mt-4">Reset Password</button>
                     </form>
+                    <a href="{{ route('admin.logout') }}" class="btn btn-block btn-lg btn-secondary mt-2">Logout</a>
 
                 </div>
             </div>

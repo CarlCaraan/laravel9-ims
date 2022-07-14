@@ -36,7 +36,7 @@
 
                     <form method="POST" action="{{ route('verification.send') }}">
                         @csrf
-                        <button class="btn btn-success btn-block btn-lg shadow-lg"> {{ __('Resend Verification Email') }}</button>
+                        <button class="btn btn-block btn-lg custom-btn"> {{ __('Resend Verification Email') }}</button>
                     </form>
 
                     <form method="get" action="{{ route('admin.logout') }}" class="inline">

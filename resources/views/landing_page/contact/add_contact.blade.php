@@ -58,7 +58,7 @@
                                     <small class="text-danger">{{ $message }}</small>
                                     @enderror
                                 </div>
-                                <button class="btn btn-success mt-2">Submit</button>
+                                <button class="btn mt-2 custom-btn">Submit</button>
                             </form>
                         </div>
                     </div>

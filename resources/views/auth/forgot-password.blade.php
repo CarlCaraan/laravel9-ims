@@ -23,7 +23,7 @@
                     <div class="center mb-4">
                         <img class="img-fluid" width="150px" height="150px" src="{{ asset('auth/images/auth_brand.png') }}" alt="Logo">
                     </div>
-                    <h3 class="text-success text-center">Forgot Password</h3>
+                    <h3 class="text-custom text-center">Forgot Password</h3>
                     <p class="auth-subtitle mb-5">Input your email and we will send you reset password link.</p>
 
                     <!-- Start Validation Message -->
@@ -44,10 +44,10 @@
                             </div>
                             <label class="ms-5" for="email">Email Address</label>
                         </div>
-                        <button class="btn btn-success btn-block btn-lg shadow-lg mt-2">Send</button>
+                        <button class="btn btn-block btn-lg custom-btn mt-2">Send</button>
                     </form>
                     <div class="text-center mt-4">
-                        <p class='text-gray-600'>Remember your account? <a href="{{ route('login') }}" class="font-bold text-success">Log
+                        <p class='text-gray-600'>Remember your account? <a href="{{ route('login') }}" class="font-bold text-custom">Log
                                 in</a>.
                         </p>
                     </div>

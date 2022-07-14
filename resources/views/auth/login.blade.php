@@ -74,13 +74,13 @@
                         <div class="divider">
                             <div class="divider-text">or</div>
                         </div>
-                        <button class="btn btn-success btn-block btn-lg shadow-lg">Log in</button>
+                        <button class="btn btn-block btn-lg custom-btn">Log in</button>
 
                     </form>
                     <div class="text-center mt-5">
-                        <p class="text-gray-600">Don't have an account? <a href="{{ route('register')}}" class="font-bold text-success">Sign
+                        <p class="text-gray-600">Don't have an account? <a href="{{ route('register')}}" class="font-bold text-custom">Sign
                                 up</a>.</p>
-                        <p><a class="font-bold text-success" href="{{ route('password.request') }}">Forgot password?</a></p>
+                        <p><a class="font-bold text-custom" href="{{ route('password.request') }}">Forgot password?</a></p>
                     </div>
                 </div>
             </div>

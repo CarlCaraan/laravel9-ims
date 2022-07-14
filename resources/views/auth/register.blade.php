@@ -85,8 +85,8 @@
                                     <x-jet-checkbox name="terms" id="terms" />
 
                                     {!! __('I agree to the :terms_of_service and :privacy_policy', [
-                                    'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-success hover:text-gray-900">'.__('Terms of Service').'</a>',
-                                    'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-success hover:text-gray-900">'.__('Privacy Policy').'</a>',
+                                    'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-custom hover:text-gray-900">'.__('Terms of Service').'</a>',
+                                    'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-custom hover:text-gray-900">'.__('Privacy Policy').'</a>',
                                     ]) !!}
                                 </div>
                             </x-jet-label>
@@ -94,10 +94,10 @@
                         @endif
                         <!-- End Terms and Condition -->
 
-                        <button class="btn btn-success btn-block btn-lg shadow-lg mt-4">Sign Up</button>
+                        <button class="btn btn-block btn-lg mt-4 custom-btn">Sign Up</button>
                     </form>
                     <div class="text-center mt-4">
-                        <p class='text-gray-600'>Already have an account? <a href="{{route('login')}}" class="font-bold text-success">Log
+                        <p class='text-gray-600'>Already have an account? <a href="{{route('login')}}" class="font-bold text-custom">Log
                                 in</a>.</p>
                     </div>
                 </div>
