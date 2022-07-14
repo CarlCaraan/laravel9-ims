@@ -132,7 +132,7 @@
                                 </div>
                             </form>
                         </div>
-                        @if ($editData->identifier != 'local')
+                        @if ($editData->password == NULL)
                         @else
                         <div class="col-md">
                             <h4 class="mb-4 text-success"><i class="icon-mid bi bi-shield-fill me-2"></i>Security and Login</h4>

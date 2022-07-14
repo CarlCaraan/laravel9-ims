@@ -43,9 +43,10 @@ class FortifyServiceProvider extends ServiceProvider
             // Start Custom Validation for Existing Social Account
             $check_user_exist = User::where('email', $email)->first();
             if ($check_user_exist != NULL) {
-                $check_user_local = User::where('email', $email)->where('identifier', 'local')->first();
-                if ($check_user_local == NULL)
-                    return redirect()->route('login')->withErrors(['msg' => 'Account already exist. Please use your Google or Facebook Account instead!']);
+                $check_user_password = User::select('password')->where('email', $email)->first();
+                if ($check_user_password->password == NULL) {
+                    return redirect()->route('login')->withErrors(['msg' => 'Email already exist. Please use your Google or Facebook Account instead!']);
+                }
             }
             // End Custom Validation for Existing Social Account
 
