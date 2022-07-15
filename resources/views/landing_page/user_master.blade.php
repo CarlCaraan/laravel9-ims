@@ -137,6 +137,8 @@
         @endif
     </script>
 
+    <!-- FontAwesome CDN -->
+    <script src="https://kit.fontawesome.com/fbaf02a1c1.js"></script>
 </body>
 
 </html>

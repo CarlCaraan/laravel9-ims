@@ -20,7 +20,7 @@ class UserSiteInfoSeeder extends Seeder
             'mobile' => '0912-345-6789',
             'facebook_link' => 'https://www.facebook.com/',
             'website_link' => 'sdo.com',
-            'address' => 'address sample',
+            'address' => 'Pedro Guevara Ave, Santa Cruz, Laguna',
             'footer' => "",
             'auth_brand' => NULL,
             'user_brand' => NULL,
