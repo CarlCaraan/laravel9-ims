@@ -191,6 +191,7 @@
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",
         },
+        grabCursor: true,
     });
 
     /**
@@ -227,6 +228,7 @@
                 spaceBetween: 20,
             },
         },
+        grabCursor: true,
     });
 
     /**

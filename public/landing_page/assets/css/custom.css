@@ -38,10 +38,4 @@ body {
 }
 #hero .hero-slider {
     height: 70vh !important;
-    cursor: grab;
-}
-
-/* ========= Clients Slider ========= */
-#clients .clients-slider {
-    cursor: grab;
 }
