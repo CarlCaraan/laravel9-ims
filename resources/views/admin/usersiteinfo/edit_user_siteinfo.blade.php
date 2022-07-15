@@ -99,7 +99,7 @@
                                     <div class="form-group row">
                                         <label for="image" class="col-sm-3 text-right control-label col-form-label">Landing Page Brand</label>
                                         <div class="col-md-9 text-left">
-                                            <img class="mb-3 img-fluid img-thumbnail" id="show_image2" src="{{ (!empty($editData->user_brand)) ? url('upload/user_siteinfo/'.$editData->user_brand) : url('upload/user_siteinfo/default_photo.png') }}" alt="User Brand">
+                                            <img class="mb-3 img-fluid img-thumbnail" id="show_image2" src="{{ (!empty($editData->user_brand)) ? url('upload/user_siteinfo/'.$editData->user_brand) : url('upload/user_siteinfo/default_photo_brand.png') }}" alt="User Brand">
                                         </div>
                                     </div>
                                     <div class="form-group row">
