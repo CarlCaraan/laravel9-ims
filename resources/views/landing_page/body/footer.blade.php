@@ -3,7 +3,7 @@
          <div class="row pt-4">
              <div class="col-md-8">
                  <div class="center">
-                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium dolor voluptatum numquam tempora delectus labore doloremque quisquam odio aut necessitatibus! Blanditiis vel error aut soluta obcaecati libero numquam a hic?</p>
+                     {!! $userSiteInfos->footer !!}
                  </div>
              </div>
              <div class="col-md-4">
@@ -11,8 +11,10 @@
                      <div id="google_translate_element"></div>
                  </div>
              </div>
-             <div class="text-center">
-                 {!! $userSiteInfos->footer !!}
+             <div class="copyright">
+                 <span class="text-muted">
+                     Copyright &copy; {{ date('Y', strtotime(now())) }} <strong>Division of Laguna</strong> All Rights Reserved
+                 </span>
              </div>
 
          </div>

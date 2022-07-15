@@ -21,7 +21,7 @@ class UserSiteInfoSeeder extends Seeder
             'facebook_link' => 'https://www.facebook.com/',
             'website_link' => 'sdo.com',
             'address' => 'address sample',
-            'footer' => "All Rights Reserved &copy; 2022 By DEPED - <a class='text-success ml-2' href='https://github.com/CarlCaraan'> Division of Laguna</a>",
+            'footer' => "",
             'auth_brand' => NULL,
             'user_brand' => NULL,
             'terms' => "<h2><strong>Terms and Conditions</strong></h2>

@@ -52,8 +52,8 @@
                 <i class="bi bi-phone d-flex align-items-center ms-4"><span>{{ $userSiteInfos->mobile }}</span></i>
             </div>
             <div class="social-links d-none d-md-flex align-items-center">
-                <a href="{{ route('terms.show') }}">Terms</a>
-                <a href="{{ route('policy.show') }}">Policy</a>
+                <a href="{{ route('terms.show') }}" target="_blank">Terms</a>
+                <a href="{{ route('policy.show') }}" target="_blank">Policy</a>
                 <a href="{{ $userSiteInfos->facebook_link }}" class="facebook"><i class="bi bi-facebook"></i></a>
                 <a href="{{ $userSiteInfos->website_link }}" class="instagram"><i class="bi bi-globe"></i></a>
             </div>
