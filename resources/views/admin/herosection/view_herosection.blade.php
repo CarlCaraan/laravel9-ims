@@ -48,7 +48,7 @@
                             <tr>
                                 <td>{{ $key+1 }}</td>
                                 <td>
-                                    <img src="{{ (!empty($value->image)) ? url('upload/user_siteinfo/herosection/'.$value->image) : url('upload/user_siteinfo/herosection/default_photo.png') }}" alt="image" class="img-fluid" width="60px">
+                                    <img src="{{ (!empty($value->image)) ? url('upload/user_siteinfo/herosection/'.$value->image) : url('upload/user_siteinfo/herosection/default_photo.png') }}" alt="image" class="img-fluid" width="150px">
                                 </td>
                                 <td>
                                     <a href="{{ route('user.herosection.edit', $value->id) }}" class="btn icon btn-primary"><i class="bi bi-pencil"></i></a>
