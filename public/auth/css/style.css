@@ -40,3 +40,9 @@ body {
     color: var(--primary-app-color);
     opacity: 0.8;
 }
+.form-control:focus,
+.form-select:focus {
+    outline: none;
+    box-shadow: none;
+    border: 1px solid var(--primary-app-color);
+}

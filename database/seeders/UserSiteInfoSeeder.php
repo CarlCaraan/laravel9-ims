@@ -21,7 +21,7 @@ class UserSiteInfoSeeder extends Seeder
             'facebook_link' => 'https://www.facebook.com/',
             'website_link' => 'sdo.com',
             'address' => 'Pedro Guevara Ave, Santa Cruz, Laguna',
-            'footer' => "",
+            'footer' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, neque suscipit. Eum accusantium et dolorem culpa sit molestias, nisi cupiditate veniam ipsum illum animi nesciunt nostrum error quidem autem molestiae.",
             'auth_brand' => NULL,
             'user_brand' => NULL,
             'terms' => "<h2><strong>Terms and Conditions</strong></h2>
