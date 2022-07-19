@@ -12,6 +12,9 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('auth/css/style.css') }}">
+
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
 </head>
 
 <body>
@@ -94,7 +97,7 @@
                         @endif
                         <!-- End Terms and Condition -->
 
-                        <button class="btn btn-block btn-lg mt-4 custom-btn">Sign Up</button>
+                        <button class="btn btn-block btn-lg mt-4 custom-btn"><i class="fa-solid fa-right-to-bracket me-1"></i> Sign Up</button>
                     </form>
                     <div class="text-center mt-4">
                         <p class='text-gray-600'>Already have an account? <a href="{{route('login')}}" class="font-bold text-custom">Log

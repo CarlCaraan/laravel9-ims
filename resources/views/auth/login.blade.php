@@ -12,6 +12,9 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('auth/css/style.css') }}">
+
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
 </head>
 
 <body>
@@ -74,7 +77,7 @@
                         <div class="divider">
                             <div class="divider-text">or</div>
                         </div>
-                        <button class="btn btn-block btn-lg custom-btn">Log in</button>
+                        <button class="btn btn-block btn-lg custom-btn"><i class="fa-solid fa-right-to-bracket me-1"></i> Login</button>
 
                     </form>
                     <div class="text-center mt-5">
