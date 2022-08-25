@@ -20,6 +20,9 @@ use App\Http\Controllers\User\About\AboutController;
 use App\Http\Controllers\User\ContactController;
 
 
+// ========= User Controller =========
+use App\Http\Controllers\User\UserHomeController;
+
 Route::group(['middleware' => 'prevent-back-history'], function () {
     // ========= Google Authentication =========
     Route::get('login/google', [GoogleController::class, 'login']);
@@ -40,11 +43,12 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
     Route::get('contact', [contactcontroller::class, 'ContactAdd'])->name('user.contact.add');
     Route::post('contact/store', [contactcontroller::class, 'ContactStore'])->name('user.contact.store');
 
-    // ========= Admin Routes =========
+    // ========= ALL Admin Routes =========
     Route::middleware([
         'auth:sanctum',
         config('jetstream.auth_session'),
-        'verified'
+        'verified',
+        'admin'
     ])->group(function () {
         Route::get('/dashboard', function () {
             return view('admin.index');
@@ -95,6 +99,15 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
         Route::get('inquiries/view', [UserInquiryController::class, 'UserInquiryView'])->name('user.inquiries.view');
         Route::get('inquiries/delete/{id}', [UserInquiryController::class, 'UserInquiryDelete'])->name('user.inquiries.delete');
     }); // End Admin Routes
+
+    // ========= ALL User Routes =========
+    Route::middleware([
+        'auth:sanctum',
+        config('jetstream.auth_session'),
+        'verified',
+    ])->group(function () {
+        Route::get('home', [UserHomeController::class, 'UserHome'])->name('user.welcome');
+    }); // End User Routes
 
     // Logout Route
     Route::get('admin/logout', [AdminController::class, 'Logout'])->name('admin.logout');
