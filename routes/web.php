@@ -34,15 +34,17 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
     Route::get('login/facebook/callback', [FacebookController::class, 'callback']);
 
     // ========= Landing Page =========
-    Route::get('/', [WelcomeController::class, 'WelcomeView'])->name('welcome');
-    //About Routes
-    Route::prefix('about')->group(function () {
-        Route::get('mission-vission', [AboutController::class, 'MissionVissionView'])->name('about.mission.view');
-        Route::get('quality-policy', [AboutController::class, 'QualityPolicyView'])->name('about.quality.view');
-        Route::get('message-sds', [AboutController::class, 'MessageSDSView'])->name('about.message.view');
+    Route::middleware(['guest'])->group(function () {
+        Route::get('/', [WelcomeController::class, 'WelcomeView'])->name('welcome');
+        //About Routes
+        Route::prefix('about')->group(function () {
+            Route::get('mission-vission', [AboutController::class, 'MissionVissionView'])->name('about.mission.view');
+            Route::get('quality-policy', [AboutController::class, 'QualityPolicyView'])->name('about.quality.view');
+            Route::get('message-sds', [AboutController::class, 'MessageSDSView'])->name('about.message.view');
+        });
+        Route::get('contact', [contactcontroller::class, 'ContactAdd'])->name('user.contact.add');
+        Route::post('contact/store', [contactcontroller::class, 'ContactStore'])->name('user.contact.store');
     });
-    Route::get('contact', [contactcontroller::class, 'ContactAdd'])->name('user.contact.add');
-    Route::post('contact/store', [contactcontroller::class, 'ContactStore'])->name('user.contact.store');
 
     // ========= ALL Admin Routes =========
     Route::middleware([
