@@ -22,6 +22,7 @@ use App\Http\Controllers\User\ContactController;
 
 // ========= User Controller =========
 use App\Http\Controllers\User\UserHomeController;
+use App\Http\Controllers\User\UserProfileController;
 
 Route::group(['middleware' => 'prevent-back-history'], function () {
     // ========= Google Authentication =========
@@ -107,6 +108,11 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
         'verified',
     ])->group(function () {
         Route::get('home', [UserHomeController::class, 'UserHome'])->name('user.welcome');
+
+        // Profile Route
+        Route::prefix('profile')->group(function () {
+            Route::get('user/view', [UserProfileController::class, 'ProfileView'])->name('user.profile.view');
+        });
     }); // End User Routes
 
     // Logout Route
