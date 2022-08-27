@@ -21,6 +21,6 @@ class isAdmin
             return $next($request);
         }
 
-        return redirect()->route('user.welcome');
+        return redirect()->route('user.profile.view');
     }
 }
