@@ -118,7 +118,7 @@
                             @else
                             <div class="col-md">
                                 <h4 class="mb-4 text-success"><i class="icon-mid bi bi-shield-fill me-2"></i>Security and Login</h4>
-                                <form class="form-horizontal mt-5" method="POST" action="{{ route('admin.password.update') }}">
+                                <form class="form-horizontal mt-5" method="POST" action="{{ route('user.password.update') }}">
                                     @csrf
                                     <div class="form-group row mb-2">
                                         <label for="current_password" class="col-sm-3 text-right control-label col-form-label">Current Password</label>

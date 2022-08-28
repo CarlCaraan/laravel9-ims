@@ -40,7 +40,7 @@
 
                     <!-- Start Success Message -->
                     @if(session('success'))
-                    <div class="alert alert-success alert-dismissible show fade">
+                    <div class="alert alert-success alert-dismissible show fade" role="alert">
                         {{ session('success') }}
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
@@ -50,7 +50,7 @@
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
                         <div class="form-group form-floating position-relative has-icon-left">
-                            <input type="email" id="email" name="email" class="form-control form-control-xl" placeholder="Email Address" :value="old('email')" autofocus>
+                            <input type="email" id="email" name="email" class="form-control form-control-xl" placeholder="Email Address" value="{{ old('email') }}" autofocus>
                             <div class="form-control-icon">
                                 <i class="bi bi-person"></i>
                             </div>
@@ -95,6 +95,9 @@
         </div>
 
     </div>
+
+    <!-- Bootstrap JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

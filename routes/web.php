@@ -116,6 +116,7 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
             Route::get('user/view', [UserProfileController::class, 'ProfileView'])->name('user.profile.view');
             Route::get('user/edit', [UserProfileController::class, 'ProfileEdit'])->name('user.profile.edit');
             Route::post('user/update', [UserProfileController::class, 'ProfileUpdate'])->name('user.profile.update');
+            Route::post('user/update_password', [UserProfileController::class, 'PasswordUpdate'])->name('user.password.update');
         });
     }); // End User Routes
 
