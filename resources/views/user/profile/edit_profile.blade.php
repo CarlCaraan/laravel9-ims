@@ -1,6 +1,6 @@
 @extends('user.user_master')
 
-@section('title') Edit | Profile @endsection
+@section('title') Edit Profile | Division of Laguna @endsection
 
 @section('content')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
