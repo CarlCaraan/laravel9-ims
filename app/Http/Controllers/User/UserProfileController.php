@@ -98,4 +98,19 @@ class UserProfileController extends Controller
             return redirect()->back()->with($notification);
         }
     } // End Method
+
+    public function RemoveAvatar()
+    {
+        $user = User::find(Auth::user()->id);
+        @unlink(public_path('upload/user_images/' . $user->profile_photo_path));
+        $user->profile_photo_path = NULL;
+        $user->save();
+
+        $notification = array(
+            'message' => 'Image removed successfully!',
+            'alert-type' => 'success',
+        );
+
+        return redirect()->route('user.profile.view')->with($notification);
+    }
 }
