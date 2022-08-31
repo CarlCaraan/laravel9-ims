@@ -7,7 +7,7 @@
 <section id="hero">
     <div class="hero-slider swiper">
         <div class="swiper-wrapper align-items-center">
-            <div class="swiper-slide" style="background-image: url('http://127.0.0.1:8000/upload/user_siteinfo/herosection/{{ (!empty($herosections->image)) ? $herosections->image : 'default_photo.png' }}');"></div>
+            <div class="swiper-slide" style="background-image: url('/upload/user_siteinfo/herosection/{{ (!empty($herosections->image)) ? $herosections->image : 'default_photo.png' }}');"></div>
         </div>
         <div class="swiper-pagination"></div>
         <div class="swiper-button-next"></div>
