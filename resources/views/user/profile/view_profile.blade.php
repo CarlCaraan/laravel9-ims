@@ -38,7 +38,7 @@
                             <img class="img-fluid rounded-circle mb-2" style="width: 80px; height: 80px;" src="{{ url('upload/user_images/'.$user->profile_photo_path) }}" alt="User Avatar">
                             @else
                             <br>
-                            <span class="avatar-content bg-warning rounded-circle p-4">{{ substr($user->first_name,0,1) . substr($user->last_name,0,1)}}</span>
+                            <span class="avatar-content bg-light shadow-sm rounded-circle p-4">{{ substr($user->first_name,0,1) . substr($user->last_name,0,1)}}</span>
                             <br><br>
                             @endif
                         </div>

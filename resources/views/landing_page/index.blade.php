@@ -5,22 +5,9 @@
 @section('content')
 <!-- ======= hero Section ======= -->
 <section id="hero">
-
-    <!-- <div class="hero-content" data-aos="fade-up">
-        <h2>Making <span>your ideas</span><br>happen!</h2>
-        <div>
-            <a href="#about" class="btn-get-started scrollto">Get Started</a>
-            <a href="#portfolio" class="btn-projects scrollto">Our Projects</a>
-        </div>
-    </div> -->
-
     <div class="hero-slider swiper">
         <div class="swiper-wrapper align-items-center">
-            <div class="swiper-slide" style="background-image: url('https://www.deped.gov.ph/wp-content/uploads/2021/11/banner.jpg');"></div>
-            <!-- <div class="swiper-slide" style="background-image: url('{{ asset('landing_page/assets/img/hero-carousel/2.jpg') }}');"></div>
-            <div class="swiper-slide" style="background-image: url('{{ asset('landing_page/assets/img/hero-carousel/3.jpg') }}');"></div>
-            <div class="swiper-slide" style="background-image: url('{{ asset('landing_page/assets/img/hero-carousel/4.jpg') }}');"></div>
-            <div class="swiper-slide" style="background-image: url('{{ asset('landing_page/assets/img/hero-carousel/5.jpg') }}');"></div> -->
+            <div class="swiper-slide" style="background-image: url('http://127.0.0.1:8000/upload/user_siteinfo/herosection/{{ (!empty($herosections->image)) ? $herosections->image : 'default_photo.png' }}');"></div>
         </div>
         <div class="swiper-pagination"></div>
         <div class="swiper-button-next"></div>
