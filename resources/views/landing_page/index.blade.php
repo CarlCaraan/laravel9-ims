@@ -25,7 +25,7 @@
         <div class="row">
             <div class="col-lg-6 about-img">
                 <!-- <img src="{{ asset('landing_page/assets/img/about-img.jpg') }}" alt=""> -->
-                <img src="http://depedbenguet.com/wp-content/uploads/2017/03/SDS-grad-pics-300x300.png}" alt="">
+                <img src="http://depedbenguet.com/wp-content/uploads/2017/03/SDS-grad-pics-300x300.png}" alt="sds_image">
             </div>
 
             <div class="col-lg-6 content">
