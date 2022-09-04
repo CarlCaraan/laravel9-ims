@@ -19,7 +19,6 @@ use App\Http\Controllers\Admin\SiteInfo\UserInquiryController;
 use App\Http\Controllers\User\About\AboutController;
 use App\Http\Controllers\User\ContactController;
 
-
 // ========= User Controller =========
 use App\Http\Controllers\User\UserHomeController;
 use App\Http\Controllers\User\UserProfileController;
