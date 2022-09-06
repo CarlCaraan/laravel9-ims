@@ -43,3 +43,37 @@ body {
 #hero .hero-slider {
     height: 70vh !important;
 }
+
+/* ========= Navigation ========= */
+.nav-link.active {
+    color: var(--primary-app-color);
+}
+.nav-link:hover {
+    color: var(--primary-app-color);
+}
+/* ========= Side Navigation ========= */
+.side-navlink {
+    border-left: 4px solid #fff !important;
+    background: #fff !important;
+    color: #acacac;
+}
+.side-navlink.active {
+    border-left: 4px solid var(--primary-app-color) !important;
+    border-block: 1px solid #d1d1d1;
+    border-right: 1px solid #d1d1d1;
+    font-weight: 700;
+    color: #191919 !important;
+    background: #fff !important;
+}
+.side-navlink:hover {
+    color: #acacac;
+    box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.2);
+}
+
+/* ========= Request Form ========= */
+.request-form-label {
+    font-weight: 700;
+    font-size: 12.5px;
+}
