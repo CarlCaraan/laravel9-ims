@@ -59,7 +59,7 @@
                                                 <label for="last_name" class="form-label request-form-label">Surname*</label>
                                                 <input class="form-control" type="text" name="last_name" value="{{ ($user->last_name != '') ? $user->last_name : old('last_name')  }}" disabled>
                                                 @error('last_name')
-                                                <span class="text-danger">{{ $message }}</span>
+                                                <small class="text-danger">{{ $message }}</small>
                                                 @enderror
                                             </div>
                                         </div>
@@ -68,7 +68,7 @@
                                                 <label for="first_name" class="form-label request-form-label">First Name*</label>
                                                 <input class="form-control" type="text" name="first_name" value="{{ ($user->first_name != '') ? $user->first_name : old('first_name')  }}" disabled>
                                                 @error('first_name')
-                                                <span class="text-danger">{{ $message }}</span>
+                                                <small class="text-danger">{{ $message }}</small>
                                                 @enderror
                                             </div>
                                         </div>
@@ -77,7 +77,7 @@
                                                 <label for="middle_name" class="form-label request-form-label">Middle Name*</label>
                                                 <input class="form-control" type="text" name="middle_name" value="{{ ($personal->middle_name != '') ? $personal->middle_name : old('middle_name') }}" disabled>
                                                 @error('middle_name')
-                                                <span class="text-danger">{{ $message }}</span>
+                                                <small class="text-danger">{{ $message }}</small>
                                                 @enderror
                                             </div>
                                         </div>
@@ -94,24 +94,30 @@
                                                 <label for="dob" class="form-label request-form-label">Date of Birth*</label>
                                                 <input class="form-control" type="text" id="flatpickr" name="dob" value="{{ ($personal->dob != '') ? $personal->dob : old('dob') }}" placeholder="Select Date" disabled>
                                                 @error('dob')
-                                                <span class="text-danger">{{ $message }}</span>
+                                                <small class="text-danger">{{ $message }}</small>
                                                 @enderror
                                             </div>
                                         </div>
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label for="pob" class="form-label request-form-label">Place of Birth*</label>
-                                                <input class="form-control" type="text" name="pob" value="{{ $user->pob }}" disabled>
+                                                <input class="form-control" type="text" name="pob" value="{{ ($personal->pob != '') ? $personal->pob : old('pob') }}" disabled>
+                                                @error('pob')
+                                                <small class="text-danger">{{ $message }}</small>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="col-3">
                                             <div class="form-group">
                                                 <label for="gender" class="form-label request-form-label">Sex*</label>
                                                 <select class="form-select" name="gender" disabled>
-                                                    <option value="" selected>Choose Gender</option>
+                                                    <option value="" selected>Choose</option>
                                                     <option value="Male" {{ ($user->gender == "Male") ? "selected" : "" }}>Male</option>
                                                     <option value="Female" {{ ($user->gender == "Female") ? "selected" : "" }}>Female</option>
                                                 </select>
+                                                @error('gender')
+                                                <small class="text-danger">{{ $message }}</small>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
@@ -127,24 +133,36 @@
                                                     <option value="Separated" {{ ($personal->civil_status == "Separated") ? "selected" : "" }}>Separated</option>
                                                     <option value="Other" {{ ($personal->civil_status == "Other") ? "selected" : "" }}>Other/s:</option>
                                                 </select>
+                                                @error('civil_status')
+                                                <small class="text-danger">{{ $message }}</small>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="col-3">
                                             <div class="form-group">
                                                 <label for="height" class="form-label request-form-label">Height*</label>
-                                                <input class="form-control" type="text" name="height" value="{{ $personal->height }}" disabled>
+                                                <input class="form-control" type="text" name="height" value="{{ ($personal->height != '') ? $personal->height : old('height') }}" disabled>
+                                                @error('height')
+                                                <small class="text-danger">{{ $message }}</small>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="col-3">
                                             <div class="form-group">
                                                 <label for="weight" class="form-label request-form-label">Weight*</label>
-                                                <input class="form-control" type="text" name="weight" value="{{ $personal->weight }}" disabled>
+                                                <input class="form-control" type="text" name="weight" value="{{ ($personal->weight != '') ? $personal->weight : old('weight') }}" disabled>
+                                                @error('weight')
+                                                <small class="text-danger">{{ $message }}</small>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="col-3">
                                             <div class="form-group">
                                                 <label for="blood_type" class="form-label request-form-label">Blood Type*</label>
-                                                <input class="form-control" type="text" name="blood_type" value="{{ $personal->blood_type }}" disabled>
+                                                <input class="form-control" type="text" name="blood_type" value="{{ ($personal->blood_type != '') ? $personal->blood_type : old('blood_type') }}" disabled>
+                                                @error('blood_type')
+                                                <small class="text-danger">{{ $message }}</small>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
@@ -152,19 +170,28 @@
                                         <div class="col-4">
                                             <div class="form-group">
                                                 <label for="gsis_id_no" class="form-label request-form-label">GSIS ID No.*</label>
-                                                <input class="form-control" type="text" value="{{ $personal->gsis_id_no }}" disabled>
+                                                <input class="form-control" type="text" name="gsis_id_no" value="{{ ($personal->gsis_id_no != '') ? $personal->gsis_id_no : old('gsis_id_no') }}" disabled>
+                                                @error('gsis_id_no')
+                                                <small class="text-danger">{{ $message }}</small>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="col-4">
                                             <div class="form-group">
                                                 <label for="pagibig_id_no" class="form-label request-form-label">PAG-IBIG ID No.*</label>
-                                                <input class="form-control" type="text" value="{{ $personal->pagibig_id_no }}" disabled>
+                                                <input class="form-control" type="text" name="pagibig_id_no" value="{{ ($personal->pagibig_id_no != '') ? $personal->pagibig_id_no : old('pagibig_id_no') }}" disabled>
+                                                @error('pagibig_id_no')
+                                                <small class="text-danger">{{ $message }}</small>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="col-4">
                                             <div class="form-group">
                                                 <label for="philhealth_no" class="form-label request-form-label">PHILHEALTH No.*</label>
-                                                <input class="form-control" type="text" value="{{ $personal->philhealth_no }}" disabled>
+                                                <input class="form-control" type="text" name="philhealth_no" value="{{ ($personal->philhealth_no != '') ? $personal->philhealth_no : old('philhealth_no') }}" disabled>
+                                                @error('philhealth_no')
+                                                <small class="text-danger">{{ $message }}</small>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
@@ -172,24 +199,33 @@
                                         <div class="col-4">
                                             <div class="form-group">
                                                 <label for="sss_no" class="form-label request-form-label">SSS No.*</label>
-                                                <input class="form-control" type="text" value="{{ $personal->sss_no }}" disabled>
+                                                <input class="form-control" type="text" name="sss_no" value="{{ ($personal->sss_no != '') ? $personal->sss_no : old('sss_no') }}" disabled>
+                                                @error('sss_no')
+                                                <small class="text-danger">{{ $message }}</small>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="col-4">
                                             <div class="form-group">
                                                 <label for="tin_no" class="form-label request-form-label">TIN No.*</label>
-                                                <input class="form-control" type="text" value="{{ $personal->tin_no }}" disabled>
+                                                <input class="form-control" type="text" name="tin_no" value="{{ ($personal->tin_no != '') ? $personal->tin_no : old('tin_no') }}" disabled>
+                                                @error('tin_no')
+                                                <small class="text-danger">{{ $message }}</small>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="col-4">
                                             <div class="form-group">
                                                 <label for="agency_employee_no" class="form-label request-form-label">AGENCY EMPLOYEE No.*</label>
-                                                <input class="form-control" type="text" value="{{ $personal->agency_employee_no }}" disabled>
+                                                <input class="form-control" type="text" name="agency_employee_no" value="{{ ($personal->agency_employee_no != '') ? $personal->agency_employee_no : old('agency_employee_no') }}" disabled>
+                                                @error('agency_employee_no')
+                                                <small class="text-danger">{{ $message }}</small>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row mb-2">
-                                        <div class="col-6">
+                                        <div class="col-8">
                                             <label for="citizenship" class="form-label request-form-label">Citizenship*</label>
                                             <div class="row">
                                                 <div class="col-md-6">
@@ -225,7 +261,7 @@
                                                 <div class="col-6">
                                                     <div class="form-group">
                                                         <label for="citizenship_country" class="form-label request-form-label">Pls indicate country.*</label>
-                                                        <select class="form-select" disabled>
+                                                        <select class="form-select" name="citizenship_country" disabled>
                                                             <option value="" selected>Select</option>
                                                             <option value="Afghanistan">Afghanistan</option>
                                                             <option value="Åland Islands">Åland Islands</option>
@@ -472,6 +508,9 @@
                                                             <option value="Zambia">Zambia</option>
                                                             <option value="Zimbabwe">Zimbabwe</option>
                                                         </select>
+                                                        @error('citizenship_country')
+                                                        <small class="text-danger">{{ $message }}</small>
+                                                        @enderror
                                                     </div>
                                                 </div>
                                             </div>
@@ -482,13 +521,19 @@
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label for="r_house_no" class="form-label request-form-label">House/Block/Lot No.*</label>
-                                                <input class="form-control" type="text" name="" value="{{ $personal->r_house_no }}" disabled>
+                                                <input class="form-control" type="text" name="" value="{{ ($personal->r_house_no != '') ? $personal->r_house_no : old('r_house_no') }}" disabled>
+                                                @error('r_house_no')
+                                                <small class="text-danger">{{ $message }}</small>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label for="r_street" class="form-label request-form-label">Street*</label>
-                                                <input class="form-control" type="text" name="" value="{{ $personal->r_street }}" disabled>
+                                                <input class="form-control" type="text" name="" value="{{ ($personal->r_street != '') ? $personal->r_street : old('r_street') }}" disabled>
+                                                @error('r_street')
+                                                <small class="text-danger">{{ $message }}</small>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
@@ -496,13 +541,19 @@
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label for="r_subdivision" class="form-label request-form-label">Subdivision/Village*</label>
-                                                <input class="form-control" type="text" name="r_subdivision" value="{{ $personal->r_subdivision }}" disabled>
+                                                <input class="form-control" type="text" name="r_subdivision" value="{{ ($personal->r_subdivision != '') ? $personal->r_subdivision : old('r_subdivision') }}" disabled>
+                                                @error('r_subdivision')
+                                                <small class="text-danger">{{ $message }}</small>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label for="r_barangay" class="form-label request-form-label">Barangay*</label>
-                                                <input class="form-control" type="text" name="r_barangay" value="{{ $personal->r_barangay }}" disabled>
+                                                <input class="form-control" type="text" name="r_barangay" value="{{ ($personal->r_barangay != '') ? $personal->r_barangay : old('r_barangay') }}" disabled>
+                                                @error('r_barangay')
+                                                <small class="text-danger">{{ $message }}</small>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
@@ -510,19 +561,28 @@
                                         <div class="col-5">
                                             <div class="form-group">
                                                 <label for="r_city" class="form-label request-form-label">City/Municipality*</label>
-                                                <input class="form-control" type="text" name="r_city" value="{{ $user->r_city }}" disabled>
+                                                <input class="form-control" type="text" name="r_city" value="{{ ($personal->r_city != '') ? $personal->r_city : old('r_city') }}" disabled>
+                                                @error('r_city')
+                                                <small class="text-danger">{{ $message }}</small>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="col-5">
                                             <div class="form-group">
                                                 <label for="r_province" class="form-label request-form-label">Province*</label>
-                                                <input class="form-control" type="text" name="r_province" value="{{ $personal->r_province }}" disabled>
+                                                <input class="form-control" type="text" name="r_province" value="{{ ($personal->r_province != '') ? $personal->r_province : old('r_province') }}" disabled>
+                                                @error('r_province')
+                                                <small class="text-danger">{{ $message }}</small>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="col-2">
                                             <div class="form-group">
                                                 <label for="r_zipcode" class="form-label request-form-label">Zip Code*</label>
-                                                <input class="form-control" type="text" name="r_zipcode" value="{{ $personal->r_zipcode }}" disabled>
+                                                <input class="form-control" type="text" name="r_zipcode" value="{{ ($personal->r_zipcode != '') ? $personal->r_zipcode : old('r_zipcode') }}" disabled>
+                                                @error('r_zipcode')
+                                                <small class="text-danger">{{ $message }}</small>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
@@ -531,13 +591,19 @@
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label for="p_house_no" class="form-label request-form-label">House/Block/Lot No.*</label>
-                                                <input class="form-control" type="text" name="p_house_no" value="{{ $personal->p_house_no }}" disabled>
+                                                <input class="form-control" type="text" name="p_house_no" value="{{ ($personal->p_house_no != '') ? $personal->p_house_no : old('p_house_no') }}" disabled>
+                                                @error('p_house_no')
+                                                <small class="text-danger">{{ $message }}</small>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label for="p_street" class="form-label request-form-label">Street*</label>
-                                                <input class="form-control" type="text" name="p_street" value="{{ $personal->p_street }}" disabled>
+                                                <input class="form-control" type="text" name="p_street" value="{{ ($personal->p_street != '') ? $personal->p_street : old('p_street') }}" disabled>
+                                                @error('p_street')
+                                                <small class="text-danger">{{ $message }}</small>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
@@ -545,13 +611,19 @@
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label for="p_subdivision" class="form-label request-form-label">Subdivision/Village*</label>
-                                                <input class="form-control" type="text" name="p_subdivision" value="{{ $user->p_subdivision }}" disabled>
+                                                <input class="form-control" type="text" name="p_subdivision" value="{{ ($personal->p_subdivision != '') ? $personal->p_subdivision : old('p_subdivision') }}" disabled>
+                                                @error('p_subdivision')
+                                                <small class="text-danger">{{ $message }}</small>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label for="p_barangay" class="form-label request-form-label">Barangay*</label>
-                                                <input class="form-control" type="text" name="p_barangay" value="{{ $personal->p_barangay }}" disabled>
+                                                <input class="form-control" type="text" name="p_barangay" value="{{ ($personal->p_barangay != '') ? $personal->p_barangay : old('p_barangay') }}" disabled>
+                                                @error('p_barangay')
+                                                <small class="text-danger">{{ $message }}</small>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
@@ -559,19 +631,28 @@
                                         <div class="col-5">
                                             <div class="form-group">
                                                 <label for="p_city" class="form-label request-form-label">City/Municipality*</label>
-                                                <input class="form-control" type="text" name="p_city" value="{{ $personal->p_city }}" disabled>
+                                                <input class="form-control" type="text" name="p_city" value="{{ ($personal->p_city != '') ? $personal->p_city : old('p_city') }}" disabled>
+                                                @error('p_city')
+                                                <small class="text-danger">{{ $message }}</small>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="col-5">
                                             <div class="form-group">
                                                 <label for="p_province" class="form-label request-form-label">Province*</label>
-                                                <input class="form-control" type="text" name="p_province" value="{{ $personal->p_province }}" disabled>
+                                                <input class="form-control" type="text" name="p_province" value="{{ ($personal->p_province != '') ? $personal->p_province : old('p_province') }}" disabled>
+                                                @error('p_province')
+                                                <small class="text-danger">{{ $message }}</small>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="col-2">
                                             <div class="form-group">
                                                 <label for="p_zipcode" class="form-label request-form-label">Zip Code*</label>
-                                                <input class="form-control" type="text" name="p_zipcode" value="{{ $personal->p_zipcode }}" disabled>
+                                                <input class="form-control" type="text" name="p_zipcode" value="{{ ($personal->p_zipcode != '') ? $personal->p_zipcode : old('p_zipcode') }}" disabled>
+                                                @error('p_zipcode')
+                                                <small class="text-danger">{{ $message }}</small>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
@@ -580,19 +661,28 @@
                                         <div class="col-4">
                                             <div class="form-group">
                                                 <label for="telephone" class="form-label request-form-label">Telephone No.*</label>
-                                                <input class="form-control" type="text" name="telephone" value="{{ $personal->telephone }}" disabled>
+                                                <input class="form-control" type="text" name="telephone" value="{{ ($personal->telephone != '') ? $personal->telephone : old('telephone') }}" placeholder="Optional" disabled>
+                                                @error('telephone')
+                                                <small class="text-danger">{{ $message }}</small>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="col-4">
                                             <div class="form-group">
                                                 <label for="mobile" class="form-label request-form-label">Mobile No*</label>
-                                                <input class="form-control" type="text" name="mobile" value="{{ $personal->mobile }}" disabled>
+                                                <input class="form-control" type="text" name="mobile" value="{{ ($personal->mobile != '') ? $personal->mobile : old('mobile') }}" disabled>
+                                                @error('mobile')
+                                                <small class="text-danger">{{ $message }}</small>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="col-4">
                                             <div class="form-group">
-                                                <label for="first_name" class="form-label request-form-label">Email (If any)*</label>
-                                                <input class="form-control" type="text" name="contact_email" value="{{ $personal->contact_email }}" placeholder="Optional" disabled>
+                                                <label for="contact_email" class="form-label request-form-label">Email (If any)*</label>
+                                                <input class="form-control" type="text" name="contact_email" value="{{ ($personal->contact_email != '') ? $personal->contact_email : old('contact_email') }}" placeholder="Optional" disabled>
+                                                @error('contact_email')
+                                                <small class="text-danger">{{ $message }}</small>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
