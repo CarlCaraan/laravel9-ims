@@ -54,9 +54,10 @@ class UserHomeController extends Controller
         $personal->tin_no = $request->tin_no;
         $personal->agency_employee_no = $request->agency_employee_no;
         $personal->pagibig_id_no = $request->pagibig_id_no;
-
-        $personal->citizenship = $request->citizenship;
-
+        $personal->by_filipino = $request->by_filipino; // Citizenship
+        $personal->by_dual_citizenship = $request->by_dual_citizenship; // Citizenship
+        $personal->by_birth = $request->by_birth; // Citizenship
+        $personal->by_naturalization = $request->by_naturalization; // Citizenship
         $personal->citizenship_country = $request->citizenship_country;
         $personal->r_house_no = $request->r_house_no;
         $personal->r_street = $request->r_street;

@@ -31,7 +31,10 @@ return new class extends Migration
             $table->string('sss_no')->nullable();
             $table->string('tin_no')->nullable();
             $table->string('agency_employee_no')->nullable();
-            $table->string('citizenship')->nullable();
+            $table->string('by_filipino')->nullable();
+            $table->string('by_dual_citizenship')->nullable();
+            $table->string('by_birth')->nullable();
+            $table->string('by_naturalization')->nullable();
             $table->string('citizenship_country')->nullable();
 
             // Residential Address

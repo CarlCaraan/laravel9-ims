@@ -232,28 +232,28 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" value="Filipino" name="citizenship" id="option1" disabled>
-                                                        <label class="form-check-label" for="option1">
+                                                        <input class="form-check-input" type="checkbox" value="Filipino" name="by_filipino" id="by_filipino" disabled {{ ($personal->by_filipino == "Filipino" || old('by_filipino') == "Filipino") ? "checked" : "" }}>
+                                                        <label class="form-check-label" for="by_filipino">
                                                             Filipino
                                                         </label>
                                                     </div>
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" value="Dual Citizenship" name="citizenship" id="option2" disabled>
-                                                        <label class="form-check-label" for="option2">
+                                                        <input class="form-check-input" type="checkbox" value="Dual Citizenship" name="by_dual_citizenship" id="by_dual_citizenship" disabled {{ ($personal->by_dual_citizenship == "Dual Citizenship" || old('by_dual_citizenship') == "Dual Citizenship") ? "checked" : "" }}>
+                                                        <label class="form-check-label" for="by_dual_citizenship">
                                                             Dual Citizenship
                                                         </label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" value="" id="option3" disabled>
-                                                        <label class="form-check-label" for="option3">
+                                                        <input class="form-check-input" type="checkbox" value="By Birth" name="by_birth" id="by_birth" disabled {{ ($personal->by_birth == "By Birth" || old('by_birth') == "By Birth") ? "checked" : "" }}>
+                                                        <label class="form-check-label" for="by_birth">
                                                             by birth
                                                         </label>
                                                     </div>
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" value="" id="option4" disabled>
-                                                        <label class="form-check-label" for="option4">
+                                                        <input class="form-check-input" type="checkbox" value="By Naturalization" name="by_naturalization" id="by_naturalization" disabled {{ ($personal->by_naturalization == "By Naturalization" || old('by_naturalization') == "By Naturalization") ? "checked" : "" }}>
+                                                        <label class="form-check-label" for="by_naturalization">
                                                             by naturalization
                                                         </label>
                                                     </div>
