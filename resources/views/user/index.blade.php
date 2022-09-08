@@ -679,7 +679,7 @@
                                         <div class="col-4">
                                             <div class="form-group">
                                                 <label for="contact_email" class="form-label request-form-label">Email (If any)*</label>
-                                                <input class="form-control" type="text" name="contact_email" value="{{ ($personal->contact_email != '') ? $personal->contact_email : old('contact_email') }}" placeholder="Optional" disabled>
+                                                <input class="form-control" type="email" name="contact_email" value="{{ ($personal->contact_email != '') ? $personal->contact_email : old('contact_email') }}" placeholder="Optional" disabled>
                                                 @error('contact_email')
                                                 <small class="text-danger">{{ $message }}</small>
                                                 @enderror

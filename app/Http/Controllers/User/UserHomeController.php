@@ -55,15 +55,16 @@ class UserHomeController extends Controller
                 'r_barangay' => 'required',
                 'r_city' => 'required',
                 'r_province' => 'required',
-                'r_zipcode' => 'required',
+                'r_zipcode' => 'required|numeric',
                 'p_house_no' => 'required',
                 'p_street' => 'required',
                 'p_subdivision' => 'required',
                 'p_barangay' => 'required',
                 'p_city' => 'required',
                 'p_province' => 'required',
-                'p_zipcode' => 'required',
-                'mobile' => 'required',
+                'p_zipcode' => 'required|numeric',
+                'mobile' => 'required|numeric',
+                'telephone' => 'numeric',
             ],
             // ~Custom Error messages
             [
@@ -92,6 +93,7 @@ class UserHomeController extends Controller
                 'r_city.required' => 'City field is required.',
                 'r_province.required' => 'Province field is required.',
                 'r_zipcode.required' => 'Zip Code field is required.',
+                'r_zipcode.numeric' => 'Zip Code must be a number.',
                 'p_house_no.required' => 'House No. field is required.',
                 'p_street.required' => 'Street field is required.',
                 'p_subdivision.required' => 'Subdivision field is required.',
@@ -99,7 +101,10 @@ class UserHomeController extends Controller
                 'p_city.required' => 'City field is required.',
                 'p_province.required' => 'Province field is required.',
                 'p_zipcode.required' => 'Zip Code field is required.',
+                'p_zipcode.numeric' => 'Zip Code must be a number.',
                 'mobile.required' => 'Mobile field is required.',
+                'mobile.numeric' => 'Mobile must be a number.',
+                'telephone.numeric' => 'Telephone must be a number.',
             ]
         );
 
