@@ -19,11 +19,14 @@
     <div class="container">
         <div class="section-header">
             <h2>Personal Data Sheet</h2>
-            <small>
-                CS Form No. 212
-                <br />
-                Revised 2017
-            </small>
+            <div class="alert alert-warning" role="alert">
+                <strong>WARNING:</strong> Any misrepresentation made in the Personal Data Sheet and the Work Experience Sheet shall cause the filing
+                of administrative/criminal case/s against the person concerned.
+            </div>
+            <span class="custom-heading-label">
+                READ THE ATTACHED GUIDE TO FILLING OUT THE PERSONAL DATA SHEET (PDS) BEFORE ACCOMPLISHING THE PDS FORM.
+            </span>
+
         </div>
 
         <div class="row">
@@ -41,16 +44,15 @@
                         <div class="card shadow-sm border-0">
                             <div class="card-header">
                                 <span class="float-start mt-2 fw-bold">I.) Personal Information</span>
-                                <button class="btn btn-success text-light float-end" id="btn-edit">Edit</button>
+                                <button class="btn custom-btn text-light float-end" id="btn-edit">Edit</button>
                             </div>
                             <div class="card-body">
-                                <div class="alert alert-warning" role="alert">
-                                    <strong>WARNING:</strong> Any misrepresentation made in the Personal Data Sheet and the Work Experience Sheet shall cause the filing
-                                    of administrative/criminal case/s against the person concerned.
-                                </div>
-                                <span class="custom-heading-label">
-                                    READ THE ATTACHED GUIDE TO FILLING OUT THE PERSONAL DATA SHEET (PDS) BEFORE ACCOMPLISHING THE PDS FORM.
-                                </span>
+                                <small class="float-end">
+                                    CS Form No. 212
+                                    <br />
+                                    Revised 2017
+                                </small>
+                                <br />
                                 <form class="mt-4" action="{{ route('personal.datasheet.update') }}" method="POST">
                                     @csrf
                                     <div class="row mb-2">
@@ -112,8 +114,8 @@
                                                 <label for="gender" class="form-label request-form-label">Sex*</label>
                                                 <select class="form-select" name="gender" disabled>
                                                     <option value="" selected>Choose</option>
-                                                    <option value="Male" {{ ($user->gender == "Male") ? "selected" : "" }}>Male</option>
-                                                    <option value="Female" {{ ($user->gender == "Female") ? "selected" : "" }}>Female</option>
+                                                    <option value="Male" {{ ($user->gender == "Male" || old('gender') == "Male") ? "selected" : "" }}>Male</option>
+                                                    <option value="Female" {{ ($user->gender == "Female" || old('gender') == "Female") ? "selected" : "" }}>Female</option>
                                                 </select>
                                                 @error('gender')
                                                 <small class="text-danger">{{ $message }}</small>
@@ -125,13 +127,13 @@
                                         <div class="col-3">
                                             <div class="form-group">
                                                 <label for="civil_status" class="form-label request-form-label">Civil Status*</label>
-                                                <select class="form-select" name="civil_status" disabled>
+                                                <select class="form-select" name="civil_status" disabled required>
                                                     <option value="" selected>Select</option>
-                                                    <option value="Single" {{ ($personal->civil_status == "Single") ? "selected" : "" }}>Single</option>
-                                                    <option value="Married" {{ ($personal->civil_status == "Married") ? "selected" : "" }}>Married</option>
-                                                    <option value="Widowed" {{ ($personal->civil_status == "Widowed") ? "selected" : "" }}>Widowed</option>
-                                                    <option value="Separated" {{ ($personal->civil_status == "Separated") ? "selected" : "" }}>Separated</option>
-                                                    <option value="Other" {{ ($personal->civil_status == "Other") ? "selected" : "" }}>Other/s:</option>
+                                                    <option value="Single" {{ ($personal->civil_status == "Single" || old('civil_status') == "Single") ? "selected" : "" }}>Single</option>
+                                                    <option value="Married" {{ ($personal->civil_status == "Married" || old('civil_status') == "Married") ? "selected" : "" }}>Married</option>
+                                                    <option value="Widowed" {{ ($personal->civil_status == "Widowed" || old('civil_status') == "Widowed") ? "selected" : "" }}>Widowed</option>
+                                                    <option value="Separated" {{ ($personal->civil_status == "Separated" || old('civil_status') == "Separated") ? "selected" : "" }}>Separated</option>
+                                                    <option value="Other" {{ ($personal->civil_status == "Other" || old('civil_status') == "Other") ? "selected" : "" }}>Other/s:</option>
                                                 </select>
                                                 @error('civil_status')
                                                 <small class="text-danger">{{ $message }}</small>
@@ -521,7 +523,7 @@
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label for="r_house_no" class="form-label request-form-label">House/Block/Lot No.*</label>
-                                                <input class="form-control" type="text" name="" value="{{ ($personal->r_house_no != '') ? $personal->r_house_no : old('r_house_no') }}" disabled>
+                                                <input class="form-control" type="text" name="r_house_no" value="{{ ($personal->r_house_no != '') ? $personal->r_house_no : old('r_house_no') }}" disabled>
                                                 @error('r_house_no')
                                                 <small class="text-danger">{{ $message }}</small>
                                                 @enderror
@@ -530,7 +532,7 @@
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label for="r_street" class="form-label request-form-label">Street*</label>
-                                                <input class="form-control" type="text" name="" value="{{ ($personal->r_street != '') ? $personal->r_street : old('r_street') }}" disabled>
+                                                <input class="form-control" type="text" name="r_street" value="{{ ($personal->r_street != '') ? $personal->r_street : old('r_street') }}" disabled>
                                                 @error('r_street')
                                                 <small class="text-danger">{{ $message }}</small>
                                                 @enderror
@@ -578,9 +580,9 @@
                                         </div>
                                         <div class="col-2">
                                             <div class="form-group">
-                                                <label for="r_zipcode" class="form-label request-form-label">Zip Code*</label>
-                                                <input class="form-control" type="text" name="r_zipcode" value="{{ ($personal->r_zipcode != '') ? $personal->r_zipcode : old('r_zipcode') }}" disabled>
-                                                @error('r_zipcode')
+                                                <label for="r_zip_code" class="form-label request-form-label">Zip Code*</label>
+                                                <input class="form-control" type="text" name="r_zip_code" value="{{ ($personal->r_zip_code != '') ? $personal->r_zip_code : old('r_zip_code') }}" disabled>
+                                                @error('r_zip_code')
                                                 <small class="text-danger">{{ $message }}</small>
                                                 @enderror
                                             </div>
@@ -648,9 +650,9 @@
                                         </div>
                                         <div class="col-2">
                                             <div class="form-group">
-                                                <label for="p_zipcode" class="form-label request-form-label">Zip Code*</label>
-                                                <input class="form-control" type="text" name="p_zipcode" value="{{ ($personal->p_zipcode != '') ? $personal->p_zipcode : old('p_zipcode') }}" disabled>
-                                                @error('p_zipcode')
+                                                <label for="p_zip_code" class="form-label request-form-label">Zip Code*</label>
+                                                <input class="form-control" type="text" name="p_zip_code" value="{{ ($personal->p_zip_code != '') ? $personal->p_zip_code : old('p_zip_code') }}" disabled>
+                                                @error('p_zip_code')
                                                 <small class="text-danger">{{ $message }}</small>
                                                 @enderror
                                             </div>
@@ -686,7 +688,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-success text-light float-end" id="btn-update" style="display:none;">Update</button>
+                                    <button type="submit" class="btn custom-btn text-light float-end" id="btn-update" style="display:none;">Update</button>
                                 </form>
                             </div>
                         </div>
