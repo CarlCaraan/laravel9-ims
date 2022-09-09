@@ -4,11 +4,13 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Requests\UpdatePersonalInfoRequest;
 use App\Models\User;
 use App\Models\PersonalInfo;
 use App\Models\FamilyInfo;
 use Auth;
+
+use App\Http\Requests\UpdatePersonalInfoRequest;
+use App\Http\Requests\UpdateFamilyInfoRequest;
 
 class UserHomeController extends Controller
 {
@@ -89,6 +91,37 @@ class UserHomeController extends Controller
 
         $notification = array(
             'message' => 'Personal Information Updated Successfully',
+            'alert-type' => 'success',
+        );
+        return redirect()->route('user.welcome')->with($notification);
+    } // End Method
+
+    public function FamilyDatasheetUpdate(UpdateFamilyInfoRequest $request)
+    {
+        $family = FamilyInfo::where('user_id', Auth::user()->id)->first();
+        $family->spouse_lname = $request->spouse_lname;
+        $family->spouse_fname = $request->spouse_fname;
+        $family->spouse_mname = $request->spouse_mname;
+        $family->spouse_ename = $request->spouse_ename;
+        $family->occupation = $request->occupation;
+        $family->employer_name = $request->employer_name;
+        $family->business_address = $request->business_address;
+        $family->telephone = $request->telephone;
+
+        $family->father_lname = $request->father_lname;
+        $family->father_fname = $request->father_fname;
+        $family->father_mname = $request->father_mname;
+        $family->father_ename = $request->father_ename;
+
+        $family->mother_lname = $request->mother_lname;
+        $family->mother_fname = $request->mother_fname;
+        $family->mother_mname = $request->mother_mname;
+        $family->mother_maiden_name = $request->mother_maiden_name;
+
+        $family->save();
+
+        $notification = array(
+            'message' => 'Family Background Updated Successfully',
             'alert-type' => 'success',
         );
         return redirect()->route('user.welcome')->with($notification);

@@ -27,6 +27,17 @@
                 READ THE ATTACHED GUIDE TO FILLING OUT THE PERSONAL DATA SHEET (PDS) BEFORE ACCOMPLISHING THE PDS FORM.
             </span>
 
+            <!-- Start Error Message Validation -->
+            @if ($errors->any())
+            <div class="text-danger mt-2">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
+            <!-- End Error Message Validation -->
         </div>
 
         <div class="row">
@@ -463,7 +474,7 @@
                                 <button class="btn custom-btn text-light float-end btn-edit">Edit</button>
                             </div>
                             <div class="card-body">
-                                <form class="mt-4" action="{{ route('personal.datasheet.update') }}" method="POST">
+                                <form class="mt-4" action="{{ route('family.datasheet.update') }}" method="POST">
                                     @csrf
                                     <div class="row mb-2">
                                         <span><i>Spouse Information:</i></span>
