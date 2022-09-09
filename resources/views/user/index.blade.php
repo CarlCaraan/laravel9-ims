@@ -40,11 +40,13 @@
             </div>
             <div class="col-md-9">
                 <div class="tab-content" id="v-pills-tabContent">
+
+                    <!-- ========= Start Personal Information ========= -->
                     <div class="tab-pane fade show active" id="v-pills-personal" role="tabpanel" aria-labelledby="v-pills-personal-tab">
                         <div class="card shadow-sm border-0">
                             <div class="card-header">
-                                <span class="float-start mt-2 fw-bold">I.) Personal Information</span>
-                                <button class="btn custom-btn text-light float-end" id="btn-edit">Edit</button>
+                                <span class="float-start mt-2 fw-bold">I.) PERSONAL INFORMATION</span>
+                                <button class="btn custom-btn text-light float-end btn-edit">Edit</button>
                             </div>
                             <div class="card-body">
                                 <small class="float-end">
@@ -56,6 +58,7 @@
                                 <form class="mt-4" action="{{ route('personal.datasheet.update') }}" method="POST">
                                     @csrf
                                     <div class="row mb-2">
+                                        <span><i>Basic Information:</i></span>
                                         <div class="col-3">
                                             <div class="form-group">
                                                 <label for="last_name" class="form-label request-form-label">Surname*</label>
@@ -124,6 +127,7 @@
                                         </div>
                                     </div>
                                     <div class="row mb-2 border-top pt-2 mt-4">
+                                        <span><i>Additional Information:</i></span>
                                         <div class="col-3">
                                             <div class="form-group">
                                                 <label for="civil_status" class="form-label request-form-label">Civil Status*</label>
@@ -444,27 +448,178 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn custom-btn text-light float-end" id="btn-update" style="display:none;">Update</button>
+                                    <button type="submit" class="btn custom-btn text-light float-end btn-update" style="display:none;">Update</button>
                                 </form>
                             </div>
                         </div>
                     </div>
+                    <!-- ========= End Personal Information ========= -->
+
+                    <!-- ========= Start Family Background ========= -->
                     <div class="tab-pane fade" id="v-pills-family" role="tabpanel" aria-labelledby="v-pills-family-tab">
                         <div class="card shadow-sm border-0">
                             <div class="card-header">
-                                <span class="float-start mt-2 fw-bold">II.) Family Background</span>
-                                <button class="btn btn-success text-light float-end" id="btn-edit">Edit</button>
-                                <a href="" class="btn btn-success text-light float-end" id="btn-update" style="display:none;">Update</a>
+                                <span class="float-start mt-2 fw-bold">II.) FAMILY BACKGROUND</span>
+                                <button class="btn custom-btn text-light float-end btn-edit">Edit</button>
                             </div>
                             <div class="card-body">
-                                <p>Fill up information below.</p>
+                                <form class="mt-4" action="{{ route('personal.datasheet.update') }}" method="POST">
+                                    @csrf
+                                    <div class="row mb-2">
+                                        <span><i>Spouse Information:</i></span>
+                                        <div class="col-3">
+                                            <div class="form-group">
+                                                <label for="spouse_lname" class="form-label request-form-label">Spouse's Surname*</label>
+                                                <input class="form-control" type="text" name="spouse_lname" value="{{ ($family->spouse_lname != '') ? $family->spouse_lname : old('spouse_lname')  }}" disabled>
+                                                @error('spouse_lname')
+                                                <small class="text-danger">{{ $message }}</small>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <div class="form-group">
+                                                <label for="spouse_fname" class="form-label request-form-label">Spouse's First Name*</label>
+                                                <input class="form-control" type="text" name="spouse_fname" value="{{ ($family->spouse_fname != '') ? $family->spouse_fname : old('first_name')  }}" disabled>
+                                                @error('spouse_fname')
+                                                <small class="text-danger">{{ $message }}</small>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <div class="form-group">
+                                                <label for="spouse_mname" class="form-label request-form-label">Spouse's Middle Name*</label>
+                                                <input class="form-control" type="text" name="spouse_mname" value="{{ ($family->spouse_mname != '') ? $family->spouse_mname : old('spouse_mname') }}" disabled>
+                                                @error('spouse_mname')
+                                                <small class="text-danger">{{ $message }}</small>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <div class="form-group">
+                                                <label for="spouse_ename" class="form-label request-form-label">Spouse's Name Extension*</label>
+                                                <input class="form-control" type="text" name="spouse_ename" value="{{ ($family->spouse_ename != '') ? $family->spouse_ename : old('spouse_ename') }}" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col-3">
+                                            <div class="form-group">
+                                                <label for="occupation" class="form-label request-form-label">Occupation*</label>
+                                                <input class="form-control" type="text" name="occupation" value="{{ ($family->occupation != '') ? $family->occupation : old('occupation')  }}" disabled>
+                                                @error('occupation')
+                                                <small class="text-danger">{{ $message }}</small>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <div class="form-group">
+                                                <label for="employer_name" class="form-label request-form-label">Employer/Business Name*</label>
+                                                <input class="form-control" type="text" name="employer_name" value="{{ ($family->employer_name != '') ? $family->employer_name : old('employer_name')  }}" disabled>
+                                                @error('employer_name')
+                                                <small class="text-danger">{{ $message }}</small>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <div class="form-group">
+                                                <label for="business_address" class="form-label request-form-label">Business Address*</label>
+                                                <input class="form-control" type="text" name="business_address" value="{{ ($family->business_address != '') ? $family->business_address : old('business_address') }}" disabled>
+                                                @error('business_address')
+                                                <small class="text-danger">{{ $message }}</small>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <div class="form-group">
+                                                <label for="telephone" class="form-label request-form-label">Telephone No.*</label>
+                                                <input class="form-control" type="text" name="telephone" value="{{ ($family->telephone != '') ? $family->telephone : old('telephone') }}" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-2 border-top pt-2 mt-4">
+                                        <span><i>Father Information:</i></span>
+                                        <div class="col-3">
+                                            <div class="form-group">
+                                                <label for="father_lname" class="form-label request-form-label">Father's Surname*</label>
+                                                <input class="form-control" type="text" name="father_lname" value="{{ ($family->father_lname != '') ? $family->father_lname : old('father_lname')  }}" disabled>
+                                                @error('father_lname')
+                                                <small class="text-danger">{{ $message }}</small>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <div class="form-group">
+                                                <label for="father_fname" class="form-label request-form-label">Father's First Name*</label>
+                                                <input class="form-control" type="text" name="father_fname" value="{{ ($family->father_fname != '') ? $family->father_fname : old('father_fname')  }}" disabled>
+                                                @error('father_fname')
+                                                <small class="text-danger">{{ $message }}</small>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <div class="form-group">
+                                                <label for="father_mname" class="form-label request-form-label">Father's Middle Name*</label>
+                                                <input class="form-control" type="text" name="father_mname" value="{{ ($family->father_mname != '') ? $family->father_mname : old('father_mname') }}" disabled>
+                                                @error('father_mname')
+                                                <small class="text-danger">{{ $message }}</small>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <div class="form-group">
+                                                <label for="father_ename" class="form-label request-form-label">Father's Name Extension*</label>
+                                                <input class="form-control" type="text" name="father_ename" value="{{ ($family->father_ename != '') ? $family->father_ename : old('father_ename') }}" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-2 border-top pt-2 mt-4">
+                                        <span><i>Mother Information:</i></span>
+                                        <div class="col-3">
+                                            <div class="form-group">
+                                                <label for="mother_lname" class="form-label request-form-label">Mother's Surname*</label>
+                                                <input class="form-control" type="text" name="mother_lname" value="{{ ($family->mother_lname != '') ? $family->mother_lname : old('mother_lname')  }}" disabled>
+                                                @error('mother_lname')
+                                                <small class="text-danger">{{ $message }}</small>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <div class="form-group">
+                                                <label for="mother_fname" class="form-label request-form-label">Mother's First Name*</label>
+                                                <input class="form-control" type="text" name="mother_fname" value="{{ ($family->mother_fname != '') ? $family->mother_fname : old('mother_fname')  }}" disabled>
+                                                @error('mother_fname')
+                                                <small class="text-danger">{{ $message }}</small>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <div class="form-group">
+                                                <label for="mother_mname" class="form-label request-form-label">Mother's Middle Name*</label>
+                                                <input class="form-control" type="text" name="mother_mname" value="{{ ($family->mother_mname != '') ? $family->mother_mname : old('mother_mname') }}" disabled>
+                                                @error('mother_mname')
+                                                <small class="text-danger">{{ $message }}</small>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <div class="form-group">
+                                                <label for="mother_maiden_name" class="form-label request-form-label">Mother's Maiden Name*</label>
+                                                <input class="form-control" type="text" name="mother_maiden_name" value="{{ ($family->mother_maiden_name != '') ? $family->mother_maiden_name : old('mother_maiden_name') }}" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn custom-btn text-light float-end btn-update" style="display:none;">Update</button>
+                                </form>
                             </div>
                         </div>
                     </div>
+                    <!-- ========= End Family Background ========= -->
+
+                    <!-- ========= Start Educational Background ========= -->
                     <div class="tab-pane fade" id="v-pills-educational" role="tabpanel" aria-labelledby="v-pills-educational-tab">
                         <div class="card shadow-sm border-0">
                             <div class="card-header">
-                                <span class="float-start mt-2 fw-bold">III.) Educational Background</span>
+                                <span class="float-start mt-2 fw-bold">III.) EDUCATIONAL BACKGROUND</span>
                                 <button class="btn btn-success text-light float-end" id="btn-edit">Edit</button>
                                 <a href="" class="btn btn-success text-light float-end" id="btn-update" style="display:none;">Update</a>
                             </div>
@@ -473,6 +628,7 @@
                             </div>
                         </div>
                     </div>
+                    <!-- ========= End Educational Background ========= -->
                 </div>
             </div>
         </div>
@@ -486,9 +642,9 @@
 <!-- Edit Button -->
 <script>
     $(document).ready(function() {
-        $("#btn-edit").click(function() {
-            $("#btn-edit").hide();
-            $("#btn-update").show();
+        $(".btn-edit").click(function() {
+            $(".btn-edit").hide();
+            $(".btn-update").show();
             $(".form-control").removeAttr('disabled');
             $(".form-check-input").removeAttr('disabled');
             $(".form-select").removeAttr('disabled');

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\UpdatePersonalInfoRequest;
 use App\Models\User;
 use App\Models\PersonalInfo;
+use App\Models\FamilyInfo;
 use Auth;
 
 class UserHomeController extends Controller
@@ -16,15 +17,23 @@ class UserHomeController extends Controller
         $id = Auth::user()->id;
 
         // Automatic Create Personal Table for the First Time
-        $user_exists_count = PersonalInfo::where('user_id', $id)->count();
-        if ($user_exists_count == 0) {
+        $personal_exists_count = PersonalInfo::where('user_id', $id)->count();
+        if ($personal_exists_count == 0) {
             $data = new PersonalInfo();
+            $data->user_id = $id;
+            $data->save();
+        }
+        // Automatic Create Family Table for the First Time
+        $family_exists_count = FamilyInfo::where('user_id', $id)->count();
+        if ($family_exists_count == 0) {
+            $data = new FamilyInfo();
             $data->user_id = $id;
             $data->save();
         }
 
         $allData['user'] = User::find($id);
         $allData['personal'] = PersonalInfo::where('user_id', $id)->first();
+        $allData['family'] = FamilyInfo::where('user_id', $id)->first();
         return view('user.index', $allData);
     } // End Method
 
