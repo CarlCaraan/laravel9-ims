@@ -41,6 +41,15 @@ class UserHomeController extends Controller
 
     public function PersonalDatasheetUpdate(UpdatePersonalInfoRequest $request)
     {
+        // Citizenship Validation
+        if ($request->by_filipino == "" && $request->by_dual_citizenship == "" && $request->by_birth == "" && $request->by_naturalization == "") {
+            $notification = array(
+                'citizenship-error-message' => 'Citizenship is required.',
+                'alert-type' => 'error',
+            );
+            return redirect()->route('user.welcome')->with($notification);
+        }
+
         // Updating Users Table
         $user = User::find(Auth::user()->id);
         $user->first_name = $request->first_name;
@@ -87,14 +96,6 @@ class UserHomeController extends Controller
         $personal->telephone = $request->telephone;
         $personal->mobile = $request->mobile;
         $personal->contact_email = $request->contact_email;
-
-        if ($request->by_filipino == "" && $request->by_dual_citizenship == "" && $request->by_birth == "" && $request->by_naturalization == "") {
-            $notification = array(
-                'citizenship-error-message' => 'Citizenship is required.',
-                'alert-type' => 'error',
-            );
-            return redirect()->route('user.welcome')->with($notification);
-        }
 
         $personal->save();
 

@@ -8,10 +8,10 @@
 <section class="breadcrumbs">
     <div class="container mt-2">
         <div class="d-flex justify-content-between align-items-center">
-            <h2>Account Settings</h2>
+            <h2>Account Info</h2>
             <ol>
                 <li><a href="{{ route('user.welcome') }}">Home</a></li>
-                <li>Account Settings</li>
+                <li>Account Info</li>
             </ol>
         </div>
     </div>
@@ -21,13 +21,13 @@
 <section class="inner-page pt-4">
     <div class="container">
         <div class="section-header">
-            <h2>Account Information</h2>
+            <h2>Account Info</h2>
         </div>
         <div class="row">
             <div class="col-12">
                 <div class="card border-0 shadow-sm">
                     <div class="card-header py-3 bg-white border-bottom">
-                        <a href="{{ route('user.profile.edit') }}" class="btn btn-success">Edit</a>
+                        <a href="{{ route('user.profile.edit') }}" class="btn btn-success">Go to Account Settings</a>
                         <!-- <small class="text-muted float-end mt-2">Last Updated: {{ date('d-m-Y', strtotime($user->updated_at)) }}</small> -->
                         <small class="text-muted float-end mt-2">Last Updated: {{ Carbon\Carbon::parse($user->updated_at)->diffForHumans() }}</small>
                     </div>

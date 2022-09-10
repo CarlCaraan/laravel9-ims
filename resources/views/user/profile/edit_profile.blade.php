@@ -8,11 +8,11 @@
 <section class="breadcrumbs">
     <div class="container mt-2">
         <div class="d-flex justify-content-between align-items-center">
-            <h2>Edit Profile</h2>
+            <h2>Account Settings</h2>
             <ol>
                 <li><a href="{{ route('user.welcome') }}">Home</a></li>
-                <li><a href="{{ route('user.profile.view') }}">Account Settings</a></li>
-                <li>Edit Profile</li>
+                <li><a href="{{ route('user.profile.view') }}">Account Info</a></li>
+                <li>Account Settings</li>
             </ol>
         </div>
     </div>
@@ -22,7 +22,7 @@
 <section class="inner-page pt-4">
     <div class="container">
         <div class="section-header">
-            <h2>Edit Profile Information</h2>
+            <h2>Account Settings</h2>
         </div>
         <div class="row">
             <div class="col-12">
