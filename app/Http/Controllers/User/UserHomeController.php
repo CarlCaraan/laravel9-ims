@@ -118,6 +118,7 @@ class UserHomeController extends Controller
 
     public function FamilyDatasheetUpdate(UpdateFamilyInfoRequest $request)
     {
+        // Updating Family Info
         $family = FamilyInfo::where('user_id', Auth::user()->id)->first();
         $family->spouse_lname = $request->spouse_lname;
         $family->spouse_fname = $request->spouse_fname;
@@ -140,8 +141,24 @@ class UserHomeController extends Controller
 
         $family->save();
 
-
-        $countChildrenName = count($request->children_name);
+        // Updating Family Children
+        if ($request->children_name == NULL) {
+            $id = Auth::user()->id;
+            $family_id = FamilyInfo::where('user_id', $id)->first()->id;
+            FamilyChildrenList::where('family_id', $family_id)->delete();
+            $children = new FamilyChildrenList();
+            $children->family_id = $family_id;
+            $children->children_name = "n/a";
+            $children->children_dob = "n/a";
+            $children->save();
+            $notification = array(
+                'message' => 'Family Background Updated Successfully',
+                'alert-type' => 'success',
+            );
+            return redirect()->route('user.welcome')->with($notification);
+        } else {
+            $countChildrenName = count($request->children_name);
+        }
 
         $id = Auth::user()->id;
         $family_id = FamilyInfo::where('user_id', $id)->first()->id;
@@ -151,7 +168,14 @@ class UserHomeController extends Controller
             $children = new FamilyChildrenList();
             $children->family_id = $family_id;
             $children->children_name = $request->children_name[$i];
-            $children->children_dob = $request->children_dob[$i];
+            if ($request->children_name[$i] == "") {
+                $children->children_name = "n/a";
+                $children->children_dob = "n/a";
+            } else if ($request->children_name[$i] == "n/a") {
+                $children->children_dob = "n/a";
+            } else {
+                $children->children_dob = $request->children_dob[$i];
+            }
             $children->save();
         } //End For loop
 

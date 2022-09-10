@@ -148,7 +148,7 @@
                         <div class="col-5">
                             <div class="form-group">
                                 <label for="children_name" class="form-label request-form-label">Children's Name*</label>
-                                <input class="form-control" type="text" name="children_name[]" value="{{ ($child->children_name != '') ? $child->children_name : old('children_name')  }}" disabled required>
+                                <input class="form-control" type="text" name="children_name[]" value="{{ ($child->children_name != '') ? $child->children_name : old('children_name')  }}" placeholder="Optional" disabled>
                                 @error('children_name')
                                 <small class="text-danger">{{ $message }}</small>
                                 @enderror
@@ -157,7 +157,7 @@
                         <div class="col-3">
                             <div class="form-group">
                                 <label for="mother_fname" class="form-label request-form-label">Children's Date of Birth*</label>
-                                <input class="form-control flatpickr" type="text" name="children_dob[]" value="{{ ($child->children_dob != '') ? $child->children_dob : old('children_dob')  }}" placeholder="Select Date" disabled required>
+                                <input class="form-control flatpickr" type="text" name="children_dob[]" value="{{ ($child->children_dob != '') ? $child->children_dob : old('children_dob')  }}" placeholder="Select Date" disabled>
                                 @error('children_dob')
                                 <small class="text-danger">{{ $message }}</small>
                                 @enderror
