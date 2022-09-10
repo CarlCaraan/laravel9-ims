@@ -171,7 +171,8 @@ class UserHomeController extends Controller
             if ($request->children_name[$i] == "") {
                 $children->children_name = "n/a";
                 $children->children_dob = "n/a";
-            } else if ($request->children_name[$i] == "n/a") {
+            } else if ($request->children_name[$i] == "n/a" || $request->children_dob[$i] == "n/a") {
+                $children->children_name = "n/a";
                 $children->children_dob = "n/a";
             } else {
                 $children->children_dob = $request->children_dob[$i];
