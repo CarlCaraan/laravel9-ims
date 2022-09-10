@@ -87,6 +87,15 @@ class UserHomeController extends Controller
         $personal->telephone = $request->telephone;
         $personal->mobile = $request->mobile;
         $personal->contact_email = $request->contact_email;
+
+        if ($request->by_filipino == "" && $request->by_dual_citizenship == "" && $request->by_birth == "" && $request->by_naturalization == "") {
+            $notification = array(
+                'citizenship-error-message' => 'Citizenship is required.',
+                'alert-type' => 'error',
+            );
+            return redirect()->route('user.welcome')->with($notification);
+        }
+
         $personal->save();
 
         $notification = array(

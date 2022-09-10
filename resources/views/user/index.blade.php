@@ -27,7 +27,7 @@
                 READ THE ATTACHED GUIDE TO FILLING OUT THE PERSONAL DATA SHEET (PDS) BEFORE ACCOMPLISHING THE PDS FORM.
             </span>
 
-            <!-- Start Error Message Validation -->
+            <!-- ========= Start Error Message Validation ========= -->
             @if ($errors->any())
             <div class="text-danger mt-2">
                 <ul>
@@ -37,15 +37,27 @@
                 </ul>
             </div>
             @endif
-            <!-- End Error Message Validation -->
+            <!-- Citizenship Error Message -->
+            @if (Session::has('citizenship-error-message'))
+            <div class="text-danger mt-2">
+                <ul>
+                    <li>{{ Session::get('citizenship-error-message') }}</li>
+                </ul>
+            </div>
+            @endif
+            <!-- ========= End Error Message Validation ========= -->
         </div>
 
         <div class="row">
             <div class="col-md-3">
                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                     <button class="nav-link text-start side-navlink active" id="v-pills-personal-tab" data-bs-toggle="pill" data-bs-target="#v-pills-personal" type="button" role="tab" aria-controls="v-pills-personal" aria-selected="true">I.) Personal Information</button>
-                    <button class="nav-link text-start side-navlink" id="v-pills-family-tab" data-bs-toggle="pill" data-bs-target="#v-pills-family" type="button" role="tab" aria-controls="v-pills-family" aria-selected="false">II.) Family Background</button>
-                    <button class="nav-link text-start side-navlink" id="v-pills-educational-tab" data-bs-toggle="pill" data-bs-target="#v-pills-educational" type="button" role="tab" aria-controls="v-pills-educational" aria-selected="false">III.) Educational Background</button>
+                    <button class="nav-link text-start side-navlink" id="v-pills-family-tab" data-bs-toggle="{{ ($personal->middle_name == '') ? 'tooltip' : 'pill' }}" title="{{ ($personal->middle_name == '') ? 'Complete I.) Personal Information to Proceed.' : '' }}" data-bs-placement="right" data-bs-target="#v-pills-family" type="button" role="tab" aria-controls="v-pills-family" aria-selected="false">
+                        II.) Family Background
+                    </button>
+                    <button class="nav-link text-start side-navlink" id="v-pills-educational-tab" data-bs-toggle="{{ ($family->father_lname == '') ? 'tooltip' : 'pill' }}" title="{{ ($family->father_lname == '') ? 'Complete II.) Family Background to Proceed.' : '' }}" data-bs-placement="right" data-bs-target="#v-pills-educational" type="button" role="tab" aria-controls="v-pills-educational" aria-selected="false">
+                        III.) Educational Background
+                    </button>
                 </div>
                 <br>
             </div>
@@ -66,7 +78,7 @@
                                     Revised 2017
                                 </small>
                                 <br />
-                                <form class="mt-4" action="{{ route('personal.datasheet.update') }}" method="POST">
+                                <form class="mt-4" action="{{ route('personal.datasheet.update') }}" method="POST" id="PersonalForm">
                                     @csrf
                                     <div class="row mb-2">
                                         <span><i>Basic Information:</i></span>
@@ -273,6 +285,9 @@
                                                         </label>
                                                     </div>
                                                 </div>
+                                                @if (Session::has('citizenship-error-message'))
+                                                <small class="text-danger">{{ Session::get('citizenship-error-message') }}</small>
+                                                @endif
                                             </div>
                                             <div class="row">
                                                 <div class="col-6">
@@ -664,5 +679,44 @@
         enableTime: false,
         enableSeconds: false
     })
+</script>
+
+<!-- Tooltip Script -->
+<script>
+    $(document).ready(function() {
+        $('[data-bs-toggle="tooltip"]').tooltip();
+    });
+</script>
+
+<!-- Validation for Citizenship (Checkbox must be  selected before updating the form) -->
+<script>
+    (function() {
+        const form = document.querySelector('#PersonalForm');
+        const checkboxes = form.querySelectorAll('input[type=checkbox]');
+        const checkboxLength = checkboxes.length;
+        const firstCheckbox = checkboxLength > 0 ? checkboxes[0] : null;
+
+        function init() {
+            if (firstCheckbox) {
+                for (let i = 0; i < checkboxLength; i++) {
+                    checkboxes[i].addEventListener('change', checkValidity);
+                }
+                checkValidity();
+            }
+        }
+
+        function isChecked() {
+            for (let i = 0; i < checkboxLength; i++) {
+                if (checkboxes[i].checked) return true;
+            }
+            return false;
+        }
+
+        function checkValidity() {
+            const errorMessage = !isChecked() ? 'At least one checkbox must be selected.' : '';
+            firstCheckbox.setCustomValidity(errorMessage);
+        }
+        init();
+    })();
 </script>
 @endsection
