@@ -27,7 +27,6 @@ class UpdateFamilyInfoRequest extends FormRequest
             'spouse_lname' => 'required',
             'spouse_fname' => 'required',
             'spouse_mname' => 'required',
-            'telephone' => 'required',
 
             'father_lname' => 'required',
             'father_fname' => 'required',
@@ -46,7 +45,6 @@ class UpdateFamilyInfoRequest extends FormRequest
             'spouse_lname.required' => 'Spouse\'s Surname field is required.',
             'spouse_fname.required' => 'Spouse\'s Firstname field is required.',
             'spouse_mname.required' => 'Spouse\'s Middlename field is required.',
-            'occupation.required' => 'Spouse\'s Occupation is required.',
 
             'father_lname.required' => 'Father\'s Surname is required.',
             'father_fname.required' => 'Father\'s Firstname is required.',
