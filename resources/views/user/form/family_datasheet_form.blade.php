@@ -1,3 +1,4 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <form class="mt-4" action="{{ route('family.datasheet.update') }}" method="POST">
     @csrf
     <div class="row mb-2">
@@ -140,28 +141,36 @@
     <div class="row mb-2 border-top pt-2 mt-4">
         <div class="col-12">
             <span><i>Children Information:</i></span>
-            @foreach ($children as $child)
-            <div class="row">
-                <div class="col-5">
-                    <div class="form-group">
-                        <label for="children_name" class="form-label request-form-label">Children's Name*</label>
-                        <input class="form-control" type="text" name="children_name" value="{{ ($child->children_name != '') ? $child->children_name : old('children_name')  }}" disabled required>
-                        @error('children_name')
-                        <small class="text-danger">{{ $message }}</small>
-                        @enderror
+            <div class="add_item">
+                @foreach ($children as $child)
+                <div class="delete_whole_extra_item_add" id="delete_whole_extra_item_add">
+                    <div class="row">
+                        <div class="col-5">
+                            <div class="form-group">
+                                <label for="children_name" class="form-label request-form-label">Children's Name*</label>
+                                <input class="form-control" type="text" name="children_name[]" value="{{ ($child->children_name != '') ? $child->children_name : old('children_name')  }}" disabled required>
+                                @error('children_name')
+                                <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="form-group">
+                                <label for="mother_fname" class="form-label request-form-label">Children's Date of Birth*</label>
+                                <input class="form-control flatpickr" type="text" name="children_dob[]" value="{{ ($child->children_dob != '') ? $child->children_dob : old('children_dob')  }}" placeholder="Select Date" disabled required>
+                                @error('children_dob')
+                                <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-2" style="padding-top: 30px;">
+                            <span class="btn btn-success addeventmore" style="display: none;"><i class="fa fa-plus-circle"></i></span>
+                            <span class="btn btn-danger removeeventmore" style="display: none;"><i class="fa fa-minus-circle"></i></span>
+                        </div>
                     </div>
-                </div>
-                <div class="col-3">
-                    <div class="form-group">
-                        <label for="mother_fname" class="form-label request-form-label">Children's Date of Birth*</label>
-                        <input class="form-control flatpickr" type="text" name="children_dob" value="{{ ($child->children_dob != '') ? $child->children_dob : old('children_dob')  }}" placeholder="Select Date" disabled required>
-                        @error('children_dob')
-                        <small class="text-danger">{{ $message }}</small>
-                        @enderror
-                    </div>
-                </div>
-            </div>
-            @endforeach
+                </div> <!-- End delete_whole_extra_item -->
+                @endforeach
+            </div> <!-- End Add Item -->
         </div>
     </div>
     <button type="submit" class="btn custom-btn text-light float-end btn-update" style="display:none;">Update</button>
@@ -174,3 +183,55 @@
         enableSeconds: false
     })
 </script>
+
+<!-- Start Hidden Row Javascript -->
+<div style="visibility: hidden;">
+    <div class="whole_extra_item_add" id="whole_extra_item_add">
+        <div class="delete_whole_extra_item_add" id="delete_whole_extra_item_add">
+            <div class="row">
+                <div class="col-5">
+                    <div class="form-group">
+                        <label for="children_name" class="form-label request-form-label">Children's Name*</label>
+                        <input class="form-control" type="text" name="children_name[]" value="{{ old('children_name') }}" disabled required>
+                        @error('children_name')
+                        <small class="text-danger">{{ $message }}</small>
+                        @enderror
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <label for="mother_fname" class="form-label request-form-label">Children's Date of Birth*</label>
+                        <input class="form-control flatpickr" type="text" name="children_dob[]" value="{{ old('children_dob') }}" placeholder="Select Date" disabled required>
+                        @error('children_dob')
+                        <small class="text-danger">{{ $message }}</small>
+                        @enderror
+                    </div>
+                </div>
+                <div class="col-md-2" style="padding-top: 25px;">
+                    <span class="btn btn-success addeventmore"><i class="fa fa-plus-circle"></i></span>
+                    <span class="btn btn-danger removeeventmore"><i class="fa fa-minus-circle"></i></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        var counter = 0;
+        $(document).on("click", ".addeventmore", function() {
+            var whole_extra_item_add = $('#whole_extra_item_add').html();
+            $(this).closest(".add_item").append(whole_extra_item_add);
+            counter++;
+            flatpickr('.flatpickr', {
+                enableTime: false,
+                enableSeconds: false
+            })
+        });
+        $(document).on("click", ".removeeventmore", function(event) {
+            $(this).closest(".delete_whole_extra_item_add").remove();
+            counter -= 1;
+        });
+    });
+</script>
+<!-- End Hidden Row Javascript -->

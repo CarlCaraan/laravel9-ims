@@ -52,11 +52,11 @@
             <div class="col-md-3">
                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                     <button class="nav-link text-start side-navlink active" id="v-pills-personal-tab" data-bs-toggle="pill" data-bs-target="#v-pills-personal" type="button" role="tab" aria-controls="v-pills-personal" aria-selected="true">I.) Personal Information</button>
-                    <button class="nav-link text-start side-navlink" id="v-pills-family-tab" data-bs-toggle="{{ ($personal->middle_name == '') ? 'tooltip' : 'pill' }}" title="{{ ($personal->middle_name == '') ? 'Complete I.) Personal Information to Proceed.' : '' }}" data-bs-placement="right" data-bs-target="#v-pills-family" type="button" role="tab" aria-controls="v-pills-family" aria-selected="false">
-                        II.) Family Background
+                    <button class="nav-link text-start side-navlink" id="v-pills-family-tab" data-bs-toggle="{{ ($personal->middle_name == '') ? 'tooltip' : 'pill' }}" title="{{ ($personal->middle_name == '') ? 'Complete I.) Personal Information to Proceed.' : '' }}" data-bs-placement="right" data-bs-target="#v-pills-family" type="button" role="tab" aria-controls="v-pills-family" aria-selected="false" style="{{ ($personal->middle_name == '') ? 'cursor: not-allowed' : '' }}">
+                        II.) Family Background <i class="{{ ($personal->middle_name == '') ? 'fas fa-lock' : '' }}"></i>
                     </button>
-                    <button class="nav-link text-start side-navlink" id="v-pills-educational-tab" data-bs-toggle="{{ ($family->father_lname == '') ? 'tooltip' : 'pill' }}" title="{{ ($family->father_lname == '') ? 'Complete II.) Family Background to Proceed.' : '' }}" data-bs-placement="right" data-bs-target="#v-pills-educational" type="button" role="tab" aria-controls="v-pills-educational" aria-selected="false">
-                        III.) Educational Background
+                    <button class="nav-link text-start side-navlink" id="v-pills-educational-tab" data-bs-toggle="{{ ($family->father_lname == '') ? 'tooltip' : 'pill' }}" title="{{ ($family->father_lname == '') ? 'Complete II.) Family Background to Proceed.' : '' }}" data-bs-placement="right" data-bs-target="#v-pills-educational" type="button" role="tab" aria-controls="v-pills-educational" aria-selected="false" style="{{ ($family->father_lname == '') ? 'cursor: not-allowed' : '' }}">
+                        III.) Educational Background <i class="{{ ($family->father_lname == '') ? 'fas fa-lock' : '' }}"></i>
                     </button>
                 </div>
                 <br>
@@ -134,6 +134,9 @@
             $(".form-check-input").removeAttr('disabled');
             $(".form-select").removeAttr('disabled');
             $(".flatpickr").addClass('bg-white');
+
+            $(".addeventmore").show();
+            $(".removeeventmore").show();
         });
     });
 </script>

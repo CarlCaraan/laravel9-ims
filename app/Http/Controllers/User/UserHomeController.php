@@ -140,6 +140,21 @@ class UserHomeController extends Controller
 
         $family->save();
 
+
+        $countChildrenName = count($request->children_name);
+
+        $id = Auth::user()->id;
+        $family_id = FamilyInfo::where('user_id', $id)->first()->id;
+        FamilyChildrenList::where('family_id', $family_id)->delete();
+
+        for ($i = 0; $i < $countChildrenName; $i++) {
+            $children = new FamilyChildrenList();
+            $children->family_id = $family_id;
+            $children->children_name = $request->children_name[$i];
+            $children->children_dob = $request->children_dob[$i];
+            $children->save();
+        } //End For loop
+
         $notification = array(
             'message' => 'Family Background Updated Successfully',
             'alert-type' => 'success',
