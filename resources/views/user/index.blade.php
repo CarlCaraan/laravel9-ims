@@ -133,7 +133,7 @@
             $(".form-control").removeAttr('disabled');
             $(".form-check-input").removeAttr('disabled');
             $(".form-select").removeAttr('disabled');
-            $("#flatpickr").addClass('bg-white');
+            $(".flatpickr").addClass('bg-white');
         });
     });
 </script>

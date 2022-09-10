@@ -40,7 +40,7 @@
         <div class="col-3">
             <div class="form-group">
                 <label for="dob" class="form-label request-form-label">Date of Birth*</label>
-                <input class="form-control" type="text" id="flatpickr" name="dob" value="{{ ($personal->dob != '') ? $personal->dob : old('dob') }}" placeholder="Select Date" disabled required>
+                <input class="form-control flatpickr" type="text" name="dob" value="{{ ($personal->dob != '') ? $personal->dob : old('dob') }}" placeholder="Select Date" disabled required>
                 @error('dob')
                 <small class="text-danger">{{ $message }}</small>
                 @enderror
@@ -397,10 +397,9 @@
     <button type="submit" class="btn custom-btn text-light float-end btn-update" style="display:none;">Update</button>
 </form>
 
-
 <!-- Flatpickr Script -->
 <script>
-    flatpickr('#flatpickr', {
+    flatpickr('.flatpickr', {
         enableTime: false,
         enableSeconds: false
     })
