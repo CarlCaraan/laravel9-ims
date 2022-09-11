@@ -4,6 +4,7 @@
 }
 
 /* ========= GLOBAL CSS ========= */
+
 .html,
 body {
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
@@ -32,10 +33,13 @@ body {
 .text-custom {
     color: var(--primary-app-color);
 }
+
 /* ========= Google Translate Api ========= */
+
 .goog-te-banner-frame.skiptranslate {
     display: none !important;
 }
+
 /* ========= Herosection ========= */
 #hero {
     height: 70vh !important;
@@ -45,13 +49,16 @@ body {
 }
 
 /* ========= Navigation ========= */
+
 .nav-link.active {
     color: var(--primary-app-color);
 }
 .nav-link:hover {
     color: var(--primary-app-color);
 }
+
 /* ========= Side Navigation ========= */
+
 .side-navlink {
     border-left: 4px solid #fff !important;
     background: #fff !important;
@@ -73,6 +80,7 @@ body {
 }
 
 /* ========= Request Form ========= */
+
 .request-form-label {
     font-weight: 700;
     font-size: 12.5px;
