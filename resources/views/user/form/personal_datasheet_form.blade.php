@@ -40,7 +40,7 @@
         <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">
                 <label for="dob" class="form-label request-form-label">Date of Birth*</label>
-                <input class="form-control flatpickr" type="text" name="dob" value="{{ ($personal->dob != '') ? $personal->dob : old('dob') }}" placeholder="Select Date" disabled required>
+                <input class="form-control" type="date" name="dob" value="{{ ($personal->dob != '') ? $personal->dob : old('dob') }}" placeholder="Select Date" disabled required>
                 @error('dob')
                 <small class="text-danger">{{ $message }}</small>
                 @enderror
@@ -396,14 +396,6 @@
     </div>
     <button type="submit" class="btn custom-btn text-light float-end btn-update" style="display:none;">Update</button>
 </form>
-
-<!-- Flatpickr Script -->
-<script>
-    flatpickr('.flatpickr', {
-        enableTime: false,
-        enableSeconds: false
-    })
-</script>
 
 <!-- Validation for Citizenship (Checkbox must be  selected before updating the form) -->
 <script>

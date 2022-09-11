@@ -157,7 +157,7 @@
                         <div class="col-xl-3 col-lg-5 col-md-8 col-sm-8 col-xs-12">
                             <div class="form-group">
                                 <label for="mother_fname" class="form-label request-form-label">Children's Date of Birth*</label>
-                                <input class="form-control flatpickr" type="text" name="children_dob[]" value="{{ ($child->children_dob != '') ? $child->children_dob : old('children_dob')  }}" placeholder="Select Date" disabled>
+                                <input class="form-control" type="date" name="children_dob[]" value="{{ ($child->children_dob != '') ? $child->children_dob : old('children_dob')  }}" disabled>
                                 @error('children_dob')
                                 <small class="text-danger">{{ $message }}</small>
                                 @enderror
@@ -176,14 +176,6 @@
     <button type="submit" class="btn custom-btn text-light float-end btn-update" style="display:none;">Update</button>
 </form>
 
-<!-- Flatpickr Script -->
-<script>
-    flatpickr('.flatpickr', {
-        enableTime: false,
-        enableSeconds: false
-    })
-</script>
-
 <!-- Start Hidden Row Javascript -->
 <div style="visibility: hidden;">
     <div class="whole_extra_item_add" id="whole_extra_item_add">
@@ -201,7 +193,7 @@
                 <div class="col-xl-3 col-lg-5 col-md-8 col-sm-8 col-xs-12">
                     <div class="form-group">
                         <label for="mother_fname" class="form-label request-form-label">Children's Date of Birth*</label>
-                        <input class="form-control flatpickr" type="text" name="children_dob[]" value="{{ old('children_dob') }}" placeholder="Select Date" disabled required>
+                        <input class="form-control" type="date" name="children_dob[]" value="{{ old('children_dob') }}" disabled required>
                         @error('children_dob')
                         <small class="text-danger">{{ $message }}</small>
                         @enderror
@@ -223,10 +215,6 @@
             var whole_extra_item_add = $('#whole_extra_item_add').html();
             $(this).closest(".add_item").append(whole_extra_item_add);
             counter++;
-            flatpickr('.flatpickr', {
-                enableTime: false,
-                enableSeconds: false
-            })
         });
         $(document).on("click", ".removeeventmore", function(event) {
             $(this).closest(".delete_whole_extra_item_add").remove();
