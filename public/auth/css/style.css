@@ -1,9 +1,11 @@
-/* ========= All Variables ========= */
+/* ========= ALL VARIABLES ========= */
+
 :root {
     --primary-app-color: #50d8af;
 }
 
 /* ========= GLOBAL CSS ========= */
+
 .html,
 body {
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
