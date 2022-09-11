@@ -1,4 +1,5 @@
-/* ========= All Variables ========= */
+/* ========= ALL VARIABLES ========= */
+
 :root {
     --primary-app-color: #50d8af;
 }
@@ -41,6 +42,7 @@ body {
 }
 
 /* ========= Herosection ========= */
+
 #hero {
     height: 70vh !important;
 }
