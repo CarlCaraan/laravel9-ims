@@ -1,7 +1,7 @@
 <form class="mt-4" action="{{ route('personal.datasheet.update') }}" method="POST" id="PersonalForm">
     @csrf
     <div class="row mb-2">
-        <span><i>Basic Information:</i></span>
+        <span class="by-section-heading">Basic Information:</span>
         <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">
                 <label for="last_name" class="form-label request-form-label">Surname*</label>
@@ -70,7 +70,7 @@
         </div>
     </div>
     <div class="row mb-2 border-top pt-2 mt-4">
-        <span><i>Additional Information:</i></span>
+        <span class="by-section-heading">Additional Information:</span>
         <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">
                 <label for="civil_status" class="form-label request-form-label">Civil Status*</label>
@@ -225,7 +225,7 @@
         </div>
     </div>
     <div class="row mb-2 border-top pt-2 mt-4">
-        <span><i>Residential Address:</i></span>
+        <span class="by-section-heading">Residential Address:</span>
         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">
                 <label for="r_house_no" class="form-label request-form-label">House/Block/Lot No.*</label>
@@ -295,7 +295,7 @@
         </div>
     </div>
     <div class="row mb-2 border-top pt-2 mt-4">
-        <span><i>Permanent Address:</i></span>
+        <span class="by-section-heading">Permanent Address:</span>
         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">
                 <label for="p_house_no" class="form-label request-form-label">House/Block/Lot No.*</label>
@@ -365,7 +365,7 @@
         </div>
     </div>
     <div class="row mb-2 border-top pt-2 mt-4">
-        <span><i>Contact:</i></span>
+        <span class="by-section-heading">Contact Information:</span>
         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">
                 <label for="telephone" class="form-label request-form-label">Telephone No.</label>

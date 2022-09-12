@@ -2,7 +2,7 @@
 <form class="mt-4" action="{{ route('family.datasheet.update') }}" method="POST">
     @csrf
     <div class="row mb-2">
-        <span><i>Spouse Information:</i></span>
+        <span class="by-section-heading">Spouse Information:</span>
         <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">
                 <label for="spouse_lname" class="form-label request-form-label">Spouse's Surname*</label>
@@ -64,7 +64,7 @@
         </div>
     </div>
     <div class="row mb-2 border-top pt-2 mt-4">
-        <span><i>Father Information:</i></span>
+        <span class="by-section-heading">Father Information:</span>
         <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">
                 <label for="father_lname" class="form-label request-form-label">Father's Surname*</label>
@@ -100,7 +100,7 @@
         </div>
     </div>
     <div class="row mb-2 border-top pt-2 mt-4">
-        <span><i>Mother Information:</i></span>
+        <span class="by-section-heading">Mother Information:</span>
         <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">
                 <label for="mother_lname" class="form-label request-form-label">Mother's Surname*</label>
@@ -140,7 +140,7 @@
     </div>
     <div class="row mb-2 border-top pt-2 mt-4">
         <div class="col-12">
-            <span><i>Children Information:</i></span>
+            <span class="by-section-heading">Children Information:</span>
             <div class="add_item">
                 @foreach ($children as $child)
                 <div class="delete_whole_extra_item_add" id="delete_whole_extra_item_add">

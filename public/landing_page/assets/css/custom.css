@@ -2,6 +2,7 @@
 
 :root {
     --primary-app-color: #50d8af;
+    --secondary-app-color: #0c2e8a;
 }
 
 /* ========= GLOBAL CSS ========= */
@@ -91,6 +92,11 @@ body {
     border: 1px solid var(--primary-app-color);
     outline: none;
     box-shadow: none;
+}
+.by-section-heading {
+    color: var(--secondary-app-color);
+    font-weight: 700;
+    font-style: italic;
 }
 .custom-heading-label {
     font-weight: 700;
