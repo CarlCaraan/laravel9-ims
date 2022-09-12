@@ -4,7 +4,7 @@
         <span class="by-section-heading">Basic Information:</span>
         <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">
-                <label for="last_name" class="form-label request-form-label">Surname*</label>
+                <label for="last_name" class="form-label request-form-label">Surname<span class="text-danger">*</span></label>
                 <input class="form-control" type="text" name="last_name" value="{{ ($user->last_name != '') ? $user->last_name : old('last_name')  }}" disabled required>
                 @error('last_name')
                 <small class="text-danger">{{ $message }}</small>
@@ -13,7 +13,7 @@
         </div>
         <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">
-                <label for="first_name" class="form-label request-form-label">First Name*</label>
+                <label for="first_name" class="form-label request-form-label">First Name<span class="text-danger">*</span></label>
                 <input class="form-control" type="text" name="first_name" value="{{ ($user->first_name != '') ? $user->first_name : old('first_name')  }}" disabled required>
                 @error('first_name')
                 <small class="text-danger">{{ $message }}</small>
@@ -22,7 +22,7 @@
         </div>
         <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">
-                <label for="middle_name" class="form-label request-form-label">Middle Name*</label>
+                <label for="middle_name" class="form-label request-form-label">Middle Name<span class="text-danger">*</span></label>
                 <input class="form-control" type="text" name="middle_name" value="{{ ($personal->middle_name != '') ? $personal->middle_name : old('middle_name') }}" disabled required>
                 @error('middle_name')
                 <small class="text-danger">{{ $message }}</small>
@@ -39,7 +39,7 @@
     <div class="row mb-2">
         <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">
-                <label for="dob" class="form-label request-form-label">Date of Birth*</label>
+                <label for="dob" class="form-label request-form-label">Date of Birth<span class="text-danger">*</span></label>
                 <input class="form-control" type="date" name="dob" value="{{ ($personal->dob != '') ? $personal->dob : old('dob') }}" placeholder="Select Date" disabled required>
                 @error('dob')
                 <small class="text-danger">{{ $message }}</small>
@@ -48,7 +48,7 @@
         </div>
         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">
-                <label for="pob" class="form-label request-form-label">Place of Birth*</label>
+                <label for="pob" class="form-label request-form-label">Place of Birth<span class="text-danger">*</span></label>
                 <input class="form-control" type="text" name="pob" value="{{ ($personal->pob != '') ? $personal->pob : old('pob') }}" disabled required>
                 @error('pob')
                 <small class="text-danger">{{ $message }}</small>
@@ -57,7 +57,7 @@
         </div>
         <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">
-                <label for="gender" class="form-label request-form-label">Sex*</label>
+                <label for="gender" class="form-label request-form-label">Sex<span class="text-danger">*</span></label>
                 <select class="form-select" name="gender" disabled required>
                     <option value="" selected>Choose</option>
                     <option value="Male" {{ ($user->gender == "Male" || old('gender') == "Male") ? "selected" : "" }}>Male</option>
@@ -73,7 +73,7 @@
         <span class="by-section-heading">Additional Information:</span>
         <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">
-                <label for="civil_status" class="form-label request-form-label">Civil Status*</label>
+                <label for="civil_status" class="form-label request-form-label">Civil Status<span class="text-danger">*</span></label>
                 <select class="form-select" name="civil_status" disabled required>
                     <option value="" selected>Select</option>
                     <option value="Single" {{ ($personal->civil_status == "Single" || old('civil_status') == "Single") ? "selected" : "" }}>Single</option>
@@ -89,7 +89,7 @@
         </div>
         <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">
-                <label for="height" class="form-label request-form-label">Height*</label>
+                <label for="height" class="form-label request-form-label">Height<span class="text-danger">*</span></label>
                 <input class="form-control" type="text" name="height" value="{{ ($personal->height != '') ? $personal->height : old('height') }}" disabled required>
                 @error('height')
                 <small class="text-danger">{{ $message }}</small>
@@ -98,7 +98,7 @@
         </div>
         <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">
-                <label for="weight" class="form-label request-form-label">Weight*</label>
+                <label for="weight" class="form-label request-form-label">Weight<span class="text-danger">*</span></label>
                 <input class="form-control" type="text" name="weight" value="{{ ($personal->weight != '') ? $personal->weight : old('weight') }}" disabled required>
                 @error('weight')
                 <small class="text-danger">{{ $message }}</small>
@@ -107,7 +107,7 @@
         </div>
         <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">
-                <label for="blood_type" class="form-label request-form-label">Blood Type*</label>
+                <label for="blood_type" class="form-label request-form-label">Blood Type<span class="text-danger">*</span></label>
                 <input class="form-control" type="text" name="blood_type" value="{{ ($personal->blood_type != '') ? $personal->blood_type : old('blood_type') }}" disabled required>
                 @error('blood_type')
                 <small class="text-danger">{{ $message }}</small>
@@ -175,7 +175,7 @@
     </div>
     <div class="row mb-2">
         <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-xs-12">
-            <label for="citizenship" class="form-label request-form-label">Citizenship*</label>
+            <label for="citizenship" class="form-label request-form-label">Citizenship<span class="text-danger">*</span></label>
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-check">
@@ -212,7 +212,7 @@
             <div class="row">
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <div class="form-group">
-                        <label for="citizenship_country" class="form-label request-form-label">Pls indicate country.*</label>
+                        <label for="citizenship_country" class="form-label request-form-label">Pls indicate country.<span class="text-danger">*</span></label>
                         <select class="form-select" name="citizenship_country" disabled required>
                             @include('user.form.country_option')
                         </select>
@@ -228,7 +228,7 @@
         <span class="by-section-heading">Residential Address:</span>
         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">
-                <label for="r_house_no" class="form-label request-form-label">House/Block/Lot No.*</label>
+                <label for="r_house_no" class="form-label request-form-label">House/Block/Lot No.<span class="text-danger">*</span></label>
                 <input class="form-control" type="text" name="r_house_no" value="{{ ($personal->r_house_no != '') ? $personal->r_house_no : old('r_house_no') }}" disabled required>
                 @error('r_house_no')
                 <small class="text-danger">{{ $message }}</small>
@@ -237,7 +237,7 @@
         </div>
         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">
-                <label for="r_street" class="form-label request-form-label">Street*</label>
+                <label for="r_street" class="form-label request-form-label">Street<span class="text-danger">*</span></label>
                 <input class="form-control" type="text" name="r_street" value="{{ ($personal->r_street != '') ? $personal->r_street : old('r_street') }}" disabled required>
                 @error('r_street')
                 <small class="text-danger">{{ $message }}</small>
@@ -248,7 +248,7 @@
     <div class="row mb-2">
         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">
-                <label for="r_subdivision" class="form-label request-form-label">Subdivision/Village*</label>
+                <label for="r_subdivision" class="form-label request-form-label">Subdivision/Village<span class="text-danger">*</span></label>
                 <input class="form-control" type="text" name="r_subdivision" value="{{ ($personal->r_subdivision != '') ? $personal->r_subdivision : old('r_subdivision') }}" disabled required>
                 @error('r_subdivision')
                 <small class="text-danger">{{ $message }}</small>
@@ -257,7 +257,7 @@
         </div>
         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">
-                <label for="r_barangay" class="form-label request-form-label">Barangay*</label>
+                <label for="r_barangay" class="form-label request-form-label">Barangay<span class="text-danger">*</span></label>
                 <input class="form-control" type="text" name="r_barangay" value="{{ ($personal->r_barangay != '') ? $personal->r_barangay : old('r_barangay') }}" disabled required>
                 @error('r_barangay')
                 <small class="text-danger">{{ $message }}</small>
@@ -268,7 +268,7 @@
     <div class="row mb-2">
         <div class="col-xl-5 col-lg-5 col-md-4 col-sm-4 col-xs-12">
             <div class="form-group">
-                <label for="r_city" class="form-label request-form-label">City/Municipality*</label>
+                <label for="r_city" class="form-label request-form-label">City/Municipality<span class="text-danger">*</span></label>
                 <input class="form-control" type="text" name="r_city" value="{{ ($personal->r_city != '') ? $personal->r_city : old('r_city') }}" disabled required>
                 @error('r_city')
                 <small class="text-danger">{{ $message }}</small>
@@ -277,7 +277,7 @@
         </div>
         <div class="col-xl-5 col-lg-5 col-md-4 col-sm-4 col-xs-12">
             <div class="form-group">
-                <label for="r_province" class="form-label request-form-label">Province*</label>
+                <label for="r_province" class="form-label request-form-label">Province<span class="text-danger">*</span></label>
                 <input class="form-control" type="text" name="r_province" value="{{ ($personal->r_province != '') ? $personal->r_province : old('r_province') }}" disabled required>
                 @error('r_province')
                 <small class="text-danger">{{ $message }}</small>
@@ -286,7 +286,7 @@
         </div>
         <div class="col-xl-2 col-lg-2 col-md-4 col-sm-4 col-xs-12">
             <div class="form-group">
-                <label for="r_zip_code" class="form-label request-form-label">Zip Code*</label>
+                <label for="r_zip_code" class="form-label request-form-label">Zip Code<span class="text-danger">*</span></label>
                 <input class="form-control" type="text" name="r_zip_code" value="{{ ($personal->r_zip_code != '') ? $personal->r_zip_code : old('r_zip_code') }}" disabled required>
                 @error('r_zip_code')
                 <small class="text-danger">{{ $message }}</small>
@@ -298,7 +298,7 @@
         <span class="by-section-heading">Permanent Address:</span>
         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">
-                <label for="p_house_no" class="form-label request-form-label">House/Block/Lot No.*</label>
+                <label for="p_house_no" class="form-label request-form-label">House/Block/Lot No.<span class="text-danger">*</span></label>
                 <input class="form-control" type="text" name="p_house_no" value="{{ ($personal->p_house_no != '') ? $personal->p_house_no : old('p_house_no') }}" disabled required>
                 @error('p_house_no')
                 <small class="text-danger">{{ $message }}</small>
@@ -307,7 +307,7 @@
         </div>
         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">
-                <label for="p_street" class="form-label request-form-label">Street*</label>
+                <label for="p_street" class="form-label request-form-label">Street<span class="text-danger">*</span></label>
                 <input class="form-control" type="text" name="p_street" value="{{ ($personal->p_street != '') ? $personal->p_street : old('p_street') }}" disabled required>
                 @error('p_street')
                 <small class="text-danger">{{ $message }}</small>
@@ -318,7 +318,7 @@
     <div class="row mb-2">
         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">
-                <label for="p_subdivision" class="form-label request-form-label">Subdivision/Village*</label>
+                <label for="p_subdivision" class="form-label request-form-label">Subdivision/Village<span class="text-danger">*</span></label>
                 <input class="form-control" type="text" name="p_subdivision" value="{{ ($personal->p_subdivision != '') ? $personal->p_subdivision : old('p_subdivision') }}" disabled required>
                 @error('p_subdivision')
                 <small class="text-danger">{{ $message }}</small>
@@ -327,7 +327,7 @@
         </div>
         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">
-                <label for="p_barangay" class="form-label request-form-label">Barangay*</label>
+                <label for="p_barangay" class="form-label request-form-label">Barangay<span class="text-danger">*</span></label>
                 <input class="form-control" type="text" name="p_barangay" value="{{ ($personal->p_barangay != '') ? $personal->p_barangay : old('p_barangay') }}" disabled required>
                 @error('p_barangay')
                 <small class="text-danger">{{ $message }}</small>
@@ -338,7 +338,7 @@
     <div class="row mb-2">
         <div class="col-xl-5 col-lg-5 col-md-4 col-sm-4 col-xs-12">
             <div class="form-group">
-                <label for="p_city" class="form-label request-form-label">City/Municipality*</label>
+                <label for="p_city" class="form-label request-form-label">City/Municipality<span class="text-danger">*</span></label>
                 <input class="form-control" type="text" name="p_city" value="{{ ($personal->p_city != '') ? $personal->p_city : old('p_city') }}" disabled required>
                 @error('p_city')
                 <small class="text-danger">{{ $message }}</small>
@@ -347,7 +347,7 @@
         </div>
         <div class="col-xl-5 col-lg-5 col-md-4 col-sm-4 col-xs-12">
             <div class="form-group">
-                <label for="p_province" class="form-label request-form-label">Province*</label>
+                <label for="p_province" class="form-label request-form-label">Province<span class="text-danger">*</span></label>
                 <input class="form-control" type="text" name="p_province" value="{{ ($personal->p_province != '') ? $personal->p_province : old('p_province') }}" disabled required>
                 @error('p_province')
                 <small class="text-danger">{{ $message }}</small>
@@ -356,7 +356,7 @@
         </div>
         <div class="col-xl-2 col-lg-2 col-md-4 col-sm-4 col-xs-12">
             <div class="form-group">
-                <label for="p_zip_code" class="form-label request-form-label">Zip Code*</label>
+                <label for="p_zip_code" class="form-label request-form-label">Zip Code<span class="text-danger">*</span></label>
                 <input class="form-control" type="text" name="p_zip_code" value="{{ ($personal->p_zip_code != '') ? $personal->p_zip_code : old('p_zip_code') }}" disabled required>
                 @error('p_zip_code')
                 <small class="text-danger">{{ $message }}</small>
@@ -377,7 +377,7 @@
         </div>
         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">
-                <label for="mobile" class="form-label request-form-label">Mobile No*</label>
+                <label for="mobile" class="form-label request-form-label">Mobile No<span class="text-danger">*</span></label>
                 <input class="form-control" type="text" name="mobile" value="{{ ($personal->mobile != '') ? $personal->mobile : old('mobile') }}" disabled required>
                 @error('mobile')
                 <small class="text-danger">{{ $message }}</small>
