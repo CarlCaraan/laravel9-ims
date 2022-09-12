@@ -209,5 +209,57 @@ class UserHomeController extends Controller
 
     public function EducationalDatasheetUpdate(UpdateEducationalInfoRequest $request)
     {
+        $educational = EducationalInfo::where('user_id', Auth::user()->id)->first();
+
+        // Elementary
+        $educational->elementary_school = $request->elementary_school;
+        $educational->elementary_course = $request->elementary_course;
+        $educational->elementary_from = $request->elementary_from;
+        $educational->elementary_to = $request->elementary_to;
+        $educational->elementary_units = $request->elementary_units;
+        $educational->elementary_graduated = $request->elementary_graduated;
+        $educational->elementary_honors = $request->elementary_honors;
+
+        // Secondary
+        $educational->secondary_school = $request->secondary_school;
+        $educational->secondary_course = $request->secondary_course;
+        $educational->secondary_from = $request->secondary_from;
+        $educational->secondary_to = $request->secondary_to;
+        $educational->secondary_units = $request->secondary_units;
+        $educational->secondary_graduated = $request->secondary_graduated;
+        $educational->secondary_honors = $request->secondary_honors;
+
+        // Vocational
+        $educational->vocational_school = $request->vocational_school;
+        $educational->vocational_course = $request->vocational_course;
+        $educational->vocational_from = $request->vocational_from;
+        $educational->vocational_to = $request->vocational_to;
+        $educational->vocational_units = $request->vocational_units;
+        $educational->vocational_graduated = $request->vocational_graduated;
+        $educational->vocational_honors = $request->vocational_honors;
+
+        // College
+        $educational->college_school = $request->college_school;
+        $educational->college_course = $request->college_course;
+        $educational->college_from = $request->college_from;
+        $educational->college_to = $request->college_to;
+        $educational->college_units = $request->college_units;
+        $educational->college_graduated = $request->college_graduated;
+        $educational->college_honors = $request->college_honors;
+
+        // Graduate Studies
+        $educational->studies_school = $request->studies_school;
+        $educational->studies_course = $request->studies_course;
+        $educational->studies_from = $request->studies_from;
+        $educational->studies_to = $request->studies_to;
+        $educational->studies_units = $request->studies_units;
+        $educational->studies_honors = $request->studies_honors;
+        $educational->save();
+
+        $notification = array(
+            'message' => 'Educational Background Updated Successfully',
+            'alert-type' => 'success',
+        );
+        return redirect()->route('user.welcome')->with($notification);
     } // End  Method
 }

@@ -153,7 +153,7 @@
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
             <div class="form-group">
                 <label for="vocational_school" class="form-label request-form-label">Name of School (Write in full)</label>
-                <input class="form-control" type="text" name="college_school" value="{{ ($educational->vocational_school != '') ? $educational->vocational_school : old('vocational_school')  }}" disabled>
+                <input class="form-control" type="text" name="vocational_school" value="{{ ($educational->vocational_school != '') ? $educational->vocational_school : old('vocational_school')  }}" disabled>
                 @error('vocational_school')
                 <small class="text-danger">{{ $message }}</small>
                 @enderror
