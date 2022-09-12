@@ -105,11 +105,11 @@
                         <div class="card shadow-sm border-0">
                             <div class="card-header">
                                 <span class="float-start mt-2 fw-bold">III.) EDUCATIONAL BACKGROUND</span>
-                                <button class="btn btn-success text-light float-end" id="btn-edit">Edit</button>
-                                <a href="" class="btn btn-success text-light float-end" id="btn-update" style="display:none;">Update</a>
+                                <button class="btn custom-btn text-light float-end btn-edit">Edit</button>
                             </div>
                             <div class="card-body">
-                                <p>Fill up information below.</p>
+                                <!-- Educational Background Form -->
+                                @include('user.form.educational_datasheet_form')
                             </div>
                         </div>
                     </div>

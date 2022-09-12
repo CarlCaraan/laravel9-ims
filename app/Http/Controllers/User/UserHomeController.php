@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\PersonalInfo;
 use App\Models\FamilyInfo;
 use App\Models\FamilyChildrenList;
+use App\Models\EducationalInfo;
 use Auth;
 
 use App\Http\Requests\UpdatePersonalInfoRequest;
@@ -41,11 +42,19 @@ class UserHomeController extends Controller
             $data->family_id = $family_id;
             $data->save();
         }
+        // Automatic Create Educational Table for the First Time
+        $educational_exists_count = EducationalInfo::where('user_id', $id)->count();
+        if ($educational_exists_count == 0) {
+            $data = new EducationalInfo();
+            $data->user_id = $id;
+            $data->save();
+        }
 
         $allData['user'] = User::find($id);
         $allData['personal'] = PersonalInfo::where('user_id', $id)->first();
         $allData['family'] = FamilyInfo::where('user_id', $id)->first();
         $allData['children'] = FamilyChildrenList::where('family_id', $family_id)->get();
+        $allData['educational'] = EducationalInfo::where('user_id', $id)->first();
         return view('user.index', $allData);
     } // End Method
 
