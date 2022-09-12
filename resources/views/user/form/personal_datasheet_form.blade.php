@@ -31,7 +31,7 @@
         </div>
         <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">
-                <label for="extension_name" class="form-label request-form-label">Name Extension*</label>
+                <label for="extension_name" class="form-label request-form-label">Name Extension</label>
                 <input class="form-control" type="text" name="extension_name" value="{{ ($personal->extension_name != '') ? $personal->extension_name : old('extension_name') }}" disabled>
             </div>
         </div>
@@ -118,7 +118,7 @@
     <div class="row mb-2">
         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">
-                <label for="gsis_id_no" class="form-label request-form-label">GSIS ID No.*</label>
+                <label for="gsis_id_no" class="form-label request-form-label">GSIS ID No.</label>
                 <input class="form-control" type="text" name="gsis_id_no" value="{{ ($personal->gsis_id_no != '') ? $personal->gsis_id_no : old('gsis_id_no') }}" disabled>
                 @error('gsis_id_no')
                 <small class="text-danger">{{ $message }}</small>
@@ -127,7 +127,7 @@
         </div>
         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">
-                <label for="pagibig_id_no" class="form-label request-form-label">PAG-IBIG ID No.*</label>
+                <label for="pagibig_id_no" class="form-label request-form-label">PAG-IBIG ID No.</label>
                 <input class="form-control" type="text" name="pagibig_id_no" value="{{ ($personal->pagibig_id_no != '') ? $personal->pagibig_id_no : old('pagibig_id_no') }}" disabled>
                 @error('pagibig_id_no')
                 <small class="text-danger">{{ $message }}</small>
@@ -136,7 +136,7 @@
         </div>
         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">
-                <label for="philhealth_no" class="form-label request-form-label">PHILHEALTH No.*</label>
+                <label for="philhealth_no" class="form-label request-form-label">PHILHEALTH No.</label>
                 <input class="form-control" type="text" name="philhealth_no" value="{{ ($personal->philhealth_no != '') ? $personal->philhealth_no : old('philhealth_no') }}" disabled>
                 @error('philhealth_no')
                 <small class="text-danger">{{ $message }}</small>
@@ -147,7 +147,7 @@
     <div class="row mb-2">
         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">
-                <label for="sss_no" class="form-label request-form-label">SSS No.*</label>
+                <label for="sss_no" class="form-label request-form-label">SSS No.</label>
                 <input class="form-control" type="text" name="sss_no" value="{{ ($personal->sss_no != '') ? $personal->sss_no : old('sss_no') }}" disabled>
                 @error('sss_no')
                 <small class="text-danger">{{ $message }}</small>
@@ -156,7 +156,7 @@
         </div>
         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">
-                <label for="tin_no" class="form-label request-form-label">TIN No.*</label>
+                <label for="tin_no" class="form-label request-form-label">TIN No.</label>
                 <input class="form-control" type="text" name="tin_no" value="{{ ($personal->tin_no != '') ? $personal->tin_no : old('tin_no') }}" disabled>
                 @error('tin_no')
                 <small class="text-danger">{{ $message }}</small>
@@ -165,7 +165,7 @@
         </div>
         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">
-                <label for="agency_employee_no" class="form-label request-form-label">AGENCY EMPLOYEE No.*</label>
+                <label for="agency_employee_no" class="form-label request-form-label">AGENCY EMPLOYEE No.</label>
                 <input class="form-control" type="text" name="agency_employee_no" value="{{ ($personal->agency_employee_no != '') ? $personal->agency_employee_no : old('agency_employee_no') }}" disabled>
                 @error('agency_employee_no')
                 <small class="text-danger">{{ $message }}</small>
@@ -368,7 +368,7 @@
         <span><i>Contact:</i></span>
         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">
-                <label for="telephone" class="form-label request-form-label">Telephone No.*</label>
+                <label for="telephone" class="form-label request-form-label">Telephone No.</label>
                 <input class="form-control" type="text" name="telephone" value="{{ ($personal->telephone != '') ? $personal->telephone : old('telephone') }}" placeholder="Optional" disabled>
                 @error('telephone')
                 <small class="text-danger">{{ $message }}</small>
@@ -386,7 +386,7 @@
         </div>
         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">
-                <label for="contact_email" class="form-label request-form-label">Email (If any)*</label>
+                <label for="contact_email" class="form-label request-form-label">Email (If any)</label>
                 <input class="form-control" type="email" name="contact_email" value="{{ ($personal->contact_email != '') ? $personal->contact_email : old('contact_email') }}" placeholder="Optional" disabled>
                 @error('contact_email')
                 <small class="text-danger">{{ $message }}</small>

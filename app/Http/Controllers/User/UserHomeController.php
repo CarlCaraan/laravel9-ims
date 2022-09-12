@@ -134,9 +134,19 @@ class UserHomeController extends Controller
         $family->spouse_mname = $request->spouse_mname;
         $family->spouse_ename = $request->spouse_ename;
         $family->occupation = $request->occupation;
-        $family->employer_name = $request->employer_name;
-        $family->business_address = $request->business_address;
-        $family->telephone = $request->telephone;
+        if (
+            $family->employer_name == "" || $family->employer_name == "n/a" ||
+            $family->business_address == "" || $family->business_address == "n/a" ||
+            $family->telephone == "" || $family->telephone == "n/a"
+        ) {
+            $family->employer_name = "n/a";
+            $family->business_address = "n/a";
+            $family->telephone =  "n/a";
+        } else {
+            $family->employer_name = $request->employer_name;
+            $family->business_address = $request->business_address;
+            $family->telephone = $request->telephone;
+        }
 
         $family->father_lname = $request->father_lname;
         $family->father_fname = $request->father_fname;
