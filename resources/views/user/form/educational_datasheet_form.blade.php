@@ -1,4 +1,4 @@
-<form class="mt-4" action="{{ route('family.datasheet.update') }}" method="POST">
+<form class="mt-4" action="{{ route('educational.datasheet.update') }}" method="POST">
     @csrf
 
     <!-- Start Elementary -->
@@ -64,8 +64,8 @@
     <div class="row mb-2">
         <div class="col-xl-5 col-lg-4 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">
-                <label for="elementary_honors" class="form-label request-form-label">Scholarship/Academic Honors Received<span class="text-danger">*</span></label>
-                <input class="form-control" type="text" name="elementary_honors" value="{{ ($educational->elementary_honors != '') ? $educational->elementary_honors : old('elementary_honors')  }}" disabled required>
+                <label for="elementary_honors" class="form-label request-form-label">Scholarship/Academic Honors Received</label>
+                <input class="form-control" type="text" name="elementary_honors" value="{{ ($educational->elementary_honors != '') ? $educational->elementary_honors : old('elementary_honors')  }}" disabled>
                 @error('elementary_honors')
                 <small class="text-danger">{{ $message }}</small>
                 @enderror
@@ -149,11 +149,11 @@
 
     <!-- Start Vocational -->
     <div class="row mb-2 border-top pt-2 mt-4">
-        <span class="by-section-heading">Vocational:</span>
+        <span class="by-section-heading">Vocational(Optional):</span>
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
             <div class="form-group">
-                <label for="vocational_school" class="form-label request-form-label">Name of School (Write in full)<span class="text-danger">*</span></label>
-                <input class="form-control" type="text" name="college_school" value="{{ ($educational->vocational_school != '') ? $educational->vocational_school : old('vocational_school')  }}" disabled required>
+                <label for="vocational_school" class="form-label request-form-label">Name of School (Write in full)</label>
+                <input class="form-control" type="text" name="college_school" value="{{ ($educational->vocational_school != '') ? $educational->vocational_school : old('vocational_school')  }}" disabled>
                 @error('vocational_school')
                 <small class="text-danger">{{ $message }}</small>
                 @enderror
@@ -161,8 +161,8 @@
         </div>
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
             <div class="form-group">
-                <label for="vocational_course" class="form-label request-form-label">Basic Education/Degree/Course (Write in full)<span class="text-danger">*</span></label>
-                <input class="form-control" type="text" name="vocational_course" value="{{ ($educational->vocational_course != '') ? $educational->vocational_course : old('vocational_course')  }}" disabled required>
+                <label for="vocational_course" class="form-label request-form-label">Basic Education/Degree/Course (Write in full)</label>
+                <input class="form-control" type="text" name="vocational_course" value="{{ ($educational->vocational_course != '') ? $educational->vocational_course : old('vocational_course')  }}" disabled>
                 @error('vocational_course')
                 <small class="text-danger">{{ $message }}</small>
                 @enderror
@@ -172,8 +172,8 @@
     <div class="row mb-2">
         <div class="col-xl-2 col-lg-2 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">
-                <label for="vocational_from" class="form-label request-form-label">Year From<span class="text-danger">*</span></label>
-                <input class="form-control" type="text" name="vocational_from" value="{{ ($educational->vocational_from != '') ? $educational->vocational_from : old('vocational_from')  }}" placeholder="YYYY" disabled required>
+                <label for="vocational_from" class="form-label request-form-label">Year From</label>
+                <input class="form-control" type="text" name="vocational_from" value="{{ ($educational->vocational_from != '') ? $educational->vocational_from : old('vocational_from')  }}" placeholder="YYYY" disabled>
                 @error('vocational_from')
                 <small class="text-danger">{{ $message }}</small>
                 @enderror
@@ -181,8 +181,8 @@
         </div>
         <div class="col-xl-2 col-lg-2 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">
-                <label for="vocational_to" class="form-label request-form-label">Year To<span class="text-danger">*</span></label>
-                <input class="form-control" type="text" name="vocational_to" value="{{ ($educational->vocational_to != '') ? $educational->vocational_to : old('vocational_to')  }}" placeholder="YYYY" disabled required>
+                <label for="vocational_to" class="form-label request-form-label">Year To</label>
+                <input class="form-control" type="text" name="vocational_to" value="{{ ($educational->vocational_to != '') ? $educational->vocational_to : old('vocational_to')  }}" placeholder="YYYY" disabled>
                 @error('vocational_to')
                 <small class="text-danger">{{ $message }}</small>
                 @enderror
@@ -199,8 +199,8 @@
         </div>
         <div class="col-xl-2 col-lg-4 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">
-                <label for="vocational_graduated" class="form-label request-form-label">Year Graduated<span class="text-danger">*</span></label>
-                <input class="form-control" type="text" name="vocational_graduated" value="{{ ($educational->vocational_graduated != '') ? $educational->vocational_graduated : old('vocational_graduated')  }}" placeholder="YYYY" disabled required>
+                <label for="vocational_graduated" class="form-label request-form-label">Year Graduated</label>
+                <input class="form-control" type="text" name="vocational_graduated" value="{{ ($educational->vocational_graduated != '') ? $educational->vocational_graduated : old('vocational_graduated')  }}" placeholder="YYYY" disabled>
                 @error('vocational_graduated')
                 <small class="text-danger">{{ $message }}</small>
                 @enderror
@@ -295,11 +295,11 @@
 
     <!-- Start Graduate Studies -->
     <div class="row mb-2 border-top pt-2 mt-4">
-        <span class="by-section-heading">Graduate Studies:</span>
+        <span class="by-section-heading">Graduate Studies(Optional):</span>
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
             <div class="form-group">
-                <label for="studies_school" class="form-label request-form-label">Name of School (Write in full)<span class="text-danger">*</span></label>
-                <input class="form-control" type="text" name="studies_school" value="{{ ($educational->studies_school != '') ? $educational->studies_school : old('studies_school')  }}" disabled required>
+                <label for="studies_school" class="form-label request-form-label">Name of School (Write in full)</label>
+                <input class="form-control" type="text" name="studies_school" value="{{ ($educational->studies_school != '') ? $educational->studies_school : old('studies_school')  }}" disabled>
                 @error('studies_school')
                 <small class="text-danger">{{ $message }}</small>
                 @enderror
@@ -307,8 +307,8 @@
         </div>
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
             <div class="form-group">
-                <label for="studies_course" class="form-label request-form-label">Basic Education/Degree/Course (Write in full)<span class="text-danger">*</span></label>
-                <input class="form-control" type="text" name="studies_course" value="{{ ($educational->studies_course != '') ? $educational->studies_course : old('studies_course')  }}" disabled required>
+                <label for="studies_course" class="form-label request-form-label">Basic Education/Degree/Course (Write in full)</label>
+                <input class="form-control" type="text" name="studies_course" value="{{ ($educational->studies_course != '') ? $educational->studies_course : old('studies_course')  }}" disabled>
                 @error('studies_course')
                 <small class="text-danger">{{ $message }}</small>
                 @enderror
@@ -318,8 +318,8 @@
     <div class="row mb-2">
         <div class="col-xl-2 col-lg-2 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">
-                <label for="studies_from" class="form-label request-form-label">Year From<span class="text-danger">*</span></label>
-                <input class="form-control" type="text" name="studies_from" value="{{ ($educational->studies_from != '') ? $educational->studies_from : old('studies_from')  }}" placeholder="YYYY" disabled required>
+                <label for="studies_from" class="form-label request-form-label">Year From</label>
+                <input class="form-control" type="text" name="studies_from" value="{{ ($educational->studies_from != '') ? $educational->studies_from : old('studies_from')  }}" placeholder="YYYY" disabled>
                 @error('studies_from')
                 <small class="text-danger">{{ $message }}</small>
                 @enderror
@@ -327,8 +327,8 @@
         </div>
         <div class="col-xl-2 col-lg-2 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">
-                <label for="studies_to" class="form-label request-form-label">Year To<span class="text-danger">*</span></label>
-                <input class="form-control" type="text" name="studies_to" value="{{ ($educational->studies_to != '') ? $educational->studies_to : old('studies_to')  }}" placeholder="YYYY" disabled required>
+                <label for="studies_to" class="form-label request-form-label">Year To</label>
+                <input class="form-control" type="text" name="studies_to" value="{{ ($educational->studies_to != '') ? $educational->studies_to : old('studies_to')  }}" placeholder="YYYY" disabled>
                 @error('studies_to')
                 <small class="text-danger">{{ $message }}</small>
                 @enderror
@@ -345,8 +345,8 @@
         </div>
         <div class="col-xl-2 col-lg-4 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">
-                <label for="studies_graduated" class="form-label request-form-label">Year Graduated<span class="text-danger">*</span></label>
-                <input class="form-control" type="text" name="studies_graduated" value="{{ ($educational->studies_graduated != '') ? $educational->studies_graduated : old('studies_graduated')  }}" placeholder="YYYY" disabled required>
+                <label for="studies_graduated" class="form-label request-form-label">Year Graduated</label>
+                <input class="form-control" type="text" name="studies_graduated" value="{{ ($educational->studies_graduated != '') ? $educational->studies_graduated : old('studies_graduated')  }}" placeholder="YYYY" disabled>
                 @error('studies_graduated')
                 <small class="text-danger">{{ $message }}</small>
                 @enderror

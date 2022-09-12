@@ -13,6 +13,7 @@ use Auth;
 
 use App\Http\Requests\UpdatePersonalInfoRequest;
 use App\Http\Requests\UpdateFamilyInfoRequest;
+use App\Http\Requests\UpdateEducationalInfoRequest;
 
 class UserHomeController extends Controller
 {
@@ -205,4 +206,8 @@ class UserHomeController extends Controller
         );
         return redirect()->route('user.welcome')->with($notification);
     } // End Method
+
+    public function EducationalDatasheetUpdate(UpdateEducationalInfoRequest $request)
+    {
+    } // End  Method
 }

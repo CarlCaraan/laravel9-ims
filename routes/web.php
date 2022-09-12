@@ -117,6 +117,9 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
         Route::prefix('family')->group(function () {
             Route::post('datasheet/update', [UserHomeController::class, 'FamilyDatasheetUpdate'])->name('family.datasheet.update');
         });
+        Route::prefix('educational')->group(function () {
+            Route::post('datasheet/update', [UserHomeController::class, 'EducationalDatasheetUpdate'])->name('educational.datasheet.update');
+        });
 
         // Profile Route
         Route::prefix('profile')->group(function () {

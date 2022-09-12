@@ -57,5 +57,5 @@ class UpdateFamilyInfoRequest extends FormRequest
             'mother_mname.required' => 'Mother\'s Middlename is required.',
             'mother_maiden_name.required' => 'Mother\'s Maiden Name is required.',
         ];
-    }
+    } // End Method
 }
