@@ -10,6 +10,7 @@ use App\Models\FamilyInfo;
 use App\Models\FamilyChildrenList;
 use App\Models\EducationalInfo;
 use App\Models\CivilServiceInfo;
+use App\Models\WorkExperienceInfo;
 use Auth;
 
 use App\Http\Requests\UpdatePersonalInfoRequest;
@@ -53,10 +54,18 @@ class UserHomeController extends Controller
             $data->save();
         }
 
-        // Automatic Create Educational Table for the First Time
+        // Automatic Create Civil Service Table for the First Time
         $civil_exists_count = CivilServiceInfo::where('user_id', $id)->count();
         if ($civil_exists_count == 0) {
             $data = new CivilServiceInfo();
+            $data->user_id = $id;
+            $data->save();
+        }
+
+        // Automatic Create Work Experience Table for the First Time
+        $work_exists_count = WorkExperienceInfo::where('user_id', $id)->count();
+        if ($work_exists_count == 0) {
+            $data = new WorkExperienceInfo();
             $data->user_id = $id;
             $data->save();
         }
@@ -67,6 +76,7 @@ class UserHomeController extends Controller
         $allData['children'] = FamilyChildrenList::where('family_id', $family_id)->get();
         $allData['educational'] = EducationalInfo::where('user_id', $id)->first();
         $allData['civil'] = CivilServiceInfo::where('user_id', $id)->first();
+        $allData['work'] = WorkExperienceInfo::where('user_id', $id)->first();
         return view('user.index', $allData);
     } // End Method
 

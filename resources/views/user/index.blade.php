@@ -61,8 +61,11 @@
                     <button class="nav-link text-start side-navlink" id="v-pills-educational-tab" data-bs-toggle="{{ ($family->father_lname == '') ? 'tooltip' : 'pill' }}" title="{{ ($family->father_lname == '') ? 'Complete II.) Family Background to Proceed.' : '' }}" data-bs-placement="right" data-bs-target="#v-pills-educational" type="button" role="tab" aria-controls="v-pills-educational" aria-selected="false" style="{{ ($family->father_lname == '') ? 'cursor: not-allowed' : '' }}">
                         III.) Educational Background <i class="{{ ($family->father_lname == '') ? 'fas fa-lock' : '' }}"></i>
                     </button>
-                    <button class="nav-link text-start side-navlink" id="v-pills-civil-tab" data-bs-toggle="{{ ($educational->elementary_school == '') ? 'tooltip' : 'pill' }}" title="{{ ($educational->elementary_school == '') ? 'Complete III.) Educational Background to Proceed.' : '' }}" data-bs-placement="right" data-bs-target="#v-pills-civil" type="button" role="tab" aria-controls="v-pills-educational" aria-selected="false" style="{{ ($educational->elementary_school == '') ? 'cursor: not-allowed' : '' }}">
+                    <button class="nav-link text-start side-navlink" id="v-pills-civil-tab" data-bs-toggle="{{ ($educational->elementary_school == '') ? 'tooltip' : 'pill' }}" title="{{ ($educational->elementary_school == '') ? 'Complete III.) Educational Background to Proceed.' : '' }}" data-bs-placement="right" data-bs-target="#v-pills-civil" type="button" role="tab" aria-controls="v-pills-civil" aria-selected="false" style="{{ ($educational->elementary_school == '') ? 'cursor: not-allowed' : '' }}">
                         IV.) Civil Service Eligibility <i class="{{ ($educational->elementary_school == '') ? 'fas fa-lock' : '' }}"></i>
+                    </button>
+                    <button class="nav-link text-start side-navlink" id="v-pills-work-tab" data-bs-toggle="{{ ($civil->cse_type == '') ? 'tooltip' : 'pill' }}" title="{{ ($civil->cse_type == '') ? 'Complete IV.) Civil Service Eligibility to Proceed.' : '' }}" data-bs-placement="right" data-bs-target="#v-pills-work" type="button" role="tab" aria-controls="v-pills-work" aria-selected="false" style="{{ ($civil->cse_type == '') ? 'cursor: not-allowed' : '' }}">
+                        V.) Work Experience <i class="{{ ($civil->cse_type == '') ? 'fas fa-lock' : '' }}"></i>
                     </button>
                 </div>
                 <br>
@@ -135,6 +138,24 @@
                         </div>
                     </div>
                     <!-- ========= End Civil Service ========= -->
+
+                    <!-- ========= Start Work Experience ========= -->
+                    <div class="tab-pane fade" id="v-pills-work" role="tabpanel" aria-labelledby="v-pills-work-tab">
+                        <div class="card shadow-sm border-0">
+                            <div class="card-header">
+                                <span class="float-start mt-2 fw-bold">V.) WORK EXPERIENCE</span>
+                                <button class="btn custom-btn text-light float-end btn-edit">Edit</button>
+                            </div>
+                            <div class="card-body">
+                                <p>
+                                    (Include private employment. Start from your recent work) Description of duties should be indicated in the attached Work Experience sheet.
+                                </p>
+                                <!-- Work Experience Form -->
+                                @include('user.form.work_datasheet_form')
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ========= End Work Experience ========= -->
                 </div>
             </div>
         </div>
