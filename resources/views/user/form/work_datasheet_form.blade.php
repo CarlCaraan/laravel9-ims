@@ -2,7 +2,7 @@
     @csrf
 
     <div class="row mb-2">
-        <div class="col-xl-2 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="col-xl-3 col-lg-6 col-md-12 col-sm-12 col-xs-12">
             <div class="form-group">
                 <label for="work_date_from" class="form-label request-form-label">Inclusive Dates <br /> (From):<span class="text-danger">*</span></label>
                 <input class="form-control" type="date" name="work_date_from" value="{{ ($work->work_date_from != '') ? $work->work_date_from : old('work_date_from')  }}" disabled>
@@ -11,7 +11,7 @@
                 @enderror
             </div>
         </div>
-        <div class="col-xl-2 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="col-xl-3 col-lg-6 col-md-12 col-sm-12 col-xs-12">
             <div class="form-group">
                 <label for="work_date_to" class="form-label request-form-label">Inclusive Dates <br /> (To):<span class="text-danger">*</span></label>
                 <input class="form-control" type="date" name="work_date_to" value="{{ ($work->work_date_to != '') ? $work->work_date_to : old('work_date_to')  }}" disabled>
@@ -20,7 +20,7 @@
                 @enderror
             </div>
         </div>
-        <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="col-xl-6 col-lg-8 col-md-12 col-sm-12 col-xs-12">
             <div class="form-group">
                 <label for="job_title" class="form-label request-form-label">Position Title <br />(Write in full/Do not abbreviate):<span class="text-danger">*</span></label>
                 <input class="form-control" type="text" name="job_title" value="{{ ($work->job_title != '') ? $work->job_title : old('job_title')  }}" disabled>
@@ -29,9 +29,11 @@
                 @enderror
             </div>
         </div>
-        <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    </div>
+    <div class="row mb-2">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="form-group">
-                <label for="job_type" class="form-label request-form-label">DEPARTMENT / AGENCY / OFFICE / COMPANY <br /> (Write in full/Do not abbreviate):<span class="text-danger">*</span></label>
+                <label for="job_type" class="form-label request-form-label">DEPARTMENT / AGENCY / OFFICE / COMPANY (Write in full/Do not abbreviate):<span class="text-danger">*</span></label>
                 <input class="form-control" type="text" name="job_type" value="{{ ($work->job_type != '') ? $work->job_type : old('job_type')  }}" disabled>
                 @error('job_type')
                 <small class="text-danger">{{ $message }}</small>
@@ -40,7 +42,7 @@
         </div>
     </div>
     <div class="row mb-2">
-        <div class="col-xl-3 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-xs-12">
             <div class="form-group">
                 <label for="monthly_salary" class="form-label request-form-label"><br />Monthly Salary:<span class="text-danger">*</span></label>
                 <input class="form-control" type="number" name="monthly_salary" value="{{ ($work->monthly_salary != '') ? $work->monthly_salary : old('monthly_salary')  }}" disabled>
@@ -49,7 +51,7 @@
                 @enderror
             </div>
         </div>
-        <div class="col-xl-5 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="col-xl-5 col-lg-8 col-md-12 col-sm-12 col-xs-12">
             <div class="form-group">
                 <label for="salary_grade" class="form-label request-form-label">SALARY/ JOB/ PAY GRADE (if applicable) <br /> STEP (Format "00-0")/ INCREMENT:</label>
                 <input class="form-control" type="text" name="salary_grade" value="{{ ($work->salary_grade != '') ? $work->salary_grade : old('salary_grade')  }}" disabled placeholder="00-0">
@@ -67,7 +69,7 @@
                 @enderror
             </div>
         </div>
-        <div class="col-xl-2 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="col-xl-2 col-lg-6 col-md-12 col-sm-12 col-xs-12">
             <div class="form-group">
                 <label for="gov_service" class="form-label request-form-label"><br />GOV'T SERVICE:<span class="text-danger">*</span></label>
                 <select class="form-select" name="gov_service" disabled required>
