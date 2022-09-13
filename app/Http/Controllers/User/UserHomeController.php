@@ -17,6 +17,7 @@ use App\Http\Requests\UpdatePersonalInfoRequest;
 use App\Http\Requests\UpdateFamilyInfoRequest;
 use App\Http\Requests\UpdateEducationalInfoRequest;
 use App\Http\Requests\UpdateCivilInfoRequest;
+use App\Http\Requests\UpdateWorkInfoRequest;
 
 class UserHomeController extends Controller
 {
@@ -26,6 +27,7 @@ class UserHomeController extends Controller
 
         $childrenListNaDelete = FamilyChildrenList::where('children_name', 'n/a')->delete();
         $civilNaDelete = CivilServiceInfo::where('cse_type', 'n/a')->delete();
+        $workNaDelete = WorkExperienceInfo::where('work_date_from', 'n/a')->delete();
 
         // Automatic Create Personal Table for the First Time
         $personal_exists_count = PersonalInfo::where('user_id', $id)->count();
@@ -79,7 +81,7 @@ class UserHomeController extends Controller
         $allData['children'] = FamilyChildrenList::where('family_id', $family_id)->get();
         $allData['educational'] = EducationalInfo::where('user_id', $id)->first();
         $allData['civils'] = CivilServiceInfo::where('user_id', $id)->get();
-        $allData['work'] = WorkExperienceInfo::where('user_id', $id)->first();
+        $allData['works'] = WorkExperienceInfo::where('user_id', $id)->get();
         return view('user.index', $allData);
     } // End Method
 
@@ -358,6 +360,79 @@ class UserHomeController extends Controller
 
         $notification = array(
             'message' => 'Civil Service Updated Successfully',
+            'alert-type' => 'success',
+        );
+        return redirect()->route('user.welcome')->with($notification);
+    } // End  Method
+
+    public function WorkDatasheetUpdate(UpdateWorkInfoRequest $request)
+    {
+        $work = WorkExperienceInfo::where('user_id', Auth::user()->id)->first();
+        WorkExperienceInfo::where('user_id', Auth::user()->id)->delete();
+
+        // If NULL
+        if ($request->work_date_from == NULL) {
+            $work->user_id = Auth::user()->id;
+            $work->work_date_from = "n/a";
+            $work->work_date_to = "n/a";
+            $work->job_title = "n/a";
+            $work->job_type = "n/a";
+            $work->monthly_salary = NULL;
+            $work->salary_grade = "n/a";
+            $work->status_of_appointment = "n/a";
+            $work->gov_service = "n/a";
+            $work->save();
+            $notification = array(
+                'message' => 'Work Experience Updated Successfully',
+                'alert-type' => 'success',
+            );
+            return redirect()->route('user.welcome')->with($notification);
+        } else {
+            $countWorkDateFrom = count($request->work_date_from);
+        } // End If NULL
+
+        for ($i = 0; $i < $countWorkDateFrom; $i++) {
+            $work = new WorkExperienceInfo();
+            $work->user_id = Auth::user()->id;
+            $work->work_date_from = $request->work_date_from[$i];
+            $work->work_date_to = $request->work_date_to[$i];
+            $work->job_title = $request->job_title[$i];
+            $work->job_type = $request->job_type[$i];
+            $work->monthly_salary = $request->monthly_salary[$i];
+            $work->salary_grade = $request->salary_grade[$i];
+            $work->status_of_appointment = $request->status_of_appointment[$i];
+            $work->gov_service = $request->gov_service[$i];
+            $work->save();
+
+            if (
+                $request->work_date_from[$i] == "" ||
+                $request->work_date_to[$i] == "" ||
+                $request->job_title[$i] == "" ||
+                $request->job_type[$i] == "" ||
+                $request->monthly_salary[$i] == "" ||
+                $request->status_of_appointment[$i] == "" ||
+                $request->gov_service[$i] == ""
+            ) {
+                $work->work_date_from = "n/a";
+                $work->work_date_to = "n/a";
+                $work->job_title = "n/a";
+                $work->job_type = "n/a";
+                $work->monthly_salary = NULL;
+                $work->salary_grade = "n/a";
+                $work->status_of_appointment = "n/a";
+                $work->gov_service = "n/a";
+                $work->save();
+
+                $notification = array(
+                    'message' => 'Required field must not be empty (WORK EXPERIENCE)',
+                    'alert-type' => 'error',
+                );
+                return redirect()->route('user.welcome')->with($notification);
+            }
+        } //End For loop
+
+        $notification = array(
+            'message' => 'Work Experience Updated Successfully',
             'alert-type' => 'success',
         );
         return redirect()->route('user.welcome')->with($notification);

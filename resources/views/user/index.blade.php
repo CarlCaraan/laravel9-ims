@@ -180,6 +180,8 @@
             $(".removeeventmore").show();
             $(".addeventmore1").show();
             $(".removeeventmore1").show();
+            $(".addeventmore2").show();
+            $(".removeeventmore2").show();
         });
     });
 </script>
