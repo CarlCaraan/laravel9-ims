@@ -9,11 +9,13 @@ use App\Models\PersonalInfo;
 use App\Models\FamilyInfo;
 use App\Models\FamilyChildrenList;
 use App\Models\EducationalInfo;
+use App\Models\CivilServiceInfo;
 use Auth;
 
 use App\Http\Requests\UpdatePersonalInfoRequest;
 use App\Http\Requests\UpdateFamilyInfoRequest;
 use App\Http\Requests\UpdateEducationalInfoRequest;
+use App\Http\Requests\UpdateCivilInfoRequest;
 
 class UserHomeController extends Controller
 {
@@ -51,11 +53,20 @@ class UserHomeController extends Controller
             $data->save();
         }
 
+        // Automatic Create Educational Table for the First Time
+        $civil_exists_count = CivilServiceInfo::where('user_id', $id)->count();
+        if ($civil_exists_count == 0) {
+            $data = new CivilServiceInfo();
+            $data->user_id = $id;
+            $data->save();
+        }
+
         $allData['user'] = User::find($id);
         $allData['personal'] = PersonalInfo::where('user_id', $id)->first();
         $allData['family'] = FamilyInfo::where('user_id', $id)->first();
         $allData['children'] = FamilyChildrenList::where('family_id', $family_id)->get();
         $allData['educational'] = EducationalInfo::where('user_id', $id)->first();
+        $allData['civil'] = CivilServiceInfo::where('user_id', $id)->first();
         return view('user.index', $allData);
     } // End Method
 
@@ -258,6 +269,24 @@ class UserHomeController extends Controller
 
         $notification = array(
             'message' => 'Educational Background Updated Successfully',
+            'alert-type' => 'success',
+        );
+        return redirect()->route('user.welcome')->with($notification);
+    } // End  Method
+
+    public function CivilDatasheetUpdate(UpdateCivilInfoRequest $request)
+    {
+        $civil = CivilServiceInfo::where('user_id', Auth::user()->id)->first();
+        $civil->cse_type = $request->cse_type;
+        $civil->cse_rating = $request->cse_rating;
+        $civil->cse_date = $request->cse_date;
+        $civil->cse_place = $request->cse_place;
+        $civil->cse_license_number = $request->cse_license_number;
+        $civil->cse_license_date = $request->cse_license_date;
+        $civil->save();
+
+        $notification = array(
+            'message' => 'Civil Service Updated Successfully',
             'alert-type' => 'success',
         );
         return redirect()->route('user.welcome')->with($notification);

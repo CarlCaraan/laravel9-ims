@@ -111,15 +111,10 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
         Route::get('home', [UserHomeController::class, 'UserHome'])->name('user.welcome');
 
         // ========= All Request Route =========
-        Route::prefix('personal')->group(function () {
-            Route::post('datasheet/update', [UserHomeController::class, 'PersonalDatasheetUpdate'])->name('personal.datasheet.update');
-        });
-        Route::prefix('family')->group(function () {
-            Route::post('datasheet/update', [UserHomeController::class, 'FamilyDatasheetUpdate'])->name('family.datasheet.update');
-        });
-        Route::prefix('educational')->group(function () {
-            Route::post('datasheet/update', [UserHomeController::class, 'EducationalDatasheetUpdate'])->name('educational.datasheet.update');
-        });
+        Route::post('personal/datasheet/update', [UserHomeController::class, 'PersonalDatasheetUpdate'])->name('personal.datasheet.update');
+        Route::post('family/datasheet/update', [UserHomeController::class, 'FamilyDatasheetUpdate'])->name('family.datasheet.update');
+        Route::post('educational/datasheet/update', [UserHomeController::class, 'EducationalDatasheetUpdate'])->name('educational.datasheet.update');
+        Route::post('civil/datasheet/update', [UserHomeController::class, 'CivilDatasheetUpdate'])->name('civil.datasheet.update');
 
         // Profile Route
         Route::prefix('profile')->group(function () {
