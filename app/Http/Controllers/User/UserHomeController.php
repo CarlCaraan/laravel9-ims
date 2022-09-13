@@ -316,10 +316,10 @@ class UserHomeController extends Controller
             $civil->cse_place = $request->cse_place[$i];
             $civil->cse_license_number = $request->cse_license_number[$i];
             $civil->cse_license_date = $request->cse_license_date[$i];
+            $civil->save();
 
             if (
                 $request->cse_type[$i] == "" ||
-                $request->cse_rating[$i] == "" ||
                 $request->cse_date[$i] == "" ||
                 $request->cse_place[$i] == "" ||
                 $request->cse_license_number[$i] == "" ||
@@ -331,8 +331,14 @@ class UserHomeController extends Controller
                 $civil->cse_place = "n/a";
                 $civil->cse_license_number = "n/a";
                 $civil->cse_license_date = "n/a";
+                $civil->save();
+
+                $notification = array(
+                    'message' => 'Required field must not be empty (CIVIL SERVICE)',
+                    'alert-type' => 'error',
+                );
+                return redirect()->route('user.welcome')->with($notification);
             }
-            $civil->save();
         } //End For loop
 
         $notification = array(
