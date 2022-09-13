@@ -148,7 +148,7 @@
                             </div>
                             <div class="card-body">
                                 <p>
-                                    (Include private employment. Start from your recent work) Description of duties should be indicated in the attached Work Experience sheet.
+                                    (Include private employment. Start from your recent work) Description of duties should be indicated in the attached Work Experience sheet.)
                                 </p>
                                 <!-- Work Experience Form -->
                                 @include('user.form.work_datasheet_form')

@@ -25,7 +25,6 @@ class UpdateCivilInfoRequest extends FormRequest
     {
         return [
             'cse_type' => 'required',
-            'cse_rating' => 'required',
             'cse_date' => 'required',
             'cse_place' => 'required',
             'cse_license_number' => 'required',
@@ -37,7 +36,6 @@ class UpdateCivilInfoRequest extends FormRequest
     {
         return [
             'cse_type.required' => 'Civil Service field is required.',
-            'cse_rating.required' => 'Civil Rating field is required.',
             'cse_date.required' => 'Civil Examination Date is required.',
             'cse_place.required' => 'Civil Examination Place is required.',
             'cse_license_number.required' => 'Civil License No. is required.',

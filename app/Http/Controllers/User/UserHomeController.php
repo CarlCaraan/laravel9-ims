@@ -213,11 +213,26 @@ class UserHomeController extends Controller
             $children->family_id = $family_id;
             $children->children_name = $request->children_name[$i];
             $children->children_dob = $request->children_dob[$i];
-            if ($request->children_name[$i] == "" || $request->children_dob[$i] == "") {
+            $children->save();
+            if ($request->children_name[$i] == "" && $request->children_dob[$i] == "") {
                 $children->children_name = "n/a";
                 $children->children_dob = "n/a";
+                $children->save();
+                $notification = array(
+                    'message' => 'Family Background Updated Successfully',
+                    'alert-type' => 'success',
+                );
+                return redirect()->route('user.welcome')->with($notification);
+            } else if ($request->children_name[$i] == "" || $request->children_dob[$i] == "") {
+                $children->children_name = "n/a";
+                $children->children_dob = "n/a";
+                $children->save();
+                $notification = array(
+                    'message' => 'All children field must not be empty',
+                    'alert-type' => 'error',
+                );
+                return redirect()->route('user.welcome')->with($notification);
             }
-            $children->save();
         } //End For loop
 
         $notification = array(
