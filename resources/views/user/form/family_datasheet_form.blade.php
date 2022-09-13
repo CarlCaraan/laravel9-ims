@@ -177,14 +177,14 @@
 </form>
 
 <!-- Start Hidden Row Javascript -->
-<div style="visibility: hidden;">
+<div style="display: none;">
     <div class="whole_extra_item_add" id="whole_extra_item_add">
         <div class="delete_whole_extra_item_add" id="delete_whole_extra_item_add">
             <div class="row">
                 <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-xs-12">
                     <div class="form-group">
                         <label for="children_name" class="form-label request-form-label">Children's Name<span class="text-danger">*</span></label>
-                        <input class="form-control" type="text" name="children_name[]" value="{{ old('children_name') }}" disabled required>
+                        <input class="form-control" type="text" name="children_name[]" value="{{ old('children_name') }}" disabled>
                         @error('children_name')
                         <small class="text-danger">{{ $message }}</small>
                         @enderror
@@ -193,7 +193,7 @@
                 <div class="col-xl-3 col-lg-5 col-md-8 col-sm-8 col-xs-12">
                     <div class="form-group">
                         <label for="mother_fname" class="form-label request-form-label">Children's Date of Birth<span class="text-danger">*</span></label>
-                        <input class="form-control" type="date" name="children_dob[]" value="{{ old('children_dob') }}" disabled required>
+                        <input class="form-control" type="date" name="children_dob[]" value="{{ old('children_dob') }}" disabled>
                         @error('children_dob')
                         <small class="text-danger">{{ $message }}</small>
                         @enderror

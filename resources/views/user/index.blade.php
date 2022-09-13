@@ -64,8 +64,8 @@
                     <button class="nav-link text-start side-navlink" id="v-pills-civil-tab" data-bs-toggle="{{ ($educational->elementary_school == '') ? 'tooltip' : 'pill' }}" title="{{ ($educational->elementary_school == '') ? 'Complete III.) Educational Background to Proceed.' : '' }}" data-bs-placement="right" data-bs-target="#v-pills-civil" type="button" role="tab" aria-controls="v-pills-civil" aria-selected="false" style="{{ ($educational->elementary_school == '') ? 'cursor: not-allowed' : '' }}">
                         IV.) Civil Service Eligibility <i class="{{ ($educational->elementary_school == '') ? 'fas fa-lock' : '' }}"></i>
                     </button>
-                    <button class="nav-link text-start side-navlink" id="v-pills-work-tab" data-bs-toggle="{{ ($civil->cse_type == '') ? 'tooltip' : 'pill' }}" title="{{ ($civil->cse_type == '') ? 'Complete IV.) Civil Service Eligibility to Proceed.' : '' }}" data-bs-placement="right" data-bs-target="#v-pills-work" type="button" role="tab" aria-controls="v-pills-work" aria-selected="false" style="{{ ($civil->cse_type == '') ? 'cursor: not-allowed' : '' }}">
-                        V.) Work Experience <i class="{{ ($civil->cse_type == '') ? 'fas fa-lock' : '' }}"></i>
+                    <button class="nav-link text-start side-navlink" id="v-pills-work-tab" data-bs-toggle="{{ ($civils[0]->cse_type == '') ? 'tooltip' : 'pill' }}" title="{{ ($civils[0]->cse_type == '') ? 'Complete IV.) Civil Service Eligibility to Proceed.' : '' }}" data-bs-placement="right" data-bs-target="#v-pills-work" type="button" role="tab" aria-controls="v-pills-work" aria-selected="false" style="{{ ($civils[0]->cse_type == '') ? 'cursor: not-allowed' : '' }}">
+                        V.) Work Experience <i class="{{ ($civils[0]->cse_type == '') ? 'fas fa-lock' : '' }}"></i>
                     </button>
                 </div>
                 <br>
@@ -178,6 +178,8 @@
 
             $(".addeventmore").show();
             $(".removeeventmore").show();
+            $(".addeventmore1").show();
+            $(".removeeventmore1").show();
         });
     });
 </script>

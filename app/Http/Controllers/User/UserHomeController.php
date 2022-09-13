@@ -24,6 +24,9 @@ class UserHomeController extends Controller
     {
         $id = Auth::user()->id;
 
+        $childrenListNaDelete = FamilyChildrenList::where('children_name', 'n/a')->delete();
+        $civilNaDelete = CivilServiceInfo::where('cse_type', 'n/a')->delete();
+
         // Automatic Create Personal Table for the First Time
         $personal_exists_count = PersonalInfo::where('user_id', $id)->count();
         if ($personal_exists_count == 0) {
@@ -75,7 +78,7 @@ class UserHomeController extends Controller
         $allData['family'] = FamilyInfo::where('user_id', $id)->first();
         $allData['children'] = FamilyChildrenList::where('family_id', $family_id)->get();
         $allData['educational'] = EducationalInfo::where('user_id', $id)->first();
-        $allData['civil'] = CivilServiceInfo::where('user_id', $id)->first();
+        $allData['civils'] = CivilServiceInfo::where('user_id', $id)->get();
         $allData['work'] = WorkExperienceInfo::where('user_id', $id)->first();
         return view('user.index', $allData);
     } // End Method
@@ -182,7 +185,7 @@ class UserHomeController extends Controller
 
         $family->save();
 
-        // Updating Family Children
+        // If NULL
         if ($request->children_name == NULL) {
             $id = Auth::user()->id;
             $family_id = FamilyInfo::where('user_id', $id)->first()->id;
@@ -199,7 +202,7 @@ class UserHomeController extends Controller
             return redirect()->route('user.welcome')->with($notification);
         } else {
             $countChildrenName = count($request->children_name);
-        }
+        } // End if NUll
 
         $id = Auth::user()->id;
         $family_id = FamilyInfo::where('user_id', $id)->first()->id;
@@ -209,14 +212,10 @@ class UserHomeController extends Controller
             $children = new FamilyChildrenList();
             $children->family_id = $family_id;
             $children->children_name = $request->children_name[$i];
-            if ($request->children_name[$i] == "") {
+            $children->children_dob = $request->children_dob[$i];
+            if ($request->children_name[$i] == "" || $request->children_dob[$i] == "") {
                 $children->children_name = "n/a";
                 $children->children_dob = "n/a";
-            } else if ($request->children_name[$i] == "n/a" || $request->children_dob[$i] == "n/a" || $request->children_dob[$i] == "" || $request->children_name[$i] == "") {
-                $children->children_name = "n/a";
-                $children->children_dob = "n/a";
-            } else {
-                $children->children_dob = $request->children_dob[$i];
             }
             $children->save();
         } //End For loop
@@ -287,13 +286,54 @@ class UserHomeController extends Controller
     public function CivilDatasheetUpdate(UpdateCivilInfoRequest $request)
     {
         $civil = CivilServiceInfo::where('user_id', Auth::user()->id)->first();
-        $civil->cse_type = $request->cse_type;
-        $civil->cse_rating = $request->cse_rating;
-        $civil->cse_date = $request->cse_date;
-        $civil->cse_place = $request->cse_place;
-        $civil->cse_license_number = $request->cse_license_number;
-        $civil->cse_license_date = $request->cse_license_date;
-        $civil->save();
+        CivilServiceInfo::where('user_id', Auth::user()->id)->delete();
+
+        // If NULL
+        if ($request->cse_type == NULL) {
+            $civil->family_id = Auth::user()->id;
+            $civil->cse_type = "n/a";
+            $civil->cse_rating = "n/a";
+            $civil->cse_date = "n/a";
+            $civil->cse_place = "n/a";
+            $civil->cse_license_number = "n/a";
+            $civil->cse_license_date = "n/a";
+            $civil->save();
+            $notification = array(
+                'message' => 'Civil Service Updated Successfully',
+                'alert-type' => 'success',
+            );
+            return redirect()->route('user.welcome')->with($notification);
+        } else {
+            $countCseType = count($request->cse_type);
+        } // End If NULL
+
+        for ($i = 0; $i < $countCseType; $i++) {
+            $civil = new CivilServiceInfo();
+            $civil->user_id = Auth::user()->id;
+            $civil->cse_type = $request->cse_type[$i];
+            $civil->cse_rating = $request->cse_rating[$i];
+            $civil->cse_date = $request->cse_date[$i];
+            $civil->cse_place = $request->cse_place[$i];
+            $civil->cse_license_number = $request->cse_license_number[$i];
+            $civil->cse_license_date = $request->cse_license_date[$i];
+
+            if (
+                $request->cse_type[$i] == "" ||
+                $request->cse_rating[$i] == "" ||
+                $request->cse_date[$i] == "" ||
+                $request->cse_place[$i] == "" ||
+                $request->cse_license_number[$i] == "" ||
+                $request->cse_license_date[$i] == ""
+            ) {
+                $civil->cse_type = "n/a";
+                $civil->cse_rating = "n/a";
+                $civil->cse_date = "n/a";
+                $civil->cse_place = "n/a";
+                $civil->cse_license_number = "n/a";
+                $civil->cse_license_date = "n/a";
+            }
+            $civil->save();
+        } //End For loop
 
         $notification = array(
             'message' => 'Civil Service Updated Successfully',
