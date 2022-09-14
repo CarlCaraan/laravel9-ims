@@ -41,7 +41,7 @@
         <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">
                 <label for="occupation" class="form-label request-form-label">Occupation<span class="text-danger">*</span></label>
-                <input class="form-control" type="text" name="occupation" value="{{ ($family->occupation != '') ? $family->occupation : old('occupation')  }}" placeholder="Optional" required disabled>
+                <input class="form-control" type="text" name="occupation" value="{{ ($family->occupation != '') ? $family->occupation : old('occupation')  }}" placeholder="Optional" disabled>
             </div>
         </div>
         <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">

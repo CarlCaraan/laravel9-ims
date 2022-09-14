@@ -108,12 +108,15 @@ class UserController extends Controller
                 'first_name' => 'required',
                 'last_name' => 'required',
                 'email' => 'required',
-                'gender' => 'required',
                 'user_type' => 'required',
                 'image' => 'image|mimes:jpeg,png,jpg|max:10000'
             ],
             // ~Custom Error messages
             [
+                'first_name.required' => 'First Name is required',
+                'last_name.required' => 'Last Name is required',
+                'email.required' => 'Email is required',
+                'user_type.required' => 'User Role is required',
                 'image' => 'File format must be JPG, PNG nad JPEG!',
             ]
         );
