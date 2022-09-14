@@ -32,8 +32,22 @@ body {
     -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.2);
 }
-.text-custom {
+.icon-custom {
     color: var(--primary-app-color);
+}
+a:hover,
+a:active,
+a:focus {
+    color: var(--primary-app-color) !important;
+    outline: none;
+    text-decoration: none;
+}
+.section-header h2 {
+    color: var(--secondary-app-color) !important;
+}
+.section-header h2::before {
+    /* Small Underline (Heading) */
+    background: var(--primary-app-color) !important;
 }
 
 /* ========= Google Translate Api ========= */
@@ -53,11 +67,11 @@ body {
 
 /* ========= Navigation ========= */
 
-.nav-link.active {
-    color: var(--primary-app-color);
-}
-.nav-link:hover {
-    color: var(--primary-app-color);
+.navbar a:hover,
+.navbar .active,
+.navbar .active:focus,
+.navbar li:hover > a {
+    color: var(--primary-app-color) !important;
 }
 
 /* ========= Side Navigation ========= */
@@ -101,4 +115,17 @@ body {
 .custom-heading-label {
     font-weight: 700;
     font-size: 14px;
+}
+
+/* ========= Message From SDS ========= */
+#about .content h2 {
+    color: var(--secondary-app-color);
+}
+
+/* ========= Carousel Bullet Pagination ========= */
+.swiper-pagination .swiper-pagination-bullet {
+    border: 1px solid var(--primary-app-color) !important;
+}
+.swiper-pagination .swiper-pagination-bullet-active {
+    background-color: var(--primary-app-color) !important;
 }

@@ -8,7 +8,7 @@
              </div>
              <div class="col-md-4">
                  <div class="center">
-                     <span><i class="fas fa-map-marker-alt text-custom me-1"></i> {!! $userSiteInfos->address !!}</span>
+                     <span><i class="fas fa-map-marker-alt icon-custom me-1"></i> {!! $userSiteInfos->address !!}</span>
                  </div>
                  <div class="center pt-4">
                      <div id="google_translate_element"></div>
