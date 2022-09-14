@@ -1,6 +1,6 @@
 @extends('landing_page.user_master')
 
-@section('title') DEPED - Division of Laguna @endsection
+@section('title') DEPED | Division of Laguna @endsection
 
 @section('content')
 <!-- ======= hero Section ======= -->
