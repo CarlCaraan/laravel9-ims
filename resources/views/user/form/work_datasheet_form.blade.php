@@ -198,7 +198,7 @@
     $(document).ready(function() {
         var counter2 = 0;
         $(document).on("click", ".addeventmore2", function() {
-            var whole_extra_item_add1 = $('#whole_extra_item_add2').html();
+            var whole_extra_item_add2 = $('#whole_extra_item_add2').html();
             $(this).closest(".add_item2").append(whole_extra_item_add2);
             counter2++;
         });
