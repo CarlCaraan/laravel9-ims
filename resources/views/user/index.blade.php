@@ -67,6 +67,9 @@
                     <button class="nav-link text-start side-navlink" id="v-pills-work-tab" data-bs-toggle="{{ ($civils[0]->cse_type == '') ? 'tooltip' : 'pill' }}" title="{{ ($civils[0]->cse_type == '') ? 'Complete IV.) Civil Service Eligibility to Proceed.' : '' }}" data-bs-placement="right" data-bs-target="#v-pills-work" type="button" role="tab" aria-controls="v-pills-work" aria-selected="false" style="{{ ($civils[0]->cse_type == '') ? 'cursor: not-allowed' : '' }}">
                         V.) Work Experience <i class="{{ ($civils[0]->cse_type == '') ? 'fas fa-lock' : '' }}"></i>
                     </button>
+                    <button class="nav-link text-start side-navlink" id="v-pills-voluntary-tab" data-bs-toggle="pill" data-bs-target="#v-pills-voluntary" type="button" role="tab" aria-controls="v-pills-voluntary" aria-selected="false">
+                        VI.) Voluntary Work <span class="text-muted">(Optional)</span>
+                    </button>
                 </div>
                 <br>
             </div>
@@ -156,6 +159,21 @@
                         </div>
                     </div>
                     <!-- ========= End Work Experience ========= -->
+
+                    <!-- ========= Start Voluntary Work ========= -->
+                    <div class="tab-pane fade" id="v-pills-voluntary" role="tabpanel" aria-labelledby="v-pills-voluntary-tab">
+                        <div class="card shadow-sm border-0">
+                            <div class="card-header">
+                                <span class="float-start fw-bold">VI.) VOLUNTARY WORK OR INVOLVEMENT IN CIVIC <br /> NON-GOVERNMENT / PEOPLE / VOLUNTARY ORGANIZATION/S</span>
+                                <button class="btn custom-btn text-light float-end btn-edit mt-1">Edit</button>
+                            </div>
+                            <div class="card-body">
+                                <!-- Voluntary Work Form -->
+                                @include('user.form.voluntary_datasheet_form')
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ========= End Voluntary Work ========= -->
                 </div>
             </div>
         </div>
@@ -176,12 +194,14 @@
             $(".form-check-input").removeAttr('disabled');
             $(".form-select").removeAttr('disabled');
 
-            $(".addeventmore").show();
-            $(".removeeventmore").show();
-            $(".addeventmore1").show();
-            $(".removeeventmore1").show();
-            $(".addeventmore2").show();
-            $(".removeeventmore2").show();
+            $(".addeventmore").show(); // Family Background
+            $(".removeeventmore").show(); // Family Background
+            $(".addeventmore1").show(); // Civil Service Eligibility
+            $(".removeeventmore1").show(); // Civil Service Eligibility
+            $(".addeventmore2").show(); // Work Experience
+            $(".removeeventmore2").show(); // Work Experience
+            $(".addeventmore3").show(); // Voluntary Work
+            $(".removeeventmore3").show(); // Voluntary Work
         });
     });
 </script>

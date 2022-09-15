@@ -9,7 +9,7 @@
             <div class="row mb-2">
                 <div class="col-xl-10 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="form-group">
-                        <label for="cse_type" class="form-label request-form-label">CAREER SERVICE/ RA 1080 (BOARD/ BAR) UNDER SPECIAL LAWS/ CES/ CSEE BARANGAY ELIGIBILITY / DRIVER'S LICENSE:<span class="text-danger">*</span></label>
+                        <label for="cse_type" class="form-label request-form-label">CAREER SERVICE/ RA 1080 (BOARD/ BAR) UNDER SPECIAL LAWS/ CES/ CSEE BARANGAY ELIGIBILITY / DRIVER'S LICENSE<span class="text-danger">*</span></label>
                         <input class="form-control" type="text" name="cse_type[]" value="{{ ($civil->cse_type != '') ? $civil->cse_type : old('cse_type')  }}" disabled required>
                         @error('cse_type')
                         <small class="text-danger">{{ $message }}</small>
@@ -85,7 +85,7 @@
             <div class="row mb-2">
                 <div class="col-xl-10 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="form-group">
-                        <label for="cse_type" class="form-label request-form-label">CAREER SERVICE/ RA 1080 (BOARD/ BAR) UNDER SPECIAL LAWS/ CES/ CSEE BARANGAY ELIGIBILITY / DRIVER'S LICENSE:<span class="text-danger">*</span></label>
+                        <label for="cse_type" class="form-label request-form-label">CAREER SERVICE/ RA 1080 (BOARD/ BAR) UNDER SPECIAL LAWS/ CES/ CSEE BARANGAY ELIGIBILITY / DRIVER'S LICENSE<span class="text-danger">*</span></label>
                         <input class="form-control" type="text" name="cse_type[]" value="{{ old('cse_type') }}" disabled>
                         @error('cse_type')
                         <small class="text-danger">{{ $message }}</small>

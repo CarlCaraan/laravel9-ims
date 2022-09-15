@@ -12,6 +12,7 @@ use App\Models\FamilyChildrenList;
 use App\Models\EducationalInfo;
 use App\Models\CivilServiceInfo;
 use App\Models\WorkExperienceInfo;
+use App\Models\VoluntaryWorkInfo;
 use Auth;
 
 use App\Http\Requests\UpdatePersonalInfoRequest;
@@ -76,6 +77,14 @@ class UserHomeController extends Controller
             $data->save();
         }
 
+        // Automatic Create Voluntary Work Table for the First Time
+        $voluntary_exists_count = VoluntaryWorkInfo::where('user_id', $id)->count();
+        if ($voluntary_exists_count == 0) {
+            $data = new VoluntaryWorkInfo();
+            $data->user_id = $id;
+            $data->save();
+        }
+
         $allData['user'] = User::find($id);
         $allData['personal'] = PersonalInfo::where('user_id', $id)->first();
         $allData['family'] = FamilyInfo::where('user_id', $id)->first();
@@ -83,6 +92,7 @@ class UserHomeController extends Controller
         $allData['educational'] = EducationalInfo::where('user_id', $id)->first();
         $allData['civils'] = CivilServiceInfo::where('user_id', $id)->get();
         $allData['works'] = WorkExperienceInfo::where('user_id', $id)->get();
+        $allData['voluntaries'] = VoluntaryWorkInfo::where('user_id', $id)->get();
         return view('user.index', $allData);
     } // End Method
 
