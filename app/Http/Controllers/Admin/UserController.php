@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
@@ -39,8 +40,8 @@ class UserController extends Controller
 
         $data = new User();
         $code = "password";
-        $data->first_name = $request->first_name;
-        $data->last_name = $request->last_name;
+        $data->first_name = Str::title($request->first_name);
+        $data->last_name = Str::title($request->last_name);
         $data->email = $request->email;
         $data->gender = $request->gender;
         $data->user_type = $request->user_type;
@@ -123,8 +124,8 @@ class UserController extends Controller
 
         try {
             $data = User::find($id);
-            $data->first_name = $request->first_name;
-            $data->last_name = $request->last_name;
+            $data->first_name = Str::title($request->first_name);
+            $data->last_name = Str::title($request->last_name);
             $data->email = $request->email;
             $data->gender = $request->gender;
             $data->user_type = $request->user_type;

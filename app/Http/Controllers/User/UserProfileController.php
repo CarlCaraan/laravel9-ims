@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class UserProfileController extends Controller
 {
@@ -42,8 +43,8 @@ class UserProfileController extends Controller
         );
 
         $data = User::find(Auth::user()->id);
-        $data->first_name = $request->first_name;
-        $data->last_name = $request->last_name;
+        $data->first_name = Str::title($request->first_name);
+        $data->last_name = Str::title($request->last_name);
         $data->gender = $request->gender;
         if (auth()->user()->email != $request->email) {
             auth()->user()->newEmail($request->email);

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\Models\User;
 use App\Models\PersonalInfo;
 use App\Models\FamilyInfo;
@@ -98,17 +99,17 @@ class UserHomeController extends Controller
 
         // Updating Users Table
         $user = User::find(Auth::user()->id);
-        $user->first_name = $request->first_name;
-        $user->last_name = $request->last_name;
+        $user->first_name = Str::title($request->first_name);
+        $user->last_name = Str::title($request->last_name);
         $user->gender = $request->gender;
         $user->save();
 
         // Updating Personal Table
         $personal = PersonalInfo::where('user_id', Auth::user()->id)->first();
-        $personal->middle_name = $request->middle_name;
-        $personal->extension_name = $request->extension_name;
+        $personal->middle_name = Str::title($request->middle_name);
+        $personal->extension_name = Str::title($request->extension_name);
         $personal->dob = $request->dob;
-        $personal->pob = $request->pob;
+        $personal->pob = Str::title($request->pob);
         $personal->civil_status = $request->civil_status;
         $personal->height = $request->height;
         $personal->weight = $request->weight;
@@ -126,18 +127,18 @@ class UserHomeController extends Controller
         $personal->by_naturalization = $request->by_naturalization; // Citizenship
         $personal->citizenship_country = $request->citizenship_country;
         $personal->r_house_no = $request->r_house_no;
-        $personal->r_street = $request->r_street;
+        $personal->r_street = Str::title($request->r_street);
         $personal->r_subdivision = $request->r_subdivision;
         $personal->r_barangay = $request->r_barangay;
-        $personal->r_city = $request->r_city;
-        $personal->r_province = $request->r_province;
+        $personal->r_city = Str::title($request->r_city);
+        $personal->r_province = Str::title($request->r_province);
         $personal->r_zip_code = $request->r_zip_code;
         $personal->p_house_no = $request->p_house_no;
-        $personal->p_street = $request->p_street;
-        $personal->p_subdivision = $request->p_subdivision;
-        $personal->p_barangay = $request->p_barangay;
-        $personal->p_city = $request->p_city;
-        $personal->p_province = $request->p_province;
+        $personal->p_street = Str::title($request->p_street);
+        $personal->p_subdivision = Str::title($request->p_subdivision);
+        $personal->p_barangay = Str::title($request->p_barangay);
+        $personal->p_city = Str::title($request->p_city);
+        $personal->p_province = Str::title($request->p_province);
         $personal->p_zip_code = $request->p_zip_code;
         $personal->telephone = $request->telephone;
         $personal->mobile = $request->mobile;
@@ -156,11 +157,11 @@ class UserHomeController extends Controller
     {
         // Updating Family Info
         $family = FamilyInfo::where('user_id', Auth::user()->id)->first();
-        $family->spouse_lname = $request->spouse_lname;
-        $family->spouse_fname = $request->spouse_fname;
-        $family->spouse_mname = $request->spouse_mname;
-        $family->spouse_ename = $request->spouse_ename;
-        $family->occupation = $request->occupation;
+        $family->spouse_lname = Str::title($request->spouse_lname);
+        $family->spouse_fname = Str::title($request->spouse_fname);
+        $family->spouse_mname = Str::title($request->spouse_mname);
+        $family->spouse_ename = Str::title($request->spouse_ename);
+        $family->occupation = Str::title($request->occupation);
         if (
             $family->employer_name == "" || $family->employer_name == "n/a" ||
             $family->business_address == "" || $family->business_address == "n/a" ||
@@ -170,20 +171,20 @@ class UserHomeController extends Controller
             $family->business_address = "n/a";
             $family->telephone =  "n/a";
         } else {
-            $family->employer_name = $request->employer_name;
+            $family->employer_name = Str::title($request->employer_name);
             $family->business_address = $request->business_address;
             $family->telephone = $request->telephone;
         }
 
-        $family->father_lname = $request->father_lname;
-        $family->father_fname = $request->father_fname;
-        $family->father_mname = $request->father_mname;
-        $family->father_ename = $request->father_ename;
+        $family->father_lname = Str::title($request->father_lname);
+        $family->father_fname = Str::title($request->father_fname);
+        $family->father_mname = Str::title($request->father_mname);
+        $family->father_ename = Str::title($request->father_ename);
 
-        $family->mother_lname = $request->mother_lname;
-        $family->mother_fname = $request->mother_fname;
-        $family->mother_mname = $request->mother_mname;
-        $family->mother_maiden_name = $request->mother_maiden_name;
+        $family->mother_lname = Str::title($request->mother_lname);
+        $family->mother_fname = Str::title($request->mother_fname);
+        $family->mother_mname = Str::title($request->mother_mname);
+        $family->mother_maiden_name = Str::title($request->mother_maiden_name);
 
         $family->save();
 
@@ -213,7 +214,7 @@ class UserHomeController extends Controller
         for ($i = 0; $i < $countChildrenName; $i++) {
             $children = new FamilyChildrenList();
             $children->family_id = $family_id;
-            $children->children_name = $request->children_name[$i];
+            $children->children_name = Str::title($request->children_name[$i]);
             $children->children_dob = $request->children_dob[$i];
             $children->save();
             if ($request->children_name[$i] == "" && $request->children_dob[$i] == "") {
@@ -249,7 +250,7 @@ class UserHomeController extends Controller
         $educational = EducationalInfo::where('user_id', Auth::user()->id)->first();
 
         // Elementary
-        $educational->elementary_school = $request->elementary_school;
+        $educational->elementary_school = Str::title($request->elementary_school);
         $educational->elementary_course = $request->elementary_course;
         $educational->elementary_from = $request->elementary_from;
         $educational->elementary_to = $request->elementary_to;
@@ -258,7 +259,7 @@ class UserHomeController extends Controller
         $educational->elementary_honors = $request->elementary_honors;
 
         // Secondary
-        $educational->secondary_school = $request->secondary_school;
+        $educational->secondary_school = Str::title($request->secondary_school);
         $educational->secondary_course = $request->secondary_course;
         $educational->secondary_from = $request->secondary_from;
         $educational->secondary_to = $request->secondary_to;
@@ -267,7 +268,7 @@ class UserHomeController extends Controller
         $educational->secondary_honors = $request->secondary_honors;
 
         // Vocational
-        $educational->vocational_school = $request->vocational_school;
+        $educational->vocational_school = Str::title($request->vocational_school);
         $educational->vocational_course = $request->vocational_course;
         $educational->vocational_from = $request->vocational_from;
         $educational->vocational_to = $request->vocational_to;
@@ -276,7 +277,7 @@ class UserHomeController extends Controller
         $educational->vocational_honors = $request->vocational_honors;
 
         // College
-        $educational->college_school = $request->college_school;
+        $educational->college_school = Str::title($request->college_school);
         $educational->college_course = $request->college_course;
         $educational->college_from = $request->college_from;
         $educational->college_to = $request->college_to;
@@ -285,7 +286,7 @@ class UserHomeController extends Controller
         $educational->college_honors = $request->college_honors;
 
         // Graduate Studies
-        $educational->studies_school = $request->studies_school;
+        $educational->studies_school = Str::title($request->studies_school);
         $educational->studies_course = $request->studies_course;
         $educational->studies_from = $request->studies_from;
         $educational->studies_to = $request->studies_to;
