@@ -1,5 +1,5 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<form class="mt-4" action="{{ route('work.datasheet.update') }}" method="POST">
+<form class="mt-4" action="{{ route('voluntary.datasheet.update') }}" method="POST">
     @csrf
 
     <div class="add_item3">
@@ -54,7 +54,7 @@
                         @enderror
                     </div>
                 </div>
-                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-12" style="padding-top: 30px;">
+                <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12 col-xs-12" style="padding-top: 30px;">
                     <span class="btn btn-success addeventmore3" style="display: none;"><i class="fa fa-plus-circle"></i></span>
                     <span class="btn btn-danger removeeventmore3" style="display: none;"><i class="fa fa-minus-circle"></i></span>
                 </div>
@@ -119,7 +119,7 @@
                         @enderror
                     </div>
                 </div>
-                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-12" style="padding-top: 30px;">
+                <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12 col-xs-12" style="padding-top: 30px;">
                     <span class="btn btn-success addeventmore3" style="display: none;"><i class="fa fa-plus-circle"></i></span>
                     <span class="btn btn-danger removeeventmore3" style="display: none;"><i class="fa fa-minus-circle"></i></span>
                 </div>

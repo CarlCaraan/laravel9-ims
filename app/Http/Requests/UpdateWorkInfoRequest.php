@@ -36,8 +36,8 @@ class UpdateWorkInfoRequest extends FormRequest
     public function messages()
     {
         return [
-            'work_date_from.required' => 'Inclusive Date From is required.',
-            'work_date_to.required' => 'Inclusive Date To is required.',
+            'work_date_from.required' => 'Work Inclusive Date From is required.',
+            'work_date_to.required' => 'Work Inclusive Date To is required.',
             'job_title.required' => 'Position Title is required.',
             'monthly_salary.required' => 'Job Type field is required.',
             'status_of_appointment.required' => 'Status of Appointment is required.',

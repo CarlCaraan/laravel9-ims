@@ -20,6 +20,7 @@ use App\Http\Requests\UpdateFamilyInfoRequest;
 use App\Http\Requests\UpdateEducationalInfoRequest;
 use App\Http\Requests\UpdateCivilInfoRequest;
 use App\Http\Requests\UpdateWorkInfoRequest;
+use App\Http\Requests\UpdateVoluntaryInfoRequest;
 
 class UserHomeController extends Controller
 {
@@ -444,6 +445,15 @@ class UserHomeController extends Controller
 
         $notification = array(
             'message' => 'Work Experience Updated Successfully',
+            'alert-type' => 'success',
+        );
+        return redirect()->route('user.welcome')->with($notification);
+    } // End  Method
+
+    public function VoluntaryDatasheetUpdate(UpdateVoluntaryInfoRequest $request)
+    {
+        $notification = array(
+            'message' => 'Voluntary Work Updated Successfully',
             'alert-type' => 'success',
         );
         return redirect()->route('user.welcome')->with($notification);
