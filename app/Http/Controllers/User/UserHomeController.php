@@ -31,6 +31,7 @@ class UserHomeController extends Controller
         $childrenListNaDelete = FamilyChildrenList::where('children_name', 'n/a')->delete();
         $civilNaDelete = CivilServiceInfo::where('cse_type', 'n/a')->delete();
         $workNaDelete = WorkExperienceInfo::where('work_date_from', 'n/a')->delete();
+        $voluntaryNaDelete = VoluntaryWorkInfo::where('organization_name_address', 'n/a')->delete();
 
         // Automatic Create Personal Table for the First Time
         $personal_exists_count = PersonalInfo::where('user_id', $id)->count();
@@ -452,6 +453,59 @@ class UserHomeController extends Controller
 
     public function VoluntaryDatasheetUpdate(UpdateVoluntaryInfoRequest $request)
     {
+        $voluntary = VoluntaryWorkInfo::where('user_id', Auth::user()->id)->first();
+        VoluntaryWorkInfo::where('user_id', Auth::user()->id)->delete();
+
+        // If NULL
+        if ($request->organization_name_address == NULL) {
+            $voluntary->user_id = Auth::user()->id;
+            $voluntary->organization_name_address = "n/a";
+            $voluntary->voluntary_date_from = "n/a";
+            $voluntary->voluntary_date_to = "n/a";
+            $voluntary->number_of_hours = "n/a";
+            $voluntary->voluntary_jobtitle = "n/a";
+            $voluntary->save();
+            $notification = array(
+                'message' => 'Voluntary Work Updated Successfully',
+                'alert-type' => 'success',
+            );
+            return redirect()->route('user.welcome')->with($notification);
+        } else {
+            $countNameAddress = count($request->organization_name_address);
+        } // End If NULL
+
+        for ($i = 0; $i < $countNameAddress; $i++) {
+            $voluntary = new VoluntaryWorkInfo();
+            $voluntary->user_id = Auth::user()->id;
+            $voluntary->organization_name_address = $request->organization_name_address[$i];
+            $voluntary->voluntary_date_from = $request->voluntary_date_from[$i];
+            $voluntary->voluntary_date_to = $request->voluntary_date_to[$i];
+            $voluntary->number_of_hours = $request->number_of_hours[$i];
+            $voluntary->voluntary_jobtitle = $request->voluntary_jobtitle[$i];
+            $voluntary->save();
+
+            if (
+                $request->organization_name_address[$i] == "" ||
+                $request->voluntary_date_from[$i] == "" ||
+                $request->voluntary_date_to[$i] == "" ||
+                $request->number_of_hours[$i] == "" ||
+                $request->voluntary_jobtitle[$i] == ""
+            ) {
+                $voluntary->organization_name_address = "n/a";
+                $voluntary->voluntary_date_from = "n/a";
+                $voluntary->voluntary_date_to = "n/a";
+                $voluntary->number_of_hours = "n/a";
+                $voluntary->voluntary_jobtitle = "n/a";
+                $voluntary->save();
+
+                $notification = array(
+                    'message' => 'Required field must not be empty (VOLUNTARY WORK)',
+                    'alert-type' => 'error',
+                );
+                return redirect()->route('user.welcome')->with($notification);
+            }
+        } //End For loop
+
         $notification = array(
             'message' => 'Voluntary Work Updated Successfully',
             'alert-type' => 'success',
