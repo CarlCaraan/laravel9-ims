@@ -22,6 +22,7 @@ use App\Http\Requests\UpdateEducationalInfoRequest;
 use App\Http\Requests\UpdateCivilInfoRequest;
 use App\Http\Requests\UpdateWorkInfoRequest;
 use App\Http\Requests\UpdateVoluntaryInfoRequest;
+use App\Http\Requests\UpdateLearningInfoRequest;
 
 class UserHomeController extends Controller
 {
@@ -523,7 +524,12 @@ class UserHomeController extends Controller
         return redirect()->route('user.welcome')->with($notification);
     } // End  Method
 
-    public function LearningDatasheetUpdate()
+    public function LearningDatasheetUpdate(UpdateLearningInfoRequest $request)
     {
+        $notification = array(
+            'message' => 'Learning Program Updated Successfully',
+            'alert-type' => 'success',
+        );
+        return redirect()->route('user.welcome')->with($notification);
     } // End  Method
 }
