@@ -106,6 +106,7 @@
                                         <option disabled value="" selected>Select</option>
                                         <optgroup label="Choose your role">
                                             <option value="Admin">Admin</option>
+                                            <option value="HR">HR</option>
                                             <option value="User">User</option>
                                         </optgroup>
                                     </select>

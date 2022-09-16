@@ -106,6 +106,7 @@
                                         <option disabled value="" selected>Select</option>
                                         <optgroup label="Choose your role">
                                             <option value="Admin" {{ ($editData->user_type == "Admin") ? "selected" : ""}}>Admin</option>
+                                            <option value="HR" {{ ($editData->user_type == "HR") ? "selected" : ""}}>HR</option>
                                             <option value="User" {{ ($editData->user_type == "User") ? "selected" : ""}}>User</option>
                                         </optgroup>
                                     </select>
