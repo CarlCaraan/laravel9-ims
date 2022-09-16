@@ -38,9 +38,9 @@
             <div class="row mb-2 border-bottom pb-4">
                 <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12 col-xs-12">
                     <div class="form-group">
-                        <label for="number_of_hours" class="form-label request-form-label">Number of Hours<span class="text-danger">*</span></label>
-                        <input class="form-control" type="number" name="number_of_hours[]" value="{{ ($voluntary->number_of_hours != '') ? $voluntary->number_of_hours : old('number_of_hours')  }}" disabled required>
-                        @error('number_of_hours')
+                        <label for="voluntary_hours" class="form-label request-form-label">Number of Hours<span class="text-danger">*</span></label>
+                        <input class="form-control" type="number" name="voluntary_hours[]" value="{{ ($voluntary->voluntary_hours != '') ? $voluntary->voluntary_hours : old('voluntary_hours')  }}" disabled required>
+                        @error('voluntary_hours')
                         <small class="text-danger">{{ $message }}</small>
                         @enderror
                     </div>
@@ -103,9 +103,9 @@
             <div class="row mb-2 border-bottom pb-4">
                 <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12 col-xs-12">
                     <div class="form-group">
-                        <label for="number_of_hours" class="form-label request-form-label">Number of Hours<span class="text-danger">*</span></label>
-                        <input class="form-control" type="number" name="number_of_hours[]" value="{{ old('number_of_hours')  }}" disabled required>
-                        @error('number_of_hours')
+                        <label for="voluntary_hours" class="form-label request-form-label">Number of Hours<span class="text-danger">*</span></label>
+                        <input class="form-control" type="number" name="voluntary_hours[]" value="{{ old('voluntary_hours')  }}" disabled required>
+                        @error('voluntary_hours')
                         <small class="text-danger">{{ $message }}</small>
                         @enderror
                     </div>

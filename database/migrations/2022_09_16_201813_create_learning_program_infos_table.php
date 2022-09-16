@@ -13,15 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('voluntary_work_infos', function (Blueprint $table) {
+        Schema::create('learning_program_infos', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id')->nullable()->comment('FK = user id');
 
-            $table->text('organization_name_address')->nullable();
-            $table->string('voluntary_date_from')->nullable();
-            $table->string('voluntary_date_to')->nullable();
-            $table->string('voluntary_hours')->nullable();
-            $table->string('voluntary_jobtitle')->nullable();
+            $table->string('learning_title')->nullable();
+            $table->string('learning_date_from')->nullable();
+            $table->string('learning_date_to')->nullable();
+            $table->string('learning_hours')->nullable();
+            $table->string('learning_jobtitle')->nullable();
 
             $table->timestamps();
         });
@@ -34,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('voluntary_work_infos');
+        Schema::dropIfExists('learning_program_infos');
     }
 };

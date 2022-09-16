@@ -462,7 +462,7 @@ class UserHomeController extends Controller
             $voluntary->organization_name_address = "n/a";
             $voluntary->voluntary_date_from = "n/a";
             $voluntary->voluntary_date_to = "n/a";
-            $voluntary->number_of_hours = "n/a";
+            $voluntary->voluntary_hours = "n/a";
             $voluntary->voluntary_jobtitle = "n/a";
             $voluntary->save();
             $notification = array(
@@ -480,7 +480,7 @@ class UserHomeController extends Controller
             $voluntary->organization_name_address = $request->organization_name_address[$i];
             $voluntary->voluntary_date_from = $request->voluntary_date_from[$i];
             $voluntary->voluntary_date_to = $request->voluntary_date_to[$i];
-            $voluntary->number_of_hours = $request->number_of_hours[$i];
+            $voluntary->voluntary_hours = $request->voluntary_hours[$i];
             $voluntary->voluntary_jobtitle = $request->voluntary_jobtitle[$i];
             $voluntary->save();
 
@@ -488,13 +488,13 @@ class UserHomeController extends Controller
                 $request->organization_name_address[$i] == "" ||
                 $request->voluntary_date_from[$i] == "" ||
                 $request->voluntary_date_to[$i] == "" ||
-                $request->number_of_hours[$i] == "" ||
+                $request->voluntary_hours[$i] == "" ||
                 $request->voluntary_jobtitle[$i] == ""
             ) {
                 $voluntary->organization_name_address = "n/a";
                 $voluntary->voluntary_date_from = "n/a";
                 $voluntary->voluntary_date_to = "n/a";
-                $voluntary->number_of_hours = "n/a";
+                $voluntary->voluntary_hours = "n/a";
                 $voluntary->voluntary_jobtitle = "n/a";
                 $voluntary->save();
 

@@ -27,7 +27,7 @@ class UpdateVoluntaryInfoRequest extends FormRequest
             'organization_name_address' => 'required',
             'voluntary_date_from' => 'required',
             'voluntary_date_to' => 'required',
-            'number_of_hours' => 'required',
+            'voluntary_hours' => 'required',
             'voluntary_jobtitle' => 'required',
         ];
     } // End Method
@@ -38,7 +38,7 @@ class UpdateVoluntaryInfoRequest extends FormRequest
             'organization_name_address.required' => 'Voluntary Name & Address is required.',
             'voluntary_date_from.required' => 'Voluntary Inclusive Date From is required.',
             'voluntary_date_to.required' => 'Voluntary Inclusive Date To is required.',
-            'number_of_hours.required' => 'Voluntary Number of Hours is required.',
+            'voluntary_hours.required' => 'Voluntary Number of Hours is required.',
             'voluntary_jobtitle.required' => 'Voluntary Position/Nature of Work is required.',
         ];
     } // End Method
