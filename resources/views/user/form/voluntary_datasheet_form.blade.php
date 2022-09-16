@@ -9,7 +9,7 @@
             <div class="row mb-2">
                 <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="form-group">
-                        <label for="organization_name_address" class="form-label request-form-label">Name & Address OF Organization (Write in full)<span class="text-danger">*</span></label>
+                        <label for="organization_name_address" class="form-label request-form-label">Name & Address of Organization (Write in full)<span class="text-danger">*</span></label>
                         <input class="form-control" type="text" name="organization_name_address[]" value="{{ ($voluntary->organization_name_address != '') ? $voluntary->organization_name_address : old('organization_name_address')  }}" disabled required>
                         @error('organization_name_address')
                         <small class="text-danger">{{ $message }}</small>
@@ -39,7 +39,7 @@
                 <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12 col-xs-12">
                     <div class="form-group">
                         <label for="voluntary_hours" class="form-label request-form-label">Number of Hours<span class="text-danger">*</span></label>
-                        <input class="form-control" type="number" name="voluntary_hours[]" value="{{ ($voluntary->voluntary_hours != '') ? $voluntary->voluntary_hours : old('voluntary_hours')  }}" disabled required>
+                        <input class="form-control" type="number" name="voluntary_hours[]" value="{{ ($voluntary->voluntary_hours != '') ? $voluntary->voluntary_hours : old('voluntary_hours')  }}" min="0" disabled required>
                         @error('voluntary_hours')
                         <small class="text-danger">{{ $message }}</small>
                         @enderror
@@ -74,7 +74,7 @@
             <div class="row mb-2">
                 <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="form-group">
-                        <label for="organization_name_address" class="form-label request-form-label">Name & Address OF Organization (Write in full)<span class="text-danger">*</span></label>
+                        <label for="organization_name_address" class="form-label request-form-label">Name & Address of Organization (Write in full)<span class="text-danger">*</span></label>
                         <input class="form-control" type="text" name="organization_name_address[]" value="{{ old('organization_name_address')  }}" disabled required>
                         @error('organization_name_address')
                         <small class="text-danger">{{ $message }}</small>
@@ -104,7 +104,7 @@
                 <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12 col-xs-12">
                     <div class="form-group">
                         <label for="voluntary_hours" class="form-label request-form-label">Number of Hours<span class="text-danger">*</span></label>
-                        <input class="form-control" type="number" name="voluntary_hours[]" value="{{ old('voluntary_hours')  }}" disabled required>
+                        <input class="form-control" type="number" name="voluntary_hours[]" value="{{ old('voluntary_hours')  }}" min="0" disabled required>
                         @error('voluntary_hours')
                         <small class="text-danger">{{ $message }}</small>
                         @enderror

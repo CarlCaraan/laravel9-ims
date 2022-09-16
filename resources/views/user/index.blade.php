@@ -70,6 +70,9 @@
                     <button class="nav-link text-start side-navlink" id="v-pills-voluntary-tab" data-bs-toggle="pill" data-bs-target="#v-pills-voluntary" type="button" role="tab" aria-controls="v-pills-voluntary" aria-selected="false">
                         VI.) Voluntary Work <span class="text-muted">(Optional)</span>
                     </button>
+                    <button class="nav-link text-start side-navlink" id="v-pills-learning-tab" data-bs-toggle="pill" data-bs-target="#v-pills-learning" type="button" role="tab" aria-controls="v-pills-learning" aria-selected="false">
+                        VII.) Learning Program <span class="text-muted">(Optional)</span>
+                    </button>
                 </div>
                 <br>
             </div>
@@ -174,6 +177,24 @@
                         </div>
                     </div>
                     <!-- ========= End Voluntary Work ========= -->
+
+                    <!-- ========= Start Learning Program ========= -->
+                    <div class="tab-pane fade" id="v-pills-learning" role="tabpanel" aria-labelledby="v-pills-learning-tab">
+                        <div class="card shadow-sm border-0">
+                            <div class="card-header">
+                                <span class="float-start fw-bold">VII. LEARNING AND DEVELOPMENT (L&D) INTERVENTIONS/TRAINING PROGRAMS ATTENDED</span>
+                                <button class="btn custom-btn text-light float-end btn-edit mt-1">Edit</button>
+                            </div>
+                            <div class="card-body">
+                                <p>
+                                    (Start from the most recent L&D/training program and include only the relevant L&D/training taken for the last five (5) years for Division Chief/Executive/Managerial positions)
+                                </p>
+                                <!-- Learning Program Form -->
+                                @include('user.form.learning_datasheet_form')
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ========= End Learning Program  ========= -->
                 </div>
             </div>
         </div>
@@ -202,6 +223,8 @@
             $(".removeeventmore2").show(); // Work Experience
             $(".addeventmore3").show(); // Voluntary Work
             $(".removeeventmore3").show(); // Voluntary Work
+            $(".addeventmore4").show(); // Learning Program
+            $(".removeeventmore4").show(); // Learning Program
         });
     });
 </script>

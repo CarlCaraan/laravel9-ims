@@ -50,7 +50,7 @@
                 <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-xs-12">
                     <div class="form-group">
                         <label for="monthly_salary" class="form-label request-form-label"><br />Monthly Salary<span class="text-danger">*</span></label>
-                        <input class="form-control" type="number" name="monthly_salary[]" value="{{ ($work->monthly_salary != '') ? $work->monthly_salary : old('monthly_salary')  }}" disabled required>
+                        <input class="form-control" type="number" name="monthly_salary[]" value="{{ ($work->monthly_salary != '') ? $work->monthly_salary : old('monthly_salary')  }}" min="0" disabled required>
                         @error('monthly_salary')
                         <small class="text-danger">{{ $message }}</small>
                         @enderror
@@ -148,7 +148,7 @@
                 <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-xs-12">
                     <div class="form-group">
                         <label for="monthly_salary" class="form-label request-form-label"><br />Monthly Salary<span class="text-danger">*</span></label>
-                        <input class="form-control" type="number" name="monthly_salary[]" value="{{ old('monthly_salary') }}" disabled required>
+                        <input class="form-control" type="number" name="monthly_salary[]" value="{{ old('monthly_salary') }}" min="0" disabled required>
                         @error('monthly_salary')
                         <small class="text-danger">{{ $message }}</small>
                         @enderror

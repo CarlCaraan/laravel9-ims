@@ -21,7 +21,8 @@ return new class extends Migration
             $table->string('learning_date_from')->nullable();
             $table->string('learning_date_to')->nullable();
             $table->string('learning_hours')->nullable();
-            $table->string('learning_jobtitle')->nullable();
+            $table->string('ld_type')->nullable();
+            $table->string('conducted_by')->nullable();
 
             $table->timestamps();
         });
