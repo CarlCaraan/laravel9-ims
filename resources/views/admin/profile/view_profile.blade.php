@@ -72,12 +72,15 @@
                         </div>
                     </div>
                     <div class="row">
+                        @if(auth::user()->user_type == "HR")
+                        @else
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="user_type" class="form-label">Role</label>
                                 <input class="form-control" type="text" disabled value="{{ $user->user_type }}">
                             </div>
                         </div>
+                        @endif
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="created_at" class="form-label">Joined</label>

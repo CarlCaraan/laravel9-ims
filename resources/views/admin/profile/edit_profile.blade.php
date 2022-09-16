@@ -93,6 +93,9 @@
                                         @enderror
                                     </div>
                                 </div>
+                                @if(auth::user()->user_type == "HR")
+                                <input type="hidden" name="user_type" value="{{ $editData->user_type }}">
+                                @else
                                 <div class="form-group row">
                                     <label for="user_type" class="col-sm-3 text-right control-label col-form-label">User Role</label>
                                     <div class="col-md-9">
@@ -100,6 +103,7 @@
                                             <option disabled value="">Select</option>
                                             <optgroup label="Choose your role">
                                                 <option value="Admin" {{ ($editData->user_type == "Admin") ? "selected" : ""}}>Admin</option>
+                                                <option value="HR" {{ ($editData->user_type == "HR") ? "selected" : ""}}>HR</option>
                                                 <option value="User" {{ ($editData->user_type == "User") ? "selected" : ""}}>User</option>
                                             </optgroup>
                                         </select>
@@ -108,6 +112,7 @@
                                         @enderror
                                     </div>
                                 </div>
+                                @endif
                                 <div class="form-group row">
                                     <label for="email" class="col-sm-3 text-right control-label col-form-label">Email Address</label>
                                     <div class="col-sm-9">
