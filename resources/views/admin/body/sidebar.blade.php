@@ -75,6 +75,8 @@ $route = Route::current()->getName();
                 <!-- End User Inquiry -->
 
                 <!-- Start Account Management -->
+                @if(auth::user()->user_type == "HR")
+                @else
                 <li class="sidebar-title">Account Management</li>
                 <li class="sidebar-item  has-sub {{ ($prefix == '/accounts') ? 'active' : '' }}">
                     <a href="#" class="sidebar-link {{ ($prefix == '/accounts') ? 'bg-success' : '' }}">
@@ -90,6 +92,7 @@ $route = Route::current()->getName();
                         </li>
                     </ul>
                 </li>
+                @endif
                 <!-- End Account Management -->
             </ul>
         </div>
