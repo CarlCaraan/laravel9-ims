@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Auth;
 
-class isAdmin
+class forAdminOnly
 {
     /**
      * Handle an incoming request.
@@ -17,10 +17,13 @@ class isAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user() && Auth::user()->user_type == "Admin" || Auth::user()->user_type == "HR") {
+        if (Auth::user() && Auth::user()->user_type == "Admin") {
             return $next($request);
         }
-
-        return redirect()->route('user.profile.view');
+        $notification = array(
+            'message' => 'You are not Authorized to View this Page',
+            'alert-type' => 'warning',
+        );
+        return redirect()->back()->with($notification);
     }
 }
