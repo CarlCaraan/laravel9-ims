@@ -526,6 +526,63 @@ class UserHomeController extends Controller
 
     public function LearningDatasheetUpdate(UpdateLearningInfoRequest $request)
     {
+        $learning = LearningProgramInfo::where('user_id', Auth::user()->id)->first();
+        LearningProgramInfo::where('user_id', Auth::user()->id)->delete();
+
+        // If NULL
+        if ($request->learning_title == NULL) {
+            $learning->user_id = Auth::user()->id;
+            $learning->learning_title = "n/a";
+            $learning->learning_date_from = "n/a";
+            $learning->learning_date_to = "n/a";
+            $learning->learning_hours = "n/a";
+            $learning->ld_type = "n/a";
+            $learning->conducted_by = "n/a";
+            $learning->save();
+            $notification = array(
+                'message' => 'Learning Program Updated Successfully',
+                'alert-type' => 'success',
+            );
+            return redirect()->route('user.welcome')->with($notification);
+        } else {
+            $countLearningTitle = count($request->learning_title);
+        } // End If NULL
+
+        for ($i = 0; $i < $countLearningTitle; $i++) {
+            $learning = new LearningProgramInfo();
+            $learning->user_id = Auth::user()->id;
+            $learning->learning_title = $request->learning_title[$i];
+            $learning->learning_date_from = $request->learning_date_from[$i];
+            $learning->learning_date_to = $request->learning_date_to[$i];
+            $learning->learning_hours = $request->learning_hours[$i];
+            $learning->ld_type = $request->ld_type[$i];
+            $learning->conducted_by = $request->conducted_by[$i];
+            $learning->save();
+
+            if (
+                $request->learning_title[$i] == "" ||
+                $request->learning_date_from[$i] == "" ||
+                $request->learning_date_to[$i] == "" ||
+                $request->learning_hours[$i] == "" ||
+                $request->ld_type[$i] == "" ||
+                $request->conducted_by[$i] == ""
+            ) {
+                $learning->learning_title = "n/a";
+                $learning->learning_date_from = "n/a";
+                $learning->learning_date_to = "n/a";
+                $learning->learning_hours = "n/a";
+                $learning->ld_type = "n/a";
+                $learning->conducted_by = "n/a";
+                $learning->save();
+
+                $notification = array(
+                    'message' => 'Required field must not be empty (LEARNING PROGRAM)',
+                    'alert-type' => 'error',
+                );
+                return redirect()->route('user.welcome')->with($notification);
+            }
+        } //End For loop
+
         $notification = array(
             'message' => 'Learning Program Updated Successfully',
             'alert-type' => 'success',
