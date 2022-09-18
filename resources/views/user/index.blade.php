@@ -73,6 +73,9 @@
                     <button class="nav-link text-start side-navlink" id="v-pills-learning-tab" data-bs-toggle="pill" data-bs-target="#v-pills-learning" type="button" role="tab" aria-controls="v-pills-learning" aria-selected="false">
                         VII.) Learning Program <span class="text-muted">(Optional)</span>
                     </button>
+                    <button class="nav-link text-start side-navlink" id="v-pills-other-tab" data-bs-toggle="pill" data-bs-target="#v-pills-other" type="button" role="tab" aria-controls="v-pills-other" aria-selected="false">
+                        VIII.) Other Information <span class="text-muted">(Optional)</span>
+                    </button>
                 </div>
                 <br>
             </div>
@@ -182,7 +185,7 @@
                     <div class="tab-pane fade" id="v-pills-learning" role="tabpanel" aria-labelledby="v-pills-learning-tab">
                         <div class="card shadow-sm border-0">
                             <div class="card-header">
-                                <span class="float-start fw-bold">VII. LEARNING AND DEVELOPMENT (L&D) INTERVENTIONS/TRAINING PROGRAMS ATTENDED</span>
+                                <span class="float-start mt-2 fw-bold">VII.) LEARNING AND DEVELOPMENT (L&D) INTERVENTIONS/TRAINING PROGRAMS ATTENDED</span>
                                 <button class="btn custom-btn text-light float-end btn-edit mt-1">Edit</button>
                             </div>
                             <div class="card-body">
@@ -195,6 +198,21 @@
                         </div>
                     </div>
                     <!-- ========= End Learning Program  ========= -->
+
+                    <!-- ========= Start Other Information ========= -->
+                    <div class="tab-pane fade" id="v-pills-other" role="tabpanel" aria-labelledby="v-pills-other-tab">
+                        <div class="card shadow-sm border-0">
+                            <div class="card-header">
+                                <span class="float-start mt-2 fw-bold">VIII.) OTHER INFORMATION</span>
+                                <button class="btn custom-btn text-light float-end btn-edit mt-1">Edit</button>
+                            </div>
+                            <div class="card-body">
+                                <!-- Other Information Form -->
+                                @include('user.form.other_datasheet_form')
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ========= End Other Information  ========= -->
                 </div>
             </div>
         </div>
@@ -225,6 +243,8 @@
             $(".removeeventmore3").show(); // Voluntary Work
             $(".addeventmore4").show(); // Learning Program
             $(".removeeventmore4").show(); // Learning Program
+            $(".addeventmore5").show(); // Other Information
+            $(".removeeventmore5").show(); // Other Information
         });
     });
 </script>

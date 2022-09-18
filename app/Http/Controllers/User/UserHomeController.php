@@ -34,6 +34,7 @@ class UserHomeController extends Controller
         $civilNaDelete = CivilServiceInfo::where('cse_type', 'n/a')->delete();
         $workNaDelete = WorkExperienceInfo::where('work_date_from', 'n/a')->delete();
         $voluntaryNaDelete = VoluntaryWorkInfo::where('organization_name_address', 'n/a')->delete();
+        $learningNaDelete = LearningProgramInfo::where('learning_title', 'n/a')->delete();
 
         // Automatic Create Personal Table for the First Time
         $personal_exists_count = PersonalInfo::where('user_id', $id)->count();
