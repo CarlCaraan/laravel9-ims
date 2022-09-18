@@ -14,6 +14,7 @@ use App\Models\CivilServiceInfo;
 use App\Models\WorkExperienceInfo;
 use App\Models\VoluntaryWorkInfo;
 use App\Models\LearningProgramInfo;
+use App\Models\OtherSkillInfo;
 use Auth;
 
 use App\Http\Requests\UpdatePersonalInfoRequest;
@@ -23,6 +24,7 @@ use App\Http\Requests\UpdateCivilInfoRequest;
 use App\Http\Requests\UpdateWorkInfoRequest;
 use App\Http\Requests\UpdateVoluntaryInfoRequest;
 use App\Http\Requests\UpdateLearningInfoRequest;
+use App\Http\Requests\UpdateOtherInfoRequest;
 
 class UserHomeController extends Controller
 {
@@ -35,6 +37,7 @@ class UserHomeController extends Controller
         $workNaDelete = WorkExperienceInfo::where('work_date_from', 'n/a')->delete();
         $voluntaryNaDelete = VoluntaryWorkInfo::where('organization_name_address', 'n/a')->delete();
         $learningNaDelete = LearningProgramInfo::where('learning_title', 'n/a')->delete();
+        $otherNaDelete = OtherSkillInfo::where('special_skill', 'n/a')->delete();
 
         // Automatic Create Personal Table for the First Time
         $personal_exists_count = PersonalInfo::where('user_id', $id)->count();
@@ -98,6 +101,14 @@ class UserHomeController extends Controller
             $data->save();
         }
 
+        // Automatic Create Other Information Table for the First Time
+        $other_exists_count = OtherSkillInfo::where('user_id', $id)->count();
+        if ($other_exists_count == 0) {
+            $data = new OtherSkillInfo();
+            $data->user_id = $id;
+            $data->save();
+        }
+
         $allData['user'] = User::find($id);
         $allData['personal'] = PersonalInfo::where('user_id', $id)->first();
         $allData['family'] = FamilyInfo::where('user_id', $id)->first();
@@ -107,6 +118,7 @@ class UserHomeController extends Controller
         $allData['works'] = WorkExperienceInfo::where('user_id', $id)->get();
         $allData['voluntaries'] = VoluntaryWorkInfo::where('user_id', $id)->get();
         $allData['learnings'] = LearningProgramInfo::where('user_id', $id)->get();
+        $allData['others'] = OtherSkillInfo::where('user_id', $id)->get();
         return view('user.index', $allData);
     } // End Method
 
@@ -586,6 +598,15 @@ class UserHomeController extends Controller
 
         $notification = array(
             'message' => 'Learning Program Updated Successfully',
+            'alert-type' => 'success',
+        );
+        return redirect()->route('user.welcome')->with($notification);
+    } // End  Method
+
+    public function OtherDatasheetUpdate(UpdateOtherInfoRequest $request)
+    {
+        $notification = array(
+            'message' => 'Other Information Updated Successfully',
             'alert-type' => 'success',
         );
         return redirect()->route('user.welcome')->with($notification);
