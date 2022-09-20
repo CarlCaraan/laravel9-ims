@@ -605,6 +605,51 @@ class UserHomeController extends Controller
 
     public function OtherDatasheetUpdate(UpdateOtherInfoRequest $request)
     {
+        $other = OtherSkillInfo::where('user_id', Auth::user()->id)->first();
+        OtherSkillInfo::where('user_id', Auth::user()->id)->delete();
+
+        // If NULL
+        if ($request->special_skill == NULL) {
+            $other->user_id = Auth::user()->id;
+            $other->special_skill = "n/a";
+            $other->recognition = "n/a";
+            $other->organization = "n/a";
+            $other->save();
+            $notification = array(
+                'message' => 'Other Information Updated Successfully',
+                'alert-type' => 'success',
+            );
+            return redirect()->route('user.welcome')->with($notification);
+        } else {
+            $countSpecialSkill = count($request->special_skill);
+        } // End If NULL
+
+        for ($i = 0; $i < $countSpecialSkill; $i++) {
+            $other = new OtherSkillInfo();
+            $other->user_id = Auth::user()->id;
+            $other->special_skill = $request->special_skill[$i];
+            $other->recognition = $request->recognition[$i];
+            $other->organization = $request->organization[$i];
+            $other->save();
+
+            if (
+                $request->special_skill[$i] == "" ||
+                $request->recognition[$i] == "" ||
+                $request->organization[$i] == ""
+            ) {
+                $other->special_skill = "n/a";
+                $other->recognition = "n/a";
+                $other->organization = "n/a";
+                $other->save();
+
+                $notification = array(
+                    'message' => 'Required field must not be empty (OTHER INFORMATION)',
+                    'alert-type' => 'error',
+                );
+                return redirect()->route('user.welcome')->with($notification);
+            }
+        } //End For loop
+
         $notification = array(
             'message' => 'Other Information Updated Successfully',
             'alert-type' => 'success',
