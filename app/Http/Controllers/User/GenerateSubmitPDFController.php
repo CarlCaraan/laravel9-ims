@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\User;
 use App\Models\PersonalInfo;
 use App\Models\FamilyInfo;
 use App\Models\FamilyChildrenList;
@@ -23,6 +24,7 @@ class GenerateSubmitPDFController extends Controller
         $id = Auth::user()->id;
         $family_id = FamilyInfo::where('user_id', $id)->first()->id;
 
+        $allData['user'] = User::find($id);
         $allData['personal'] = PersonalInfo::where('user_id', $id)->first();
         $allData['family'] = FamilyInfo::where('user_id', $id)->first();
         $allData['children'] = FamilyChildrenList::where('family_id', $family_id)->get();
@@ -35,7 +37,7 @@ class GenerateSubmitPDFController extends Controller
 
         // Generate PDF
         $pdf = PDF::loadView('user.pdf.personal_datasheet_pdf', $allData, [], [
-            'format' => 'A4',
+            'format' => 'Legal',
             'margin_left' => 2,
             'margin_right' => 2,
             'margin_top' => 2,

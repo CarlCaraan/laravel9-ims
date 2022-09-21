@@ -6,7 +6,7 @@
         <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">
                 <label for="cs_id_no" class="form-label request-form-label">CS ID No. (Optional)<span class="text-danger">*</span></label>
-                <input class="form-control" type="text" name="cs_id_no" value="{{ ($user->cs_id_no != '') ? $user->cs_id_no : old('cs_id_no')  }}" placeholder="(Do not fill up. For CSC use only)" disabled>
+                <input class="form-control" type="text" name="cs_id_no" value="{{ ($personal->cs_id_no != '') ? $personal->cs_id_no : old('cs_id_no')  }}" placeholder="(Do not fill up. For CSC use only)" disabled>
             </div>
         </div>
     </div>
