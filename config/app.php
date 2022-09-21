@@ -182,6 +182,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Ladumor\LaravelPwa\PWAServiceProvider::class, // ~PWA
+        niklasravnsborg\LaravelPdf\PdfServiceProvider::class, // ~MPDF
 
         /*
          * Package Service Providers...
@@ -213,7 +214,8 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
-        'LaravelPwa' => \Ladumor\LaravelPwa\LaravelPwa::class, //~PWA
+        'LaravelPwa' => \Ladumor\LaravelPwa\LaravelPwa::class, // ~PWA
+        'PDF' => niklasravnsborg\LaravelPdf\Facades\Pdf::class // ~MPDF
     ])->toArray(),
 
 ];

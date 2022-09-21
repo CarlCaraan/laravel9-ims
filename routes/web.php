@@ -7,7 +7,7 @@ use App\Http\Controllers\FacebookController;
 
 use App\Http\Controllers\WelcomeController;
 
-// ========= Start All Admin Controller =========
+// ========= All Admin Controller =========
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\SiteInfo\AdminSiteInfoController;
@@ -22,6 +22,7 @@ use App\Http\Controllers\User\ContactController;
 // ========= User Controller =========
 use App\Http\Controllers\User\UserHomeController;
 use App\Http\Controllers\User\UserProfileController;
+use App\Http\Controllers\User\GenerateSubmitPDFController;
 
 Route::group(['middleware' => 'prevent-back-history'], function () {
     // ========= Google Authentication =========
@@ -119,6 +120,9 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
         Route::post('voluntary/datasheet/update', [UserHomeController::class, 'VoluntaryDatasheetUpdate'])->name('voluntary.datasheet.update');
         Route::post('learning/datasheet/update', [UserHomeController::class, 'LearningDatasheetUpdate'])->name('learning.datasheet.update');
         Route::post('other/datasheet/update', [UserHomeController::class, 'OtherDatasheetUpdate'])->name('other.datasheet.update');
+
+        // Generate PDF
+        Route::get('pdf/datasheet/generate', [GenerateSubmitPDFController::class, 'GeneratePDF'])->name('pdf.datasheet.generate');
 
         // Profile Route
         Route::prefix('profile')->group(function () {

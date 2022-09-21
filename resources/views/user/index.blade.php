@@ -76,8 +76,8 @@
                     <button class="nav-link text-start side-navlink" id="v-pills-other-tab" data-bs-toggle="pill" data-bs-target="#v-pills-other" type="button" role="tab" aria-controls="v-pills-other" aria-selected="false">
                         VIII.) Other Information <span class="text-muted">(Optional)</span>
                     </button>
-                    <button class="nav-link text-start side-navlink" id="v-pills-generate-tab" data-bs-toggle="pill" data-bs-target="#v-pills-generate" type="button" role="tab" aria-controls="v-pills-generate" aria-selected="false">
-                        Generate Personal Datasheet
+                    <button class="nav-link text-start side-navlink" id="v-pills-generate-tab" data-bs-toggle="{{ ($works[0]->work_date_from == '') ? 'tooltip' : 'pill' }}" title="{{ ($works[0]->work_date_from == '') ? 'Complete Personal Datasheet to Proceed.' : '' }}" data-bs-placement="right" data-bs-target="#v-pills-generate" type="button" role="tab" aria-controls="v-pills-generate" aria-selected="false" style="{{ ($works[0]->work_date_from == '') ? 'cursor: not-allowed' : '' }}">
+                        Generate Personal Datasheet <i class="{{ ($works[0]->work_date_from == '') ? 'fas fa-lock' : '' }}"></i>
                     </button>
                 </div>
                 <br>
@@ -93,7 +93,7 @@
                                 <button class="btn custom-btn text-light float-end btn-edit">Edit</button>
                             </div>
                             <div class="card-body">
-                                <small class="float-end">
+                                <small class="float-start">
                                     CS Form No. 212
                                     <br />
                                     Revised 2017
@@ -224,7 +224,7 @@
                                 <span class="float-start fw-bold">Generate Personal Data Sheet</span>
                             </div>
                             <div class="card-body">
-
+                                <a class="btn btn-primary" href="{{ route('pdf.datasheet.generate') }}" target="_blank">Generate PDS Form</a>
                             </div>
                         </div>
                     </div>

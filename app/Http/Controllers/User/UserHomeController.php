@@ -142,6 +142,7 @@ class UserHomeController extends Controller
 
         // Updating Personal Table
         $personal = PersonalInfo::where('user_id', Auth::user()->id)->first();
+        $personal->cs_id_no = $request->cs_id_no;
         $personal->middle_name = Str::title($request->middle_name);
         $personal->extension_name = Str::title($request->extension_name);
         $personal->dob = $request->dob;
