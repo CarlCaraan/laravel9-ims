@@ -135,7 +135,7 @@
                 </td>
             </tr>
 
-            <tr style="border-top: 1px solid #000">
+            <tr>
                 <td class="label-gray" width="25%" style="border-bottom: none;">
                     3. DATE OF BIRTH
                     (mm/dd/yyyy)
@@ -154,7 +154,7 @@
                 </td>
             </tr>
 
-            <tr style="border-top: 1px solid #000">
+            <tr>
                 <td class="label-gray" style="border-bottom: none;border-top: none;">
                     4. PLACE OF BIRTH
                 </td>
@@ -169,17 +169,14 @@
                 </td>
             </tr>
 
-            <tr style="border-top: 1px solid #000">
+            <tr>
                 <td class="label-gray" style="border-bottom: none;">
                     5. SEX
                 </td>
-                <td>
+                <td style="border-right: none; border-bottom: none;">
                     {{ $user->gender }}
                 </td>
-                <td style="border-right: none;">
-
-                </td>
-                <td style="border-left: none;">
+                <td colspan="2" style="border-left: none; border-bottom: none;">
 
                 </td>
             </tr>
@@ -187,9 +184,9 @@
     </table>
 
     <table width="100%" border="1" cellspacing="0" cellpadding="0">
-        <tr style="border-top: 1px solid #000">
+        <tr>
             <td class="label-gray" width="25%" style="border-bottom: none;">
-                5. CIVIL STATUS
+                6. CIVIL STATUS
             </td>
             <td width="15%">
                 {{ $personal->civil_status }}
@@ -205,9 +202,9 @@
             </td>
         </tr>
 
-        <tr style="border-top: 1px solid #000">
+        <tr>
             <td class="label-gray" width="25%" style="border-bottom: none;">
-                6. HEIGHT (m)
+                7. HEIGHT (m)
             </td>
             <td width="15%">
                 {{ $personal->height }}
@@ -223,8 +220,107 @@
             </td>
         </tr>
 
+        <tr>
+            <td class="label-gray" width="25%" style="border-bottom: none;">
+                8. WEIGHT (kg)
+            </td>
+            <td width="15%">
+                {{ $personal->weight }}
+            </td>
+            <td class="label-gray" style="border-bottom: none; border-top: none;">
 
+            </td>
+            <td width="20%">
+                {{ $personal->r_city }}<br /><small style="color: #969696;">City/Municipality</small>
+            </td>
+            <td width="25%">
+                {{ $personal->r_province }}<br /><small style="color: #969696;">Province</small>
+            </td>
+        </tr>
 
+        <tr>
+            <td class="label-gray" width="25%" style="border-bottom: none;">
+                9. BLOOD TYPE
+            </td>
+            <td width="15%">
+                {{ $personal->blood_type }}
+            </td>
+            <td class="label-gray" style="border-top: none;">
+                ZIP CODE
+            </td>
+            <td colspan="2">
+                {{ $personal->r_zip_code }}
+            </td>
+        </tr>
+
+        <tr>
+            <td class="label-gray" width="25%" style="border-bottom: none;">
+                10. GSIS ID NO.S
+            </td>
+            <td width="15%">
+                {{ $personal->gsis_id_no }}
+            </td>
+            <td class="label-gray" style="border-bottom: none;">
+                18. PERMANENT ADDRESS
+            </td>
+            <td width="20%">
+                {{ $personal->p_house_no }}<br /><small style="color: #969696;">House/Block/Lot No.</small>
+            </td>
+            <td width="25%">
+                {{ $personal->p_street }}<br /><small style="color: #969696;">Street</small>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="label-gray" width="25%" style="border-bottom: none;">
+                11. PAG-IBIG ID NO.
+            </td>
+            <td width="15%">
+                {{ $personal->pagibig_id_no }}
+            </td>
+            <td class="label-gray" style="border-bottom: none; border-top: none;">
+
+            </td>
+            <td width="20%">
+                {{ $personal->p_subdivision }}<br /><small style="color: #969696;">Subdivision/Village</small>
+            </td>
+            <td width="25%">
+                {{ $personal->p_barangay }}<br /><small style="color: #969696;">Barangay</small>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="label-gray" width="25%" style="border-bottom: none;">
+                12. PHILHEALTH NO.
+            </td>
+            <td width="15%">
+                {{ $personal->philhealth_no }}
+            </td>
+            <td class="label-gray" style="border-bottom: none; border-top: none;">
+
+            </td>
+            <td width="20%">
+                {{ $personal->p_city }}<br /><small style="color: #969696;">City/Municipality</small>
+            </td>
+            <td width="25%">
+                {{ $personal->p_province }}<br /><small style="color: #969696;">Province</small>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="label-gray" width="25%" style="border-bottom: none;">
+                13. SSS NO.
+            </td>
+            <td width="15%">
+                {{ $personal->sss_no }}
+            </td>
+            <td class="label-gray" style="border-top: none;">
+                ZIP CODE
+            </td>
+            <td colspan="2">
+                {{ $personal->p_zip_code }}
+            </td>
+        </tr>
     </table>
     <!-- End Personal -->
 
