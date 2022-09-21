@@ -76,6 +76,9 @@
                     <button class="nav-link text-start side-navlink" id="v-pills-other-tab" data-bs-toggle="pill" data-bs-target="#v-pills-other" type="button" role="tab" aria-controls="v-pills-other" aria-selected="false">
                         VIII.) Other Information <span class="text-muted">(Optional)</span>
                     </button>
+                    <button class="nav-link text-start side-navlink" id="v-pills-generate-tab" data-bs-toggle="pill" data-bs-target="#v-pills-generate" type="button" role="tab" aria-controls="v-pills-generate" aria-selected="false">
+                        Generate Personal Datasheet
+                    </button>
                 </div>
                 <br>
             </div>
@@ -213,6 +216,19 @@
                         </div>
                     </div>
                     <!-- ========= End Other Information  ========= -->
+
+                    <!-- ========= Start Generate PDS ========= -->
+                    <div class="tab-pane fade" id="v-pills-generate" role="tabpanel" aria-labelledby="v-pills-generate-tab">
+                        <div class="card shadow-sm border-0">
+                            <div class="card-header">
+                                <span class="float-start fw-bold">Generate Personal Data Sheet</span>
+                            </div>
+                            <div class="card-body">
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ========= End Generate PDS ========= -->
                 </div>
             </div>
         </div>
