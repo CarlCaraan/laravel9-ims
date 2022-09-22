@@ -47,6 +47,13 @@
             border: 1px solid #000;
         }
 
+        /* Grid */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
         /* Header */
         .header-custom {
             padding-top: 4px;
@@ -67,7 +74,7 @@
 </head>
 
 <body>
-    <!-- Start header -->
+    <!-- ========= Start header ========= -->
     <div class="header-custom custom-border">
         <small class="fw-italic fw-bold">CS Form No. 212</small> <br />
         <small class="fw-italic">Revised 2017</small>
@@ -92,9 +99,9 @@
             </tr>
         </table>
     </div>
-    <!-- End header -->
+    <!-- ========= End header ========= -->
 
-    <!-- Start Personal -->
+    <!-- ========= Start Personal ========= -->
     <table width="100%" border="1" cellspacing="0" cellpadding="0">
         <thead>
             <tr>
@@ -321,8 +328,153 @@
                 {{ $personal->p_zip_code }}
             </td>
         </tr>
+
+        <tr>
+            <td class="label-gray" width="25%" style="border-bottom: none;">
+                14. TIN NO.
+            </td>
+            <td width="15%">
+                {{ $personal->tin_no }}
+            </td>
+            <td class="label-gray" style="border-top: none;">
+                19. TELEPHONE NO.
+            </td>
+            <td colspan="2">
+                {{ $personal->telephone }}
+            </td>
+        </tr>
+
+        <tr>
+            <td class="label-gray" width="25%" style="border-bottom: none;">
+                15. AGENCY EMPLOYEE NO.
+            </td>
+            <td width="15%">
+                {{ $personal->agency_employee_no }}
+            </td>
+            <td class="label-gray" style="border-top: none;">
+                20. MOBILE NO.
+            </td>
+            <td colspan="2">
+                {{ $personal->mobile }}
+            </td>
+        </tr>
+
+        <tr>
+            <td width="25%" style="border-bottom: none;" colspan="2">
+
+            </td>
+            <td class="label-gray" style="border-top: none; border-bottom: none;">
+                21. E-MAIL ADDRESS
+            </td>
+            <td colspan="2" style="border-bottom: none;">
+                {{ $personal->contact_email }}
+            </td>
+        </tr>
     </table>
-    <!-- End Personal -->
+
+    <div class="row">
+        <div class="column" style="float: left; width: 55%;">
+            <table width="100%" border="1" cellspacing="0" cellpadding="0">
+                <thead>
+                    <tr>
+                        <th class="custom-tableheading" style="border-right: 1px solid #969696;" colspan="3">
+                            II. FAMILY BACKGROUND
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="label-gray" width="31%" style="border-bottom: none;">
+                            22. SPOUSE'S SURNAME
+                        </td>
+                        <td colspan="2">
+                            {{ $family->spouse_lname }}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="label-gray" style="border-top: none; border-bottom: none;">
+                            FIRST NAME
+                        </td>
+                        <td>
+                            {{ $family->spouse_fname }}
+                        </td>
+                        <td class="label-gray" width="20%">
+                            <small style="color: #969696">NAME EXTENSION (JR., SR)</small>
+                            <strong>{{ $family->spouse_ename }}</strong>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="label-gray" style="border-top: none;">
+                            MIDDLE NAME
+                        </td>
+                        <td colspan="2">
+                            {{ $family->spouse_mname }}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="label-gray" style="border-top: none;">
+                            OCCUPATION
+                        </td>
+                        <td colspan="2">
+                            {{ $family->occupation }}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="label-gray" style="border-top: none;">
+                            EMPLOYER/BUSINESS NAME
+                        </td>
+                        <td colspan="2">
+                            {{ $family->employer_name }}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="label-gray" style="border-top: none;">
+                            BUSINESS ADDRESS
+                        </td>
+                        <td colspan="2">
+                            {{ $family->business_address }}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="label-gray" style="border-top: none;">
+                            TELEPHONE NO.
+                        </td>
+                        <td colspan="2">
+                            {{ $family->telephone }}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Start Children -->
+        <div class="column" style="float: left; width: 45%;">
+            <table width="100%" border="1" cellspacing="0" cellpadding="0">
+                <thead>
+                    <tr>
+                        <th class="custom-tableheading" style="border-left: 1px solid #969696;;">
+                            &nbsp;
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+        <!-- End Children -->
+
+    </div> <!-- End Row -->
+
+
+
+    <!-- ========= End Personal ========= -->
 
 
 </body>
