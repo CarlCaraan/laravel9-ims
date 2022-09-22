@@ -51,6 +51,16 @@
             border: 1px solid #000;
         }
 
+        .footer-pagetext {
+            font-size: 9px;
+            font-style: italic;
+        }
+
+        @page {
+            header: page-header;
+            footer: page-footer;
+        }
+
         /* Grid */
         .row:after {
             content: "";
@@ -777,6 +787,15 @@
         </tbody>
     </table>
     <!-- End Signature -->
+
+
+    <htmlpagefooter name="page-footer">
+        <div style="width:100%; text-align:right;">
+            <span class="footer-pagetext">
+                CS FORM 212 (Revised 2017), Page 1 of 4
+            </span>
+        </div>
+    </htmlpagefooter>
 
 </body>
 

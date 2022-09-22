@@ -224,7 +224,7 @@
                                 <span class="float-start fw-bold">Generate Personal Data Sheet</span>
                             </div>
                             <div class="card-body">
-                                <a class="btn custom-btn" href="{{ route('pdf.datasheet.generate') }}" target="_blank">Generate PDS Form</a>
+                                <a class="btn custom-btn text-light" href="{{ route('pdf.datasheet.generate') }}" target="_blank">Generate PDS Form</a>
                             </div>
                         </div>
                     </div>
