@@ -78,9 +78,7 @@
     <div class="header-custom custom-border">
         <small class="fw-italic fw-bold">CS Form No. 212</small> <br />
         <small class="fw-italic">Revised 2017</small>
-
-        <h1 class="center">PERSONAL DATA SHEET</h1>
-
+        <h1 class="center" style="line-height: -1; padding:0; margin-top:5px; margin-bottom: 15px;">PERSONAL DATA SHEET</h1>
         <small>
             <strong>WARNING:</strong>
             <i>
@@ -449,6 +447,74 @@
                             {{ $family->telephone }}
                         </td>
                     </tr>
+
+                    <tr>
+                        <td class="label-gray" style="border-top: none; border-bottom: none;">
+                            24. FATHER'S SURNAME
+                        </td>
+                        <td colspan="2">
+                            {{ $family->father_lname }}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="label-gray" style="border-top: none; border-bottom: none;">
+                            FIRST NAME
+                        </td>
+                        <td>
+                            {{ $family->father_fname }}
+                        </td>
+                        <td class="label-gray" width="20%">
+                            <small style="color: #969696">NAME EXTENSION (JR., SR)</small>
+                            <strong>{{ $family->father_ename }}</strong>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="label-gray" style="border-top: none;">
+                            MIDDLE NAME
+                        </td>
+                        <td colspan="2">
+                            {{ $family->father_mname }}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="label-gray" style="border-top: none; border-bottom: none;">
+                            25. MOTHER'S MAIDEN NAME
+                        </td>
+                        <td colspan="2">
+                            {{ $family->mother_maiden_name }}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="label-gray" style="border-top: none; border-bottom: none;">
+                            SURNAME
+                        </td>
+                        <td colspan="2">
+                            {{ $family->mother_lname }}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="label-gray" style="border-top: none; border-bottom: none;">
+                            FIRST NAME
+                        </td>
+                        <td colspan="2">
+                            {{ $family->mother_fname }}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="label-gray" style="border-top: none;">
+                            MIDDLE NAME
+                        </td>
+                        <td colspan="2">
+                            {{ $family->mother_mname }}
+                        </td>
+                    </tr>
+
                 </tbody>
             </table>
         </div>
