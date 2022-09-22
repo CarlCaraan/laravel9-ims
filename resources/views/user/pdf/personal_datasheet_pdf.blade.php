@@ -789,7 +789,7 @@
     </table>
     <!-- End Signature -->
 
-
+    <!-- Start Footer Page -->
     <htmlpagefooter name="page-footer">
         <div style="width:100%; text-align:right;">
             <span class="footer-pagetext">
@@ -797,6 +797,7 @@
             </span>
         </div>
     </htmlpagefooter>
+    <!-- End Footer Page -->
 
 </body>
 
