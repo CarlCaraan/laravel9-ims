@@ -51,6 +51,7 @@
             border: 1px solid #000;
         }
 
+        /* Footer Page */
         .footer-pagetext {
             font-size: 9px;
             font-style: italic;
