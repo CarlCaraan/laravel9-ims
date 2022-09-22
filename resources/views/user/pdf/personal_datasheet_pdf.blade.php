@@ -5,7 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Datasheet</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="https://i.ibb.co/F3FvV5D/PDF-file-icon-svg.png">
+
+    <title>CS Form No. 212</title>
 
     <style>
         /* GLOBAL CSS */
@@ -34,8 +38,8 @@
 
         td {
             font-size: 10px;
-            padding-top: 6px;
-            padding-bottom: 6px;
+            padding-top: 5.5px;
+            padding-bottom: 5.5px;
             padding-left: 5px;
         }
 
@@ -146,7 +150,7 @@
                     (mm/dd/yyyy)
                 </td>
                 <td>
-                    {{ date('m-d-Y', strtotime($personal->dob)) }}
+                    {{ date('m/d/Y', strtotime($personal->dob)) }}
                 </td>
                 <td class="label-gray" width="20%" style="border-bottom: none;">
                     16. CITIZENSHIP
@@ -369,8 +373,10 @@
             </td>
         </tr>
     </table>
+    <!-- ========= End Personal ========= -->
 
-    <div class="row">
+    <!-- ========= Start Family ========= -->
+    <div class="row" style="border-right: 1px solid #000;">
         <div class="column" style="float: left; width: 55%;">
             <table width="100%" border="1" cellspacing="0" cellpadding="0">
                 <thead>
@@ -507,10 +513,10 @@
                     </tr>
 
                     <tr>
-                        <td class="label-gray" style="border-top: none;">
+                        <td class="label-gray" style="border-top: none; border-bottom: none;">
                             MIDDLE NAME
                         </td>
-                        <td colspan="2">
+                        <td colspan="2" style="border-bottom: none;">
                             {{ $family->mother_mname }}
                         </td>
                     </tr>
@@ -524,12 +530,30 @@
             <table width="100%" border="1" cellspacing="0" cellpadding="0">
                 <thead>
                     <tr>
-                        <th class="custom-tableheading" style="border-left: 1px solid #969696;;">
+                        <th class="custom-tableheading" style="border-left: 1px solid #969696; border-right: 1px solid #969696;" colspan="2">
                             &nbsp;
                         </th>
                     </tr>
                 </thead>
                 <tbody>
+                    <tr>
+                        <td class="label-gray" width="65%" style="border-left: none;">
+                            23. NAME of CHILDREN
+                        </td>
+                        <td class="label-gray" style="border-right: none;">
+                            DATE OF BIRTH (mm/dd/yyyy)
+                        </td>
+                    </tr>
+                    @foreach ($children as $child)
+                    <tr>
+                        <td width="60%" style="border-left: none;">
+                            {{ $child->children_name }} &nbsp;
+                        </td>
+                        <td style="border-right: none;">
+                            {{ date('m/d/Y', strtotime($child->children_dob)) }} &nbsp;
+                        </td>
+                    </tr>
+                    @endforeach
 
                 </tbody>
             </table>
@@ -537,11 +561,222 @@
         <!-- End Children -->
 
     </div> <!-- End Row -->
+    <!-- ========= End Family ========= -->
 
+    <!-- ========= Start Educational Background ========= -->
+    <table width="100%" border="1" cellspacing="0" cellpadding="0">
+        <thead>
+            <tr>
+                <th class="custom-tableheading" colspan="8">
+                    III. EDUCATIONAL BACKGROUND
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="label-gray" rowspan="2">
+                    26. LEVEL
+                </td>
+                <td class="label-gray" rowspan="2" width="22%">
+                    NAME OF SCHOOL
+                </td>
+                <td class="label-gray" rowspan="2" width="22%">
+                    BASIC EDUCATION/DEGREE/COURSE
+                </td>
+                <td class="label-gray" colspan="2">
+                    PERIOD OF ATTENDANCE
+                </td>
+                <td class="label-gray" rowspan="2" width="10.5%">
+                    HIGHEST LEVEL/ UNITS EARNED (if not graduated)
+                </td>
+                <td class="label-gray" rowspan="2" width="8%">
+                    YEAR GRADUATED
+                </td>
+                <td class="label-gray" rowspan="2" width="9.5%">
+                    SCHOLARSHIP/ ACADEMIC HONORS RECEIVED
+                </td>
+            </tr>
 
+            <tr>
+                <td class="label-gray" width="7.8%">
+                    From
+                </td>
+                <td class="label-gray" width="7.8%">
+                    To
+                </td>
+            </tr>
 
-    <!-- ========= End Personal ========= -->
+            <!-- Start Elementary -->
+            <tr>
+                <td class="label-gray">
+                    ELEMENTARY
+                </td>
+                <td>
+                    {{ $educational->elementary_school }}
+                </td>
+                <td>
+                    {{ $educational->elementary_course }}
+                </td>
+                <td>
+                    {{ $educational->elementary_from }}
+                </td>
+                <td>
+                    {{ $educational->elementary_to }}
+                </td>
+                <td>
+                    {{ $educational->elementary_units }}
+                </td>
+                <td>
+                    {{ $educational->elementary_graduated }}
+                </td>
+                <td>
+                    {{ $educational->elementary_honors }}
+                </td>
+            </tr>
+            <!-- End Elementary -->
 
+            <!-- Start Secondary -->
+            <tr>
+                <td class="label-gray">
+                    SECONDARY
+                </td>
+                <td>
+                    {{ $educational->secondary_school }}
+                </td>
+                <td>
+                    {{ $educational->secondary_course }}
+                </td>
+                <td>
+                    {{ $educational->secondary_from }}
+                </td>
+                <td>
+                    {{ $educational->secondary_to }}
+                </td>
+                <td>
+                    {{ $educational->secondary_units }}
+                </td>
+                <td>
+                    {{ $educational->secondary_graduated }}
+                </td>
+                <td>
+                    {{ $educational->secondary_honors }}
+                </td>
+            </tr>
+            <!-- End Secondary -->
+
+            <!-- Start Vocational -->
+            <tr>
+                <td class="label-gray">
+                    VOCATIONAL / TRADE COURSE
+                </td>
+                <td>
+                    {{ $educational->vocational_school }}
+                </td>
+                <td>
+                    {{ $educational->vocational_course }}
+                </td>
+                <td>
+                    {{ $educational->vocational_from }}
+                </td>
+                <td>
+                    {{ $educational->vocational_to }}
+                </td>
+                <td>
+                    {{ $educational->vocational_units }}
+                </td>
+                <td>
+                    {{ $educational->vocational_graduated }}
+                </td>
+                <td>
+                    {{ $educational->vocational_honors }}
+                </td>
+            </tr>
+            <!-- End Vocational -->
+
+            <!-- Start College -->
+            <tr>
+                <td class="label-gray">
+                    COLLEGE
+                </td>
+                <td>
+                    {{ $educational->college_school }}
+                </td>
+                <td>
+                    {{ $educational->college_course }}
+                </td>
+                <td>
+                    {{ $educational->college_from }}
+                </td>
+                <td>
+                    {{ $educational->college_to }}
+                </td>
+                <td>
+                    {{ $educational->college_units }}
+                </td>
+                <td>
+                    {{ $educational->college_graduated }}
+                </td>
+                <td>
+                    {{ $educational->college_honors }}
+                </td>
+            </tr>
+            <!-- End College -->
+
+            <!-- Start Graduate Studies -->
+            <tr>
+                <td class="label-gray">
+                    GRADUATE STUDIES
+                </td>
+                <td>
+                    {{ $educational->studies_school }}
+                </td>
+                <td>
+                    {{ $educational->studies_course }}
+                </td>
+                <td>
+                    {{ $educational->studies_from }}
+                </td>
+                <td>
+                    {{ $educational->studies_to }}
+                </td>
+                <td>
+                    {{ $educational->studies_units }}
+                </td>
+                <td>
+                    {{ $educational->studies_graduated }}
+                </td>
+                <td>
+                    {{ $educational->studies_honors }}
+                </td>
+            </tr>
+            <!-- End Graduate Studies -->
+        </tbody>
+    </table>
+    <!-- ========= End Educational Background ========= -->
+
+    <!-- Start Signature -->
+    <table width="100%" border="1" cellspacing="0" cellpadding="0">
+        <tbody>
+            <tr>
+                <td class="label-gray center" width="20%" rowspan="2">
+                    <strong>SIGNATURE</strong>
+                </td>
+                <td rowspan="2">
+
+                </td>
+                <td class="label-gray center" width="20%" rowspan="2">
+                    <strong>DATE</strong>
+                </td>
+                <td width="20%" style="border-bottom:none;">
+                    <br /> {{ date('m/d/Y', strtotime(now()))  }}
+                </td>
+            </tr>
+            <tr>
+                <td style="border-top:none;"></td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- End Signature -->
 
 </body>
 

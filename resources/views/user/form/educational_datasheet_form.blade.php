@@ -45,7 +45,7 @@
         <div class="col-xl-6 col-lg-4 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">
                 <label for="elementary_units" class="form-label request-form-label">Highest Level/Units Earned</label>
-                <input class="form-control" type="text" name="elementary_units" value="{{ ($educational->elementary_units != '') ? $educational->elementary_units : old('elementary_units')  }}" disabled>
+                <input class="form-control" type="text" name="elementary_units" value="n/a" disabled required>
                 @error('elementary_units')
                 <small class="text-danger">{{ $message }}</small>
                 @enderror
@@ -118,7 +118,7 @@
         <div class="col-xl-6 col-lg-4 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">
                 <label for="elementary_units" class="form-label request-form-label">Highest Level/Units Earned</label>
-                <input class="form-control" type="text" name="elementary_units" value="{{ ($educational->elementary_units != '') ? $educational->elementary_units : old('elementary_units')  }}" disabled>
+                <input class="form-control" type="text" name="elementary_units" value="n/a" disabled required>
                 @error('elementary_units')
                 <small class="text-danger">{{ $message }}</small>
                 @enderror
@@ -191,7 +191,7 @@
         <div class="col-xl-6 col-lg-4 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">
                 <label for="vocational_units" class="form-label request-form-label">Highest Level/Units Earned</label>
-                <input class="form-control" type="text" name="vocational_units" value="{{ ($educational->vocational_units != '') ? $educational->vocational_units : old('vocational_units')  }}" disabled>
+                <input class="form-control" type="text" name="vocational_units" value="" placeholder="n/a if none" disabled required>
                 @error('vocational_units')
                 <small class="text-danger">{{ $message }}</small>
                 @enderror
@@ -337,7 +337,7 @@
         <div class="col-xl-6 col-lg-4 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">
                 <label for="studies_units" class="form-label request-form-label">Highest Level/Units Earned</label>
-                <input class="form-control" type="text" name="studies_units" value="{{ ($educational->studies_units != '') ? $educational->studies_units : old('studies_units')  }}" disabled>
+                <input class="form-control" type="text" name="studies_units" value="" placeholder="n/a if none" disabled required>
                 @error('studies_units')
                 <small class="text-danger">{{ $message }}</small>
                 @enderror

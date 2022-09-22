@@ -199,7 +199,7 @@
                         @enderror
                     </div>
                 </div>
-                <div class="col-xl-2 col-lg-2 col-md-4 col-sm-4 col-xs-12" style="padding-top: 25px;">
+                <div class="col-xl-2 col-lg-2 col-md-4 col-sm-4 col-xs-12" style="padding-top: 30px;">
                     <span class="btn btn-success addeventmore"><i class="fa fa-plus-circle"></i></span>
                     <span class="btn btn-danger removeeventmore"><i class="fa fa-minus-circle"></i></span>
                 </div>
