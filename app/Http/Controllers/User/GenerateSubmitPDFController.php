@@ -19,7 +19,7 @@ use Auth;
 
 class GenerateSubmitPDFController extends Controller
 {
-    public function GeneratePDF()
+    public function PageOneFrontPDF()
     {
         $id = Auth::user()->id;
         $family_id = FamilyInfo::where('user_id', $id)->first()->id;
@@ -36,7 +36,7 @@ class GenerateSubmitPDFController extends Controller
         $allData['others'] = OtherSkillInfo::where('user_id', $id)->get();
 
         // Generate PDF
-        $pdf = PDF::loadView('user.pdf.personal_datasheet_pdf', $allData, [], [
+        $pdf = PDF::loadView('user.pdf.part_one_front', $allData, [], [
             'format' => 'Legal',
             'margin_left' => 2,
             'margin_right' => 2,
@@ -46,6 +46,6 @@ class GenerateSubmitPDFController extends Controller
             // 'margin_footer' => 0,
         ]);
         $pdf->SetProtection(['copy', 'print'], '', 'pass');
-        return $pdf->stream('Personal_Datasheet.pdf');
+        return $pdf->stream('Part1_FrontPage.pdf');
     } // End Method
 }

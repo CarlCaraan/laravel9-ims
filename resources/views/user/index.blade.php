@@ -221,10 +221,30 @@
                     <div class="tab-pane fade" id="v-pills-generate" role="tabpanel" aria-labelledby="v-pills-generate-tab">
                         <div class="card shadow-sm border-0">
                             <div class="card-header">
-                                <span class="float-start fw-bold">Generate Personal Data Sheet</span>
+                                <span class="float-start fw-bold">GENERATE PERSONAL DATA SHEET</span>
                             </div>
                             <div class="card-body">
-                                <a class="btn custom-btn text-light" href="{{ route('pdf.datasheet.generate') }}" target="_blank">Generate PDS Form</a>
+                                <div class="alert alert-info">
+                                    <strong>Note::</strong> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit temporibus ex distinctio rerum. Voluptas officia dolorem, pariatur id natus, reprehenderit veniam delectus voluptatem quaerat sit, molestias fuga accusantium voluptatibus ad?
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3 center">
+                                        <div class="border p-3">
+                                            <span class="fw-bold">PAGE 1</span>
+                                            <hr />
+                                            <a class="btn custom-btn-secondary text-light w-100 mb-2" href="{{ route('page_one_front.generate.pdf') }}" target="_blank">Front Page</a>
+                                            <a class="btn custom-btn-secondary text-light w-100" href="" target="_blank">Back Page</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 center">
+                                        <div class="border p-3">
+                                            <span class="fw-bold">PAGE 2</span>
+                                            <hr />
+                                            <a class="btn custom-btn-secondary text-light w-100 mb-2" href="" target="_blank">Front Page</a>
+                                            <a class="btn custom-btn-secondary text-light w-100" href="" target="_blank">Back Page</a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

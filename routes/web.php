@@ -122,7 +122,7 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
         Route::post('other/datasheet/update', [UserHomeController::class, 'OtherDatasheetUpdate'])->name('other.datasheet.update');
 
         // Generate PDF
-        Route::get('pdf/datasheet/generate', [GenerateSubmitPDFController::class, 'GeneratePDF'])->name('pdf.datasheet.generate');
+        Route::get('page_one_front/generate/pdf', [GenerateSubmitPDFController::class, 'PageOneFrontPDF'])->name('page_one_front.generate.pdf');
 
         // Profile Route
         Route::prefix('profile')->group(function () {
