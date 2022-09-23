@@ -9,7 +9,7 @@
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="https://i.ibb.co/F3FvV5D/PDF-file-icon-svg.png">
 
-    <title>CS Form No. 212</title>
+    <title>CS Form No. 212 (Page 1 - Front)</title>
 
     <style>
         /* GLOBAL CSS */

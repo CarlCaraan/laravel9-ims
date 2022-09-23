@@ -123,6 +123,7 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
 
         // Generate PDF
         Route::get('page_one_front/generate/pdf', [GenerateSubmitPDFController::class, 'PageOneFrontPDF'])->name('page_one_front.generate.pdf');
+        Route::get('page_one_back/generate/pdf', [GenerateSubmitPDFController::class, 'PageOneBackPDF'])->name('page_one_back.generate.pdf');
 
         // Profile Route
         Route::prefix('profile')->group(function () {

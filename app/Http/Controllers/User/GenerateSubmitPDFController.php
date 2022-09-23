@@ -29,11 +29,6 @@ class GenerateSubmitPDFController extends Controller
         $allData['family'] = FamilyInfo::where('user_id', $id)->first();
         $allData['children'] = FamilyChildrenList::where('family_id', $family_id)->get();
         $allData['educational'] = EducationalInfo::where('user_id', $id)->first();
-        $allData['civils'] = CivilServiceInfo::where('user_id', $id)->get();
-        $allData['works'] = WorkExperienceInfo::where('user_id', $id)->get();
-        $allData['voluntaries'] = VoluntaryWorkInfo::where('user_id', $id)->get();
-        $allData['learnings'] = LearningProgramInfo::where('user_id', $id)->get();
-        $allData['others'] = OtherSkillInfo::where('user_id', $id)->get();
 
         // Generate PDF
         $pdf = PDF::loadView('user.pdf.part_one_front', $allData, [], [
@@ -46,6 +41,29 @@ class GenerateSubmitPDFController extends Controller
             // 'margin_footer' => 0,
         ]);
         $pdf->SetProtection(['copy', 'print'], '', 'pass');
-        return $pdf->stream('Part1_FrontPage.pdf');
+        return $pdf->stream('Page1_FrontPage.pdf');
+    } // End Method
+
+    public function PageOneBackPDF()
+    {
+        $id = Auth::user()->id;
+        $allData['civils'] = CivilServiceInfo::where('user_id', $id)->get();
+        $allData['works'] = WorkExperienceInfo::where('user_id', $id)->get();
+        $allData['voluntaries'] = VoluntaryWorkInfo::where('user_id', $id)->get();
+        $allData['learnings'] = LearningProgramInfo::where('user_id', $id)->get();
+        $allData['others'] = OtherSkillInfo::where('user_id', $id)->get();
+
+        // Generate PDF
+        $pdf = PDF::loadView('user.pdf.part_one_back', $allData, [], [
+            'format' => 'Legal',
+            'margin_left' => 2,
+            'margin_right' => 2,
+            'margin_top' => 2,
+            'margin_bottom' => 2,
+            // 'margin_header' => 0,
+            // 'margin_footer' => 0,
+        ]);
+        $pdf->SetProtection(['copy', 'print'], '', 'pass');
+        return $pdf->stream('Page1_BackPage.pdf');
     } // End Method
 }

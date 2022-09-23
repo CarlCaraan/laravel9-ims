@@ -233,7 +233,7 @@
                                             <span class="fw-bold">PAGE 1</span>
                                             <hr />
                                             <a class="btn custom-btn-secondary text-light w-100 mb-2" href="{{ route('page_one_front.generate.pdf') }}" target="_blank">Front Page</a>
-                                            <a class="btn custom-btn-secondary text-light w-100" href="" target="_blank">Back Page</a>
+                                            <a class="btn custom-btn-secondary text-light w-100" href="{{ route('page_one_back.generate.pdf') }}" target="_blank">Back Page</a>
                                         </div>
                                     </div>
                                     <div class="col-md-3 center">
