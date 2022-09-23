@@ -93,19 +93,32 @@
     <table width="100%" border="1" cellspacing="0" cellpadding="0">
         <thead>
             <tr>
-                <th class="custom-tableheading" colspan="4">
+                <th class="custom-tableheading" colspan="6">
                     IV. CIVIL SERVICE ELIGIBILITY
                 </th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td class="label-gray" width="25%" style="border-bottom: none;">
-                    2. SURNAME
+                <td class="label-gray" rowspan="2" width="30%">
+                    27. CAREER SERVICE/ RA 1080 (BOARD/ BAR) UNDER SPECIAL LAWS/ CES/ CSEE BARANGAY ELIGIBILITY / DRIVER'S LICENSE
                 </td>
-                <td colspan="3">
-
+                <td class="label-gray" rowspan="2" width="10%">
+                    RATING
                 </td>
+                <td class="label-gray" rowspan="2" width="10%">
+                    DATE OF EXAMINATION / CONFERMENT
+                </td>
+                <td class="label-gray" rowspan="2" width="30%">
+                    PLACE OF EXAMINATION / CONFERMENT
+                </td>
+                <td class="label-gray center" colspan="2">
+                    LICENSE
+                </td>
+            </tr>
+            <tr>
+                <td class="label-gray" width="10%">NUMBER</td>
+                <td class="label-gray" width="10%">Date of Validity</td>
             </tr>
         </tbody>
     </table>
