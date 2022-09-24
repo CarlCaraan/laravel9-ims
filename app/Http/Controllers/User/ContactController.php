@@ -8,6 +8,7 @@ use App\Models\UserInquiry;
 use App\Mail\ContactReceiverMail;
 use App\Mail\ContactSenderMail;
 use Illuminate\Support\Facades\Mail;
+use Auth;
 
 class ContactController extends Controller
 {
