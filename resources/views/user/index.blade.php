@@ -241,7 +241,7 @@
                                             <span class="fw-bold">PAGE 2</span>
                                             <hr />
                                             <a class="btn custom-btn-secondary text-light w-100 mb-2" href="" target="_blank">Front Page</a>
-                                            <a class="btn custom-btn-secondary text-light w-100" href="" target="_blank">Back Page</a>
+                                            <a class="btn custom-btn-secondary text-light w-100" href="{{ asset('pdf/c4.pdf') }}" target="_blank" download>Back Page</a>
                                         </div>
                                     </div>
                                 </div>
