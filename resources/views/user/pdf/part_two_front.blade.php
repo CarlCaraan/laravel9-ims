@@ -9,7 +9,7 @@
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="https://i.ibb.co/F3FvV5D/PDF-file-icon-svg.png">
 
-    <title>CS Form No. 212 (Page 1 - Back)</title>
+    <title>CS Form No. 212 (Page 2 - Front)</title>
 
     <style>
         /* GLOBAL CSS */
@@ -89,138 +89,129 @@
 </head>
 
 <body>
-    <!-- ========= Start Civil Eligibility ========= -->
+    <!-- ========= Start Voluntary Work ========= -->
     <table width="100%" border="1" cellspacing="0" cellpadding="0">
         <thead>
             <tr>
-                <th class="custom-tableheading" colspan="6">
-                    IV. CIVIL SERVICE ELIGIBILITY
+                <th class="custom-tableheading" colspan="5">
+                    VI. VOLUNTARY WORK OR INVOLVEMENT IN CIVIC / NON-GOVERNMENT / PEOPLE / VOLUNTARY ORGANIZATION/S
                 </th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td class="label-gray" rowspan="2" width="30%">
-                    27. CAREER SERVICE/ RA 1080 (BOARD/ BAR) UNDER SPECIAL LAWS/ CES/ CSEE BARANGAY ELIGIBILITY / DRIVER'S LICENSE
+                <td class="label-gray" rowspan="2" width="35%">
+                    29. NAME & ADDRESS OF ORGANIZATION
                 </td>
-                <td class="label-gray" rowspan="2" width="10%">
-                    RATING
-                </td>
-                <td class="label-gray" rowspan="2" width="10%">
-                    DATE OF EXAMINATION / CONFERMENT
-                </td>
-                <td class="label-gray" rowspan="2" width="30%">
-                    PLACE OF EXAMINATION / CONFERMENT
-                </td>
-                <td class="label-gray center" colspan="2">
-                    LICENSE
-                </td>
-            </tr>
-            <tr>
-                <td class="label-gray" width="10%">NUMBER</td>
-                <td class="label-gray" width="10%">Date of Validity</td>
-            </tr>
-
-            <!-- Start Civil Dynamic Row -->
-            {{ $countDynamicRow = 0; }}
-            @foreach ($civils as $civil)
-            @if($civil->cse_type == "")
-            {{ $i = 0 }}
-            @while ($i < 23) <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                </tr>
-                {{ $i++ }}
-                @endwhile
-                @else
-                <tr>
-                    <td>
-                        {{ $civil->cse_type }}
-                    </td>
-                    <td>
-                        {{ $civil->cse_rating }}
-                    </td>
-                    <td>
-                        {{ $civil->cse_date }}
-                    </td>
-                    <td>
-                        {{ $civil->cse_place }}
-                    </td>
-                    <td>
-                        {{ $civil->cse_license_number }}
-                    </td>
-                    <td>
-                        {{ $civil->cse_license_date }}
-                    </td>
-                </tr>
-                {{ $countDynamicRow++; }}
-                @endif
-                @endforeach
-                @for ($x = $countDynamicRow; $x < 23; $x++) <tr>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    </tr>
-                    @endfor
-                    <!-- End Civil Dynamic Row -->
-
-        </tbody>
-    </table>
-    <!-- ========= End Civil Eligibility ========= -->
-
-    <!-- ========= Start Work Experience ========= -->
-    <table width="100%" border="1" cellspacing="0" cellpadding="0">
-        <thead>
-            <tr>
-                <th class="custom-tableheading" colspan="8">
-                    V. WORK EXPERIENCE
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
                 <td class="label-gray" colspan="2">
-                    28. INCLUSIVE DATES (mm/dd/yyyy)
+                    INCLUSIVE DATES (mm/dd/yyyy)
                 </td>
-                <td class="label-gray" rowspan="2" width="28%">
-                    POSITION TITLE
+                <td class="label-gray" rowspan="2" width="15%">
+                    NUMBER OF HOURS
                 </td>
-                <td class="label-gray" rowspan="2" width="29%">
-                    DEPARTMENT / AGENCY / OFFICE / COMPANY
-                </td>
-                <td class="label-gray" rowspan="2" width="8%">
-                    MONTHLY SALARY
-                </td>
-                <td class="label-gray center" rowspan="2" width="10%">
-                    SALARY/ JOB/ PAY GRADE
-                </td>
-                <td class="label-gray center" rowspan="2" width="10%">
-                    STATUS OF APPOINTMENT
-                </td>
-                <td class="label-gray center" rowspan="2" width="7%">
-                    GOV'T SERVICE (Y/ N)
+                <td class="label-gray" rowspan="2" width="30%">
+                    POSITION / NATURE OF WORK
                 </td>
             </tr>
             <tr>
-                <td class="label-gray" width="8%">From</td>
-                <td class="label-gray" width="8%">To</td>
+                <td class="label-gray" width="10%">From</td>
+                <td class="label-gray" width="10%">To</td>
             </tr>
 
-            <!-- Start Work Dynamic Row -->
+            <!-- Start Voluntary Dynamic Row -->
             {{ $countDynamicRow = 0; }}
-            @foreach ($works as $work)
-            @if($work->work_date_from == "")
+            @foreach ($voluntaries as $voluntary)
+            @if($voluntary->organization_name_address == "")
             {{ $i = 0 }}
-            @while ($i < 23) <tr>
+            @while ($i < 14) <tr>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                </tr>
+                {{ $i++ }}
+                @endwhile
+                @else
+                <tr>
+                    <td>
+                        {{ $voluntary->organization_name_address }}
+                    </td>
+                    <td>
+                        {{ $voluntary->voluntary_date_from }}
+                    </td>
+                    <td>
+                        {{ $voluntary->voluntary_date_to }}
+                    </td>
+                    <td>
+                        {{ $voluntary->voluntary_hours }}
+                    </td>
+                    <td>
+                        {{ $voluntary->voluntary_jobtitle }}
+                    </td>
+                </tr>
+                {{ $countDynamicRow++; }}
+                @endif
+                @endforeach
+                @for ($x = $countDynamicRow; $x < 14; $x++) <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+                    @endfor
+                    <!-- End Voluntary Dynamic Row -->
+
+        </tbody>
+    </table>
+    <!-- ========= End Voluntary Work ========= -->
+
+    <!-- ========= Start Learning Program ========= -->
+    <table width="100%" border="1" cellspacing="0" cellpadding="0">
+        <thead>
+            <tr>
+                <th class="custom-tableheading" colspan="6" style="border-bottom: none;">
+                    VII. LEARNING AND DEVELOPMENT (L&D) INTERVENTIONS/TRAINING PROGRAMS ATTENDED
+                </th>
+            </tr>
+            <tr>
+                <th class="custom-tableheading" colspan="6" style="border-top: none;">
+                    <small style="font-size: 9px;">
+                        (Start from the most recent L&D/training program and include only the relevant L&D/training taken for the last five (5) years for Division Chief/Executive/Managerial positions)
+                    </small>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="label-gray" rowspan="2" width="35%">
+                    30. TITLE OF LEARNING AND DEVELOPMENT INTERVENTIONS/TRAINING PROGRAMS
+                </td>
+                <td class="label-gray" colspan="2">
+                    INCLUSIVE DATES OF ATTENDANCE (mm/dd/yyyy)
+                </td>
+                <td class="label-gray" rowspan="2" width="15%">
+                    NUMBER OF HOURS
+                </td>
+                <td class="label-gray" rowspan="2" width="10%">
+                    Type of LD ( Managerial/ Supervisory/ Technical/etc)
+                </td>
+                <td class="label-gray" rowspan="2" width="27%">
+                    CONDUCTED/ SPONSORED BY
+                </td>
+            </tr>
+            <tr>
+                <td class="label-gray" width="9%">From</td>
+                <td class="label-gray" width="9%">To</td>
+            </tr>
+
+            <!-- Start Learning Dynamic Row -->
+            {{ $countDynamicRow = 0; }}
+            @foreach ($learnings as $learning)
+            @if($learning->learning_title == "")
+            {{ $i = 0 }}
+            @while ($i < 14) <tr>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
@@ -233,36 +224,28 @@
                 @else
                 <tr>
                     <td>
-                        {{ $work->work_date_from }}
+                        {{ $learning->learning_title }}
                     </td>
                     <td>
-                        {{ $work->work_date_to }}
+                        {{ $learning->learning_date_from }}
                     </td>
                     <td>
-                        {{ $work->job_title }}
+                        {{ $learning->learning_date_to }}
                     </td>
                     <td>
-                        {{ $work->job_type }}
+                        {{ $learning->learning_hours }}
                     </td>
                     <td>
-                        {{ $work->monthly_salary }}
+                        {{ $learning->ld_type }}
                     </td>
                     <td>
-                        {{ $work->salary_grade }}
-                    </td>
-                    <td>
-                        {{ $work->status_of_appointment }}
-                    </td>
-                    <td>
-                        {{ $work->gov_service }}
+                        {{ $learning->conducted_by }}
                     </td>
                 </tr>
                 {{ $countDynamicRow++; }}
                 @endif
                 @endforeach
-                @for ($x = $countDynamicRow; $x < 23; $x++) <tr>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
+                @for ($x = $countDynamicRow; $x < 14; $x++) <tr>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
@@ -271,11 +254,72 @@
                     <td>&nbsp;</td>
                     </tr>
                     @endfor
-                    <!-- End Work Dynamic Row -->
+                    <!-- End Learning Dynamic Row -->
 
         </tbody>
     </table>
-    <!-- ========= End Work Experience ========= -->
+    <!-- ========= End Learning Program ========= -->
+
+    <!-- ========= Start Other Information ========= -->
+    <table width="100%" border="1" cellspacing="0" cellpadding="0">
+        <thead>
+            <tr>
+                <th class="custom-tableheading" colspan="3">
+                    VIII. OTHER INFORMATION
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="label-gray" width="30%">
+                    31. SPECIAL SKILLS and HOBBIES
+                </td>
+                <td class="label-gray" width="40%">
+                    32. NON-ACADEMIC DISTINCTIONS / RECOGNITION
+                </td>
+                <td class="label-gray" width="30%">
+                    33. MEMBERSHIP IN ASSOCIATION/ORGANIZATION
+                </td>
+            </tr>
+
+            <!-- Start Other Information Dynamic Row -->
+            {{ $countDynamicRow = 0; }}
+            @foreach ($others as $other)
+            @if($other->special_skill == "")
+            {{ $i = 0 }}
+            @while ($i < 13) <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                </tr>
+                {{ $i++ }}
+                @endwhile
+                @else
+                <tr>
+                    <td>
+                        {{ $other->special_skill }}
+                    </td>
+                    <td>
+                        {{ $other->recognition }}
+                    </td>
+                    <td>
+                        {{ $other->organization }}
+                    </td>
+                </tr>
+                {{ $countDynamicRow++; }}
+                @endif
+                @endforeach
+                @for ($x = $countDynamicRow; $x < 13; $x++) <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    </tr>
+                    @endfor
+                    <!-- End Other Information Dynamic Row -->
+
+        </tbody>
+    </table>
+    <!-- ========= End Other Information Program ========= -->
 
     <!-- ========= Start Signature ========= -->
     <table width="100%" border="1" cellspacing="0" cellpadding="0">
@@ -305,7 +349,7 @@
     <htmlpagefooter name="page-footer">
         <div style="width:100%; text-align:right;">
             <span class="footer-pagetext">
-                CS FORM 212 (Revised 2017), Page 2 of 4
+                CS FORM 212 (Revised 2017), Page 3 of 4
             </span>
         </div>
     </htmlpagefooter>

@@ -1,14 +1,3 @@
-<div>
-    Hi, <br>
-    You have Pending Inquiry - DEPED - SDO. <br>
-    <small>Please wait to 3-4 business days.</small> <br>
-    <strong>Details:</strong> <br>
-    <strong>Name:</strong>{{ $data['name'] }} <br>
-    <strong>Email:</strong>{{ $data['email'] }} <br>
-    <strong>Your Message:</strong>{{ $data['message'] }} <br><br>
-
-</div>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,17 +44,18 @@
 
         <!-- Start Card -->
         <div class="card">
-            Hi, <br />
+            Hi, <strong>{{ $data['name'] }}</strong> <br />
             <p>
-                You have Pending Inquiry - DEPED - SDO.
+                You have successfully sent your pending inquiry - DEPED - SDO.
             </p>
             <p>
                 <small>Please wait to 3-4 business days.</small>
             </p>
-            <strong>User Details:</strong> <br>
-            <strong>Name: {{ $data['name'] }} </strong> <br>
-            <strong>Email: {{ $data['email'] }}</strong> <br>
-            <strong>Your Message: {{ $data['message'] }}</strong> <br>
+            <strong>Concern Details:</strong> <br>
+            <strong>Email: {{ $data['email'] }}</strong>
+            <br><br>
+            <strong>Your Message:</strong> {{ $data['message'] }}
+            <br><br><br>
             <small> ============================================ </small><br />
             <small> *** This is an automated message please do not reply. *** </small><br />
             <small> ============================================ </small>

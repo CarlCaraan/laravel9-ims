@@ -765,7 +765,7 @@
     </table>
     <!-- ========= End Educational Background ========= -->
 
-    <!-- Start Signature -->
+    <!-- ========= Start Signature ========= -->
     <table width="100%" border="1" cellspacing="0" cellpadding="0">
         <tbody>
             <tr>
@@ -787,7 +787,7 @@
             </tr>
         </tbody>
     </table>
-    <!-- End Signature -->
+    <!-- ========= End Signature ========= -->
 
     <!-- Start Footer Page -->
     <htmlpagefooter name="page-footer">
