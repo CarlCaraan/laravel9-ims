@@ -119,14 +119,13 @@ class GenerateSubmitPDFController extends Controller
         $pdf->pds_title = "CS Form No. 212 Revised 2017";
         $pdf->pds_status = "For Verification";
         $pdf->pds_date_uploaded = date('m/d/Y - h:ia', strtotime(now()));
-        $pdf->pds_filename = "";
         $pdf->pds_archived = "No";
         $pdf->pds_message = "";
 
         // Working with PDF
         if ($request->file('pdf')) {
             $file = $request->file('pdf');
-            @unlink(public_path('upload/pdf_uploads/' . $pdf->pdf));
+            @unlink(public_path('upload/pdf_uploads/' . $pdf->pds_filename));
             $filename = date('YmdHi') . $file->getClientOriginalName();
             $file->move(public_path('upload/pdf_uploads'), $filename);
             $pdf['pds_filename'] = $filename;
@@ -143,8 +142,9 @@ class GenerateSubmitPDFController extends Controller
 
     public function DeleteSubmitPDF()
     {
-        $pdf = PdsFormList::where('user_id', Auth::user()->id)->delete();
-        @unlink(public_path('upload/pdf_uploads/' . $pdf->pdf));
+        $pdf = PdsFormList::where('user_id', Auth::user()->id)->first();
+        @unlink(public_path('upload/pdf_uploads/' . $pdf->pds_filename));
+        $pdf->delete();
 
         $notification = array(
             'message' => 'File has been removed',
