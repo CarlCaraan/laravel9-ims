@@ -126,6 +126,10 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
         Route::get('page_one_back/generate/pdf', [GenerateSubmitPDFController::class, 'PageOneBackPDF'])->name('page_one_back.generate.pdf');
         Route::get('page_two_back/generate/pdf', [GenerateSubmitPDFController::class, 'PageTwoFrontPDF'])->name('page_two_front.generate.pdf');
 
+        // Submit PDF
+        Route::get('submit/pdf', [GenerateSubmitPDFController::class, 'SubmitPDF'])->name('submit.pdf');
+        Route::post('update/submit/pdf', [GenerateSubmitPDFController::class, 'UpdateSubmitPDF'])->name('update.submit.pdf');
+
         // Profile Route
         Route::prefix('profile')->group(function () {
             Route::get('user/view', [UserProfileController::class, 'ProfileView'])->name('user.profile.view');

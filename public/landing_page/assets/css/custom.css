@@ -21,6 +21,11 @@ body {
     justify-content: center;
     display: flex;
 }
+
+.color-secondary {
+    color: var(--secondary-app-color);
+}
+
 /* Primary Button */
 .custom-btn,
 .custom-btn:focus {

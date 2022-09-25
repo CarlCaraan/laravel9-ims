@@ -37,6 +37,9 @@
 
     <!-- Toastr CSS CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" />
+
+    <!-- Filepond CSS CDN -->
+    <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -122,7 +125,7 @@
     </script>
 
     <!-- FontAwesome CDN -->
-    <script src="https://kit.fontawesome.com/fbaf02a1c1.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 </body>
 
 </html>

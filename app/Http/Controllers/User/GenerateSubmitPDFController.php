@@ -84,4 +84,20 @@ class GenerateSubmitPDFController extends Controller
         $pdf->SetProtection(['copy', 'print'], '', 'pass');
         return $pdf->stream('Page2_FrontPage.pdf');
     } // End Method
+
+    public function SubmitPDF()
+    {
+        return view('user.submit');
+    } // End Method
+
+    public function UpdateSubmitPDF(Request $request)
+    {
+
+
+        $notification = array(
+            'message' => 'Personal Data Sheet Submitted Successfully',
+            'alert-type' => 'success',
+        );
+        return redirect()->route('submit.pdf')->with($notification);
+    } // End Method
 }
