@@ -24,6 +24,14 @@
                 of administrative/criminal case/s against the person concerned.
             </div>
 
+            <!-- Start Error Message -->
+            @error('pdf')
+            <ul class="mb-4">
+                <li class="text-danger">{{ $message }}</li>
+            </ul>
+            @enderror
+            <!-- End Error Message -->
+
             <!-- Start Table -->
             <div class="card mb-3 border-0 shadow-sm">
                 <div class="card-header bg-white">
@@ -52,9 +60,17 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($pdflists as $pdflist)
+                                @if ($pdflist->pds_title == "")
+                                <tr>
+                                    <td class="text-center" colspan="5">
+                                        Please upload your pds form below.
+                                    </td>
+                                </tr>
+                                @else
                                 <tr>
                                     <td>
-                                        Requirement
+                                        {{ $pdflist->pds_title }}
                                     </td>
                                     <td>
                                         <span class="badge bg-warning text-dark"><i class="fa-regular fa-clock"></i> For Verification</span>
@@ -62,15 +78,17 @@
                                         <span class="badge bg-danger"><i class="fa-solid fa-circle-info"></i> Invalid</span>
                                     </td>
                                     <td>
-                                        <span class="btn custom-btn-secondary btn-sm">View Attachment</span>
+                                        <a href="{{ url('upload/pdf_uploads/'.$pdflist->pds_filename) }}" class="btn custom-btn-secondary btn-sm" target="_blank">View Attachment</a>
                                     </td>
                                     <td>
-                                        09/25/22
+                                        {{ $pdflist->pds_date_uploaded }}
                                     </td>
                                     <td>
-                                        <a class="text-secondary" href=""><i class="fa-solid fa-xmark"></i></a>
+                                        <a id="delete" class="text-secondary" href="{{ route('delete.submit.pdf') }}"><i class="fa-solid fa-xmark"></i></a>
                                     </td>
                                 </tr>
+                                @endif
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -93,7 +111,7 @@
             </h5>
             <form action="{{ route('update.submit.pdf') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <input type="file" name="pdf" />
+                <input type="file" name="pdf" required />
                 <button type="submit" class="btn custom-btn-secondary">Upload</button>
             </form>
             <!-- End Form -->

@@ -129,6 +129,7 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
         // Submit PDF
         Route::get('submit/pdf', [GenerateSubmitPDFController::class, 'SubmitPDF'])->name('submit.pdf');
         Route::post('update/submit/pdf', [GenerateSubmitPDFController::class, 'UpdateSubmitPDF'])->name('update.submit.pdf');
+        Route::get('delete/submit/pdf', [GenerateSubmitPDFController::class, 'DeleteSubmitPDF'])->name('delete.submit.pdf');
 
         // Profile Route
         Route::prefix('profile')->group(function () {

@@ -14,6 +14,7 @@ use App\Models\WorkExperienceInfo;
 use App\Models\VoluntaryWorkInfo;
 use App\Models\LearningProgramInfo;
 use App\Models\OtherSkillInfo;
+use App\Models\PdsFormList;
 use PDF;
 use Auth;
 
@@ -87,15 +88,66 @@ class GenerateSubmitPDFController extends Controller
 
     public function SubmitPDF()
     {
-        return view('user.submit');
+        $id = Auth::user()->id;
+
+        // Automatic Create PDF List for the First Time
+        $pdf_exists_count = PdsFormList::where('user_id', $id)->count();
+        if ($pdf_exists_count == 0) {
+            $data = new PdsFormList();
+            $data->user_id = $id;
+            $data->save();
+        }
+
+        $allData['pdflists'] = PdsFormList::where('user_id', $id)->get();
+
+        return view('user.submit', $allData);
     } // End Method
 
     public function UpdateSubmitPDF(Request $request)
     {
+        $validatedData = $request->validate(
+            [
+                'pdf' => 'required|mimes:pdf|max:10000',
+            ],
+            // ~Custom Error messages
+            [
+                'pdf.required' => 'File must be PDF Format',
+            ]
+        );
 
+        $pdf = PdsFormList::where('user_id', Auth::user()->id)->first();
+        $pdf->pds_title = "CS Form No. 212 Revised 2017";
+        $pdf->pds_status = "For Verification";
+        $pdf->pds_date_uploaded = date('m/d/Y - h:ia', strtotime(now()));
+        $pdf->pds_filename = "";
+        $pdf->pds_archived = "No";
+        $pdf->pds_message = "";
+
+        // Working with PDF
+        if ($request->file('pdf')) {
+            $file = $request->file('pdf');
+            @unlink(public_path('upload/pdf_uploads/' . $pdf->pdf));
+            $filename = date('YmdHi') . $file->getClientOriginalName();
+            $file->move(public_path('upload/pdf_uploads'), $filename);
+            $pdf['pds_filename'] = $filename;
+        }
+
+        $pdf->save();
 
         $notification = array(
-            'message' => 'Personal Data Sheet Submitted Successfully',
+            'message' => 'File uploaded successfully',
+            'alert-type' => 'success',
+        );
+        return redirect()->route('submit.pdf')->with($notification);
+    } // End Method
+
+    public function DeleteSubmitPDF()
+    {
+        $pdf = PdsFormList::where('user_id', Auth::user()->id)->delete();
+        @unlink(public_path('upload/pdf_uploads/' . $pdf->pdf));
+
+        $notification = array(
+            'message' => 'File has been removed',
             'alert-type' => 'success',
         );
         return redirect()->route('submit.pdf')->with($notification);

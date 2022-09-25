@@ -38,7 +38,7 @@ class UserProfileController extends Controller
             ],
             // ~Custom Error messages
             [
-                'image' => 'File format must be JPG, PNG nad JPEG!',
+                'image' => 'File format must be JPG, PNG and JPEG!',
             ]
         );
 
