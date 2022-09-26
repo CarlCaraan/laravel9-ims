@@ -154,3 +154,31 @@ a:focus {
 .swiper-pagination .swiper-pagination-bullet-active {
     background-color: var(--primary-app-color) !important;
 }
+
+/* ========= SUBMIT PAGE ========= */
+
+#btn-invalid {
+    cursor: pointer;
+}
+#message-close-btn {
+    font-size: 10px;
+    font-weight: 700;
+    cursor: pointer;
+}
+.message-invalid {
+    border: none;
+}
+
+/* Filepond */
+.filepond--root {
+    height: 12rem;
+}
+.filepond--drop-label {
+    color: #acacac !important;
+}
+.custom-pdf-icon {
+    margin-top: 7rem;
+    margin-bottom: 0.5rem;
+    font-size: 6em !important;
+    color: #acacac;
+}

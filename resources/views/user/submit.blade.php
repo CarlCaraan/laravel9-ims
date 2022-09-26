@@ -42,10 +42,13 @@
                         <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th>
+                                    <th width="25%">
                                         Requirement
                                     </th>
-                                    <th>
+                                    <th width="25%">
+
+                                    </th>
+                                    <th width="">
                                         Status
                                     </th>
                                     <th>
@@ -63,22 +66,33 @@
                                 @foreach ($pdflists as $pdflist)
                                 @if ($pdflist->pds_title == "")
                                 <tr>
-                                    <td class="text-center" colspan="5">
+                                    <td class="text-center" colspan="6">
                                         Please upload your pds form below.
                                     </td>
                                 </tr>
                                 @else
                                 <tr>
                                     <td>
-                                        {{ $pdflist->pds_title }}
+                                        {{ $pdflist->pds_title }} <i class="fa-solid fa-file-pdf text-danger"></i>
                                     </td>
                                     <td>
+                                        <div class="alert alert-warning shadow-sm text-dark" style="display:none;" id="message-invalid" role="alert">
+                                            <small>{{ $pdflist->pds_message }}
+                                                <span id="message-close-btn">[hide.]</span>
+                                            </small>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        @if ($pdflist->pds_status == "For Verification")
                                         <span class="badge bg-warning text-dark"><i class="fa-regular fa-clock"></i> For Verification</span>
+                                        @elseif ($pdflist->pds_status == "Verified")
                                         <span class="badge bg-success"><i class="fa-regular fa-circle-check"></i> Verified</span>
-                                        <span class="badge bg-danger"><i class="fa-solid fa-circle-info"></i> Invalid</span>
+                                        @else
+                                        <span class="badge bg-danger" id="btn-invalid"><i class="fa-solid fa-circle-info"></i> Invalid</span>
+                                        @endif
                                     </td>
                                     <td>
-                                        <a href="{{ url('upload/pdf_uploads/'.$pdflist->pds_filename) }}" class="btn custom-btn-secondary btn-sm" target="_blank">View Attachment</a>
+                                        <a href="{{ url('upload/pdf_uploads/'.$pdflist->pds_filename) }}" class="btn custom-btn-secondary btn-sm" target="_blank"><i class="fa-solid fa-up-right-from-square"></i> View Attachment</a>
                                     </td>
                                     <td>
                                         {{ $pdflist->pds_date_uploaded }}
@@ -111,8 +125,8 @@
             </h5>
             <form action="{{ route('update.submit.pdf') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <input type="file" name="pdf" required />
-                <button type="submit" class="btn custom-btn-secondary">Upload</button>
+                <input type="file" name="pdf" accept="application/pdf" required />
+                <button type="submit" class="btn custom-btn-secondary"><i class="fa-solid fa-paperclip"></i> Upload</button>
             </form>
             <!-- End Form -->
 
@@ -138,7 +152,25 @@
     const pond = FilePond.create(inputElement, {
         storeAsFile: true,
         acceptedFileTypes: ['application/pdf'],
+        labelIdle: `
+                    <i class="fa-solid fa-file-pdf custom-pdf-icon"></i>
+                    <br/>
+                    Drag & Drop your PDF file or <span class="filepond--label-action">Browse</span>
+                `,
+        credits: ['#', 'Powered By DEPED SDO']
     });
 </script>
 <!-- End Filepond Script -->
+
+<!-- Invalid Button -->
+<script>
+    $(document).ready(function() {
+        $("#btn-invalid").click(function() {
+            $("#message-invalid").show();
+        });
+        $("#message-close-btn").click(function() {
+            $("#message-invalid").hide();
+        });
+    });
+</script>
 @endsection
