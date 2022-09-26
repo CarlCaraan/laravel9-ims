@@ -125,7 +125,7 @@
             </h5>
             <form action="{{ route('update.submit.pdf') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <input type="file" name="pdf" accept="application/pdf" required />
+                <input type="file" name="pdf" accept="application/pdf" />
                 <button type="submit" class="btn custom-btn-secondary"><i class="fa-solid fa-paperclip"></i> Upload</button>
             </form>
             <!-- End Form -->
@@ -157,7 +157,8 @@
                     <br/>
                     Drag & Drop your PDF file or <span class="filepond--label-action">Browse</span>
                 `,
-        credits: ['#', 'Powered By DEPED SDO']
+        credits: ['#', 'Powered By DEPED SDO'],
+        required: true,
     });
 </script>
 <!-- End Filepond Script -->
