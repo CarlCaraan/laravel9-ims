@@ -19,118 +19,119 @@
     <div class="container">
         <div class="section-header">
             <h2>Submit Personal Data Sheet</h2>
-            <div class="alert alert-warning" role="alert">
-                <strong>WARNING:</strong> Any misrepresentation made in the Personal Data Sheet and the Work Experience Sheet shall cause the filing
-                of administrative/criminal case/s against the person concerned.
-            </div>
-
-            <!-- Start Error Message -->
-            @error('pdf')
-            <ul class="mb-4">
-                <li class="text-danger">{{ $message }}</li>
-            </ul>
-            @enderror
-            <!-- End Error Message -->
-
-            <!-- Start Table -->
-            <div class="card mb-3 border-0 shadow-sm">
-                <div class="card-header">
-                    <strong class="color-secondary">Uploading of Requirements</strong>
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th width="25%">
-                                        Requirement
-                                    </th>
-                                    <th width="25%">
-
-                                    </th>
-                                    <th width="">
-                                        Status
-                                    </th>
-                                    <th>
-                                        Attachment
-                                    </th>
-                                    <th>
-                                        Date Uploaded
-                                    </th>
-                                    <th>
-
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($pdflists as $pdflist)
-                                @if ($pdflist->pds_title == "")
-                                <tr>
-                                    <td class="text-center" colspan="6">
-                                        Please upload your pds form below.
-                                    </td>
-                                </tr>
-                                @else
-                                <tr>
-                                    <td>
-                                        {{ $pdflist->pds_title }} <i class="fa-solid fa-file-pdf text-danger"></i>
-                                    </td>
-                                    <td>
-                                        <div class="alert alert-warning shadow-sm text-dark" style="display:none;" id="message-invalid" role="alert">
-                                            <small>{{ $pdflist->pds_message }}
-                                                <span id="message-close-btn">[hide.]</span>
-                                            </small>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        @if ($pdflist->pds_status == "For Verification")
-                                        <span class="badge bg-warning text-dark"><i class="fa-regular fa-clock"></i> For Verification</span>
-                                        @elseif ($pdflist->pds_status == "Verified")
-                                        <span class="badge bg-success"><i class="fa-regular fa-circle-check"></i> Verified</span>
-                                        @else
-                                        <span class="badge bg-danger" id="btn-invalid"><i class="fa-solid fa-circle-info"></i> Invalid</span>
-                                        @endif
-                                    </td>
-                                    <td>
-                                        <a href="{{ url('upload/pdf_uploads/'.$pdflist->pds_filename) }}" class="btn custom-btn-secondary btn-sm" target="_blank"><i class="fa-solid fa-up-right-from-square"></i> View Attachment</a>
-                                    </td>
-                                    <td>
-                                        {{ $pdflist->pds_date_uploaded }}
-                                    </td>
-                                    <td>
-                                        <a id="delete" class="text-secondary" href="{{ route('delete.submit.pdf') }}"><i class="fa-solid fa-xmark"></i></a>
-                                    </td>
-                                </tr>
-                                @endif
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <small>
-                        <i>
-                            Note: If the requirement is marked as invalid, click on the `Invalid` mark to check the remarks.
-                        </i>
-                    </small>
-                </div>
-            </div>
-            <!-- End Table -->
-
-            <br>
-
-            <!-- Start Form -->
-            <h5 class="color-secondary fw-bold">
-                Scanned Copy of Accomplished Personal Datasheet Form
-            </h5>
-            <form action="{{ route('update.submit.pdf') }}" method="POST" enctype="multipart/form-data">
-                @csrf
-                <input type="file" name="pdf" accept="application/pdf" />
-                <button type="submit" class="btn custom-btn-secondary"><i class="fa-solid fa-paperclip"></i> Upload</button>
-            </form>
-            <!-- End Form -->
-
         </div>
+
+        <div class="alert alert-warning" role="alert">
+            <strong>WARNING:</strong> Any misrepresentation made in the Personal Data Sheet and the Work Experience Sheet shall cause the filing
+            of administrative/criminal case/s against the person concerned.
+        </div>
+
+        <!-- Start Error Message -->
+        @error('pdf')
+        <ul class="mb-3">
+            <li class="text-danger fw-bold">{{ $message }}</li>
+        </ul>
+        @enderror
+        <!-- End Error Message -->
+
+        <!-- Start Table -->
+        <div class="card mb-4 border-0 shadow-sm">
+            <div class="card-header">
+                <strong class="color-secondary">Uploading of Requirements</strong>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th width="25%">
+                                    Requirement
+                                </th>
+                                <th width="25%">
+
+                                </th>
+                                <th>
+                                    Status
+                                </th>
+                                <th>
+                                    Attachment
+                                </th>
+                                <th>
+                                    Date Uploaded
+                                </th>
+                                <th>
+
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($pdflists as $pdflist)
+                            @if ($pdflist->pds_title == "")
+                            <tr>
+                                <td class="text-center" colspan="6">
+                                    Please upload your pds form below.
+                                </td>
+                            </tr>
+                            @else
+                            <tr>
+                                <td>
+                                    {{ $pdflist->pds_title }} <i class="fa-solid fa-file-pdf text-danger"></i>
+                                </td>
+                                <td>
+                                    <div class="alert alert-warning shadow-sm text-dark" style="display:none;" id="message-invalid" role="alert">
+                                        <small>{{ $pdflist->pds_message }}
+                                            <span id="message-close-btn">[hide.]</span>
+                                        </small>
+                                    </div>
+                                </td>
+                                <td>
+                                    @if ($pdflist->pds_status == "For Verification")
+                                    <span class="badge bg-warning text-dark"><i class="fa-regular fa-clock"></i> For Verification</span>
+                                    @elseif ($pdflist->pds_status == "Verified")
+                                    <span class="badge bg-success"><i class="fa-regular fa-circle-check"></i> Verified</span>
+                                    @else
+                                    <span class="badge bg-danger" id="btn-invalid"><i class="fa-solid fa-circle-info"></i> Invalid</span>
+                                    @endif
+                                </td>
+                                <td>
+                                    <a href="{{ url('upload/pdf_uploads/'.$pdflist->pds_filename) }}" class="btn custom-btn-secondary btn-sm" target="_blank"><i class="fa-solid fa-up-right-from-square"></i> View Attachment</a>
+                                </td>
+                                <td>
+                                    {{ $pdflist->pds_date_uploaded }}
+                                </td>
+                                <td>
+                                    <a id="delete" class="text-secondary" href="{{ route('delete.submit.pdf') }}"><i class="fa-solid fa-xmark"></i></a>
+                                </td>
+                            </tr>
+                            @endif
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card-footer">
+                <small>
+                    <i>
+                        Note: If the requirement is marked as invalid, click on the `Invalid` mark to check the remarks.
+                    </i>
+                </small>
+            </div>
+        </div>
+        <!-- End Table -->
+
+        <br>
+
+        <!-- Start Form -->
+        <h5 class="color-secondary fw-bold">
+            Scanned Copy of Accomplished Personal Datasheet Form
+        </h5>
+        <form action="{{ route('update.submit.pdf') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <input type="file" name="pdf" accept="application/pdf" />
+            <button type="submit" class="btn custom-btn-secondary"><i class="fa-solid fa-paperclip"></i> Upload</button>
+        </form>
+        <!-- End Form -->
+
 </section>
 <!-- End Content -->
 
@@ -158,7 +159,7 @@
                     Drag & Drop your PDF file or <span class="filepond--label-action">Browse</span>
                 `,
         credits: ['#', 'Powered By DEPED SDO'],
-        required: true,
+        // required: true,
     });
 </script>
 <!-- End Filepond Script -->

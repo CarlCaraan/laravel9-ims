@@ -28,7 +28,11 @@
         <div class="card border-0 shadow-sm">
             <div class="card-body">
                 <div class="card-content">
-                    <p class="">
+                    <p class="custom-mission-paragraph">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. A quisquam fuga dicta! Autem sint nemo, tempore pariatur aliquid iste, quos similique illo delectus vel velit eos magni atque, modi expedita.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. A quisquam fuga dicta! Autem sint nemo, tempore pariatur aliquid iste, quos similique illo delectus vel velit eos magni atque, modi expedita.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. A quisquam fuga dicta! Autem sint nemo, tempore pariatur aliquid iste, quos similique illo delectus vel velit eos magni atque, modi expedita.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. A quisquam fuga dicta! Autem sint nemo, tempore pariatur aliquid iste, quos similique illo delectus vel velit eos magni atque, modi expedita.
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. A quisquam fuga dicta! Autem sint nemo, tempore pariatur aliquid iste, quos similique illo delectus vel velit eos magni atque, modi expedita.
                     </p>
                 </div>
@@ -36,12 +40,14 @@
         </div>
         <br>
         <div class="section-header">
-            <h2>Vission</h2>
+            <h2>Vision</h2>
         </div>
         <div class="card border-0 shadow-sm">
             <div class="card-body">
                 <div class="card-content">
-                    <p class="">
+                    <p class="custom-mission-paragraph">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. A quisquam fuga dicta! Autem sint nemo, tempore pariatur aliquid iste, quos similique illo delectus vel velit eos magni atque, modi expedita.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. A quisquam fuga dicta! Autem sint nemo, tempore pariatur aliquid iste, quos similique illo delectus vel velit eos magni atque, modi expedita.
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. A quisquam fuga dicta! Autem sint nemo, tempore pariatur aliquid iste, quos similique illo delectus vel velit eos magni atque, modi expedita.
                     </p>
                 </div>

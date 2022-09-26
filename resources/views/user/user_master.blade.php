@@ -47,18 +47,19 @@
     $userSiteInfos = DB::table('user_site_infos')->first();
     @endphp
 
-    <!-- ======= Header ======= -->
+    <!-- ========= Header ========= -->
     @include('user.body.header')
-    <!-- End Header -->
+    <!-- ========= End Header ========= -->
 
     <!-- ========= Start Main ========= -->
     <main id="main">
         @yield('content')
-    </main><!-- End #main -->
+    </main>
+    <!-- ========= End Main ========= -->
 
-    <!-- ======= Footer ======= -->
-    @include('user.body.footer')
-    <!-- End Footer -->
+    <!-- ========= Start Footer ========= -->
+    @include('landing_page.body.footer')
+    <!-- ========= End Footer ========= -->
 
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 

@@ -29,7 +29,7 @@
 
             <!-- ========= Start Error Message Validation ========= -->
             @if ($errors->any())
-            <div class="text-danger mt-2">
+            <div class="text-danger mt-2 fw-bold">
                 <ul>
                     @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
@@ -40,7 +40,7 @@
 
             <!-- Citizenship Error Message -->
             @if (Session::has('citizenship-error-message'))
-            <div class="text-danger mt-2">
+            <div class="text-danger mt-2 fw-bold">
                 <ul>
                     <li>{{ Session::get('citizenship-error-message') }}</li>
                 </ul>

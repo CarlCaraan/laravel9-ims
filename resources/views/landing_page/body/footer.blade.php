@@ -2,7 +2,7 @@
      <div class="container">
          <div class="row pt-4">
              <div class="col-md-8">
-                 <div class="center">
+                 <div class="center mb-3">
                      {!! $userSiteInfos->footer !!}
                  </div>
              </div>
@@ -19,6 +19,5 @@
                      Copyright &copy; {{ date('Y', strtotime(now())) }} <strong>Division of Laguna</strong> All Rights Reserved
                  </span>
              </div>
-
          </div>
  </footer>
