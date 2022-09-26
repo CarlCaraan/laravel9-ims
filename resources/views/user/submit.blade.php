@@ -86,11 +86,11 @@
                                 </td>
                                 <td>
                                     @if ($pdflist->pds_status == "For Verification")
-                                    <span class="badge bg-warning text-dark"><i class="fa-regular fa-clock"></i> For Verification</span>
+                                    <span class="badge bg-warning text-dark"><i class="fa-solid fa-circle-info"></i> For Verification</span>
                                     @elseif ($pdflist->pds_status == "Verified")
                                     <span class="badge bg-success"><i class="fa-regular fa-circle-check"></i> Verified</span>
                                     @else
-                                    <span class="badge bg-danger" id="btn-invalid"><i class="fa-solid fa-circle-info"></i> Invalid</span>
+                                    <span class="badge bg-danger" id="btn-invalid"><i class="fa-solid fa-triangle-exclamation"></i> Invalid</span>
                                     @endif
                                 </td>
                                 <td>
