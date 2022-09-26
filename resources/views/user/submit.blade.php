@@ -34,7 +34,7 @@
 
             <!-- Start Table -->
             <div class="card mb-3 border-0 shadow-sm">
-                <div class="card-header bg-white">
+                <div class="card-header">
                     <strong class="color-secondary">Uploading of Requirements</strong>
                 </div>
                 <div class="card-body">
