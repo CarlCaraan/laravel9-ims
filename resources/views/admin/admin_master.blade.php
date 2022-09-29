@@ -93,6 +93,7 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         // SweetAlert2
+        // ~Delete
         $(function() {
             $(document).on('click', '#delete', function(e) {
                 e.preventDefault();
@@ -112,6 +113,33 @@
                         Swal.fire(
                             'Deleted!',
                             'Your file has been deleted.',
+                            'success'
+                        )
+                    }
+                })
+            });
+        });
+
+        // ~Archive
+        $(function() {
+            $(document).on('click', '#archive', function(e) {
+                e.preventDefault();
+                var link = $(this).attr("href");
+
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "Archive this Row?",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, archive it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = link
+                        Swal.fire(
+                            'Archived!',
+                            'Your file has been Archived.',
                             'success'
                         )
                     }

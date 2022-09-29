@@ -45,6 +45,8 @@ $route = Route::current()->getName();
                 <!-- End Dashboard -->
 
                 <!-- Start Site Info Management -->
+                @if(auth::user()->user_type == "HR")
+                @else
                 <li class="sidebar-title">Site Info Management</li>
                 <li class="sidebar-item  has-sub {{ ($prefix == '/siteinfo') ? 'active' : '' }}">
                     <a href="#" class="sidebar-link {{ ($prefix == '/siteinfo') ? 'bg-success text-white' : '' }}">
@@ -63,6 +65,7 @@ $route = Route::current()->getName();
                         </li>
                     </ul>
                 </li>
+                @endif
                 <!-- End Site Info Management -->
 
                 <!-- Start User Inquiry -->
@@ -94,6 +97,40 @@ $route = Route::current()->getName();
                 </li>
                 @endif
                 <!-- End Account Management -->
+
+                <!-- Start PDS Management -->
+                <li class="sidebar-title">PDS Management</li>
+                <li class="sidebar-item  has-sub {{ ($prefix == '/pds') ? 'active' : '' }}">
+                    <a href="#" class="sidebar-link {{ ($prefix == '/pds') ? 'bg-success' : '' }}">
+                        <i class="fas fa-file-alt {{ ($prefix == '/pds') ? 'text-white' : '' }}"></i>
+                        <span class="{{ ($prefix == '/pds') ? 'text-white' : '' }}">Manage PDS</span>
+                    </a>
+                    <ul class="submenu {{ ($prefix == '/pds') ? 'active' : '' }}">
+                        <li class="submenu-item {{ ($route == 'pds.pending.view') ? 'active' : '' }}">
+                            <a class="{{ ($route == 'pds.pending.view') ? 'text-success' : '' }}" href="{{ route('pds.pending.view') }}">
+                                For Verification
+                                @php
+                                $pending_count = DB::table('pds_form_lists')->where('pds_status', 'For Verification')->where('pds_archived', 'No')->count();
+                                @endphp
+
+                                @if ($pending_count > 0)
+                                <span class="badge bg-warning">{{ $pending_count }}</span>
+                                @else
+                                @endif
+                            </a>
+                        </li>
+                        <li class="submenu-item {{ ($route == 'user.add') ? 'active' : '' }}">
+                            <a class="{{ ($route == 'user.add') ? 'text-success' : '' }}" href="{{ route('user.add') }}">Verified</a>
+                        </li>
+                        <li class="submenu-item {{ ($route == 'user.add') ? 'active' : '' }}">
+                            <a class="{{ ($route == 'user.add') ? 'text-success' : '' }}" href="{{ route('user.add') }}">Invalid</a>
+                        </li>
+                        <li class="submenu-item {{ ($route == 'user.add') ? 'active' : '' }}">
+                            <a class="{{ ($route == 'user.add') ? 'text-success' : '' }}" href="{{ route('user.add') }}">Archived</a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- End PDS Management -->
             </ul>
         </div>
     </div>

@@ -15,6 +15,9 @@ use App\Http\Controllers\Admin\SiteInfo\UserSiteInfoController;
 use App\Http\Controllers\Admin\SiteInfo\UserHerosectionController;
 use App\Http\Controllers\Admin\SiteInfo\UserInquiryController;
 
+// ========= All HR Controller =========
+use App\Http\Controllers\Admin\PDS\PDSController;
+
 // ========= Landing Page Controller =========
 use App\Http\Controllers\User\About\AboutController;
 use App\Http\Controllers\User\ContactController;
@@ -101,6 +104,13 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
         // User Inquiries 
         Route::get('inquiries/view', [UserInquiryController::class, 'UserInquiryView'])->name('user.inquiries.view');
         Route::get('inquiries/delete/{id}', [UserInquiryController::class, 'UserInquiryDelete'])->name('user.inquiries.delete');
+
+        // ========= PDS Management =========
+        Route::prefix('pds')->group(function () {
+            Route::get('admin/pending/view', [PDSController::class, 'PDSPendingView'])->name('pds.pending.view');
+            Route::post('admin/pending/update', [PDSController::class, 'PDSPendingUpdate'])->name('pds.pending.update');
+            Route::get('admin/pending/archive/{id}', [PDSController::class, 'PDSPendingArchive'])->name('pds.pending.archive');
+        });
     }); // End Admin Routes
 
     // ========= ALL User Routes =========
