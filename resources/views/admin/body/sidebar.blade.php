@@ -103,20 +103,34 @@ $route = Route::current()->getName();
                 <li class="sidebar-item  has-sub {{ ($prefix == '/pds') ? 'active' : '' }}">
                     <a href="#" class="sidebar-link {{ ($prefix == '/pds') ? 'bg-success' : '' }}">
                         <i class="fas fa-file-alt {{ ($prefix == '/pds') ? 'text-white' : '' }}"></i>
-                        <span class="{{ ($prefix == '/pds') ? 'text-white' : '' }}">Manage PDS</span>
+                        <span class="{{ ($prefix == '/pds') ? 'text-white' : '' }}">
+                            Manage PDS
+                            <!-- Start For Verification Badge -->
+                            @php
+                            $pending_count = DB::table('pds_form_lists')->where('pds_status', 'For Verification')->where('pds_archived', 'No')->count();
+                            @endphp
+
+                            @if ($pending_count > 0)
+                            <span class="badge bg-warning">{{ $pending_count }}</span>
+                            @else
+                            @endif
+                            <!-- End For Verification Badge -->
+                        </span>
                     </a>
                     <ul class="submenu {{ ($prefix == '/pds') ? 'active' : '' }}">
                         <li class="submenu-item {{ ($route == 'pds.pending.view') ? 'active' : '' }}">
                             <a class="{{ ($route == 'pds.pending.view') ? 'text-success' : '' }}" href="{{ route('pds.pending.view') }}">
                                 For Verification
+                                <!-- Start For Verification Badge -->
                                 @php
                                 $pending_count = DB::table('pds_form_lists')->where('pds_status', 'For Verification')->where('pds_archived', 'No')->count();
                                 @endphp
 
                                 @if ($pending_count > 0)
-                                <span class="badge bg-warning">{{ $pending_count }}</span>
+                                <span class="text-muted">({{ $pending_count }})</span>
                                 @else
                                 @endif
+                                <!-- End For Verification Badge -->
                             </a>
                         </li>
                         <li class="submenu-item {{ ($route == 'user.add') ? 'active' : '' }}">
