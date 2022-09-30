@@ -39,9 +39,9 @@
             <div class="card-header">
                 <strong class="color-secondary">Uploading of Requirements</strong>
                 @php
-                $date_uploaded = DB::table('pds_form_lists')->where('user_id', Auth::user()->id)->get();
+                $date_uploaded = DB::table('pds_form_lists')->where('user_id', Auth::user()->id)->first();
                 @endphp
-                <small class="text-muted float-end">Last Updated: {{ Carbon\Carbon::parse($date_uploaded['0']->updated_at)->diffForHumans() }}</small>
+                <small class="text-muted float-end">Last Updated: {{ Carbon\Carbon::parse($date_uploaded->updated_at)->diffForHumans() }}</small>
             </div>
             <div class="card-body">
                 <div class="table-responsive">

@@ -47,7 +47,6 @@
 
     <button type="submit" class="btn custom-btn text-light float-end btn-update" style="display:none;">Update</button>
     <span class="btn btn-secondary rounded-circle shadow-sm float-start" id="prev-learning" role="prev_next"><i class="fa-solid fa-chevron-left"></i></span>
-    <span class="btn btn-secondary rounded-circle shadow-sm float-end" id="next-generate" role="prev_next"><i class="fa-solid fa-chevron-right"></i></span>
 </form>
 
 <!-- Next Prev Button Script -->
@@ -55,9 +54,6 @@
 <script>
     $("#prev-learning").click(function() {
         $("#v-pills-learning-tab").click();
-    });
-    $("#next-generate").click(function() {
-        $("#v-pills-generate-tab").click();
     });
 </script>
 

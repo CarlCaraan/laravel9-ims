@@ -102,6 +102,9 @@
                                 <!-- Personal Information Form -->
                                 @include('user.form.personal_datasheet_form')
                             </div>
+                            <div class="card-footer">
+                                <span class="float-start text-muted">I.) PERSONAL INFORMATION</span>
+                            </div>
                         </div>
                     </div>
                     <!-- ========= End Personal Information ========= -->
@@ -116,6 +119,9 @@
                             <div class="card-body">
                                 <!-- Family Information Form -->
                                 @include('user.form.family_datasheet_form')
+                            </div>
+                            <div class="card-footer">
+                                <span class="float-start text-muted">II.) FAMILY BACKGROUND</span>
                             </div>
                         </div>
                     </div>
@@ -132,6 +138,9 @@
                                 <!-- Educational Background Form -->
                                 @include('user.form.educational_datasheet_form')
                             </div>
+                            <div class="card-footer">
+                                <span class="float-start text-muted">III.) EDUCATIONAL BACKGROUND</span>
+                            </div>
                         </div>
                     </div>
                     <!-- ========= End Educational Background ========= -->
@@ -146,6 +155,9 @@
                             <div class="card-body">
                                 <!-- Civil Background Form -->
                                 @include('user.form.civil_datasheet_form')
+                            </div>
+                            <div class="card-footer">
+                                <span class="float-start text-muted">IV.) CIVIL SERVICE ELIGIBILITY</span>
                             </div>
                         </div>
                     </div>
@@ -165,6 +177,9 @@
                                 <!-- Work Experience Form -->
                                 @include('user.form.work_datasheet_form')
                             </div>
+                            <div class="card-footer">
+                                <span class="float-start text-muted">V.) WORK EXPERIENCE</span>
+                            </div>
                         </div>
                     </div>
                     <!-- ========= End Work Experience ========= -->
@@ -179,6 +194,9 @@
                             <div class="card-body">
                                 <!-- Voluntary Work Form -->
                                 @include('user.form.voluntary_datasheet_form')
+                            </div>
+                            <div class="card-footer">
+                                <span class="float-start text-muted">VI.) VOLUNTARY WORK OR INVOLVEMENT IN CIVIC <br /> NON-GOVERNMENT / PEOPLE / VOLUNTARY ORGANIZATION/S</span>
                             </div>
                         </div>
                     </div>
@@ -198,6 +216,9 @@
                                 <!-- Learning Program Form -->
                                 @include('user.form.learning_datasheet_form')
                             </div>
+                            <div class="card-footer">
+                                <span class="float-start text-muted">VII.) LEARNING AND DEVELOPMENT (L&D) INTERVENTIONS/TRAINING PROGRAMS ATTENDED</span>
+                            </div>
                         </div>
                     </div>
                     <!-- ========= End Learning Program  ========= -->
@@ -212,6 +233,9 @@
                             <div class="card-body">
                                 <!-- Other Information Form -->
                                 @include('user.form.other_datasheet_form')
+                            </div>
+                            <div class="card-footer">
+                                <span class="float-start text-muted">VIII.) OTHER INFORMATION</span>
                             </div>
                         </div>
                     </div>
