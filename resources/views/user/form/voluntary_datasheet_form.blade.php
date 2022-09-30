@@ -64,7 +64,20 @@
     </div> <!-- End Add Item -->
 
     <button type="submit" class="btn custom-btn text-light float-end btn-update" style="display:none;">Update</button>
+    <span class="btn btn-secondary rounded-circle shadow-sm float-start" id="prev-work" role="prev_next"><i class="fa-solid fa-chevron-left"></i></span>
+    <span class="btn btn-secondary rounded-circle shadow-sm float-end" id="next-learning" role="prev_next"><i class="fa-solid fa-chevron-right"></i></span>
 </form>
+
+<!-- Next Prev Button Script -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $("#prev-work").click(function() {
+        $("#v-pills-work-tab").click();
+    });
+    $("#next-learning").click(function() {
+        $("#v-pills-learning-tab").click();
+    });
+</script>
 
 <!-- Start Hidden Row Javascript -->
 <div style="display: none;">

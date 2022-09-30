@@ -74,8 +74,22 @@
         </div> <!-- End delete_whole_extra_item -->
         @endforeach
     </div> <!-- End Add Item -->
-    <button type="submit" class="btn custom-btn text-light float-end btn-update" style="display:none;">Update</button>
+
+    <button type="submit" class="btn custom-btn text-light float-end btn-update" style="display:none;">Save Changes</button>
+    <span class="btn btn-secondary rounded-circle shadow-sm float-start" id="prev-educational" role="prev_next"><i class="fa-solid fa-chevron-left"></i></span>
+    <span class="btn btn-secondary rounded-circle shadow-sm float-end" id="next-work" role="prev_next" data-bs-toggle="{{ ($civils[0]->cse_type == '') ? 'tooltip' : 'pill' }}" title="{{ ($civils[0]->cse_type == '') ? 'Complete IV.) Civil Service Eligibility to Proceed.' : '' }}" data-bs-placement="left" style="{{ ($civils[0]->cse_type == '') ? 'cursor: not-allowed' : '' }}"><i class="fa-solid fa-chevron-right"></i></span>
 </form>
+
+<!-- Next Prev Button Script -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $("#prev-educational").click(function() {
+        $("#v-pills-educational-tab").click();
+    });
+    $("#next-work").click(function() {
+        $("#v-pills-work-tab").click();
+    });
+</script>
 
 <!-- Start Hidden Row Javascript -->
 <div style="display: none;">

@@ -173,8 +173,22 @@
             </div> <!-- End Add Item -->
         </div>
     </div>
-    <button type="submit" class="btn custom-btn text-light float-end btn-update" style="display:none;">Update</button>
+
+    <button type="submit" class="btn custom-btn text-light float-end btn-update" style="display:none;">Save Changes</button>
+    <span class="btn btn-secondary rounded-circle shadow-sm float-start" id="prev-personal" role="prev_next"><i class="fa-solid fa-chevron-left"></i></span>
+    <span class="btn btn-secondary rounded-circle shadow-sm float-end" id="next-educational" role="prev_next" data-bs-toggle="{{ ($family->father_lname == '') ? 'tooltip' : 'pill' }}" title="{{ ($family->father_lname == '') ? 'Complete II.) Family Background to Proceed.' : '' }}" data-bs-placement="left" style="{{ ($family->father_lname == '') ? 'cursor: not-allowed' : '' }}"><i class="fa-solid fa-chevron-right"></i></span>
 </form>
+
+<!-- Next Prev Button Script -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $("#prev-personal").click(function() {
+        $("#v-pills-personal-tab").click();
+    });
+    $("#next-educational").click(function() {
+        $("#v-pills-educational-tab").click();
+    });
+</script>
 
 <!-- Start Hidden Row Javascript -->
 <div style="display: none;">

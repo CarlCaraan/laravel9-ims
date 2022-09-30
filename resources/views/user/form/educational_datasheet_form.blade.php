@@ -366,5 +366,18 @@
     </div>
     <!-- End Graduate Studies -->
 
-    <button type="submit" class="btn custom-btn text-light float-end btn-update" style="display:none;">Update</button>
+    <button type="submit" class="btn custom-btn text-light float-end btn-update" style="display:none;">Save Changes</button>
+    <span class="btn btn-secondary rounded-circle shadow-sm float-start" id="prev-family" role="prev_next"><i class="fa-solid fa-chevron-left"></i></span>
+    <span class="btn btn-secondary rounded-circle shadow-sm float-end" id="next-civil" role="prev_next" data-bs-toggle="{{ ($educational->elementary_school == '') ? 'tooltip' : 'pill' }}" title="{{ ($educational->elementary_school == '') ? 'Complete III.) Educational Background to Proceed.' : '' }}" data-bs-placement="left" style="{{ ($educational->elementary_school == '') ? 'cursor: not-allowed' : '' }}"><i class="fa-solid fa-chevron-right"></i></span>
 </form>
+
+<!-- Next Prev Button Script -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $("#prev-family").click(function() {
+        $("#v-pills-family-tab").click();
+    });
+    $("#next-civil").click(function() {
+        $("#v-pills-civil-tab").click();
+    });
+</script>

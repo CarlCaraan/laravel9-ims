@@ -122,10 +122,6 @@ $route = Route::current()->getName();
                             <a class="{{ ($route == 'pds.pending.view') ? 'text-success' : '' }}" href="{{ route('pds.pending.view') }}">
                                 For Verification
                                 <!-- Start For Verification Badge -->
-                                @php
-                                $pending_count = DB::table('pds_form_lists')->where('pds_status', 'For Verification')->where('pds_archived', 'No')->count();
-                                @endphp
-
                                 @if ($pending_count > 0)
                                 <span class="text-muted">({{ $pending_count }})</span>
                                 @else

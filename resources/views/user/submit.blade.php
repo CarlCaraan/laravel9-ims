@@ -38,6 +38,10 @@
         <div class="card mb-4 border-0 shadow-sm">
             <div class="card-header">
                 <strong class="color-secondary">Uploading of Requirements</strong>
+                @php
+                $date_uploaded = DB::table('pds_form_lists')->where('user_id', Auth::user()->id)->get();
+                @endphp
+                <small class="text-muted float-end">Last Updated: {{ Carbon\Carbon::parse($date_uploaded['0']->updated_at)->diffForHumans() }}</small>
             </div>
             <div class="card-body">
                 <div class="table-responsive">

@@ -404,8 +404,20 @@
             </div>
         </div>
     </div>
-    <button type="submit" class="btn custom-btn text-light float-end btn-update" style="display:none;">Update</button>
+
+    <button type="submit" class="btn custom-btn text-light float-end btn-update" style="display:none;">Save Changes</button>
+    <span class="btn btn-secondary float-end rounded-circle shadow-sm float-end" id="next-family" role="prev_next" data-bs-toggle="{{ ($personal->middle_name == '') ? 'tooltip' : 'pill' }}" title="{{ ($personal->middle_name == '') ? 'Complete I.) Personal Information to Proceed.' : '' }}" data-bs-placement="left" style="{{ ($personal->middle_name == '') ? 'cursor: not-allowed' : '' }}">
+        <i class="fa-solid fa-chevron-right"></i>
+    </span>
 </form>
+
+<!-- Next Prev Button Script -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $("#next-family").click(function() {
+        $("#v-pills-family-tab").click();
+    });
+</script>
 
 <!-- Validation for Citizenship (Checkbox must be  selected before updating the form) -->
 <script>

@@ -282,6 +282,8 @@
             $(".removeeventmore4").show(); // Learning Program
             $(".addeventmore5").show(); // Other Information
             $(".removeeventmore5").show(); // Other Information
+
+            $("[role='prev_next']").hide();
         });
     });
 </script>
