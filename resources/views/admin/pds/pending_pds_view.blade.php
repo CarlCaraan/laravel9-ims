@@ -102,16 +102,16 @@
 
                                                 <div class="form-group">
                                                     <label class="form-label" for="pds_status">Status</label>
-                                                    <select name="pds_status" id="status" class="form-select mb-2" required>
+                                                    <select name="pds_status" id="status{{ $value->id }}" class="form-select mb-2" required>
                                                         <option value="" selected>Select</option>
                                                         <option value="Verified">Verified</option>
                                                         <option value="Invalid">Invalid</option>
                                                     </select>
                                                 </div>
 
-                                                <div class="form-group" style="display: none;" id="comment">
+                                                <div class="form-group" style="display: none;" id="comment{{ $value->id }}">
                                                     <label class="form-label" for="pds_message">Comment <span class="text-muted">(if invalid)</span><span class="text-danger">*</span></label>
-                                                    <textarea id="comment_textarea" class="form-control" name="pds_message" rows="3" placeholder="Just leave a comment why it is invalid." required></textarea>
+                                                    <textarea id="comment_textarea{{ $value->id }}" class="form-control" name="pds_message" rows="3" placeholder="Just leave a comment why it is invalid." required></textarea>
                                                 </div>
                                         </div>
                                         <div class="modal-footer">
@@ -123,7 +123,25 @@
                                 </div>
                             </div>
                             <!-- End Modal -->
+
+                            <!-- Start Hidden Comment Textarea -->
+                            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+                            <script>
+                                $(document).ready(function() {
+                                    $("#status{{ $value->id }}").change(function() {
+                                        $('#comment{{ $value->id }}').hide();
+                                        $('#comment_textarea{{ $value->id }}').removeAttr('required', 'required');
+
+                                        var optvalue = $("#status{{ $value->id }}").find(":selected").val();
+                                        if (optvalue == "Invalid") {
+                                            $('#comment{{ $value->id }}').show();
+                                            $('#comment_textarea{{ $value->id }}').attr('required', 'required');
+                                        }
+                                    });
+                                });
+                            </script>
                             @endforeach
+                            <!-- End Hidden Comment Textarea -->
                         </tbody>
                     </table>
                 </div>
@@ -132,21 +150,4 @@
     </section>
 </div>
 <!-- End Page Content -->
-
-<!-- Hidden Comment Textarea -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $("#status").change(function() {
-            $('#comment').hide();
-            $('#comment_textarea').removeAttr('required', 'required');
-
-            var optvalue = $("#status").find(":selected").val();
-            if (optvalue == "Invalid") {
-                $('#comment').show();
-                $('#comment_textarea').attr('required', 'required');
-            }
-        });
-    });
-</script>
 @endsection
