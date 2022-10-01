@@ -141,7 +141,7 @@ class GenerateSubmitPDFController extends Controller
         if ($request->file('pdf')) {
             $file = $request->file('pdf');
             @unlink(public_path('upload/pdf_uploads/' . $pdf->pds_filename));
-            $filename = date('YmdHi') . $file->getClientOriginalName();
+            $filename = date('YmdHis') . $file->getClientOriginalName();
             $file->move(public_path('upload/pdf_uploads'), $filename);
             $pdf['pds_filename'] = $filename;
         }
