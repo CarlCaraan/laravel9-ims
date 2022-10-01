@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->integer('user_id')->nullable()->comment('FK = user id');
 
+            $table->string('pds_tracking_no')->nullable();
             $table->string('pds_title')->nullable();
             $table->string('pds_status')->nullable();
             $table->string('pds_date_uploaded')->nullable();

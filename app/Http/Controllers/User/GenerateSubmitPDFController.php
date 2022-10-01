@@ -116,6 +116,36 @@ class GenerateSubmitPDFController extends Controller
         );
 
         $pdf = PdsFormList::where('user_id', Auth::user()->id)->first();
+
+        // Generete Tracking Id
+        $check_pds_exist = PdsFormList::orderBy('id', 'DESC')->first();
+        if ($check_pds_exist == NULL) {
+            $first_upload = 0;
+            $pds_id = $first_upload + 1;
+            if ($pds_id < 10) {
+                $tracking_id = '0000' . $pds_id;
+            } elseif ($pds_id < 100) {
+                $tracking_id = '000' . $pds_id;
+            } elseif ($pds_id < 1000) {
+                $tracking_id = '00' . $pds_id;
+            } elseif ($pds_id < 10000) {
+                $tracking_id = '0' . $pds_id;
+            }
+        } else {
+            $exist_pds = PdsFormList::orderBy('id', 'DESC')->first()->id;
+            $pds_id = $exist_pds + 1;
+            if ($pds_id < 10) {
+                $tracking_id = '0000' . $pds_id;
+            } elseif ($pds_id < 100) {
+                $tracking_id = '000' . $pds_id;
+            } elseif ($pds_id < 1000) {
+                $tracking_id = '00' . $pds_id;
+            } elseif ($pds_id < 10000) {
+                $tracking_id = '0' . $pds_id;
+            }
+        }
+
+        $pdf->pds_tracking_no = date('Y') . "-" . $tracking_id;
         $pdf->pds_title = "CS Form No. 212 Revised 2017";
         $pdf->pds_status = "For Verification";
         $pdf->pds_date_uploaded = date('m/d/Y - h:ia', strtotime(now()));

@@ -93,7 +93,7 @@
                                                     </a>
                                                     ]
                                                 </span> <br />
-                                                <small><strong>Document Tracking ID:</strong> <ins>0119-4801</ins></small>
+                                                <small><strong>Document Tracking ID:</strong> <ins>{{ $value->pds_tracking_no }}</ins></small>
                                             </div>
 
                                             <form action="{{ route('pds.pending.update') }}" method="POST">
