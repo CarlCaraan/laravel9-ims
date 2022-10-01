@@ -16,7 +16,27 @@ class PDSController extends Controller
 
     public function PDSPendingUpdate(Request $request)
     {
+        $validatedData = $request->validate(
+            [
+                'pds_status' => 'required',
+            ],
+            // ~Custom Error messages
+            [
+                'pds_status.required' => 'Status is required!',
+            ]
+        );
+
         $id = $request->id;
+
+        if ($request->pds_status == "Invalid") {
+            if ($request->pds_message == "") {
+                $notification = array(
+                    'message' => 'Comment field is required if invalid status',
+                    'alert-type' => 'error',
+                );
+                return redirect()->route('pds.pending.view')->with($notification);
+            }
+        }
 
         $pds_form_list = PdsFormList::find($id)->update([
             'pds_status' => $request->pds_status,

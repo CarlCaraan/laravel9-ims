@@ -24,6 +24,17 @@
 </div>
 <!-- End Breadcrumb -->
 
+<!-- ========= Start Error Message Validation ========= -->
+@if ($errors->any())
+<div class="text-danger fw-bold">
+    <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
+
 <!-- Start Page Content -->
 <div class="page-content">
     <section class="row">
@@ -35,8 +46,8 @@
                             <tr>
                                 <th>ID No.</th>
                                 <th>User Email</th>
+                                <th>Name</th>
                                 <th>Date Uploaded</th>
-                                <th>Attachment</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -45,8 +56,8 @@
                             <tr>
                                 <td>{{ $key+1 }}</td>
                                 <td>{{ $value['user']['email'] }}</td>
+                                <td>{{ $value['user']['first_name'] . ' ' . $value['user']['last_name'] }}</td>
                                 <td>{{ $value->pds_date_uploaded }}</td>
-                                <td><a href="{{ url('upload/pdf_uploads/'.$value->pds_filename) }}" target="_blank" class="btn btn-primary"><i class="fas fa-external-link-alt"></i> Preview</a></td>
                                 <td>
                                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#no{{ $value->id }}">
                                         <i class="fas fa-edit"></i>
@@ -56,27 +67,52 @@
                             </tr>
 
                             <!-- Start Modal -->
-                            <div class="modal fade" id="no{{ $value->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
+                            <div class="modal" id="no{{ $value->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="exampleModalLabel">Manage PDS</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <h6 class="mb-4">Email: {{ $value['user']['email'] }}</h6>
+                                            <div class="alert alert-success">
+                                                <strong>Note:</strong> User will be notified through their email.
+                                            </div>
+
+                                            <h6>User Details:</h6>
+                                            <div class="border rounded p-2 mb-4 shadow-sm">
+                                                <span><strong>Email:</strong> {{ $value['user']['email'] }}</span><br />
+                                                <span><strong>Name:</strong> {{ $value['user']['first_name'] . " " . $value['user']['last_name']  }}</span><br />
+                                                <span><strong>Sex:</strong> {{ $value['user']['gender'] }}</span> <br />
+                                                <small><strong>User Secret ID:</strong> <ins>{{ $value['user']['tracking_id'] }}</ins></small> <br />
+                                                <hr class="my-1" style=" border-top: 1px dashed #fff;">
+                                                <span><strong>Attachment:</strong>
+                                                    [
+                                                    <a class="text-underline" href="{{ url('upload/pdf_uploads/'.$value->pds_filename) }}" target="_blank">
+                                                        Preview
+                                                    </a>
+                                                    ]
+                                                </span> <br />
+                                                <small><strong>Document Tracking ID:</strong> <ins>0119-4801</ins></small>
+                                            </div>
+
                                             <form action="{{ route('pds.pending.update') }}" method="POST">
                                                 @csrf
                                                 <input type="hidden" name="id" value="{{ $value->id }}">
-                                                <label class="form-label" for="pds_status">Status</label>
-                                                <select name="pds_status" class="form-select mb-2">
-                                                    <option value="" disabled>Select</option>
-                                                    <option class="text-success" value="Verified">Verified</option>
-                                                    <option class="text-danger" value="Invalid">Invalid</option>
-                                                </select>
 
-                                                <label class="form-label" for="pds_message">Comment <strong class="text-danger">(if invalid)</strong></label>
-                                                <textarea class="form-control" name="pds_message" cols="30" rows="10" placeholder="Just leave a comment."></textarea>
+                                                <div class="form-group">
+                                                    <label class="form-label" for="pds_status">Status</label>
+                                                    <select name="pds_status" id="status" class="form-select mb-2" required>
+                                                        <option value="" selected>Select</option>
+                                                        <option value="Verified">Verified</option>
+                                                        <option value="Invalid">Invalid</option>
+                                                    </select>
+                                                </div>
+
+                                                <div class="form-group" style="display: none;" id="comment">
+                                                    <label class="form-label" for="pds_message">Comment <span class="text-muted">(if invalid)</span><span class="text-danger">*</span></label>
+                                                    <textarea id="comment_textarea" class="form-control" name="pds_message" rows="3" placeholder="Just leave a comment why it is invalid." required></textarea>
+                                                </div>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -96,4 +132,21 @@
     </section>
 </div>
 <!-- End Page Content -->
+
+<!-- Hidden Comment Textarea -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#status").change(function() {
+            $('#comment').hide();
+            $('#comment_textarea').removeAttr('required', 'required');
+
+            var optvalue = $("#status").find(":selected").val();
+            if (optvalue == "Invalid") {
+                $('#comment').show();
+                $('#comment_textarea').attr('required', 'required');
+            }
+        });
+    });
+</script>
 @endsection
