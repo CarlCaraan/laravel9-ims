@@ -10,7 +10,7 @@ class PDSController extends Controller
 {
     public function PDSPendingView()
     {
-        $data['allData'] = PdsFormList::with(['user'])->where('pds_status', 'For Verification')->where('pds_archived', 'No')->get();
+        $data['allData'] = PdsFormList::with(['user'])->where('pds_status', 'For Verification')->where('pds_archived', 'No')->orderBy('pds_date_uploaded', 'DESC')->get();
         return view('admin.pds.pending_pds_view', $data);
     } // End Method
 
