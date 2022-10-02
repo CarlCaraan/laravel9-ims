@@ -42,6 +42,8 @@ class CreateNewUser implements CreatesNewUsers
                 $tracking_id = '00' . $user_id;
             } elseif ($user_id < 10000) {
                 $tracking_id = '0' . $user_id;
+            } else {
+                $tracking_id = $user_id;
             }
         } else {
             $exist_user = User::orderBy('id', 'DESC')->first()->id;
@@ -54,6 +56,8 @@ class CreateNewUser implements CreatesNewUsers
                 $tracking_id = '00' . $user_id;
             } elseif ($user_id < 10000) {
                 $tracking_id = '0' . $user_id;
+            } else {
+                $tracking_id = $user_id;
             }
         }
 

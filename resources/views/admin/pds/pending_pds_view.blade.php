@@ -45,7 +45,8 @@
                         <thead>
                             <tr>
                                 <th>ID No.</th>
-                                <th>User Email</th>
+                                <th>Tracking ID No.</th>
+                                <th>Email</th>
                                 <th>Name</th>
                                 <th>Date Uploaded</th>
                                 <th>Action</th>
@@ -55,6 +56,7 @@
                             @foreach ($allData as $key => $value)
                             <tr>
                                 <td>{{ $key+1 }}</td>
+                                <td>{{ $value->pds_tracking_no }}</td>
                                 <td>{{ $value['user']['email'] }}</td>
                                 <td>{{ $value['user']['first_name'] . ' ' . $value['user']['last_name'] }}</td>
                                 <td>{{ $value->pds_date_uploaded }}</td>

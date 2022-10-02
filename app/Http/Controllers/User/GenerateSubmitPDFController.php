@@ -121,13 +121,19 @@ class GenerateSubmitPDFController extends Controller
         $exist_pds = PdsFormList::where('user_id', Auth::user()->id)->first()->id;
         $pds_id = $exist_pds;
         if ($pds_id < 10) {
-            $tracking_id = '0000' . $pds_id;
+            $tracking_id = '000000' . $pds_id;
         } elseif ($pds_id < 100) {
-            $tracking_id = '000' . $pds_id;
+            $tracking_id = '00000' . $pds_id;
         } elseif ($pds_id < 1000) {
-            $tracking_id = '00' . $pds_id;
+            $tracking_id = '0000' . $pds_id;
         } elseif ($pds_id < 10000) {
+            $tracking_id = '000' . $pds_id;
+        } elseif ($pds_id < 100000) {
+            $tracking_id = '00' . $pds_id;
+        } elseif ($pds_id < 1000000) {
             $tracking_id = '0' . $pds_id;
+        } else {
+            $tracking_id = $pds_id;
         }
 
         $pdf->pds_tracking_no = date('my') . "-" . $tracking_id;
@@ -159,7 +165,14 @@ class GenerateSubmitPDFController extends Controller
     {
         $pdf = PdsFormList::where('user_id', Auth::user()->id)->first();
         @unlink(public_path('upload/pdf_uploads/' . $pdf->pds_filename));
-        $pdf->delete();
+
+        $pdf->pds_title = NULL;
+        $pdf->pds_status = NULL;
+        $pdf->pds_date_uploaded = NULL;
+        $pdf->pds_filename = NULL;
+        $pdf->pds_archived = NULL;
+        $pdf->pds_message = NULL;
+        $pdf->save();
 
         $notification = array(
             'message' => 'File has been removed',

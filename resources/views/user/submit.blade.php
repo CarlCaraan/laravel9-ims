@@ -80,6 +80,7 @@
                             <tr>
                                 <td>
                                     {{ $pdflist->pds_title }} <i class="fa-solid fa-file-pdf text-danger"></i>
+                                    <a class="fw-bold text-primary" href="#" data-bs-toggle="tooltip" title="Document Tracking ID: {{ $pdflist->pds_tracking_no }}" data-bs-placement="right">[?]</a>
                                 </td>
                                 <td>
                                     <div class="alert alert-warning shadow-sm text-dark" style="display:none;" id="message-invalid" role="alert">
@@ -177,6 +178,13 @@
         $("#message-close-btn").click(function() {
             $("#message-invalid").hide();
         });
+    });
+</script>
+
+<!-- Tooltip Script -->
+<script>
+    $(document).ready(function() {
+        $('[data-bs-toggle="tooltip"]').tooltip();
     });
 </script>
 @endsection
