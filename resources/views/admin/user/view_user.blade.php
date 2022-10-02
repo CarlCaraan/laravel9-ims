@@ -38,7 +38,7 @@
                             <tr>
                                 <th>ID No.</th>
                                 <th>User Tracking ID.</th>
-                                <th>Avatar</th>
+                                <th>Photo</th>
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Gender</th>

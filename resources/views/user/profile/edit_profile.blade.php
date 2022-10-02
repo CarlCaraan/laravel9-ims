@@ -34,7 +34,7 @@
                                 <form class="form-horizontal mt-5" method="POST" action="{{ route('user.profile.update') }}" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group row">
-                                        <label for="image" class="col-sm-3 text-right control-label col-form-label">Profile Avatar</label>
+                                        <label for="image" class="col-sm-3 text-right control-label col-form-label">Profile Photo</label>
                                         <div class="col-md-9 text-left">
                                             <img class="rounded-circle mb-3" style="width: 90px; height: 90px;" id="show_image" src="{{ (!empty($editData->profile_photo_path)) ? url('upload/user_images/'.$editData->profile_photo_path) : url('upload/user_images/default_photo.png') }}" alt="User Avatar">
                                         </div>
@@ -77,14 +77,19 @@
                                     </div>
                                     <div class="form-group row mb-2">
                                         <label for="gender" class="col-sm-3 text-right control-label col-form-label">Gender</label>
-                                        <div class="col-md-9">
-                                            <select class="select2 form-select" style="width: 100%; height:36px;" name="gender">
-                                                <option disabled value="">Select</option>
-                                                <optgroup label="Choose your gender">
-                                                    <option value="Male" {{ ($editData->gender == "Male") ? "selected" : ""}}>Male</option>
-                                                    <option value="Female" {{ ($editData->gender == "Female") ? "selected" : ""}}>Female</option>
-                                                </optgroup>
-                                            </select>
+                                        <div class="col-md-9 pt-2">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" value="Male" type="radio" name="gender" {{ ($editData->gender == "Male") ? "checked" : "" }} />
+                                                <label class="form-check-label" for="Male">
+                                                    Male
+                                                </label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" value="Female" type="radio" name="gender" {{ ($editData->gender == "Female") ? "checked" : "" }} />
+                                                <label class="form-check-label" for="Female">
+                                                    Female
+                                                </label>
+                                            </div>
                                             @error('gender')
                                             <span class="text-danger">{{ $message }}</span>
                                             @enderror

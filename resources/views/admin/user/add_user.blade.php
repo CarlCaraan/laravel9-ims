@@ -37,7 +37,7 @@
                             <h4 class="card-title text-success">Basic Information</h4>
                             <br />
                             <div class="form-group row">
-                                <label for="" class="col-sm-3 text-right control-label col-form-label">Profile Avatar</label>
+                                <label for="" class="col-sm-3 text-right control-label col-form-label">Profile Photo</label>
                                 <div class="col-md-9 text-left">
                                     <img class="rounded-circle mb-3" style="width: 90px; height: 90px;" id="show_image" src="{{ url('upload/user_images/default_photo.png') }}" alt="User Avatar">
                                 </div>
@@ -86,14 +86,19 @@
                             </div>
                             <div class="form-group row">
                                 <label for="gender" class="col-sm-3 text-right control-label col-form-label">Gender</label>
-                                <div class="col-md-9">
-                                    <select class="select2 form-select" name="gender">
-                                        <option disabled value="" selected>Select</option>
-                                        <optgroup label="Choose your gender">
-                                            <option value="Male">Male</option>
-                                            <option value="Female">Female</option>
-                                        </optgroup>
-                                    </select>
+                                <div class="col-md-9 pt-2">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" value="Male" type="radio" name="gender" />
+                                        <label class="form-check-label" for="Male">
+                                            Male
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" value="Female" type="radio" name="gender" />
+                                        <label class="form-check-label" for="Female">
+                                            Female
+                                        </label>
+                                    </div>
                                     @error('gender')
                                     <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -101,15 +106,25 @@
                             </div>
                             <div class="form-group row">
                                 <label for="user_type" class="col-sm-3 text-right control-label col-form-label">User Role</label>
-                                <div class="col-md-9">
-                                    <select class="select2 form-select" name="user_type">
-                                        <option disabled value="" selected>Select</option>
-                                        <optgroup label="Choose your role">
-                                            <option value="Admin">Admin</option>
-                                            <option value="HR">HR</option>
-                                            <option value="User">User</option>
-                                        </optgroup>
-                                    </select>
+                                <div class="col-md-9 pt-2">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" value="Admin" type="radio" name="user_type" />
+                                        <label class="form-check-label" for="Admin">
+                                            Admin
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" value="HR" type="radio" name="user_type" />
+                                        <label class="form-check-label" for="HR">
+                                            HR
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" value="User" type="radio" name="user_type" />
+                                        <label class="form-check-label" for="User">
+                                            User
+                                        </label>
+                                    </div>
                                     @error('user_type')
                                     <span class="text-danger">{{ $message }}</span>
                                     @enderror

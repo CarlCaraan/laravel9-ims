@@ -37,7 +37,7 @@
                             <h4 class="card-title">Basic Information</h4>
                             <br />
                             <div class="form-group row">
-                                <label for="" class="col-sm-3 text-right control-label col-form-label">Profile Avatar</label>
+                                <label for="" class="col-sm-3 text-right control-label col-form-label">Profile Photo</label>
                                 <div class="col-md-9 text-left">
                                     <img class="rounded-circle mb-3" style="width: 90px; height: 90px;" id="show_image" src="{{ (!empty($editData->profile_photo_path)) ? url('upload/user_images/'.$editData->profile_photo_path) : url('upload/user_images/default_photo.png') }}" alt="User Avatar">
                                 </div>
@@ -64,7 +64,6 @@
                                     <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
-
                             </div>
                             <div class="form-group row">
                                 <label for="last_name" class="col-sm-3 text-right control-label col-form-label">Last Name</label>
@@ -85,15 +84,20 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="gender" class="col-sm-3 text-right control-label col-form-label">Gender</label>
-                                <div class="col-md-9">
-                                    <select class="select2 form-select" name="gender">
-                                        <option disabled value="" selected>Select</option>
-                                        <optgroup label="Choose your gender">
-                                            <option value="Male" {{ ($editData->gender == "Male") ? "selected" : ""}}>Male</option>
-                                            <option value="Female" {{ ($editData->gender == "Female") ? "selected" : ""}}>Female</option>
-                                        </optgroup>
-                                    </select>
+                                <label for="gender" class="col-sm-3 text-right control-label col-form-label">Sex</label>
+                                <div class="col-md-9 pt-2">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" value="Male" type="radio" name="gender" {{ ($editData->gender == "Male") ? "checked" : "" }} />
+                                        <label class="form-check-label" for="Male">
+                                            Male
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" value="Female" type="radio" name="gender" {{ ($editData->gender == "Female") ? "checked" : "" }} />
+                                        <label class="form-check-label" for="Female">
+                                            Female
+                                        </label>
+                                    </div>
                                     @error('gender')
                                     <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -101,15 +105,25 @@
                             </div>
                             <div class="form-group row">
                                 <label for="user_type" class="col-sm-3 text-right control-label col-form-label">User Role</label>
-                                <div class="col-md-9">
-                                    <select class="select2 form-select" name="user_type">
-                                        <option disabled value="" selected>Select</option>
-                                        <optgroup label="Choose your role">
-                                            <option value="Admin" {{ ($editData->user_type == "Admin") ? "selected" : ""}}>Admin</option>
-                                            <option value="HR" {{ ($editData->user_type == "HR") ? "selected" : ""}}>HR</option>
-                                            <option value="User" {{ ($editData->user_type == "User") ? "selected" : ""}}>User</option>
-                                        </optgroup>
-                                    </select>
+                                <div class="col-md-9 pt-2">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" value="Admin" type="radio" name="user_type" {{ ($editData->user_type == "Admin") ? "checked" : "" }} />
+                                        <label class="form-check-label" for="Admin">
+                                            Admin
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" value="HR" type="radio" name="user_type" {{ ($editData->user_type == "HR") ? "checked" : "" }} />
+                                        <label class="form-check-label" for="HR">
+                                            HR
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" value="User" type="radio" name="user_type" {{ ($editData->user_type == "User") ? "checked" : "" }} />
+                                        <label class="form-check-label" for="User">
+                                            User
+                                        </label>
+                                    </div>
                                     @error('user_type')
                                     <span class="text-danger">{{ $message }}</span>
                                     @enderror
