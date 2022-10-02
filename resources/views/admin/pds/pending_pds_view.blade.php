@@ -8,7 +8,7 @@
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3 class="text-warning"><i class="bi bi-info-circle-fill"></i> For Verification PDS</h3>
+                <h3 class="text-warning">For Verification PDS</h3>
                 <p class="text-subtitle text-muted">All List of Pending PDS.</p>
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">
@@ -103,12 +103,19 @@
                                                 <input type="hidden" name="id" value="{{ $value->id }}">
 
                                                 <div class="form-group">
-                                                    <label class="form-label" for="pds_status">Status</label>
-                                                    <select name="pds_status" id="status{{ $value->id }}" class="form-select mb-2" required>
-                                                        <option value="" selected>Select</option>
-                                                        <option value="Verified">Verified</option>
-                                                        <option value="Invalid">Invalid</option>
-                                                    </select>
+                                                    <label class="form-label" for="pds_status">Status</label><br />
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" value="Verified" type="radio" name="pds_status" required />
+                                                        <label class="form-check-label" for="Verified">
+                                                            Verified
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" id="invalid_id_radio{{ $value->id }}" value="Invalid" type="radio" name="pds_status" />
+                                                        <label class="form-check-label" for="Invalid">
+                                                            Invalid
+                                                        </label>
+                                                    </div>
                                                 </div>
 
                                                 <div class="form-group" style="display: none;" id="comment{{ $value->id }}">
@@ -130,14 +137,13 @@
                             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
                             <script>
                                 $(document).ready(function() {
-                                    $("#status{{ $value->id }}").change(function() {
-                                        $('#comment{{ $value->id }}').hide();
-                                        $('#comment_textarea{{ $value->id }}').removeAttr('required', 'required');
-
-                                        var optvalue = $("#status{{ $value->id }}").find(":selected").val();
-                                        if (optvalue == "Invalid") {
+                                    $("input[name='pds_status']").change(function() {
+                                        if ($("#invalid_id_radio{{ $value->id }}").is(':checked')) {
                                             $('#comment{{ $value->id }}').show();
                                             $('#comment_textarea{{ $value->id }}').attr('required', 'required');
+                                        } else {
+                                            $('#comment{{ $value->id }}').hide();
+                                            $('#comment_textarea{{ $value->id }}').removeAttr('required', 'required');
                                         }
                                     });
                                 });
