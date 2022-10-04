@@ -55,7 +55,7 @@
                                 <td>
                                     <div class="avatar">
                                         @if (!empty($user->profile_photo_path))
-                                        <img class="img-fluid" style="width: 30px; height: 30px; cursor: zoom-in;" src="{{ url('upload/user_images/'.$user->profile_photo_path) }}" alt="User Avatar" data-bs-toggle="modal" data-bs-target="#galleryModal-{{ $user->id }}">
+                                        <img class="img-fluid" style="width: 30px; height: 30px; cursor: zoom-in;" src="{{ url('upload/user_images/'.$user->profile_photo_path) }}" alt="Profile Photo" data-bs-toggle="modal" data-bs-target="#galleryModal-{{ $user->id }}">
                                         @else
                                         <span class="avatar-content bg-warning rounded-circle" style="cursor: zoom-in;" data-bs-toggle="modal" data-bs-target="#galleryModal-{{ $user->id }}">{{ substr($user->first_name,0,1) . substr($user->last_name,0,1)}}</span>
                                         @endif
@@ -72,27 +72,19 @@
                                 </td>
                             </tr>
 
+                            <!-- Start Modal -->
                             <div class="modal" id="galleryModal-{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="galleryModalTitle-{{ $user->id }}" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered modal-dialog-centered" role="document">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
                                     <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="galleryModalTitle-{{ $user->id }}">Profile Avatar</h5>
-                                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                                <i data-feather="x"></i>
-                                            </button>
-                                        </div>
                                         <div class="modal-body">
                                             <div class="text-center">
-                                                <img class="img-fluid" src="{{ (!empty($user->profile_photo_path)) ? url('upload/user_images/'.$user->profile_photo_path) : url('upload/user_images/default_photo.png') }}" alt="User Avatar" data-bs-toggle="modal" data-bs-target="#galleryModal-{{ $user->id }}">
+                                                <img class="img-fluid" src="{{ (!empty($user->profile_photo_path)) ? url('upload/user_images/'.$user->profile_photo_path) : url('upload/user_images/default_photo.png') }}" alt="Profile Photo" data-bs-toggle="modal" data-bs-target="#galleryModal-{{ $user->id }}">
                                             </div>
-                                        </div>
-
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <!-- End Modal -->
                             @endforeach
                         </tbody>
                     </table>

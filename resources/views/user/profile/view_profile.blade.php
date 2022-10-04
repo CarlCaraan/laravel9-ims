@@ -35,7 +35,7 @@
                         <h4 class="mb-4 text-success"> Basic Information</h4>
                         <div class="avatar avatar-xl me-3 mb-3">
                             @if (!empty($user->profile_photo_path))
-                            <img class="img-fluid rounded-circle mb-2" style="width: 80px; height: 80px;" src="{{ url('upload/user_images/'.$user->profile_photo_path) }}" alt="User Avatar">
+                            <img class="img-fluid rounded-circle mb-2" data-bs-toggle="modal" data-bs-target="#showImage" style="width: 80px; height: 80px; cursor:zoom-in;" src="{{ url('upload/user_images/'.$user->profile_photo_path) }}" alt="Profile Photo">
                             @else
                             <br>
                             <span class="avatar-content bg-light shadow-sm rounded-circle p-4">{{ substr($user->first_name,0,1) . substr($user->last_name,0,1)}}</span>
@@ -85,4 +85,15 @@
     </div>
 </section>
 <!-- End Content -->
+
+<!-- Show Profile Photo Modal -->
+<div class="modal" id="showImage" tabindex="-1" aria-labelledby="showImage" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <img class="img-fluid" src="{{ url('upload/user_images/'.$user->profile_photo_path) }}" alt="Profile Photo">
+            </div>
+        </div>
+    </div>
+</div>
 @endsection

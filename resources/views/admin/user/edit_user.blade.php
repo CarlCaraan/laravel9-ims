@@ -39,7 +39,7 @@
                             <div class="form-group row">
                                 <label for="" class="col-sm-3 text-right control-label col-form-label">Profile Photo</label>
                                 <div class="col-md-9 text-left">
-                                    <img class="rounded-circle mb-3" style="width: 90px; height: 90px;" id="show_image" src="{{ (!empty($editData->profile_photo_path)) ? url('upload/user_images/'.$editData->profile_photo_path) : url('upload/user_images/default_photo.png') }}" alt="User Avatar">
+                                    <img class="rounded-circle mb-3" style="width: 90px; height: 90px;" id="show_image" src="{{ (!empty($editData->profile_photo_path)) ? url('upload/user_images/'.$editData->profile_photo_path) : url('upload/user_images/default_photo.png') }}" alt="Profile Photo">
                                 </div>
                             </div>
                             <div class="form-group row">

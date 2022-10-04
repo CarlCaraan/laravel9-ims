@@ -38,13 +38,11 @@
                     <h4 class="mb-4 text-success"> Basic Information</h4>
                     <div class="avatar avatar-xl me-3 mb-4">
                         @if (!empty($user->profile_photo_path))
-                        <img id="image" class="img-fluid" style="width: 70px; height: 70px; cursor:zoom-in;" src="{{ url('upload/user_images/'.$user->profile_photo_path) }}" alt="User Avatar">
+                        <img id="image" data-bs-toggle="modal" data-bs-target="#showImage" class="img-fluid" style="width: 70px; height: 70px; cursor:zoom-in;" src="{{ url('upload/user_images/'.$user->profile_photo_path) }}" alt="Profile Photo">
                         @else
                         <span class="avatar-content bg-warning rounded-circle">{{ substr($user->first_name,0,1) . substr($user->last_name,0,1)}}</span>
                         @endif
                     </div>
-
-                    <button style="display: none;" class="float-start btn btn-secondary btn-sm" id="close_image"><i class="fas fa-compress-alt"></i></button>
 
                     <div class="row">
                         <div class="col-md-4">
@@ -98,28 +96,14 @@
 </div>
 <!-- End Page Content -->
 
-<!-- Jquery CDN -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<!-- Enlarge Image Script -->
-<script>
-    $(document).ready(function() {
-        // Image Preview
-        $('#image').click(function() {
-            $('#image').css({
-                'width': "500px",
-                'height': "100%",
-            });
-            $('#close_image').show();
-        });
-        // Close Button
-        $('#close_image').click(function() {
-            $('#image').css({
-                'width': "100px",
-                'height': "100%",
-            });
-            $('#close_image').css('display', 'none');
-        });
-
-    });
-</script>
+<!-- Show Profile Photo Modal -->
+<div class="modal" id="showImage" tabindex="-1" aria-labelledby="showImage" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <img class="img-fluid" src="{{ url('upload/user_images/'.$user->profile_photo_path) }}" alt="Profile Photo">
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
