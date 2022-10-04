@@ -107,9 +107,17 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
 
         // ========= PDS Management =========
         Route::prefix('pds')->group(function () {
+            // View
             Route::get('admin/pending/view', [PDSController::class, 'PDSPendingView'])->name('pds.pending.view');
-            Route::post('admin/pending/update', [PDSController::class, 'PDSPendingUpdate'])->name('pds.pending.update');
-            Route::get('admin/pending/archive/{id}', [PDSController::class, 'PDSPendingArchive'])->name('pds.pending.archive');
+            Route::get('admin/verified/view', [PDSController::class, 'PDSVerifiedView'])->name('pds.verified.view');
+            Route::get('admin/invalid/view', [PDSController::class, 'PDSInvalidView'])->name('pds.invalid.view');
+            Route::get('admin/archived/view', [PDSController::class, 'PDSArchivedView'])->name('pds.archived.view');
+
+            // Functions
+            Route::post('admin/pds/update', [PDSController::class, 'PDSUpdate'])->name('pds.update');
+            Route::get('admin/pds/archive/{id}', [PDSController::class, 'PDSArchive'])->name('pds.archive');
+            Route::get('admin/pds/restore/{id}', [PDSController::class, 'PDSRestore'])->name('pds.restore');
+            Route::get('admin/pds/delete/{id}', [PDSController::class, 'PDSDelete'])->name('pds.delete');
         });
     }); // End Admin Routes
 

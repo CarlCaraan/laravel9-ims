@@ -1,6 +1,6 @@
 @extends('admin.admin_master')
 
-@section('title') For Verification PDS | Division of Laguna @endsection
+@section('title') Invalid PDS | Division of Laguna @endsection
 
 @section('content')
 <!-- Start Breadcrumb -->
@@ -8,14 +8,14 @@
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3 class="text-warning">For Verification PDS</h3>
-                <p class="text-subtitle text-muted">All List of Pending PDS.</p>
+                <h3 class="text-danger">Invalid PDS</h3>
+                <p class="text-subtitle text-muted">All List of Invalid PDS.</p>
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a class="text-success" href="{{ route('dashboard') }}">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">View Pending PDS</li>
+                        <li class="breadcrumb-item active" aria-current="page">View Invalid PDS</li>
                     </ol>
                 </nav>
             </div>
@@ -98,6 +98,11 @@
                                                 <small><strong>Document Tracking ID:</strong> <ins>{{ $value->pds_tracking_no }}</ins></small>
                                             </div>
 
+                                            <h6>Message:</h6>
+                                            <div class="mb-4">
+                                                {{ $value->pds_message }}
+                                            </div>
+
                                             <form action="{{ route('pds.update') }}" method="POST">
                                                 @csrf
                                                 <input type="hidden" name="id" value="{{ $value->id }}">
@@ -105,22 +110,17 @@
                                                 <div class="form-group">
                                                     <label class="form-label" for="pds_status">Status</label><br />
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" value="Verified" type="radio" name="pds_status" required />
+                                                        <input class="form-check-input" value="For Verification" type="radio" name="pds_status" required />
+                                                        <label class="form-check-label" for="pds_status">
+                                                            For Verification
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" value="Verified" type="radio" name="pds_status" />
                                                         <label class="form-check-label" for="pds_status">
                                                             Verified
                                                         </label>
                                                     </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" id="invalid_id_radio{{ $value->id }}" value="Invalid" type="radio" name="pds_status" />
-                                                        <label class="form-check-label" for="pds_status">
-                                                            Invalid
-                                                        </label>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group" style="display: none;" id="comment{{ $value->id }}">
-                                                    <label class="form-label" for="pds_message">Comment <span class="text-muted">(if invalid)</span><span class="text-danger">*</span></label>
-                                                    <textarea id="comment_textarea{{ $value->id }}" class="form-control" name="pds_message" rows="3" placeholder="Just leave a comment why it is invalid." required></textarea>
                                                 </div>
                                         </div>
                                         <div class="modal-footer">
@@ -132,24 +132,7 @@
                                 </div>
                             </div>
                             <!-- End Modal -->
-
-                            <!-- Start Hidden Comment Textarea -->
-                            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-                            <script>
-                                $(document).ready(function() {
-                                    $("input[name='pds_status']").change(function() {
-                                        if ($("#invalid_id_radio{{ $value->id }}").is(':checked')) {
-                                            $('#comment{{ $value->id }}').show();
-                                            $('#comment_textarea{{ $value->id }}').attr('required', 'required');
-                                        } else {
-                                            $('#comment{{ $value->id }}').hide();
-                                            $('#comment_textarea{{ $value->id }}').removeAttr('required', 'required');
-                                        }
-                                    });
-                                });
-                            </script>
                             @endforeach
-                            <!-- End Hidden Comment Textarea -->
                         </tbody>
                     </table>
                 </div>

@@ -14,7 +14,27 @@ class PDSController extends Controller
         return view('admin.pds.pending_pds_view', $data);
     } // End Method
 
-    public function PDSPendingUpdate(Request $request)
+    public function PDSVerifiedView()
+    {
+        $data['allData'] = PdsFormList::with(['user'])->where('pds_status', 'Verified')->where('pds_archived', 'No')->orderBy('pds_date_uploaded', 'DESC')->get();
+        return view('admin.pds.verified_pds_view', $data);
+    } // End Method
+
+    public function PDSInvalidView()
+    {
+        $data['allData'] = PdsFormList::with(['user'])->where('pds_status', 'Invalid')->where('pds_archived', 'No')->orderBy('pds_date_uploaded', 'DESC')->get();
+        return view('admin.pds.invalid_pds_view', $data);
+    } // End Method
+
+    public function PDSArchivedView()
+    {
+        $data['allData'] = PdsFormList::with(['user'])->where('pds_archived', 'Yes')->orderBy('pds_date_uploaded', 'DESC')->get();
+        return view('admin.pds.archived_pds_view', $data);
+    } // End Method
+
+    // ========= Method POST GET Request Function =========
+
+    public function PDSUpdate(Request $request)
     {
         $validatedData = $request->validate(
             [
@@ -55,7 +75,7 @@ class PDSController extends Controller
         return redirect()->route('pds.pending.view')->with($notification);
     } // End Method
 
-    public function PDSPendingArchive($id)
+    public function PDSArchive($id)
     {
         $pds_form_list = PdsFormList::find($id)->update([
             'pds_archived' => "Yes",
@@ -68,5 +88,29 @@ class PDSController extends Controller
         return redirect()->route('pds.pending.view')->with($notification);
     } // End Method
 
+    public function PDSRestore($id)
+    {
+        $pds_form_list = PdsFormList::find($id)->update([
+            'pds_archived' => "No",
+        ]);
 
+        $notification = array(
+            'message' => 'User PDS Restored successfully',
+            'alert-type' => 'success',
+        );
+        return redirect()->route('pds.pending.view')->with($notification);
+    } // End Method
+
+    public function PDSDelete($id)
+    {
+        $pds_form_list = PdsFormList::find($id);
+        @unlink(public_path('upload/pdf_uploads/' . $pds_form_list->pds_filename));
+        $pds_form_list->delete();
+
+        $notification = array(
+            'message' => 'User PDS Deleted successfully',
+            'alert-type' => 'success',
+        );
+        return redirect()->route('pds.pending.view')->with($notification);
+    } // End Method
 }

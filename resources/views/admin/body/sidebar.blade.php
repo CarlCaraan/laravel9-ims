@@ -129,14 +129,14 @@ $route = Route::current()->getName();
                                 <!-- End For Verification Badge -->
                             </a>
                         </li>
-                        <li class="submenu-item {{ ($route == 'user.add') ? 'active' : '' }}">
-                            <a class="{{ ($route == 'user.add') ? 'text-success' : '' }}" href="{{ route('user.add') }}">Verified</a>
+                        <li class="submenu-item {{ ($route == 'pds.verified.view') ? 'active' : '' }}">
+                            <a class="{{ ($route == 'pds.verified.view') ? 'text-success' : '' }}" href="{{ route('pds.verified.view') }}">Verified</a>
                         </li>
-                        <li class="submenu-item {{ ($route == 'user.add') ? 'active' : '' }}">
-                            <a class="{{ ($route == 'user.add') ? 'text-success' : '' }}" href="{{ route('user.add') }}">Invalid</a>
+                        <li class="submenu-item {{ ($route == 'pds.invalid.view') ? 'active' : '' }}">
+                            <a class="{{ ($route == 'pds.invalid.view') ? 'text-success' : '' }}" href="{{ route('pds.invalid.view') }}">Invalid</a>
                         </li>
-                        <li class="submenu-item {{ ($route == 'user.add') ? 'active' : '' }}">
-                            <a class="{{ ($route == 'user.add') ? 'text-success' : '' }}" href="{{ route('user.add') }}">Archived</a>
+                        <li class="submenu-item {{ ($route == 'pds.archived.view') ? 'active' : '' }}">
+                            <a class="{{ ($route == 'pds.archived.view') ? 'text-success' : '' }}" href="{{ route('pds.archived.view') }}">Archived</a>
                         </li>
                     </ul>
                 </li>
