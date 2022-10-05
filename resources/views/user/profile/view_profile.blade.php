@@ -32,26 +32,26 @@
                         <small class="text-muted float-end mt-2">Last Updated: {{ Carbon\Carbon::parse($user->updated_at)->diffForHumans() }}</small>
                     </div>
                     <div class="card-body px-4 pt-4 pb-5">
-                        <h4 class="mb-4 text-success"> Basic Information</h4>
+                        <h4 class="mb-4 text-success"><i class="fas fa-address-card"></i> Basic Information</h4>
                         <div class="avatar avatar-xl me-3 mb-3">
                             @if (!empty($user->profile_photo_path))
-                            <img class="img-fluid rounded-circle mb-2" data-bs-toggle="modal" data-bs-target="#showImage" style="width: 80px; height: 80px; cursor:zoom-in;" src="{{ url('upload/user_images/'.$user->profile_photo_path) }}" alt="Profile Photo">
+                            <img class="img-fluid rounded mb-2" data-bs-toggle="modal" data-bs-target="#showImage" style="width: 80px; height: 80px; cursor:zoom-in;" src="{{ url('upload/user_images/'.$user->profile_photo_path) }}" alt="Profile Photo">
                             @else
                             <br>
-                            <span class="avatar-content bg-light shadow-sm rounded-circle p-4">{{ substr($user->first_name,0,1) . substr($user->last_name,0,1)}}</span>
+                            <span class="avatar-content bg-light shadow-sm rounded p-4">{{ substr($user->first_name,0,1) . substr($user->last_name,0,1)}}</span>
                             <br><br>
                             @endif
                         </div>
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="first_name" class="form-label">First Name</label>
+                                    <label for="first_name" class="form-label fw-bold">First Name</label>
                                     <input class="form-control" type="text" disabled value="{{ $user->first_name }}">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="last_name" class="form-label">Last Name</label>
+                                    <label for="last_name" class="form-label fw-bold">Last Name</label>
                                     <input class="form-control" type="text" disabled value="{{ $user->last_name }}">
                                 </div>
                             </div>
@@ -59,13 +59,13 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="email" class="form-label">Email Address</label>
+                                    <label for="email" class="form-label fw-bold">Email Address</label>
                                     <input class="form-control" type="text" disabled value="{{ $user->email }}">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="gender" class="form-label">Gender</label>
+                                    <label for="gender" class="form-label fw-bold">Gender</label>
                                     <input class="form-control" type="text" disabled value="{{ $user->gender }}" placeholder="Set your Gender">
                                 </div>
                             </div>
@@ -73,7 +73,7 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="created_at" class="form-label">Joined</label>
+                                    <label for="created_at" class="form-label fw-bold">Joined</label>
                                     <input class="form-control" type="text" disabled value="{{ date('d-m-Y', strtotime($user->created_at)) }}">
                                 </div>
                             </div>

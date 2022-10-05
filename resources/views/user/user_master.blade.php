@@ -132,6 +132,7 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         // SweetAlert2
+        // Delete
         $(function() {
             $(document).on('click', '#delete', function(e) {
                 e.preventDefault();
@@ -151,6 +152,33 @@
                         Swal.fire(
                             'Deleted!',
                             'Your file has been deleted.',
+                            'success'
+                        )
+                    }
+                })
+            });
+        });
+
+        // Delete Photo
+        $(function() {
+            $(document).on('click', '#delete_photo', function(e) {
+                e.preventDefault();
+                var link = $(this).attr("href");
+
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "Delete this Photo?",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = link
+                        Swal.fire(
+                            'Deleted!',
+                            'Your Photo has been deleted.',
                             'success'
                         )
                     }

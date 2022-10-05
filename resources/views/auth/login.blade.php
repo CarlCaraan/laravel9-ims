@@ -47,6 +47,16 @@
                     @endif
                     <!-- End Success Message -->
 
+                    <!-- Google and FB Buttons -->
+                    <div class="text-center mt-4">
+                        <a class="btn btn-light" href="{{ url('login/google')}}"><i class="bi bi-google text-danger"></i></a>
+                        <a class="btn btn-light" href="{{ url('login/facebook')}}"><i class="bi bi-facebook text-primary"></i></a>
+                    </div>
+
+                    <div class="divider">
+                        <div class="divider-text">or</div>
+                    </div>
+
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
                         <div class="form-group form-floating position-relative has-icon-left">
@@ -63,22 +73,13 @@
                             </div>
                             <label class="ms-5" for="password">Password</label>
                         </div>
-                        <div class="form-check form-check-lg d-flex align-items-end">
+                        <div class="form-check form-check-lg d-flex align-items-end mb-3">
                             <input class="form-check-input me-2" type="checkbox" value="" id="flexCheckDefault">
                             <label class="form-check-label text-gray-600" for="flexCheckDefault">
                                 Keep me logged in
                             </label>
                         </div>
-
-                        <div class="text-center mt-4">
-                            <a class="btn btn-light" href="{{ url('login/google')}}"><i class="bi bi-google text-danger"></i></a>
-                            <a class="btn btn-light" href="{{ url('login/facebook')}}"><i class="bi bi-facebook text-primary"></i></a>
-                        </div>
-                        <div class="divider">
-                            <div class="divider-text">or</div>
-                        </div>
                         <button class="btn btn-block btn-lg custom-btn"><i class="fa-solid fa-right-to-bracket me-1"></i> Login</button>
-
                     </form>
                     <div class="text-center mt-5">
                         <p class="text-gray-600">Don't have an account? <a href="{{ route('register')}}" class="font-bold text-custom">Sign
