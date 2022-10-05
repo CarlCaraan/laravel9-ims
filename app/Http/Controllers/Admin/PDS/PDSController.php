@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin\PDS;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\PdsFormList;
+use App\Mail\ManagePDSMail;
+use Illuminate\Support\Facades\Mail;
 
 class PDSController extends Controller
 {
@@ -47,7 +49,6 @@ class PDSController extends Controller
         );
 
         $id = $request->id;
-
         if ($request->pds_status == "Invalid") {
             if ($request->pds_message == "") {
                 $notification = array(
@@ -58,6 +59,47 @@ class PDSController extends Controller
             }
         }
 
+        // ========= Start Working with Laravel Mailing =========
+        $getUser = PdsFormList::find($id)->with(['user'])->get();
+        foreach ($getUser as $user) {
+            $getUserEmail = $user['user']['email'];
+            $getUserFirstName = $user['user']['first_name'];
+            $getUserLastName = $user['user']['last_name'];
+
+            switch ($request->pds_status) {
+                case "Verified":
+                    $data = [
+                        'name' => $getUserFirstName . " " . $getUserLastName,
+                        'email' => $getUserEmail,
+                        'title' => "Your Scanned PDS Form has successfully Verified.",
+                        'message' => "",
+                    ];
+                    Mail::to($getUserEmail)->send(new ManagePDSMail($data)); //  Sends Email
+                    break;
+                case "Invalid":
+                    $data = [
+                        'name' => $getUserFirstName . " " . $getUserLastName,
+                        'email' => $getUserEmail,
+                        'title' => "Your Scanned PDS Form is Invalid.",
+                        'message' => $request->pds_message,
+                    ];
+                    Mail::to($getUserEmail)->send(new ManagePDSMail($data)); //  Sends Email
+                    break;
+                default:
+                    $pds_form_list = PdsFormList::find($id)->update([
+                        'pds_status' => $request->pds_status,
+                        'pds_message' => $request->pds_message,
+                    ]);
+                    $notification = array(
+                        'message' => 'User PDS updated successfully',
+                        'alert-type' => 'success',
+                    );
+                    return redirect()->route('pds.pending.view')->with($notification);
+            } // End Switch
+        }
+        // ========= End Working with Laravel Mailing =========
+
+        // Updating Data
         $pds_form_list = PdsFormList::find($id)->update([
             'pds_status' => $request->pds_status,
             'pds_message' => $request->pds_message,
