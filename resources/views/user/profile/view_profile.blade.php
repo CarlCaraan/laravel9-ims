@@ -90,7 +90,7 @@
 <div class="modal" id="showImage" tabindex="-1" aria-labelledby="showImage" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-            <div class="modal-body">
+            <div class="modal-body center">
                 <img class="img-fluid" src="{{ url('upload/user_images/'.$user->profile_photo_path) }}" alt="Profile Photo">
             </div>
         </div>
