@@ -24,7 +24,7 @@
                 of administrative/criminal case/s against the person concerned.
             </div>
             <span class="custom-heading-label">
-                READ THE ATTACHED GUIDE TO FILLING OUT THE PERSONAL DATA SHEET (PDS) BEFORE ACCOMPLISHING THE PDS FORM.
+                *READ THE ATTACHED GUIDE TO FILLING OUT THE PERSONAL DATA SHEET (PDS) BEFORE ACCOMPLISHING THE PDS FORM.*
             </span>
 
             <!-- ========= Start Error Message Validation ========= -->
