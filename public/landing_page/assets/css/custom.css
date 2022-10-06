@@ -129,7 +129,10 @@ a:focus {
 }
 
 /* ========= Mission Vision ========= */
-.custom-mission-paragraph {
+.custom-serif-paragraph {
+    font-family: "Playfair Display", serif;
+    font-size: 24px;
+    font-weight: 600;
     text-align: justify;
 }
 
