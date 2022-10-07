@@ -73,18 +73,24 @@
                             </div>
                             <label class="ms-5" for="password">Password</label>
                         </div>
-                        <div class="form-check form-check-lg d-flex align-items-end mb-3">
+                        <div class="float-end mb-4">
+                            <small>
+                                <a class="text-secondary" href="{{ route('password.request') }}">
+                                    Forgot password?
+                                </a>
+                            </small>
+                        </div>
+                        <!-- <div class="form-check form-check-lg d-flex align-items-end mb-3">
                             <input class="form-check-input me-2" type="checkbox" value="" id="flexCheckDefault">
                             <label class="form-check-label text-gray-600" for="flexCheckDefault">
                                 Keep me logged in
                             </label>
-                        </div>
+                        </div> -->
                         <button class="btn btn-block btn-lg custom-btn"><i class="fa-solid fa-right-to-bracket me-1"></i> Login</button>
                     </form>
                     <div class="text-center mt-5">
                         <p class="text-gray-600">Don't have an account? <a href="{{ route('register')}}" class="font-bold text-custom">Sign
                                 up</a>.</p>
-                        <p><a class="font-bold text-custom" href="{{ route('password.request') }}">Forgot password?</a></p>
                     </div>
                 </div>
             </div>
