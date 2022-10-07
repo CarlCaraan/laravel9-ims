@@ -41,7 +41,7 @@
                                         <input class="form-control" type="file" id="image" name="image">
                                     </div>
                                     @error('image')
-                                    <span class="text-danger">{{ $message }}</span>
+                                    <small class="text-danger">{{ $message }}</small>
                                     @enderror
                                     <a id="delete_photo" href="{{ route('user.remove.avatar') }}" class="btn btn-light border form-control mt-3">Delete Photo</a>
                                 </div>
@@ -53,7 +53,7 @@
                                         <label for="first_name" class="form-label fw-bold">First Name</label>
                                         <input type="text" class="form-control" name="first_name" id="first_name" placeholder="First Name" value="{{ $editData->first_name }}">
                                         @error('first_name')
-                                        <span class="text-danger">{{ $message }}</span>
+                                        <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </div>
                                 </div>
@@ -62,7 +62,7 @@
                                         <label for="last_name" class="form-label fw-bold">Last Name</label>
                                         <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Last Name" value="{{ $editData->last_name }}">
                                         @error('last_name')
-                                        <span class="text-danger">{{ $message }}</span>
+                                        <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </div>
                                 </div>
@@ -77,13 +77,13 @@
                                         <input type="hidden" class="form-control" name="email" id="email" placeholder="Email Address" value="{{ $editData->email }}">
                                         @else
                                         <input type="text" class="form-control mb-1" name="email" id="email" placeholder="Email Address" value="{{ $editData->email }}">
+                                        @error('email')
+                                        <small class="text-danger">{{ $message }}</small><br />
+                                        @enderror
                                         <span class="badge bg-success">
                                             <i class="bi bi-check-circle-fill"></i> Email Verified
                                         </span>
                                         @endif
-                                        @error('email')
-                                        <span class="text-danger">{{ $message }}</span>
-                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -103,7 +103,7 @@
                                             </label>
                                         </div>
                                         @error('gender')
-                                        <span class="text-danger">{{ $message }}</span>
+                                        <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </div>
                                 </div>
@@ -130,21 +130,21 @@
                                 <label for="current_password" class="form-label fw-bold">Current Password</label>
                                 <input type="password" class="form-control" name="old_password" id="current_password">
                                 @error('old_password')
-                                <span class="text-danger">{{ $message }}</span>
+                                <small class="text-danger">{{ $message }}</small>
                                 @enderror
                             </div>
                             <div class="form-group mb-2">
                                 <label for="password" class="form-label fw-bold">New Password</label>
                                 <input type="password" class="form-control" name="password" id="password">
                                 @error('password')
-                                <span class="text-danger">{{ $message }}</span>
+                                <small class="text-danger">{{ $message }}</small>
                                 @enderror
                             </div>
                             <div class="form-group mb-2">
                                 <label for="password_confirmation" class="form-label fw-bold">Confirm Password</label>
                                 <input type="password" class="form-control" name="password_confirmation" id="password_confirmation">
                                 @error('password_confirmation')
-                                <span class="text-danger">{{ $message }}</span>
+                                <small class="text-danger">{{ $message }}</small>
                                 @enderror
                             </div>
                             <div class="mt-4">

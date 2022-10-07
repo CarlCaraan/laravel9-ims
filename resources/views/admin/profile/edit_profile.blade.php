@@ -136,13 +136,13 @@
                                         <input type="hidden" class="form-control" name="email" id="email" placeholder="Email Address" value="{{ $editData->email }}">
                                         @else
                                         <input type="text" class="form-control mb-1" name="email" id="email" placeholder="Email Address" value="{{ $editData->email }}">
+                                        @error('email')
+                                        <span class="text-danger">{{ $message }}</span><br />
+                                        @enderror
                                         <span class="badge bg-success">
                                             <i class="bi bi-check-circle-fill"></i> Email Verified
                                         </span>
                                         @endif
-                                        @error('email')
-                                        <span class="text-danger">{{ $message }}</span>
-                                        @enderror
                                     </div>
                                 </div>
                                 <div class="border-top mt-4">

@@ -38,6 +38,10 @@ class UserProfileController extends Controller
             ],
             // ~Custom Error messages
             [
+                'first_name.required' => 'First name field is required',
+                'last_name.required' => 'Last name field is required',
+                'email.required' => 'Email Address is required',
+                'gender.required' => 'Gender is required',
                 'image' => 'File format must be JPG, PNG and JPEG!',
             ]
         );

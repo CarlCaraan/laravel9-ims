@@ -40,7 +40,11 @@ class ProfileController extends Controller
             ],
             // ~Custom Error messages
             [
-                'image' => 'File format must be JPG, PNG nad JPEG!',
+                'first_name.required' => 'First name field is required',
+                'last_name.required' => 'Last name field is required',
+                'email.required' => 'Email Address is required',
+                'gender.required' => 'Gender is required',
+                'image' => 'File format must be JPG, PNG and JPEG!',
             ]
         );
 
