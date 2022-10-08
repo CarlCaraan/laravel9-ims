@@ -34,7 +34,7 @@ class PDSController extends Controller
         return view('admin.pds.archived_pds_view', $data);
     } // End Method
 
-    // ========= Method POST GET Request Function =========
+    // ========= Main Update Function of 3 Views =========
 
     public function PDSUpdate(Request $request)
     {
