@@ -240,7 +240,7 @@
     <script>
         Snackbar.show({
             pos: 'bottom-center',
-            text: "There was an error submitting on your request!",
+            text: "There was an error in saving your information!",
             textColor: "#d9534f",
             actionTextColor: "#f7f7f7"
         });
