@@ -36,10 +36,13 @@
     <link href="{{ asset('landing_page/assets/css/custom.css') }}" rel="stylesheet">
 
     <!-- Toastr CSS CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" /> -->
 
     <!-- Filepond CSS CDN -->
     <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
+
+    <!-- SnackBar CSS -->
+    <link href="{{ asset('landing_page/assets/css/snackbar.min.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -100,9 +103,9 @@
     <!-- End Google Translate API -->
 
     <!-- Toastr JS CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script>
-        // Toastr
+        Toastr
         @if(Session::has('message'))
         var type = "{{ Session::get('alert-type', 'info') }}"
         switch (type) {
@@ -123,7 +126,7 @@
                 break;
         }
         @endif
-    </script>
+    </script> -->
 
     <!-- FontAwesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
@@ -186,6 +189,63 @@
             });
         });
     </script>
+
+    <!-- SnackBar JS -->
+    <script src="{{ asset('landing_page/assets/js/snackbar.min.js') }}"></script>
+    <script>
+        // SnackBar
+        @if(Session::has('message'))
+        var type = "{{ Session::get('alert-type', 'info') }}"
+        switch (type) {
+            case 'info':
+                Snackbar.show({
+                    pos: 'bottom-center',
+                    text: "{{ Session::get('message') }}",
+                    textColor: "#5bc0de",
+                    actionTextColor: "#f7f7f7"
+                });
+                break;
+
+            case 'success':
+                Snackbar.show({
+                    pos: 'bottom-center',
+                    text: "{{ Session::get('message') }}",
+                    textColor: "#5cb85c",
+                    actionTextColor: "#f7f7f7"
+                });
+                break;
+
+            case 'warning':
+                Snackbar.show({
+                    pos: 'bottom-center',
+                    text: "{{ Session::get('message') }}",
+                    textColor: "#f0ad4e",
+                    actionTextColor: "#f7f7f7"
+                });
+                break;
+
+            case 'error':
+                Snackbar.show({
+                    pos: 'bottom-center',
+                    text: "{{ Session::get('message') }}",
+                    textColor: "#d9534f",
+                    actionTextColor: "#f7f7f7"
+                });
+                break;
+        }
+        @endif
+    </script>
+    <!-- If has an error -->
+    @if($errors->any())
+    <script>
+        Snackbar.show({
+            pos: 'bottom-center',
+            text: "There was an error submitting on your request!",
+            textColor: "#d9534f",
+            actionTextColor: "#f7f7f7"
+        });
+    </script>
+    @endif
 </body>
 
 </html>
