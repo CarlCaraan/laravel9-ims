@@ -164,7 +164,7 @@
                     Drag & Drop your PDF file or <span class="filepond--label-action">Browse</span>
                 `,
         credits: ['#', 'Powered By DEPED SDO'],
-        // required: true,
+        required: true,
     });
 </script>
 <!-- End Filepond Script -->
