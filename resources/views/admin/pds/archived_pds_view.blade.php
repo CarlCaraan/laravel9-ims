@@ -38,7 +38,7 @@
                                 <th>Email</th>
                                 <th>Name</th>
                                 <th>Date Uploaded</th>
-                                <th>Action</th>
+                                <th width="10%">Action</th>
                             </tr>
                         </thead>
                         <tbody>

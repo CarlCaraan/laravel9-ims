@@ -29,6 +29,16 @@
                     <!-- <h1 class="auth-title center">Log in.</h1> -->
                     <p class="auth-subtitle mb-4">DEPED - School Division Office Centralized Document Management System.</p>
 
+                    <!-- Google and FB Buttons -->
+                    <div class="text-center mt-4">
+                        <a class="btn btn-light" href="{{ url('login/google')}}"><i class="bi bi-google text-danger"></i></a>
+                        <a class="btn btn-light" href="{{ url('login/facebook')}}"><i class="bi bi-facebook text-primary"></i></a>
+                    </div>
+
+                    <div class="divider">
+                        <div class="divider-text">or</div>
+                    </div>
+
                     <!-- Start Validation Message -->
                     <x-jet-validation-errors class="alert alert-secondary text-danger border border-danger" />
                     @if (session('status'))
@@ -46,16 +56,6 @@
                     </div>
                     @endif
                     <!-- End Success Message -->
-
-                    <!-- Google and FB Buttons -->
-                    <div class="text-center mt-4">
-                        <a class="btn btn-light" href="{{ url('login/google')}}"><i class="bi bi-google text-danger"></i></a>
-                        <a class="btn btn-light" href="{{ url('login/facebook')}}"><i class="bi bi-facebook text-primary"></i></a>
-                    </div>
-
-                    <div class="divider">
-                        <div class="divider-text">or</div>
-                    </div>
 
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
