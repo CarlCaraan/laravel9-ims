@@ -99,7 +99,7 @@ $route = Route::current()->getName();
                 <!-- End Account Management -->
 
                 <!-- Start PDS Management -->
-                <li class="sidebar-title">PDS Management</li>
+                <li class="sidebar-title fw-bold">PDS MANAGEMENT</li>
                 <li class="sidebar-item  has-sub {{ ($prefix == '/pds') ? 'active' : '' }}">
                     <a href="#" class="sidebar-link {{ ($prefix == '/pds') ? 'bg-success' : '' }}">
                         <i class="fas fa-file-alt {{ ($prefix == '/pds') ? 'text-white' : '' }}"></i>
@@ -107,11 +107,11 @@ $route = Route::current()->getName();
                             Manage PDS
                             <!-- Start For Verification Badge -->
                             @php
-                            $pending_count = DB::table('pds_form_lists')->where('pds_status', 'For Verification')->where('pds_archived', 'No')->count();
+                            $for_verification_count = DB::table('pds_form_lists')->where('pds_status', 'For Verification')->where('pds_archived', 'No')->count();
                             @endphp
 
-                            @if ($pending_count > 0)
-                            <span class="badge bg-warning">{{ $pending_count }}</span>
+                            @if ($for_verification_count > 0)
+                            <span class="badge bg-warning">{{ $for_verification_count }}</span>
                             @else
                             @endif
                             <!-- End For Verification Badge -->
@@ -122,8 +122,8 @@ $route = Route::current()->getName();
                             <a class="{{ ($route == 'pds.pending.view') ? 'text-success' : '' }}" href="{{ route('pds.pending.view') }}">
                                 For Verification
                                 <!-- Start For Verification Badge -->
-                                @if ($pending_count > 0)
-                                <span class="text-muted">({{ $pending_count }})</span>
+                                @if ($for_verification_count > 0)
+                                <span class="text-muted">({{ $for_verification_count }})</span>
                                 @else
                                 @endif
                                 <!-- End For Verification Badge -->
@@ -141,6 +141,47 @@ $route = Route::current()->getName();
                     </ul>
                 </li>
                 <!-- End PDS Management -->
+
+                <!-- Start Service Record Management -->
+                <li class="sidebar-title fw-bold">SERVICE RECORD</li>
+                <li class="sidebar-item  has-sub {{ ($prefix == '/pds') ? 'active' : '' }}">
+                    <a href="#" class="sidebar-link {{ ($prefix == '/pds') ? 'bg-success' : '' }}">
+                        <i class="fas fa-file-invoice {{ ($prefix == '/pds') ? 'text-white' : '' }}"></i>
+                        <span class="{{ ($prefix == '/pds') ? 'text-white' : '' }}">
+                            Manage SR
+                            <!-- Start For Verification Badge -->
+                            @php
+                            $pending_count = DB::table('user_request_service_records')->where('service_record_status', 'Pending')->count();
+                            @endphp
+
+                            @if ($pending_count > 0)
+                            <span class="badge bg-warning">{{ $pending_count }}</span>
+                            @else
+                            @endif
+                            <!-- End For Verification Badge -->
+                        </span>
+                    </a>
+                    <ul class="submenu {{ ($prefix == '/pds') ? 'active' : '' }}">
+                        <li class="submenu-item {{ ($route == 'pds.pending.view') ? 'active' : '' }}">
+                            <a class="{{ ($route == 'pds.pending.view') ? 'text-success' : '' }}" href="{{ route('pds.pending.view') }}">
+                                All Request
+                                <!-- Start For Verification Badge -->
+                                @if ($pending_count > 0)
+                                <span class="text-muted">({{ $pending_count }})</span>
+                                @else
+                                @endif
+                                <!-- End For Verification Badge -->
+                            </a>
+                        </li>
+                        <li class="submenu-item {{ ($route == 'pds.verified.view') ? 'active' : '' }}">
+                            <a class="{{ ($route == 'pds.verified.view') ? 'text-success' : '' }}" href="{{ route('pds.verified.view') }}">Completed Request</a>
+                        </li>
+                        <li class="submenu-item {{ ($route == 'pds.archived.view') ? 'active' : '' }}">
+                            <a class="{{ ($route == 'pds.archived.view') ? 'text-success' : '' }}" href="{{ route('pds.archived.view') }}">Archived</a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- End Service Record Management -->
             </ul>
         </div>
     </div>

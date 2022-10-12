@@ -27,17 +27,10 @@
         </div>
         <div class="card border-0 shadow-sm">
             <div class="card-body">
-                <div class="card-content">
+                <div class="card-content p-5">
                     <p class="custom-serif-paragraph">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. A quisquam fuga dicta! Autem sint nemo, tempore pariatur aliquid iste, quos similique illo delectus vel velit eos magni atque, modi expedita.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. A quisquam fuga dicta! Autem sint nemo, tempore pariatur aliquid iste, quos similique illo delectus vel velit eos magni atque, modi expedita.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. A quisquam fuga dicta! Autem sint nemo, tempore pariatur aliquid iste, quos similique illo delectus vel velit eos magni atque, modi expedita.
-                        <br><br>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. A quisquam fuga dicta! Autem sint nemo, tempore pariatur aliquid iste, quos similique illo delectus vel velit eos magni atque, modi expedita.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. A quisquam fuga dicta! Autem sint nemo, tempore pariatur aliquid iste, quos similique illo delectus vel velit eos magni atque, modi expedita.
-                        <br><br>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. A quisquam fuga dicta! Autem sint nemo, tempore pariatur aliquid iste, quos similique illo delectus vel velit eos magni atque, modi expedita.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. A quisquam fuga dicta! Autem sint nemo, tempore pariatur aliquid iste, quos similique illo delectus vel velit eos magni atque, modi expedita.
+                        We, at School Division Office of Laguna, are committed to provide effective and efficient basic education services to schools and learning centers in compliance with quality standards, existing statutory, and regulatory policies. <br /><br />
+                        We continuously uphold to improve quality management system through highly competent personnel adhering to Transparent, Ethical and Accountable governance for total customer satisfaction.
                     </p>
                 </div>
             </div>
@@ -46,4 +39,5 @@
     </div>
 </section>
 <!-- End Content -->
+<br /><br /><br /><br /><br /><br /><br /><br />
 @endsection

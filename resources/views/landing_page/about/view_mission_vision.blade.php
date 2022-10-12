@@ -23,32 +23,30 @@
 <section class="inner-page pt-4">
     <div class="container">
         <div class="section-header">
-            <h2>Mission</h2>
+            <h2>Vision</h2>
         </div>
         <div class="card border-0 shadow-sm">
             <div class="card-body">
                 <div class="card-content">
-                    <p class="custom-serif-paragraph">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. A quisquam fuga dicta! Autem sint nemo, tempore pariatur aliquid iste, quos similique illo delectus vel velit eos magni atque, modi expedita.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. A quisquam fuga dicta! Autem sint nemo, tempore pariatur aliquid iste, quos similique illo delectus vel velit eos magni atque, modi expedita.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. A quisquam fuga dicta! Autem sint nemo, tempore pariatur aliquid iste, quos similique illo delectus vel velit eos magni atque, modi expedita.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. A quisquam fuga dicta! Autem sint nemo, tempore pariatur aliquid iste, quos similique illo delectus vel velit eos magni atque, modi expedita.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. A quisquam fuga dicta! Autem sint nemo, tempore pariatur aliquid iste, quos similique illo delectus vel velit eos magni atque, modi expedita.
+                    <p class="custom-serif-paragraph p-5">
+                        We dream of Filipinos who passionately love their country and whose values and competencies enable them to realize their full potential and contribute meaningfully to building the nation.
                     </p>
                 </div>
             </div>
         </div>
         <br>
         <div class="section-header">
-            <h2>Vision</h2>
+            <h2>Mission</h2>
         </div>
         <div class="card border-0 shadow-sm">
             <div class="card-body">
                 <div class="card-content">
-                    <p class="custom-serif-paragraph">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. A quisquam fuga dicta! Autem sint nemo, tempore pariatur aliquid iste, quos similique illo delectus vel velit eos magni atque, modi expedita.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. A quisquam fuga dicta! Autem sint nemo, tempore pariatur aliquid iste, quos similique illo delectus vel velit eos magni atque, modi expedita.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. A quisquam fuga dicta! Autem sint nemo, tempore pariatur aliquid iste, quos similique illo delectus vel velit eos magni atque, modi expedita.
+                    <p class="custom-serif-paragraph p-5">
+                        To protect and promote the right of every Filipino to quality, equitable, culture-based, and complete basic education where: <br /><br />
+                        <strong class="color-secondary">Students</strong> learn in child-friendly, gender-sensitive, safe and motivating environment. <br /><br />
+                        <strong class="color-secondary">Teachers</strong> facilitate learning and constantly nurture every learner. <br /><br />
+                        Administrators and Staff, as stewards of the institution, ensure an enabling and supportive environment for effective learning to happen. <br /><br />
+                        <strong class="color-secondary">Family, Community and other stakeholders</strong> are actively engaged and share responsibility for developing life-long learners.
                     </p>
                 </div>
             </div>
