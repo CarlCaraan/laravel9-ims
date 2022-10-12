@@ -26,6 +26,7 @@ use App\Http\Controllers\User\ContactController;
 use App\Http\Controllers\User\UserHomeController;
 use App\Http\Controllers\User\UserProfileController;
 use App\Http\Controllers\User\GenerateSubmitPDFController;
+use App\Http\Controllers\User\RequestServiceRecordController;
 
 Route::group(['middleware' => 'prevent-back-history'], function () {
     // ========= Google Authentication =========
@@ -148,6 +149,12 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
         Route::get('submit/pdf', [GenerateSubmitPDFController::class, 'SubmitPDF'])->name('submit.pdf');
         Route::post('update/submit/pdf', [GenerateSubmitPDFController::class, 'UpdateSubmitPDF'])->name('update.submit.pdf');
         Route::get('delete/submit/pdf', [GenerateSubmitPDFController::class, 'DeleteSubmitPDF'])->name('delete.submit.pdf');
+
+        // Submit PDF
+        Route::get('request/service-record', [RequestServiceRecordController::class, 'ViewRequestServiceRecord'])->name('view.request.servicerecord');
+        Route::get('store/service-record', [RequestServiceRecordController::class, 'StoreRequestServiceRecord'])->name('store.request.servicerecord');
+        Route::get('delete/service-record/{id}', [RequestServiceRecordController::class, 'DeleteRequestServiceRecord'])->name('delete.request.servicerecord');
+
 
         // Profile Route
         Route::prefix('profile')->group(function () {

@@ -43,6 +43,9 @@
 
     <!-- SnackBar CSS -->
     <link href="{{ asset('landing_page/assets/css/snackbar.min.css') }}" rel="stylesheet">
+
+    <!-- Datatable CSS CDN -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" />
 </head>
 
 <body>
@@ -188,6 +191,60 @@
                 })
             });
         });
+
+        // Send Service Record Request
+        $(function() {
+            $(document).on('click', '#request', function(e) {
+                e.preventDefault();
+                var link = $(this).attr("href");
+
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "Request a Service Record?",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, send it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = link
+                        Swal.fire(
+                            'Request Sent!',
+                            'Your Request has successfully sent.',
+                            'success'
+                        )
+                    }
+                })
+            });
+        });
+
+        // Send Service Cancel Request
+        $(function() {
+            $(document).on('click', '#cancel', function(e) {
+                e.preventDefault();
+                var link = $(this).attr("href");
+
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "Cancel your request?",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, cancel it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = link
+                        Swal.fire(
+                            'Cancelled Succesfully!',
+                            'Your Request cancelled successfully.',
+                            'success'
+                        )
+                    }
+                })
+            });
+        });
     </script>
 
     <!-- SnackBar JS -->
@@ -246,6 +303,9 @@
         });
     </script>
     @endif
+
+    <!-- Datatable JS CDN -->
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 </body>
 
 </html>

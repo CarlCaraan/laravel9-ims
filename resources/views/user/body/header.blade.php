@@ -15,6 +15,7 @@ $route = Route::current()->getName();
             <ul>
                 <li><a class="nav-link {{ ($route == 'user.welcome') ? 'active' : '' }}" href="{{ route('user.welcome')  }}">Home</a></li>
                 <li><a class="nav-link {{ ($route == 'submit.pdf') ? 'active' : '' }}" href="{{ route('submit.pdf')  }}">Submit</a></li>
+                <li><a class="nav-link {{ ($route == 'view.request.servicerecord') ? 'active' : '' }}" href="{{ route('view.request.servicerecord')  }}">Request Service Record</a></li>
                 <li><a class="nav-link {{ ($route == 'user.profile.view') ? 'active' : '' }}" href="{{ route('user.profile.view')  }}">{{ Auth::user()->first_name . " " . Auth::user()->last_name }}</a></li>
                 <li><a class="nav-link" href="{{ route('admin.logout')  }}">Logout</a></li>
             </ul>
