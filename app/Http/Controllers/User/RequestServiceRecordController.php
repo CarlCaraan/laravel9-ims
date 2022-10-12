@@ -19,7 +19,6 @@ class RequestServiceRecordController extends Controller
     {
         $data = new UserRequestServiceRecord();
         $data->user_id = Auth::user()->id;
-        $data->service_record_id = NULL;
         $data->service_record_status = "Pending";
         $data->save();
 
