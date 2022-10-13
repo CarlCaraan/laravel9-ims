@@ -190,7 +190,7 @@ class UserHomeController extends Controller
         return redirect()->route('user.welcome')->with($notification);
     } // End Method
 
-    public function FamilyDatasheetUpdate(UpdateFamilyInfoRequest $request)
+    public function FamilyDatasheetUpdate(Request $request)
     {
         // Updating Family Info
         $family = FamilyInfo::where('user_id', Auth::user()->id)->first();
@@ -288,30 +288,30 @@ class UserHomeController extends Controller
 
         // Elementary
         $educational->elementary_school = Str::title($request->elementary_school);
-        $educational->elementary_course = $request->elementary_course;
+        ($request->elementary_course == "") ? $educational->elementary_course = "n/a" : $educational->elementary_course = $request->elementary_course;
         $educational->elementary_from = $request->elementary_from;
         $educational->elementary_to = $request->elementary_to;
-        $educational->elementary_units = $request->elementary_units;
+        ($request->elementary_units == "") ? $educational->elementary_units = "n/a" : $educational->elementary_units = $request->elementary_units;
         $educational->elementary_graduated = $request->elementary_graduated;
-        $educational->elementary_honors = $request->elementary_honors;
+        ($request->elementary_honors == "") ? $educational->elementary_honors = "none" : $educational->elementary_honors = $request->elementary_honors;
 
         // Secondary
         $educational->secondary_school = Str::title($request->secondary_school);
         $educational->secondary_course = $request->secondary_course;
         $educational->secondary_from = $request->secondary_from;
         $educational->secondary_to = $request->secondary_to;
-        $educational->secondary_units = $request->secondary_units;
+        ($request->secondary_units == "") ? $educational->secondary_units = "n/a" : $educational->secondary_units = $request->secondary_units;
         $educational->secondary_graduated = $request->secondary_graduated;
-        $educational->secondary_honors = $request->secondary_honors;
+        ($request->secondary_honors == "") ? $educational->secondary_honors = "none" : $educational->secondary_honors = $request->secondary_honors;
 
         // Vocational
-        $educational->vocational_school = Str::title($request->vocational_school);
-        $educational->vocational_course = $request->vocational_course;
-        $educational->vocational_from = $request->vocational_from;
-        $educational->vocational_to = $request->vocational_to;
-        $educational->vocational_units = $request->vocational_units;
-        $educational->vocational_graduated = $request->vocational_graduated;
-        $educational->vocational_honors = $request->vocational_honors;
+        ($request->vocational_school == "") ? $educational->vocational_school = "none" : Str::title($request->vocational_school);
+        ($request->vocational_course == "") ? $educational->vocational_course = "none" : $request->vocational_course;
+        ($request->vocational_from == "") ? $educational->vocational_from = "none" : $request->vocational_from;
+        ($request->vocational_to == "") ? $educational->vocational_to = "none" : $request->vocational_to;
+        ($request->vocational_units == "") ? $educational->vocational_units = "n/a" : $request->vocational_units;
+        ($request->vocational_graduated == "") ? $educational->vocational_graduated = "none" : $request->vocational_graduated;
+        ($request->vocational_honors == "") ? $educational->vocational_honors = "none" : $request->vocational_honors;
 
         // College
         $educational->college_school = Str::title($request->college_school);
@@ -320,15 +320,17 @@ class UserHomeController extends Controller
         $educational->college_to = $request->college_to;
         $educational->college_units = $request->college_units;
         $educational->college_graduated = $request->college_graduated;
-        $educational->college_honors = $request->college_honors;
+        ($request->college_honors == "") ? $educational->college_honors = "none" : $request->college_honors;
 
         // Graduate Studies
-        $educational->studies_school = Str::title($request->studies_school);
-        $educational->studies_course = $request->studies_course;
-        $educational->studies_from = $request->studies_from;
-        $educational->studies_to = $request->studies_to;
-        $educational->studies_units = $request->studies_units;
-        $educational->studies_honors = $request->studies_honors;
+        ($request->studies_school == "") ? $educational->studies_school = "none" : Str::title($request->studies_school);
+        ($request->studies_course == "") ? $educational->studies_course = "none" : $request->studies_course;
+        ($request->studies_from == "") ? $educational->studies_from = "none" : $request->studies_from;
+        ($request->studies_to == "") ? $educational->studies_to = "none" : $request->studies_to;
+        ($request->studies_units == "") ? $educational->studies_units = "n/a" : $request->studies_units;
+        ($request->studies_graduated == "") ? $educational->studies_graduated = "none" : $request->studies_graduated;
+        ($request->studies_honors == "") ? $educational->studies_honors = "none" : $request->studies_honors;
+
         $educational->save();
 
         $notification = array(

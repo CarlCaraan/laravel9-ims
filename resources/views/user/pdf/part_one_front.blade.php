@@ -561,7 +561,7 @@
                             {{ $child->children_name }} &nbsp;
                         </td>
                         <td style="border-right: none;">
-                            {{ date('m/d/Y', strtotime($child->children_dob)) }} &nbsp;
+                            {{ ($child->children_dob == "") ? '' : date('m/d/Y', strtotime($child->children_dob)) }} &nbsp;
                         </td>
                     </tr>
                     @endforeach
