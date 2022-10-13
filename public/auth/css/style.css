@@ -63,3 +63,11 @@ label {
     box-shadow: none;
     border: 1px solid var(--primary-app-color);
 }
+
+/* ========= BOOTSTRAP BREAKPOINTS ========= */
+@media (min-width: 1638px) {
+    .auth-subtitle {
+        font-size: 24px !important;
+        margin-block: 3rem;
+    }
+}

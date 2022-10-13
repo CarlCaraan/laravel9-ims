@@ -27,7 +27,7 @@
                         <img class="img-fluid" width="150px" height="150px" src="{{ asset('auth/images/auth_brand.png') }}" alt="Logo">
                     </div>
                     <!-- <h1 class="auth-title center">Log in.</h1> -->
-                    <p class="auth-subtitle mb-4">DEPED - School Division Office Centralized Document Management System.</p>
+                    <p class="auth-subtitle">DEPED - School Division Office Centralized Document Management System.</p>
 
                     <!-- Google and FB Buttons -->
                     <div class="text-center mt-4">
