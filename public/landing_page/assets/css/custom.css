@@ -1,11 +1,11 @@
 /* ========= ALL FONTS ========= */
-@import url("https://fonts.googleapis.com/css2?family=Inter&family=Playfair+Display&family=Poppins&family=Raleway&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Merriweather&family=Playfair+Display&family=Poppins&family=Raleway&display=swap");
 
 /* ========= ALL VARIABLES ========= */
 
 :root {
-    --primary-app-color: #50d8af;
-    --secondary-app-color: #0c2e8a;
+    --primary-app-color: #4492c3;
+    --secondary-app-color: #224389;
 }
 
 /* ========= GLOBAL CSS ========= */
@@ -32,6 +32,9 @@ h6 {
     display: flex;
 }
 
+.color-primary {
+    color: var(--primary-app-color);
+}
 .color-secondary {
     color: var(--secondary-app-color);
 }
@@ -76,6 +79,7 @@ h6 {
 .icon-custom {
     color: var(--primary-app-color);
 }
+a,
 a:hover,
 a:active,
 a:focus {
@@ -108,6 +112,9 @@ a:focus {
 
 /* ========= Navigation ========= */
 
+#header #logo h1 a span {
+    color: var(--primary-app-color);
+}
 .navbar a:hover,
 .navbar .active,
 .navbar .active:focus,
@@ -130,10 +137,13 @@ a:focus {
 
 /* ========= Mission Vision ========= */
 .custom-serif-paragraph {
-    font-family: "Playfair Display", serif;
+    font-family: "Merriweather", serif;
     font-size: 20px;
-    font-weight: 700;
+    /* font-weight: 700; */
     text-align: justify;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: 1px;
 }
 
 /* ======================================= */
@@ -209,6 +219,30 @@ a:focus {
     margin-bottom: 0.5rem;
     font-size: 6em !important;
     color: #acacac;
+}
+
+/*--------------------------------------------------------------
+# Top Bar Landing Page
+--------------------------------------------------------------*/
+
+#topbar .contact-info i {
+    color: var(--primary-app-color);
+}
+
+#topbar .contact-info i a:hover {
+    color: var(--primary-app-color);
+}
+
+#topbar .social-links a:hover {
+    color: var(--primary-app-color);
+}
+
+/* ========= SCROLL TO TOP ========= */
+.back-to-top {
+    background: var(--primary-app-color);
+}
+.back-to-top:hover {
+    background: var(--primary-app-color);
 }
 
 /* ========= BOOTSTRAP BREAKPOINTS ========= */

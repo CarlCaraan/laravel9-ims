@@ -30,8 +30,8 @@ class ContactReceiverMail extends Mailable
     {
         return $this
             ->view('landing_page.contact.receiver_email_contact')
-            ->subject('Inquiries DEPED - SDO')
-            ->from('sdo@gmail.com', 'DEPED-SDO')
+            ->subject('Inquiries | Laguna School Division Office')
+            ->from('laguna@deped.gov.ph', 'Laguna School Division Office')
             ->with('data', $this->data);
     }
 }

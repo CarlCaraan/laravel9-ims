@@ -30,8 +30,8 @@ class ManagePDSMail extends Mailable
     {
         return $this
             ->view('admin.pds.pds_email_template')
-            ->subject('Scanned PDS Status Update DEPED - SDO')
-            ->from('sdo@gmail.com', 'DEPED-SDO')
+            ->subject('Scanned PDS Status Update | Laguna School Division Office')
+            ->from('laguna@deped.gov.ph', 'Laguna School Division Office')
             ->with('data', $this->data);
     }
 }

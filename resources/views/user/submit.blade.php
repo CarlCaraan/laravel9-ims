@@ -80,7 +80,7 @@
                             <tr>
                                 <td>
                                     {{ $pdflist->pds_title }} <i class="fa-solid fa-file-pdf text-danger"></i>
-                                    <a class="fw-bold text-primary" href="#" data-bs-toggle="tooltip" title="Document Tracking ID: {{ $pdflist->pds_tracking_no }}" data-bs-placement="right">[?]</a>
+                                    <a class="fw-bold color-primary" href="#" data-bs-toggle="tooltip" title="Document Tracking ID: {{ $pdflist->pds_tracking_no }}" data-bs-placement="right">[?]</a>
                                 </td>
                                 <td>
                                     <div class="alert alert-warning shadow-sm text-dark" style="display:none;" id="message-invalid" role="alert">
@@ -133,7 +133,7 @@
         <form action="{{ route('update.submit.pdf') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <input type="file" name="pdf" accept="application/pdf" />
-            <button type="submit" class="btn custom-btn-secondary"><i class="fa-solid fa-paperclip"></i> Upload</button>
+            <button type="submit" class="btn custom-btn"><i class="fa-solid fa-paperclip"></i> Upload</button>
         </form>
         <!-- End Form -->
 

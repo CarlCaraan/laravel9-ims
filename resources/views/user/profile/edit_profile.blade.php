@@ -28,7 +28,7 @@
             <div class="col-md-6">
                 <div class="card mb-4 shadow-sm border-0">
                     <div class="card-body px-4 py-4-5">
-                        <h4 class="mb-4 text-success"><i class="icon-mid bi bi-gear-fill me-2"></i>General</h4>
+                        <h4 class="mb-4 color-primary"><i class="icon-mid bi bi-gear-fill me-2"></i>General</h4>
                         <form class="form-horizontal mt-5" method="POST" action="{{ route('user.profile.update') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="row mb-4">
@@ -110,7 +110,7 @@
                             </div>
 
                             <div class="mt-4">
-                                <button type="submit" class="btn btn-success float-end">Update Profile</button>
+                                <button type="submit" class="btn custom-btn float-end">Update Profile</button>
                             </div>
                         </form>
 
@@ -123,7 +123,7 @@
                     <div class="card-body px-4 py-4-5">
                         @if ($editData->password == NULL)
                         @else
-                        <h4 class="mb-4 text-success"><i class="icon-mid bi bi-shield-fill me-2"></i>Security and Login</h4>
+                        <h4 class="mb-4 color-primary"><i class="icon-mid bi bi-shield-fill me-2"></i>Security and Login</h4>
                         <form class="form-horizontal mt-5" method="POST" action="{{ route('user.password.update') }}">
                             @csrf
                             <div class="form-group mb-2">
@@ -148,7 +148,7 @@
                                 @enderror
                             </div>
                             <div class="mt-4">
-                                <button type="submit" class="btn btn-success float-end">Update Password</button>
+                                <button type="submit" class="btn custom-btn float-end">Update Password</button>
                             </div>
                         </form>
                         @endif

@@ -16,11 +16,11 @@ class UserSiteInfoSeeder extends Seeder
     public function run()
     {
         DB::table('user_site_infos')->insert([
-            'email' => 'sdo@gmail.com',
-            'mobile' => '0912-345-6789',
+            'email' => 'laguna@deped.gov.ph',
+            'mobile' => '(049) 831-9062 | 831-9064',
             'facebook_link' => 'https://www.facebook.com/',
             'website_link' => 'sdo.com',
-            'address' => 'Pedro Guevara Ave, Santa Cruz, Laguna',
+            'address' => 'DepEd Building, Provincial Capitol Compound, Santa Cruz, Laguna',
             'footer' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, neque suscipit. Eum accusantium et dolorem culpa sit molestias, nisi cupiditate veniam ipsum illum animi nesciunt nostrum error quidem autem molestiae.",
             'auth_brand' => NULL,
             'user_brand' => NULL,

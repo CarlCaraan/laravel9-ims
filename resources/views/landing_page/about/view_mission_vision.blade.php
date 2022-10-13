@@ -43,10 +43,10 @@
                 <div class="card-content">
                     <p class="custom-serif-paragraph p-5">
                         To protect and promote the right of every Filipino to quality, equitable, culture-based, and complete basic education where: <br /><br />
-                        <strong class="color-secondary">Students</strong> learn in child-friendly, gender-sensitive, safe and motivating environment. <br /><br />
-                        <strong class="color-secondary">Teachers</strong> facilitate learning and constantly nurture every learner. <br /><br />
+                        <strong>Students</strong> learn in child-friendly, gender-sensitive, safe and motivating environment. <br /><br />
+                        <strong>Teachers</strong> facilitate learning and constantly nurture every learner. <br /><br />
                         Administrators and Staff, as stewards of the institution, ensure an enabling and supportive environment for effective learning to happen. <br /><br />
-                        <strong class="color-secondary">Family, Community and other stakeholders</strong> are actively engaged and share responsibility for developing life-long learners.
+                        <strong>Family, Community and other stakeholders</strong> are actively engaged and share responsibility for developing life-long learners.
                     </p>
                 </div>
             </div>

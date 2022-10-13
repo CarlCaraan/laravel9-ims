@@ -1,11 +1,11 @@
 /* ========= ALL FONTS ========= */
-@import url("https://fonts.googleapis.com/css2?family=Inter&family=Playfair+Display&family=Poppins&family=Raleway&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Merriweather&family=Playfair+Display&family=Poppins&family=Raleway&display=swap");
 
 /* ========= ALL VARIABLES ========= */
 
 :root {
-    --primary-app-color: #50d8af;
-    --secondary-app-color: #0c2e8a;
+    --primary-app-color: #4492c3;
+    --secondary-app-color: #224389;
 }
 
 /* ========= GLOBAL CSS ========= */
