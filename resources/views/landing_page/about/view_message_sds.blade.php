@@ -1,6 +1,6 @@
 @extends('landing_page.user_master')
 
-@section('title') Message from SDS | DEPED Division of Laguna @endsection
+@section('title') Message from SDS | Division of Laguna @endsection
 
 @section('content')
 <!-- ======= Breadcrumbs Section ======= -->

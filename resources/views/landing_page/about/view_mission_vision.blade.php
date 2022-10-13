@@ -1,6 +1,6 @@
 @extends('landing_page.user_master')
 
-@section('title') Mission Vision | DEPED Division of Laguna @endsection
+@section('title') Mission Vision | Division of Laguna @endsection
 
 @section('content')
 <!-- ======= Breadcrumbs Section ======= -->

@@ -1,6 +1,6 @@
 @extends('landing_page.user_master')
 
-@section('title') Contact | DEPED Division of Laguna @endsection
+@section('title') Contact | Division of Laguna @endsection
 
 @section('content')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

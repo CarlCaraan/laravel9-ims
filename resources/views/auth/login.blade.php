@@ -7,8 +7,10 @@
     <title>Login | DEPED Division of Laguna</title>
     <link rel="stylesheet" href="{{ asset('admin/assets/css/main/app.css') }}">
     <link rel="stylesheet" href="{{ asset('admin/assets/css/pages/auth.css') }}">
-    <link rel="shortcut icon" href="{{ asset('admin/assets/images/logo/favicon.svg') }}" type="image/x-icon">
-    <link rel="shortcut icon" href="{{ asset('admin/assets/images/logo/favicon.png') }}" type="image/png">
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="{{ asset('admin/assets/images/logo/favicon.ico') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('admin/assets/images/logo/favicon.ico') }}" type="image/png">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('auth/css/style.css') }}">

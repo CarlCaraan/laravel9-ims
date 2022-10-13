@@ -1,6 +1,6 @@
 @extends('landing_page.user_master')
 
-@section('title') Quality Policy | DEPED Division of Laguna @endsection
+@section('title') Quality Policy | Division of Laguna @endsection
 
 @section('content')
 <!-- ======= Breadcrumbs Section ======= -->
