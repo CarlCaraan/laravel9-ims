@@ -17,6 +17,7 @@ use App\Http\Controllers\Admin\SiteInfo\UserInquiryController;
 
 // ========= All HR Controller =========
 use App\Http\Controllers\Admin\PDS\PDSController;
+use App\Http\Controllers\Admin\PDS\PDSRequestController;
 
 // ========= Landing Page Controller =========
 use App\Http\Controllers\User\About\AboutController;
@@ -120,6 +121,11 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
             Route::get('admin/pds/restore/{id}', [PDSController::class, 'PDSRestore'])->name('pds.restore');
             Route::get('admin/pds/delete/{id}', [PDSController::class, 'PDSDelete'])->name('pds.delete');
         });
+
+        // ========= SR Request Management =========
+        Route::prefix('pds_request')->group(function () {
+            Route::get('admin/pending/view', [PDSRequestController::class, 'PDSPendingView'])->name('pds.pending.view');
+        });
     }); // End Admin Routes
 
     // ========= ALL User Routes =========
@@ -150,7 +156,7 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
         Route::post('update/submit/pdf', [GenerateSubmitPDFController::class, 'UpdateSubmitPDF'])->name('update.submit.pdf');
         Route::get('delete/submit/pdf', [GenerateSubmitPDFController::class, 'DeleteSubmitPDF'])->name('delete.submit.pdf');
 
-        // Submit PDF
+        // SR Request
         Route::get('request/service-record', [RequestServiceRecordController::class, 'ViewRequestServiceRecord'])->name('view.request.servicerecord');
         Route::get('store/service-record', [RequestServiceRecordController::class, 'StoreRequestServiceRecord'])->name('store.request.servicerecord');
         Route::get('delete/service-record/{id}', [RequestServiceRecordController::class, 'DeleteRequestServiceRecord'])->name('delete.request.servicerecord');

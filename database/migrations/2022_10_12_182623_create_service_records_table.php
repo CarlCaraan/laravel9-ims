@@ -15,6 +15,16 @@ return new class extends Migration
     {
         Schema::create('service_records', function (Blueprint $table) {
             $table->id();
+            $table->integer('service_request_record_id')->nullable()->comment('FK = user_request_service_records id');
+
+            $table->string('sr_from')->nullable();
+            $table->string('sr_to')->nullable();
+            $table->string('sr_designation')->nullable();
+            $table->string('sr_status')->nullable();
+            $table->string('sr_place_of_assesment')->nullable();
+            $table->string('sr_branch')->nullable();
+            $table->string('sr_leave_of_absence')->nullable();
+            $table->string('sr_separation_date_caused')->nullable();
             $table->timestamps();
         });
     }

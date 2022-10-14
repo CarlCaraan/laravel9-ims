@@ -5,7 +5,9 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\UserRequestServiceRecord;
+use App\Models\ServiceRecord;
 use Auth;
+use Illuminate\Support\Facades\DB;
 
 class RequestServiceRecordController extends Controller
 {
@@ -17,10 +19,17 @@ class RequestServiceRecordController extends Controller
 
     public function StoreRequestServiceRecord()
     {
-        $data = new UserRequestServiceRecord();
-        $data->user_id = Auth::user()->id;
-        $data->service_record_status = "Pending";
-        $data->save();
+        // Insert SR Request
+        $sr_request_id = DB::table('user_request_service_records')->insertGetId([
+            'user_id' => Auth::user()->id,
+            'service_record_status' => "Pending"
+        ]);
+
+
+        // Insert SR Request
+        $service_record = new ServiceRecord();
+        $service_record->service_request_record_id = $sr_request_id;
+        $service_record->save();
 
         $notification = array(
             'message' => 'Request sent successfully',
@@ -31,7 +40,8 @@ class RequestServiceRecordController extends Controller
 
     public function DeleteRequestServiceRecord($id)
     {
-        $data = UserRequestServiceRecord::find($id)->delete();
+        $sr_request = UserRequestServiceRecord::find($id)->delete();
+        $service_record = ServiceRecord::where('service_request_record_id', $id)->delete();
 
         $notification = array(
             'message' => 'Request cancelled successfully',
