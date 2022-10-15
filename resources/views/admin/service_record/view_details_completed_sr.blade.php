@@ -69,7 +69,7 @@
                                         <span>{{ $user->first_name }}</span>
                                     </td>
                                     <td class="border-bottom text-center">
-                                        <span>{{ $allRequest->sr_middle_name }}</span>
+                                        <span>{{ $allRequest['0']->sr_middle_name }}</span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -91,10 +91,10 @@
                                         <strong> Birth:</strong>
                                     </td>
                                     <td class="border-bottom text-center">
-                                        <span> {{ date('m/d/Y', strtotime($allRequest->sr_dob)) }} </sp>
+                                        <span> {{ date('m/d/Y', strtotime($allRequest['0']->sr_dob)) }} </sp>
                                     </td>
                                     <td class="border-bottom text-center" colspan="2">
-                                        <span>{{$allRequest->sr_pob }}</span>
+                                        <span>{{ $allRequest['0']->sr_pob }}</span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -131,7 +131,7 @@
             </div>
             <!-- Add Modal -->
             <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModal" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-dialog modal-dialog-centered modal-xl">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title">Add Service Record</h5>
@@ -147,28 +147,58 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="form-label" for="sr_from">Service From<span class="text-danger">*</span></label>
-                                            <input type="date" class="form-control" name="sr_from[]" required>
+                                            <input type="date" class="form-control" name="sr_from">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="form-label" for="sr_to">Service To<span class="text-danger">*</span></label>
-                                            <input type="date" class="form-control" name="sr_to[]" required>
+                                            <input type="date" class="form-control" name="sr_to" required>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="form-label" for="sr_designation">Designation<span class="text-danger">*</span></label>
-                                            <select class="form-select" name="sr_designation[]" required>
+                                            <select class="form-select" name="sr_designation" required>
                                                 <option value="" disabled selected>Select</option>
                                                 <option value="Administrative Aide I">Administrative Aide I</option>
+                                                <option value="Administrative Aide II">Administrative Aide II</option>
+                                                <option value="Administrative Aide III">Administrative Aide III</option>
+                                                <option value="Administrative Aide IV">Administrative Aide IV</option>
+                                                <option value="Administrative Aide V">Administrative Aide V</option>
+                                                <option value="Administrative Aide VI">Administrative Aide VI</option>
+                                                <option value="Administrative Asst. II">Administrative Asst. II</option>
+                                                <option value="Administrative Asst. III">Administrative Asst. III</option>
+                                                <option value="Administrative Officer II">Administrative Officer II</option>
+                                                <option value="Asst. Principal">Asst. Principal</option>
+                                                <option value="Disbursing Officer II">Disbursing Officer II</option>
+                                                <option value="Head Teacher I">Head Teacher I</option>
+                                                <option value="Head Teacher II">Head Teacher II</option>
+                                                <option value="Head Teacher III">Head Teacher III</option>
+                                                <option value="Head Teacher IV">Head Teacher IV</option>
+                                                <option value="Head Teacher V">Head Teacher V</option>
+                                                <option value="Head Teacher VI">Head Teacher VI</option>
+                                                <option value="Head Teacher VII">Head Teacher VII</option>
+                                                <option value="Master Teacher I">Master Teacher I</option>
+                                                <option value="Master Teacher II">Master Teacher II</option>
+                                                <option value="PSDS">PSDS</option>
+                                                <option value="Registrar I">Registrar I</option>
+                                                <option value="School Principal I">School Principal I</option>
+                                                <option value="School Principal II">School Principal II</option>
+                                                <option value="School Principal III">School Principal III</option>
+                                                <option value="School Principal IV">School Principal IV</option>
+                                                <option value="Senior Bookkeeper">Senior Bookkeeper</option>
+                                                <option value="Special Science Teacher I">Special Science Teacher I</option>
+                                                <option value="Teacher I">Teacher I</option>
+                                                <option value="Teacher II">Teacher II</option>
+                                                <option value="Teacher III">Teacher III</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="form-label" for="sr_status">Status<span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" name="sr_status[]" required>
+                                            <input type="text" class="form-control" name="sr_status" required>
                                         </div>
                                     </div>
                                 </div> <!-- End Row -->
@@ -179,20 +209,20 @@
                                             <label class="form-label" for="sr_salary">Salary <strong>(Annual)</strong><span class="text-danger">*</span></label>
                                             <div class="input-group">
                                                 <span class="input-group-text">₱</span>
-                                                <input type="text" class="form-control" name="sr_salary[]" required>
+                                                <input type="text" class="form-control" name="sr_salary" required>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="form-label" for="sr_place_of_assignment">Office Entity Station/Place of Assignment<span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" name="sr_place_of_assignment[]" required>
+                                            <input type="text" class="form-control" name="sr_place_of_assignment" required>
                                         </div>
                                     </div>
                                     <div class="col-md-2">
                                         <div class="form-group">
                                             <label class="form-label" for="sr_branch">Branch<span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" name="sr_branch[]" required>
+                                            <input type="text" class="form-control" name="sr_branch" required>
                                         </div>
                                     </div>
                                 </div> <!-- End Row -->
@@ -200,11 +230,11 @@
                                 <div class="row">
                                     <div class="col-md-4">
                                         <label class="form-label" for="sr_leave_of_absence">Leave of Absence w/o pay</label>
-                                        <input type="text" class="form-control" name="sr_leave_of_absence[]">
+                                        <input type="text" class="form-control" name="sr_leave_of_absence">
                                     </div>
                                     <div class="col-md-4">
                                         <label class="form-label" for="sr_separation_date_caused">Separation Date Caused</label>
-                                        <input type="text" class="form-control" name="sr_separation_date_caused[]">
+                                        <input type="text" class="form-control" name="sr_separation_date_caused">
                                     </div>
                                 </div> <!-- End Row -->
 
@@ -249,14 +279,131 @@
                                 <td>{{ $value->sr_place_of_assignment }}</td>
                                 <td>{{ $value->sr_branch }}</td>
                                 <td>
-                                    <a href="" type="button" class="btn btn-primary">
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal{{ $value->id }}">
                                         <i class="fas fa-edit"></i>
-                                    </a>
-                                    <a href="" class="btn icon btn-danger" id="delete">
+                                    </button>
+                                    <a href="{{ route('deletedetails.completed.sr', [$user->email ,$value->id]) }}" class="btn icon btn-danger" id="delete">
                                         <i class="fas fa-trash"></i>
                                     </a>
                                 </td>
                             </tr>
+
+                            <!-- Edit Modal -->
+                            <div class="modal fade" id="editModal{{ $value->id }}" aria-labelledby="editModal" tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered modal-xl">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Add Service Record</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action="{{ route('updatedetails.completed.sr', $value->id) }}" method="POST">
+                                                @csrf
+
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <label class="form-label" for="sr_from">Service From<span class="text-danger">*</span></label>
+                                                            <input type="date" class="form-control" name="sr_from" value="{{ $value->sr_from }}">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <label class="form-label" for="sr_to">Service To<span class="text-danger">*</span></label>
+                                                            <input type="date" class="form-control" name="sr_to" value="{{ $value->sr_to }}" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <label class="form-label" for="sr_designation">Designation<span class="text-danger">*</span></label>
+                                                            <select class="form-select" name="sr_designation" required>
+                                                                <option value="" disabled selected>Select</option>
+                                                                <option value="Administrative Aide I" {{ ($value->sr_designation == "Administrative Aide I") ? 'selected' : '' }}>Administrative Aide I</option>
+                                                                <option value="Administrative Aide II" {{ ($value->sr_designation == "Administrative Aide II") ? 'selected' : '' }}>Administrative Aide II</option>
+                                                                <option value="Administrative Aide III" {{ ($value->sr_designation == "Administrative Aide III") ? 'selected' : '' }}>Administrative Aide III</option>
+                                                                <option value="Administrative Aide IV" {{ ($value->sr_designation == "Administrative Aide IV") ? 'selected' : '' }}>Administrative Aide IV</option>
+                                                                <option value="Administrative Aide V" {{ ($value->sr_designation == "Administrative Aide V") ? 'selected' : '' }}>Administrative Aide V</option>
+                                                                <option value="Administrative Aide VI" {{ ($value->sr_designation == "Administrative Aide VI") ? 'selected' : '' }}>Administrative Aide VI</option>
+                                                                <option value="Administrative Asst. II" {{ ($value->sr_designation == "Administrative Aide VI") ? 'selected' : '' }}>Administrative Asst. II</option>
+                                                                <option value="Administrative Asst. III" {{ ($value->sr_designation == "Administrative Asst. III") ? 'selected' : '' }}>Administrative Asst. III</option>
+                                                                <option value="Administrative Officer II" {{ ($value->sr_designation == "Administrative Officer II") ? 'selected' : '' }}>Administrative Officer II</option>
+                                                                <option value="Asst. Principal" {{ ($value->sr_designation == "Asst. Principal") ? 'selected' : '' }}>Asst. Principal</option>
+                                                                <option value="Disbursing Officer II" {{ ($value->sr_designation == "Disbursing Officer II") ? 'selected' : '' }}>Disbursing Officer II</option>
+                                                                <option value="Head Teacher I" {{ ($value->sr_designation == "Head Teacher I") ? 'selected' : '' }}>Head Teacher I</option>
+                                                                <option value="Head Teacher II" {{ ($value->sr_designation == "Head Teacher II") ? 'selected' : '' }}>Head Teacher II</option>
+                                                                <option value="Head Teacher III" {{ ($value->sr_designation == "Head Teacher III") ? 'selected' : '' }}>Head Teacher III</option>
+                                                                <option value="Head Teacher IV" {{ ($value->sr_designation == "Head Teacher IV") ? 'selected' : '' }}>Head Teacher IV</option>
+                                                                <option value="Head Teacher V" {{ ($value->sr_designation == "Head Teacher V") ? 'selected' : '' }}>Head Teacher V</option>
+                                                                <option value="Head Teacher VI" {{ ($value->sr_designation == "Head Teacher VI") ? 'selected' : '' }}>Head Teacher VI</option>
+                                                                <option value="Head Teacher VII" {{ ($value->sr_designation == "Head Teacher VII") ? 'selected' : '' }}>Head Teacher VII</option>
+                                                                <option value="Master Teacher I" {{ ($value->sr_designation == "Master Teacher I") ? 'selected' : '' }}>Master Teacher I</option>
+                                                                <option value="Master Teacher II" {{ ($value->sr_designation == "Master Teacher II") ? 'selected' : '' }}>Master Teacher II</option>
+                                                                <option value="PSDS" {{ ($value->sr_designation == "PSDS") ? 'selected' : '' }}>PSDS</option>
+                                                                <option value="Registrar I" {{ ($value->sr_designation == "Registrar I") ? 'selected' : '' }}>Registrar I</option>
+                                                                <option value="School Principal I" {{ ($value->sr_designation == "School Principal I") ? 'selected' : '' }}>School Principal I</option>
+                                                                <option value="School Principal II" {{ ($value->sr_designation == "School Principal II") ? 'selected' : '' }}>School Principal II</option>
+                                                                <option value="School Principal III" {{ ($value->sr_designation == "School Principal III") ? 'selected' : '' }}>School Principal III</option>
+                                                                <option value="School Principal IV" {{ ($value->sr_designation == "School Principal IV") ? 'selected' : '' }}>School Principal IV</option>
+                                                                <option value="Senior Bookkeeper" {{ ($value->sr_designation == "Senior Bookkeeper") ? 'selected' : '' }}>Senior Bookkeeper</option>
+                                                                <option value="Special Science Teacher I" {{ ($value->sr_designation == "Special Science Teacher I") ? 'selected' : '' }}>Special Science Teacher I</option>
+                                                                <option value="Teacher I" {{ ($value->sr_designation == "Teacher I") ? 'selected' : '' }}>Teacher I</option>
+                                                                <option value="Teacher II" {{ ($value->sr_designation == "Teacher II") ? 'selected' : '' }}>Teacher II</option>
+                                                                <option value="Teacher III" {{ ($value->sr_designation == "Teacher III") ? 'selected' : '' }}>Teacher III</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <label class="form-label" for="sr_status">Status<span class="text-danger">*</span></label>
+                                                            <input type="text" class="form-control" name="sr_status" value="{{ $value->sr_status }}" required>
+                                                        </div>
+                                                    </div>
+                                                </div> <!-- End Row -->
+
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label class="form-label" for="sr_salary">Salary <strong>(Annual)</strong><span class="text-danger">*</span></label>
+                                                            <div class="input-group">
+                                                                <span class="input-group-text">₱</span>
+                                                                <input type="text" class="form-control" name="sr_salary" value="{{ $value->sr_salary }}" required>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label class="form-label" for="sr_place_of_assignment">Office Entity Station/Place of Assignment<span class="text-danger">*</span></label>
+                                                            <input type="text" class="form-control" name="sr_place_of_assignment" value="{{ $value->sr_place_of_assignment }}" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <div class="form-group">
+                                                            <label class="form-label" for="sr_branch">Branch<span class="text-danger">*</span></label>
+                                                            <input type="text" class="form-control" name="sr_branch" value="{{ $value->sr_branch }}" required>
+                                                        </div>
+                                                    </div>
+                                                </div> <!-- End Row -->
+
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <label class="form-label" for="sr_leave_of_absence">Leave of Absence w/o pay</label>
+                                                        <input type="text" class="form-control" name="sr_leave_of_absence" value="{{ $value->sr_leave_of_absence }}">
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label class="form-label" for="sr_separation_date_caused">Separation Date Caused</label>
+                                                        <input type="text" class="form-control" name="sr_separation_date_caused" value="{{ $value->sr_separation_date_caused }}">
+                                                    </div>
+                                                </div> <!-- End Row -->
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Update Record</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             @endforeach
                         </tbody>
                     </table>

@@ -54,7 +54,7 @@
                                     <a href="{{ route('viewdetails.completed.sr', [$value['user']['email'], $value->id]) }}" type="button" class="btn btn-primary">
                                         View Details
                                     </a>
-                                    <a href="{{ route('pds.archive', $value->id) }}" class="btn icon btn-danger" id="archive">Archive</a>
+                                    <a href="{{ route('archivedetails.completed.sr', [$value['user']['email'], $value->id]) }}" class="btn icon btn-danger" id="archive">Archive</a>
                                 </td>
                             </tr>
                             @endforeach
