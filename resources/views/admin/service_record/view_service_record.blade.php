@@ -50,7 +50,7 @@
                                 <th>Email</th>
                                 <th>Name</th>
                                 <th>Date Requested</th>
-                                <th width="15%">Action</th>
+                                <th width="20%">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -62,10 +62,10 @@
                                 <td>{{ $value['user']['first_name'] . ' ' . $value['user']['last_name'] }}</td>
                                 <td> {{ date('m/d/Y - h:ia', strtotime($value->created_at)) }}</td>
                                 <td>
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#no{{ $value->id }}">
-                                        <i class="fas fa-edit"></i>
-                                    </button>
-                                    <a href="{{ route('pds.archive', $value->id) }}" class="btn icon btn-danger" id="archive"><i class="fas fa-archive"></i></a>
+                                    <a href="{{ route('edit.request.sr', $value->id) }}" type="button" class="btn btn-primary">
+                                        Create
+                                    </a>
+                                    <a href="{{ route('pds.archive', $value->id) }}" class="btn icon btn-danger" id="archive">Archive</a>
                                 </td>
                             </tr>
 

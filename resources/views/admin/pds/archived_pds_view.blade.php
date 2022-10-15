@@ -38,7 +38,7 @@
                                 <th>Email</th>
                                 <th>Name</th>
                                 <th>Date Uploaded</th>
-                                <th width="10%">Action</th>
+                                <th width="20%">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -50,8 +50,8 @@
                                 <td>{{ $value['user']['first_name'] . ' ' . $value['user']['last_name'] }}</td>
                                 <td>{{ $value->pds_date_uploaded }}</td>
                                 <td>
-                                    <a href="{{ route('pds.restore', $value->id) }}" class="btn icon btn-success" id="restore"><i class="fas fa-trash-restore"></i> Restore</a>
-                                    <a href="{{ route('pds.delete', $value->id) }}" class="btn icon btn-danger" id="delete"><i class="fas fa-trash"></i> Delete</a>
+                                    <a href="{{ route('pds.restore', $value->id) }}" class="btn icon btn-success" id="restore">Restore</a>
+                                    <a href="{{ route('pds.delete', $value->id) }}" class="btn icon btn-danger" id="delete">Delete</a>
                                 </td>
                             </tr>
                             @endforeach

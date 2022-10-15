@@ -86,8 +86,8 @@
                                             <div class="border rounded p-2 mb-4 shadow-sm">
                                                 <div class="row">
                                                     <div class="col-lg-10 mb-2">
-                                                        <span><strong>Email:</strong> {{ $value['user']['email'] }}</span><br />
                                                         <span><strong>Name:</strong> {{ $value['user']['first_name'] . " " . $value['user']['last_name']  }}</span><br />
+                                                        <span><strong>Email:</strong> {{ $value['user']['email'] }}</span><br />
                                                         <span><strong>Sex:</strong> {{ $value['user']['gender'] }}</span> <br />
                                                         <small><strong>User Secret ID:</strong> <ins>{{ $value['user']['tracking_id'] }}</ins></small> <br />
                                                     </div>

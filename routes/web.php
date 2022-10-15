@@ -125,7 +125,8 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
         // ========= SR Request Management =========
         Route::prefix('sr_request')->group(function () {
             Route::get('admin/pending/view', [ServiceRecordController::class, 'AllRequestView'])->name('all.request.view');
-            Route::post('admin/pending/update', [ServiceRecordController::class, 'UpdateRequestView'])->name('update.request.sr');
+            Route::get('admin/pending/edit/{id}', [ServiceRecordController::class, 'EditRequestSR'])->name('edit.request.sr');
+            Route::post('admin/pending/update', [ServiceRecordController::class, 'UpdateRequestSR'])->name('update.request.sr');
         });
     }); // End Admin Routes
 
