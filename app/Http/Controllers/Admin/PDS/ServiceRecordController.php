@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\PDS;
 
 use App\Http\Controllers\Controller;
+use App\Models\PersonalInfo;
 use Illuminate\Http\Request;
 use App\Models\UserRequestServiceRecord;
 use App\Models\ServiceRecord;
@@ -64,7 +65,6 @@ class ServiceRecordController extends Controller
     {
         $data['allData'] = ServiceRecord::where('service_request_record_id', $id)->get();
         $data['user'] = User::where('email', $email)->first();
-        // dd($data['user']->email);
 
         return view('admin.service_record.view_details_completed_sr', $data);
     } // End Method

@@ -46,23 +46,25 @@
                     </div>
 
                     <!-- Start User Details -->
-                    <h6>User Details:</h6>
-                    <div class="border rounded p-2 mb-4 shadow-sm">
-                        <div class="row">
-                            <div class="col-lg-10 mb-2">
-                                <span><strong>Email:</strong> {{ $editData['user']['email'] }}</span><br />
-                                <span><strong>Name:</strong> {{ $editData['user']['first_name'] . " " . $editData['user']['last_name']  }}</span><br />
-                                <span><strong>Sex:</strong> {{ $editData['user']['gender'] }}</span> <br />
-                                <small><strong>User Secret ID:</strong> <ins>{{ $editData['user']['tracking_id'] }}</ins></small> <br />
-                            </div>
-                            <div class="col-lg-2 mb-2">
-                                @if (!empty($editData['user']['profile_photo_path']))
-                                <img class="img-fluid float-end rounded" src="{{ url('upload/user_images/'.$editData['user']['profile_photo_path']) }}" alt="Profile Photo">
-                                @else
-                                <img class="img-fluid" src="{{ (!empty($editData['user']['profile_photo_path'])) ? url('upload/user_images/'.$value['user']['profile_photo_path']) : url('upload/user_images/default_photo.png') }}" alt="Profile Photo">
-                                @endif
-                            </div>
-                        </div> <!-- End Row -->
+                    <div class="card border p-2 mb-4 shadow-sm">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-10 mb-2">
+                                    <h6>User Details:</h6><br />
+                                    <span><strong>Email:</strong> {{ $editData['user']['email'] }}</span><br />
+                                    <span><strong>Name:</strong> {{ $editData['user']['first_name'] . " " . $editData['user']['last_name']  }}</span><br />
+                                    <span><strong>Sex:</strong> {{ $editData['user']['gender'] }}</span> <br />
+                                    <small><strong>User Secret ID:</strong> <ins>{{ $editData['user']['tracking_id'] }}</ins></small> <br />
+                                </div>
+                                <div class="col-lg-2 mb-2">
+                                    @if (!empty($editData['user']['profile_photo_path']))
+                                    <img class="img-fluid float-end rounded" src="{{ url('upload/user_images/'.$editData['user']['profile_photo_path']) }}" alt="Profile Photo">
+                                    @else
+                                    <img class="img-fluid" src="{{ (!empty($editData['user']['profile_photo_path'])) ? url('upload/user_images/'.$value['user']['profile_photo_path']) : url('upload/user_images/default_photo.png') }}" alt="Profile Photo">
+                                    @endif
+                                </div>
+                            </div> <!-- End Row -->
+                        </div>
                     </div>
                     <!-- End User Details -->
 
@@ -140,7 +142,6 @@
                                     </div>
                                     <div class="col-md-4" style="padding-top: 30px;">
                                         <span class="btn btn-success addeventmore"><i class="fa fa-plus-circle"></i></span>
-                                        <span class="btn btn-danger removeeventmore"><i class="fa fa-minus-circle"></i></span>
                                     </div>
                                 </div> <!-- End Row -->
 
