@@ -49,7 +49,7 @@
                                 <th>Email</th>
                                 <th>Name</th>
                                 <th>Date Uploaded</th>
-                                <th width="10%">Action</th>
+                                <th width="15%">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -70,7 +70,7 @@
 
                             <!-- Start Modal -->
                             <div class="modal" id="no{{ $value->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-lg">
+                                <div class="modal-dialog modal-lg modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="exampleModalLabel">Manage PDS</h5>
@@ -81,14 +81,27 @@
                                                 <strong>Note:</strong> User will be notified through their email.
                                             </div>
 
+                                            <!-- Start User Details -->
                                             <h6>User Details:</h6>
                                             <div class="border rounded p-2 mb-4 shadow-sm">
-                                                <span><strong>Email:</strong> {{ $value['user']['email'] }}</span><br />
-                                                <span><strong>Name:</strong> {{ $value['user']['first_name'] . " " . $value['user']['last_name']  }}</span><br />
-                                                <span><strong>Sex:</strong> {{ $value['user']['gender'] }}</span> <br />
-                                                <small><strong>User Secret ID:</strong> <ins>{{ $value['user']['tracking_id'] }}</ins></small> <br />
+                                                <div class="row">
+                                                    <div class="col-lg-10 mb-2">
+                                                        <span><strong>Email:</strong> {{ $value['user']['email'] }}</span><br />
+                                                        <span><strong>Name:</strong> {{ $value['user']['first_name'] . " " . $value['user']['last_name']  }}</span><br />
+                                                        <span><strong>Sex:</strong> {{ $value['user']['gender'] }}</span> <br />
+                                                        <small><strong>User Secret ID:</strong> <ins>{{ $value['user']['tracking_id'] }}</ins></small> <br />
+                                                    </div>
+                                                    <div class="col-lg-2 mb-2">
+                                                        @if (!empty($value['user']['profile_photo_path']))
+                                                        <img class="img-fluid float-end rounded" src="{{ url('upload/user_images/'.$value['user']['profile_photo_path']) }}" alt="Profile Photo">
+                                                        @else
+                                                        <img class="img-fluid" src="{{ (!empty($value['user']['profile_photo_path'])) ? url('upload/user_images/'.$value['user']['profile_photo_path']) : url('upload/user_images/default_photo.png') }}" alt="Profile Photo">
+                                                        @endif
+                                                    </div>
+                                                </div> <!-- End Row -->
                                                 <hr class="my-1" style=" border-top: 1px dashed #fff;">
-                                                <span><strong>Attachment:</strong>
+                                                <span>
+                                                    <strong>Attachment:</strong>
                                                     [
                                                     <a class="text-underline" href="{{ url('upload/pdf_uploads/'.$value->pds_filename) }}" target="_blank">
                                                         Preview
@@ -97,6 +110,7 @@
                                                 </span> <br />
                                                 <small><strong>Document Tracking ID:</strong> <ins>{{ $value->pds_tracking_no }}</ins></small>
                                             </div>
+                                            <!-- End User Details -->
 
                                             <form action="{{ route('pds.update') }}" method="POST">
                                                 @csrf

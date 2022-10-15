@@ -19,10 +19,22 @@ class RequestServiceRecordController extends Controller
 
     public function StoreRequestServiceRecord()
     {
+        // Only Single Request Condition
+        $requestExists = UserRequestServiceRecord::where('user_id', Auth::user()->id)->where('service_record_status', 'Pending')->count();
+
+        if ($requestExists) {
+            $notification = array(
+                'message' => 'You already have pending request!',
+                'alert-type' => 'error',
+            );
+            return redirect()->route('view.request.servicerecord')->with($notification);
+        }
+
         // Insert SR Request
         $sr_request_id = DB::table('user_request_service_records')->insertGetId([
             'user_id' => Auth::user()->id,
-            'service_record_status' => "Pending"
+            'service_record_status' => "Pending",
+            'created_at' => now()
         ]);
 
 

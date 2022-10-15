@@ -21,7 +21,8 @@ return new class extends Migration
             $table->string('sr_to')->nullable();
             $table->string('sr_designation')->nullable();
             $table->string('sr_status')->nullable();
-            $table->string('sr_place_of_assesment')->nullable();
+            $table->string('sr_salary')->nullable();
+            $table->string('sr_place_of_assignment')->nullable();
             $table->string('sr_branch')->nullable();
             $table->string('sr_leave_of_absence')->nullable();
             $table->string('sr_separation_date_caused')->nullable();

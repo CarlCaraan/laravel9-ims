@@ -144,10 +144,10 @@ $route = Route::current()->getName();
 
                 <!-- Start Service Record Management -->
                 <li class="sidebar-title fw-bold">SERVICE RECORD</li>
-                <li class="sidebar-item  has-sub {{ ($prefix == '/pds') ? 'active' : '' }}">
-                    <a href="#" class="sidebar-link {{ ($prefix == '/pds') ? 'bg-success' : '' }}">
-                        <i class="fas fa-file-invoice {{ ($prefix == '/pds') ? 'text-white' : '' }}"></i>
-                        <span class="{{ ($prefix == '/pds') ? 'text-white' : '' }}">
+                <li class="sidebar-item  has-sub {{ ($prefix == '/sr_request') ? 'active' : '' }}">
+                    <a href="#" class="sidebar-link {{ ($prefix == '/sr_request') ? 'bg-success' : '' }}">
+                        <i class="fas fa-file-invoice {{ ($prefix == '/sr_request') ? 'text-white' : '' }}"></i>
+                        <span class="{{ ($prefix == '/sr_request') ? 'text-white' : '' }}">
                             Manage SR
                             <!-- Start For Verification Badge -->
                             @php
@@ -161,9 +161,9 @@ $route = Route::current()->getName();
                             <!-- End For Verification Badge -->
                         </span>
                     </a>
-                    <ul class="submenu {{ ($prefix == '/pds') ? 'active' : '' }}">
-                        <li class="submenu-item {{ ($route == 'pds.pending.view') ? 'active' : '' }}">
-                            <a class="{{ ($route == 'pds.pending.view') ? 'text-success' : '' }}" href="{{ route('pds.pending.view') }}">
+                    <ul class="submenu {{ ($prefix == '/sr_request') ? 'active' : '' }}">
+                        <li class="submenu-item {{ ($route == 'all.request.view') ? 'active' : '' }}">
+                            <a class="{{ ($route == 'all.request.view') ? 'text-success' : '' }}" href="{{ route('all.request.view') }}">
                                 All Request
                                 <!-- Start For Verification Badge -->
                                 @if ($pending_count > 0)

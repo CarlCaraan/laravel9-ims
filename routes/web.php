@@ -17,7 +17,7 @@ use App\Http\Controllers\Admin\SiteInfo\UserInquiryController;
 
 // ========= All HR Controller =========
 use App\Http\Controllers\Admin\PDS\PDSController;
-use App\Http\Controllers\Admin\PDS\PDSRequestController;
+use App\Http\Controllers\Admin\PDS\ServiceRecordController;
 
 // ========= Landing Page Controller =========
 use App\Http\Controllers\User\About\AboutController;
@@ -123,8 +123,9 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
         });
 
         // ========= SR Request Management =========
-        Route::prefix('pds_request')->group(function () {
-            Route::get('admin/pending/view', [PDSRequestController::class, 'PDSPendingView'])->name('pds.pending.view');
+        Route::prefix('sr_request')->group(function () {
+            Route::get('admin/pending/view', [ServiceRecordController::class, 'AllRequestView'])->name('all.request.view');
+            Route::post('admin/pending/update', [ServiceRecordController::class, 'UpdateRequestView'])->name('update.request.sr');
         });
     }); // End Admin Routes
 
