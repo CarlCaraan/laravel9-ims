@@ -135,6 +135,7 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
 
             // Service Record
             Route::get('admin/completed/{email}/{id}', [ServiceRecordController::class, 'ViewDetailsCompletedSR'])->name('viewdetails.completed.sr');
+            Route::post('admin/completed/store', [ServiceRecordController::class, 'StoreDetailsCompletedSR'])->name('storedetails.completed.sr');
         });
     }); // End Admin Routes
 

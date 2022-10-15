@@ -18,6 +18,9 @@ return new class extends Migration
             $table->integer('user_id')->nullable()->comment('FK = user id');
 
             $table->string('service_record_status')->nullable();
+            $table->string('sr_middle_name')->nullable();
+            $table->string('sr_dob')->nullable();
+            $table->string('sr_pob')->nullable();
             $table->string('archived')->nullable()->comment('Yes / No');
             $table->timestamps();
         });

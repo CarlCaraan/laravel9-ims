@@ -25,7 +25,25 @@ class ServiceRecordController extends Controller
 
     public function UpdateRequestSR(Request $request)
     {
+        //  ========= All Validation =========
+        if ($request->sr_middle_name == '' || $request->sr_dob == '' || $request->sr_pob == '') {
+            $notification = array(
+                'message' => 'Required field must not be empty!',
+                'alert-type' => 'error',
+            );
+            return redirect()->route('all.request.view')->with($notification);
+        }
+
         $request_id = $request->id;
+
+        // Working With Request Table
+        UserRequestServiceRecord::where('id', $request_id)->update([
+            'sr_middle_name' => $request->sr_middle_name,
+            'sr_dob' => $request->sr_dob,
+            'sr_pob' => $request->sr_pob,
+        ]);
+
+        // Working With Service Record Table
         ServiceRecord::where('service_request_record_id', $request_id)->delete();
 
         $count_sr_from = count($request->sr_from);
@@ -64,8 +82,28 @@ class ServiceRecordController extends Controller
     public function ViewDetailsCompletedSR($email, $id)
     {
         $data['allData'] = ServiceRecord::where('service_request_record_id', $id)->get();
+        $data['allRequest'] = UserRequestServiceRecord::find($id)->first();
         $data['user'] = User::where('email', $email)->first();
 
         return view('admin.service_record.view_details_completed_sr', $data);
+    } // End Method
+
+    public function StoreDetailsCompletedSR(Request $request)
+    {
+        $validatedData = $request->validate(
+            [
+                'sr_from' => 'required',
+                'sr_to' => 'required',
+                'sr_designation' => 'required',
+                'sr_status' => 'required',
+                'sr_salary' => 'required',
+                'sr_place_of_assignment' => 'required',
+                'sr_branch' => 'required',
+            ],
+            // ~Custom Error messages
+            [
+                'sr_from.required' => 'Service From is required',
+            ]
+        );
     } // End Method
 }

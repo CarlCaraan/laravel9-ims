@@ -27,6 +27,17 @@
 </div>
 <!-- End Breadcrumb -->
 
+<!-- ========= Start Error Message Validation ========= -->
+@if ($errors->any())
+<div class="text-danger fw-bold">
+    <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
+
 <!-- Start Page Content -->
 <div class="page-content">
     <section class="row">
@@ -58,7 +69,7 @@
                                         <span>{{ $user->first_name }}</span>
                                     </td>
                                     <td class="border-bottom text-center">
-
+                                        <span>{{ $allRequest->sr_middle_name }}</span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -80,10 +91,10 @@
                                         <strong> Birth:</strong>
                                     </td>
                                     <td class="border-bottom text-center">
-                                        <span>{{$user->last_name }}</span>
+                                        <span> {{ date('m/d/Y', strtotime($allRequest->sr_dob)) }} </sp>
                                     </td>
                                     <td class="border-bottom text-center" colspan="2">
-                                        <span>{{$user->last_name }}</span>
+                                        <span>{{$allRequest->sr_pob }}</span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -114,6 +125,101 @@
                 each line which is supported by appointment and other papers actually issued by this office and approved by the authority
             </p>
 
+            <!-- Add Button Modal -->
+            <div class="w-100">
+                <button class="btn btn-primary mb-2 float-end" data-bs-toggle="modal" data-bs-target="#addModal">Add Record</button>
+            </div>
+            <!-- Add Modal -->
+            <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModal" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Add Service Record</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="{{ route('storedetails.completed.sr') }}" method="POST">
+                                @csrf
+
+                                <input type="hidden" value="{{ $allData['0']->service_request_record_id }}" name="id">
+
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="form-label" for="sr_from">Service From<span class="text-danger">*</span></label>
+                                            <input type="date" class="form-control" name="sr_from[]" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="form-label" for="sr_to">Service To<span class="text-danger">*</span></label>
+                                            <input type="date" class="form-control" name="sr_to[]" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="form-label" for="sr_designation">Designation<span class="text-danger">*</span></label>
+                                            <select class="form-select" name="sr_designation[]" required>
+                                                <option value="" disabled selected>Select</option>
+                                                <option value="Administrative Aide I">Administrative Aide I</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="form-label" for="sr_status">Status<span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" name="sr_status[]" required>
+                                        </div>
+                                    </div>
+                                </div> <!-- End Row -->
+
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-label" for="sr_salary">Salary <strong>(Annual)</strong><span class="text-danger">*</span></label>
+                                            <div class="input-group">
+                                                <span class="input-group-text">₱</span>
+                                                <input type="text" class="form-control" name="sr_salary[]" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label" for="sr_place_of_assignment">Office Entity Station/Place of Assignment<span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" name="sr_place_of_assignment[]" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label class="form-label" for="sr_branch">Branch<span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" name="sr_branch[]" required>
+                                        </div>
+                                    </div>
+                                </div> <!-- End Row -->
+
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label class="form-label" for="sr_leave_of_absence">Leave of Absence w/o pay</label>
+                                        <input type="text" class="form-control" name="sr_leave_of_absence[]">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label" for="sr_separation_date_caused">Separation Date Caused</label>
+                                        <input type="text" class="form-control" name="sr_separation_date_caused[]">
+                                    </div>
+                                </div> <!-- End Row -->
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Add Record</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br /><br />
+
             <div class="card">
                 <div class="card-body px-4 py-4-5">
                     <table class="table table-striped" id="table1">
@@ -135,8 +241,8 @@
                             @foreach ($allData as $key => $value)
                             <tr>
                                 <td>{{ $key+1 }}</td>
-                                <td>{{ $value->sr_from }}</td>
-                                <td>{{ $value->sr_to }}</td>
+                                <td> {{ date('m/d/Y', strtotime($value->sr_from)) }} </td>
+                                <td> {{ date('m/d/Y', strtotime($value->sr_from)) }}</td>
                                 <td>{{ $value->sr_designation }}</td>
                                 <td>{{ $value->sr_status }}</td>
                                 <td>₱{{ $value->sr_salary }}</td>

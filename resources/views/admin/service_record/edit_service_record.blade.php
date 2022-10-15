@@ -24,17 +24,6 @@
 </div>
 <!-- End Breadcrumb -->
 
-<!-- ========= Start Error Message Validation ========= -->
-@if ($errors->any())
-<div class="text-danger fw-bold">
-    <ul>
-        @foreach ($errors->all() as $error)
-        <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-</div>
-@endif
-
 <!-- Start Page Content -->
 <div class="page-content">
     <section class="row">
@@ -71,6 +60,29 @@
                     <form action="{{ route('update.request.sr') }}" method="POST">
                         @csrf
 
+                        <h6>Additional Information (Required):</h6>
+                        <div class="row mb-4">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="form-label" for="sr_middle_name">Middle Name<span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" name="sr_middle_name" required>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="form-label" for="sr_dob">Date of Birth<span class="text-danger">*</span></label>
+                                    <input type="date" class="form-control" name="sr_dob" required>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="form-label" for="sr_pob">Place of Birth<span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" name="sr_pob" required>
+                                </div>
+                            </div>
+                        </div> <!-- End Row -->
+
+
                         <h6>Fill Up Service Record:</h6>
                         <input type="hidden" name="id" value="{{ $editData->id }}">
 
@@ -80,20 +92,20 @@
                                 <div class="row">
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label class="form-label" for="sr_from">Service From</label>
-                                            <input type="date" class="form-control" name="sr_from[]">
+                                            <label class="form-label" for="sr_from">Service From<span class="text-danger">*</span></label>
+                                            <input type="date" class="form-control" name="sr_from[]" required>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label class="form-label" for="sr_to">Service To</label>
-                                            <input type="date" class="form-control" name="sr_to[]">
+                                            <label class="form-label" for="sr_to">Service To<span class="text-danger">*</span></label>
+                                            <input type="date" class="form-control" name="sr_to[]" required>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label class="form-label" for="sr_designation">Designation</label>
-                                            <select class="form-select" name="sr_designation[]">
+                                            <label class="form-label" for="sr_designation">Designation<span class="text-danger">*</span></label>
+                                            <select class="form-select" name="sr_designation[]" required>
                                                 <option value="" disabled selected>Select</option>
                                                 <option value="Administrative Aide I">Administrative Aide I</option>
                                             </select>
@@ -101,8 +113,8 @@
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label class="form-label" for="sr_status">Status</label>
-                                            <input type="text" class="form-control" name="sr_status[]">
+                                            <label class="form-label" for="sr_status">Status<span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" name="sr_status[]" required>
                                         </div>
                                     </div>
                                 </div> <!-- End Row -->
@@ -110,23 +122,23 @@
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label class="form-label" for="sr_salary">Salary <strong>(Annual)</strong></label>
+                                            <label class="form-label" for="sr_salary">Salary <strong>(Annual)</strong><span class="text-danger">*</span></label>
                                             <div class="input-group">
                                                 <span class="input-group-text">₱</span>
-                                                <input type="text" class="form-control" name="sr_salary[]">
+                                                <input type="text" class="form-control" name="sr_salary[]" required>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="form-label" for="sr_place_of_assignment">Office Entity Station/Place of Assignment</label>
-                                            <input type="text" class="form-control" name="sr_place_of_assignment[]">
+                                            <label class="form-label" for="sr_place_of_assignment">Office Entity Station/Place of Assignment<span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" name="sr_place_of_assignment[]" required>
                                         </div>
                                     </div>
                                     <div class="col-md-2">
                                         <div class="form-group">
-                                            <label class="form-label" for="sr_branch">Branch</label>
-                                            <input type="text" class="form-control" name="sr_branch[]">
+                                            <label class="form-label" for="sr_branch">Branch<span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" name="sr_branch[]" required>
                                         </div>
                                     </div>
                                 </div> <!-- End Row -->
@@ -165,20 +177,20 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="form-group">
-                        <label class="form-label" for="sr_from">Service From</label>
-                        <input type="date" class="form-control" name="sr_from[]">
+                        <label class="form-label" for="sr_from">Service From<span class="text-danger">*</span></label>
+                        <input type="date" class="form-control" name="sr_from[]" required>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
-                        <label class="form-label" for="sr_to">Service To</label>
-                        <input type="date" class="form-control" name="sr_to[]">
+                        <label class="form-label" for="sr_to">Service To<span class="text-danger">*</span></label>
+                        <input type="date" class="form-control" name="sr_to[]" required>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
-                        <label class="form-label" for="sr_designation">Designation</label>
-                        <select class="form-select" name="sr_designation[]">
+                        <label class="form-label" for="sr_designation">Designation<span class="text-danger">*</span></label>
+                        <select class="form-select" name="sr_designation[]" required>
                             <option value="" disabled selected>Select</option>
                             <option value="Administrative Aide I">Administrative Aide I</option>
                         </select>
@@ -186,8 +198,8 @@
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
-                        <label class="form-label" for="sr_status">Status</label>
-                        <input type="text" class="form-control" name="sr_status[]">
+                        <label class="form-label" for="sr_status">Status<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" name="sr_status[]" required>
                     </div>
                 </div>
             </div> <!-- End Row -->
@@ -195,23 +207,23 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="form-group">
-                        <label class="form-label" for="sr_salary">Salary <strong>(Annual)</strong></label>
+                        <label class="form-label" for="sr_salary">Salary <strong>(Annual)</strong><span class="text-danger">*</span></label>
                         <div class="input-group">
                             <span class="input-group-text">₱</span>
-                            <input type="text" class="form-control" name="sr_salary[]">
+                            <input type="text" class="form-control" name="sr_salary[]" required>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label class="form-label" for="sr_place_of_assignment">Office Entity Station/Place of Assignment</label>
-                        <input type="text" class="form-control" name="sr_place_of_assignment[]">
+                        <label class="form-label" for="sr_place_of_assignment">Office Entity Station/Place of Assignment<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" name="sr_place_of_assignment[]" required>
                     </div>
                 </div>
                 <div class="col-md-2">
                     <div class="form-group">
-                        <label class="form-label" for="sr_branch">Branch</label>
-                        <input type="text" class="form-control" name="sr_branch[]">
+                        <label class="form-label" for="sr_branch">Branch<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" name="sr_branch[]" required>
                     </div>
                 </div>
             </div> <!-- End Row -->
