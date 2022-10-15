@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\UserRequestServiceRecord;
 use App\Models\ServiceRecord;
+use App\Models\User;
 
 class ServiceRecordController extends Controller
 {
@@ -17,7 +18,7 @@ class ServiceRecordController extends Controller
 
     public function EditRequestSR($id)
     {
-        $data['editData'] = UserRequestServiceRecord::with(['user'])->orderBy('created_at', 'DESC')->find($id);
+        $data['editData'] = UserRequestServiceRecord::with(['user'])->find($id);
         return view('admin.service_record.edit_service_record', $data);
     }
 
@@ -29,7 +30,7 @@ class ServiceRecordController extends Controller
         $count_sr_from = count($request->sr_from);
         for ($i = 0; $i < $count_sr_from; $i++) {
             $service_record = new ServiceRecord();
-            $service_record->service_request_record_id = $request_id[$i];
+            $service_record->service_request_record_id = $request_id;
             $service_record->sr_from = $request->sr_from[$i];
             $service_record->sr_to = $request->sr_to[$i];
             $service_record->sr_designation = $request->sr_designation[$i];
@@ -51,5 +52,20 @@ class ServiceRecordController extends Controller
             'alert-type' => 'success',
         );
         return redirect()->route('all.request.view')->with($notification);
+    } // End Method
+
+    public function AllCompletedView()
+    {
+        $data['allData'] = UserRequestServiceRecord::with(['user'])->where('service_record_status', 'Completed')->orderBy('updated_at', 'DESC')->get();
+        return view('admin.service_record.view_completedservice_record', $data);
+    } // End Method
+
+    public function ViewDetailsCompletedSR($email, $id)
+    {
+        $data['allData'] = ServiceRecord::where('service_request_record_id', $id)->get();
+        $data['user'] = User::where('email', $email)->first();
+        // dd($data['user']->email);
+
+        return view('admin.service_record.view_details_completed_sr', $data);
     } // End Method
 }

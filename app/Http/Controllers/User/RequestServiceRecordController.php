@@ -13,7 +13,7 @@ class RequestServiceRecordController extends Controller
 {
     public function ViewRequestServiceRecord()
     {
-        $allData['sr_requests'] = UserRequestServiceRecord::where('user_id', Auth::user()->id)->orderBy('id', 'DESC')->get();
+        $allData['sr_requests'] = UserRequestServiceRecord::where('user_id', Auth::user()->id)->where('archived', 'No')->orderBy('id', 'DESC')->get();
         return view('user.request_servicerecord', $allData);
     } // End Method
 
@@ -34,6 +34,7 @@ class RequestServiceRecordController extends Controller
         $sr_request_id = DB::table('user_request_service_records')->insertGetId([
             'user_id' => Auth::user()->id,
             'service_record_status' => "Pending",
+            'archived' => "No",
             'created_at' => now()
         ]);
 

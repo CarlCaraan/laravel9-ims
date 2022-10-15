@@ -144,10 +144,10 @@ $route = Route::current()->getName();
 
                 <!-- Start Service Record Management -->
                 <li class="sidebar-title fw-bold">SERVICE RECORD</li>
-                <li class="sidebar-item  has-sub {{ ($prefix == '/sr_request') ? 'active' : '' }}">
-                    <a href="#" class="sidebar-link {{ ($prefix == '/sr_request') ? 'bg-success' : '' }}">
-                        <i class="fas fa-file-invoice {{ ($prefix == '/sr_request') ? 'text-white' : '' }}"></i>
-                        <span class="{{ ($prefix == '/sr_request') ? 'text-white' : '' }}">
+                <li class="sidebar-item  has-sub {{ ($prefix == '/manage-sr') ? 'active' : '' }}">
+                    <a href="#" class="sidebar-link {{ ($prefix == '/manage-sr') ? 'bg-success' : '' }}">
+                        <i class="fas fa-file-invoice {{ ($prefix == '/manage-sr') ? 'text-white' : '' }}"></i>
+                        <span class="{{ ($prefix == '/manage-sr') ? 'text-white' : '' }}">
                             Manage SR
                             <!-- Start For Verification Badge -->
                             @php
@@ -161,9 +161,9 @@ $route = Route::current()->getName();
                             <!-- End For Verification Badge -->
                         </span>
                     </a>
-                    <ul class="submenu {{ ($prefix == '/sr_request') ? 'active' : '' }}">
-                        <li class="submenu-item {{ ($route == 'all.request.view') ? 'active' : '' }}">
-                            <a class="{{ ($route == 'all.request.view') ? 'text-success' : '' }}" href="{{ route('all.request.view') }}">
+                    <ul class="submenu {{ ($prefix == '/manage-sr') ? 'active' : '' }}">
+                        <li class="submenu-item {{ ($route == 'all.request.view' || $route == 'edit.request.sr') ? 'active' : '' }}">
+                            <a class="{{ ($route == 'all.request.view' || $route == 'edit.request.sr') ? 'text-success' : '' }}" href="{{ route('all.request.view') }}">
                                 All Request
                                 <!-- Start For Verification Badge -->
                                 @if ($pending_count > 0)
@@ -173,8 +173,8 @@ $route = Route::current()->getName();
                                 <!-- End For Verification Badge -->
                             </a>
                         </li>
-                        <li class="submenu-item {{ ($route == 'pds.verified.view') ? 'active' : '' }}">
-                            <a class="{{ ($route == 'pds.verified.view') ? 'text-success' : '' }}" href="{{ route('pds.verified.view') }}">Completed Request</a>
+                        <li class="submenu-item {{ ($route == 'all.completed.view' || $route == 'viewdetails.completed.sr') ? 'active' : '' }}">
+                            <a class="{{ ($route == 'all.completed.view' || $route == 'viewdetails.completed.sr') ? 'text-success' : '' }}" href="{{ route('all.completed.view') }}">Completed Request</a>
                         </li>
                         <li class="submenu-item {{ ($route == 'pds.archived.view') ? 'active' : '' }}">
                             <a class="{{ ($route == 'pds.archived.view') ? 'text-success' : '' }}" href="{{ route('pds.archived.view') }}">Archived</a>

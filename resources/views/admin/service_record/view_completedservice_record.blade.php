@@ -1,6 +1,6 @@
 @extends('admin.admin_master')
 
-@section('title') All Request | Division of Laguna @endsection
+@section('title') Completed Request | Division of Laguna @endsection
 
 @section('content')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -9,14 +9,14 @@
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3 class="text-warning">Service Record Requested List</h3>
-                <p class="text-subtitle text-muted">All List of Request (Service Record).</p>
+                <h3 class="text-success">Completed Service Record List</h3>
+                <p class="text-subtitle text-muted">All List of Completed (Service Record).</p>
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a class="text-success" href="{{ route('dashboard') }}">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">View Pending Request</li>
+                        <li class="breadcrumb-item active" aria-current="page">View Completed Request</li>
                     </ol>
                 </nav>
             </div>
@@ -38,7 +38,7 @@
                                 <th>User Secret ID</th>
                                 <th>Email</th>
                                 <th>Name</th>
-                                <th>Date Requested</th>
+                                <th>Date Completed</th>
                                 <th width="20%">Action</th>
                             </tr>
                         </thead>
@@ -49,10 +49,10 @@
                                 <td>{{ $value['user']['tracking_id'] }}</td>
                                 <td>{{ $value['user']['email'] }}</td>
                                 <td>{{ $value['user']['first_name'] . ' ' . $value['user']['last_name'] }}</td>
-                                <td> {{ date('m/d/Y - h:ia', strtotime($value->created_at)) }}</td>
+                                <td> {{ date('m/d/Y - h:ia', strtotime($value->updated_at)) }}</td>
                                 <td>
-                                    <a href="{{ route('edit.request.sr', $value->id) }}" type="button" class="btn btn-primary">
-                                        Create
+                                    <a href="{{ route('viewdetails.completed.sr', [$value['user']['email'], $value->id]) }}" type="button" class="btn btn-primary">
+                                        View Details
                                     </a>
                                     <a href="{{ route('pds.archive', $value->id) }}" class="btn icon btn-danger" id="archive">Archive</a>
                                 </td>
