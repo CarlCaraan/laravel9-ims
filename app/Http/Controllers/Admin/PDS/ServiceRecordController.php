@@ -155,5 +155,25 @@ class ServiceRecordController extends Controller
             'alert-type' => 'success',
         );
         return redirect()->back()->with($notification);
-    }
+    } // End Method
+
+    // ========= Manage Archived =========
+    public function AllArchivedView()
+    {
+        $data['allData'] = UserRequestServiceRecord::with(['user'])->where('archived', 'Yes')->orderBy('updated_at', 'DESC')->get();
+        return view('admin.service_record.view_archived_record', $data);
+    } // End Method
+
+    public function RestoreArchivedView($id)
+    {
+        UserRequestServiceRecord::where('id', $id)->update([
+            'archived' => 'No'
+        ]);
+
+        $notification = array(
+            'message' => 'Data Restored successfully',
+            'alert-type' => 'success',
+        );
+        return redirect()->route('all.archived.view')->with($notification);
+    } // End Method
 }

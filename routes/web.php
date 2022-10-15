@@ -139,8 +139,13 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
             Route::post('admin/completed/update/{id}', [ServiceRecordController::class, 'UpdateDetailsCompletedSR'])->name('updatedetails.completed.sr');
             Route::get('admin/completed/delete/{email}/{id}', [ServiceRecordController::class, 'DeleteDetailsCompletedSR'])->name('deletedetails.completed.sr');
 
-            // Archived
+            // Archived Function
             Route::get('admin/completed/archive/{email}/{id}', [ServiceRecordController::class, 'ArchivedDetailsCompletedSR'])->name('archivedetails.completed.sr');
+
+            // View Archived
+            Route::get('admin/archived/view', [ServiceRecordController::class, 'AllArchivedView'])->name('all.archived.view');
+            Route::get('admin/archived/restore/{id}', [ServiceRecordController::class, 'RestoreArchivedView'])->name('restore.archived.view');
+            Route::get('admin/archived/delete/{id}', [ServiceRecordController::class, 'DeleteArchivedView'])->name('delete.archived.view');
         });
     }); // End Admin Routes
 

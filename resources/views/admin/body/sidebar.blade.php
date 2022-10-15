@@ -151,7 +151,7 @@ $route = Route::current()->getName();
                             Manage SR
                             <!-- Start For Verification Badge -->
                             @php
-                            $pending_count = DB::table('user_request_service_records')->where('service_record_status', 'Pending')->count();
+                            $pending_count = DB::table('user_request_service_records')->where('service_record_status', 'Pending')->where('archived','No')->count();
                             @endphp
 
                             @if ($pending_count > 0)
@@ -176,8 +176,8 @@ $route = Route::current()->getName();
                         <li class="submenu-item {{ ($route == 'all.completed.view' || $route == 'viewdetails.completed.sr') ? 'active' : '' }}">
                             <a class="{{ ($route == 'all.completed.view' || $route == 'viewdetails.completed.sr') ? 'text-success' : '' }}" href="{{ route('all.completed.view') }}">Completed Request</a>
                         </li>
-                        <li class="submenu-item {{ ($route == 'pds.archived.view') ? 'active' : '' }}">
-                            <a class="{{ ($route == 'pds.archived.view') ? 'text-success' : '' }}" href="{{ route('pds.archived.view') }}">Archived</a>
+                        <li class="submenu-item {{ ($route == 'all.archived.view') ? 'active' : '' }}">
+                            <a class="{{ ($route == 'all.archived.view') ? 'text-success' : '' }}" href="{{ route('all.archived.view') }}">Archived</a>
                         </li>
                     </ul>
                 </li>
