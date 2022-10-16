@@ -16,6 +16,11 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     top: 0px !important;
+
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    align-items: start;
+    min-height: 100vh;
 }
 h1,
 h2,
@@ -93,6 +98,12 @@ a:focus {
 .section-header h2::before {
     /* Small Underline (Heading) */
     background: var(--primary-app-color) !important;
+}
+
+/* ========= Footer ========= */
+#footer {
+    display: flex;
+    flex-flow: row wrap;
 }
 
 /* ========= Google Translate Api ========= */

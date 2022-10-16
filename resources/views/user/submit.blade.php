@@ -137,6 +137,7 @@
         </form>
         <!-- End Form -->
 
+    </div>
 </section>
 <!-- End Content -->
 

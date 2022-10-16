@@ -41,7 +41,7 @@
 
 <body>
 
-    <!-- ======= Top Bar ======= -->
+    <!-- ========= Top Bar ========= -->
     @php
     $userSiteInfos = DB::table('user_site_infos')->first();
     @endphp
@@ -58,20 +58,22 @@
                 <a href="{{ $userSiteInfos->website_link }}" class="instagram"><i class="bi bi-globe"></i></a>
             </div>
         </div>
-    </section><!-- End Top Bar-->
+    </section>
+    <!-- ========= End Top Bar ========= -->
 
-    <!-- ======= Header ======= -->
+    <!-- ========= Header ========= -->
     @include('landing_page.body.header')
-    <!-- End Header -->
+    <!-- ========= End Header ========= -->
 
     <!-- ========= Start Main ========= -->
     <main id="main">
         @yield('content')
-    </main><!-- End #main -->
+    </main>
+    <!-- ========= End Main ========= -->
 
-    <!-- ======= Footer ======= -->
+    <!-- ========= Footer ======= -->
     @include('landing_page.body.footer')
-    <!-- End Footer -->
+    <!-- ========= End Footer ========= -->
 
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 

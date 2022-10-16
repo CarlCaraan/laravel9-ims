@@ -84,7 +84,6 @@
         </div>
     </div>
 </section>
-<br /><br /><br /><br />
 <!-- End Content -->
 
 <!-- Show Profile Photo Modal -->

@@ -50,5 +50,4 @@
     </div>
 </section>
 <!-- End Content -->
-<br /><br /><br /><br />
 @endsection
