@@ -188,6 +188,8 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
         Route::get('archives/service-record/restore/{id}', [RequestServiceRecordController::class, 'RestoreArchiveServiceRecord'])->name('restore.archive.servicerecord');
         Route::get('archives/service-record/delete/{id}', [RequestServiceRecordController::class, 'DeleteArchiveServiceRecord'])->name('delete.archive.servicerecord');
 
+        // Generate Service Record
+        Route::get('generate/service-record/{id}', [RequestServiceRecordController::class, 'GenerateServiceRecord'])->name('generate.servicerecord');
 
         // Profile Route
         Route::prefix('profile')->group(function () {

@@ -8,6 +8,7 @@ use App\Models\UserRequestServiceRecord;
 use App\Models\ServiceRecord;
 use Auth;
 use Illuminate\Support\Facades\DB;
+use PDF;
 
 class RequestServiceRecordController extends Controller
 {
@@ -78,6 +79,7 @@ class RequestServiceRecordController extends Controller
     } // End Method
 
     // ========= Archive Functionalities =========
+
     public function ViewArchiveServiceRecord()
     {
         $allData['sr_requests'] = UserRequestServiceRecord::where('user_id', Auth::user()->id)->where('user_archived', 'Yes')->orderBy('id', 'DESC')->get();
@@ -107,5 +109,26 @@ class RequestServiceRecordController extends Controller
             'alert-type' => 'success',
         );
         return redirect()->route('view.archive.servicerecord')->with($notification);
+    } // End Method
+
+    public function GenerateServiceRecord($id)
+    {
+        $user_id = Auth::user()->id;
+        $allData['request'] = UserRequestServiceRecord::find($id)->first();
+        // dd($allData['request']->service_record_status);
+        $allData['service_record'] = ServiceRecord::where('service_request_record_id', $id)->get();
+
+        // Generate PDF
+        $pdf = PDF::loadView('user.pdf.service_record_pdf', $allData, [], [
+            'format' => 'A4-P',
+            'margin_left' => 8,
+            'margin_right' => 8,
+            'margin_top' => 16,
+            'margin_bottom' => 16,
+            // 'margin_header' => 0,
+            // 'margin_footer' => 0,
+        ]);
+        $pdf->SetProtection(['copy', 'print'], '', 'pass');
+        return $pdf->stream('Service_Record.pdf');
     } // End Method
 }

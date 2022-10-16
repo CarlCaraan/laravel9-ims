@@ -84,7 +84,7 @@
                                     @if ($sr_request->service_record_status == "Pending")
                                     <button class="btn btn-light btn-sm"><i class="fas fa-hourglass-half"></i> Wait your application form</button>
                                     @else
-                                    <button class="btn custom-btn-secondary btn-sm"><i class="fa-solid fa-up-right-from-square"></i> Attachment</button>
+                                    <a href="{{ route('generate.servicerecord', $sr_request->id) }}" class="btn custom-btn-secondary btn-sm" target="_blank"><i class="fa-solid fa-up-right-from-square"></i> Attachment</a>
                                     @endif
                                 </td>
                                 <td>
