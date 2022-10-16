@@ -114,9 +114,9 @@ class RequestServiceRecordController extends Controller
     public function GenerateServiceRecord($id)
     {
         $user_id = Auth::user()->id;
-        $allData['request'] = UserRequestServiceRecord::find($id)->first();
+        $allData['request'] = UserRequestServiceRecord::with(['user'])->find($id)->first();
         // dd($allData['request']->service_record_status);
-        $allData['service_record'] = ServiceRecord::where('service_request_record_id', $id)->get();
+        $allData['service_records'] = ServiceRecord::where('service_request_record_id', $id)->get();
 
         // Generate PDF
         $pdf = PDF::loadView('user.pdf.service_record_pdf', $allData, [], [
