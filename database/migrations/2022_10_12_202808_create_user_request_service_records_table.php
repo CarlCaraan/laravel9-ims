@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('sr_dob')->nullable();
             $table->string('sr_pob')->nullable();
             $table->string('archived')->nullable()->comment('Yes / No');
+            $table->string('user_archived')->nullable()->comment('Yes / No');
             $table->timestamps();
         });
     }

@@ -22,8 +22,8 @@
         </div>
 
         <div class="alert alert-warning" role="alert">
-            <strong>WARNING:</strong> Any misrepresentation made in the Personal Data Sheet and the Work Experience Sheet shall cause the filing
-            of administrative/criminal case/s against the person concerned.
+            <strong>Note:</strong> This is to certify that the employee name herein above actually rendered services in this office as shown by the service record below
+            each line which is supported by appointment and other papers actually issued by this office and approved by the authority
         </div>
 
 
@@ -52,7 +52,7 @@
                                 <th>
                                     Date Requested
                                 </th>
-                                <th width="20%">
+                                <th width="10%">
 
                                 </th>
                             </tr>
@@ -86,7 +86,11 @@
                                     {{ date('m/d/Y - h:ia', strtotime($sr_request->created_at)) }}
                                 </td>
                                 <td>
-                                    <a id="cancel" class="btn btn-danger" href="{{ route('delete.request.servicerecord', $sr_request->id) }}">Cancel Request</a>
+                                    @if($sr_request->service_record_status == "Completed")
+                                    <a id="archive" class="btn btn-secondary w-100" href="{{ route('archive.request.servicerecord', $sr_request->id) }}">Archive</a>
+                                    @else
+                                    <a id="cancel" class="btn btn-danger w-100" href="{{ route('delete.request.servicerecord', $sr_request->id) }}">Cancel</a>
+                                    @endif
                                 </td>
                             </tr>
                             @endforeach
@@ -97,7 +101,7 @@
             <div class="card-footer">
                 <small>
                     <i>
-                        Note: If the requirement is marked as invalid, click on the `Invalid` mark to check the remarks.
+                        <a href="">View Archives</a>
                     </i>
                 </small>
             </div>

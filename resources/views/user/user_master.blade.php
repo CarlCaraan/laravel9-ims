@@ -138,7 +138,7 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         // SweetAlert2
-        // Delete
+        // ~Delete
         $(function() {
             $(document).on('click', '#delete', function(e) {
                 e.preventDefault();
@@ -165,7 +165,7 @@
             });
         });
 
-        // Delete Photo
+        // ~Delete Photo
         $(function() {
             $(document).on('click', '#delete_photo', function(e) {
                 e.preventDefault();
@@ -192,7 +192,7 @@
             });
         });
 
-        // Send Service Record Request
+        // ~Send Service Record Request
         $(function() {
             $(document).on('click', '#request', function(e) {
                 e.preventDefault();
@@ -219,7 +219,7 @@
             });
         });
 
-        // Send Service Cancel Request
+        // ~Send Service Cancel Request
         $(function() {
             $(document).on('click', '#cancel', function(e) {
                 e.preventDefault();
@@ -239,6 +239,60 @@
                         Swal.fire(
                             'Cancelled Succesfully!',
                             'Your Request cancelled successfully.',
+                            'success'
+                        )
+                    }
+                })
+            });
+        });
+
+        // ~Archive
+        $(function() {
+            $(document).on('click', '#archive', function(e) {
+                e.preventDefault();
+                var link = $(this).attr("href");
+
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "Archive this Row?",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, archive it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = link
+                        Swal.fire(
+                            'Archived!',
+                            'Your file has been Archived.',
+                            'success'
+                        )
+                    }
+                })
+            });
+        });
+
+        // ~Restore
+        $(function() {
+            $(document).on('click', '#restore', function(e) {
+                e.preventDefault();
+                var link = $(this).attr("href");
+
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "Restore this Row?",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, restore it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = link
+                        Swal.fire(
+                            'Restored!',
+                            'Your file has been Recovered.',
                             'success'
                         )
                     }

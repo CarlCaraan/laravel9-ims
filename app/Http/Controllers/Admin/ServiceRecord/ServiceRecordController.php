@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Admin\PDS;
+namespace App\Http\Controllers\Admin\ServiceRecord;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ServiceRecordRequest;
-use App\Models\PersonalInfo;
 use Illuminate\Http\Request;
 use App\Models\UserRequestServiceRecord;
 use App\Models\ServiceRecord;

@@ -17,7 +17,7 @@ use App\Http\Controllers\Admin\SiteInfo\UserInquiryController;
 
 // ========= All HR Controller =========
 use App\Http\Controllers\Admin\PDS\PDSController;
-use App\Http\Controllers\Admin\PDS\ServiceRecordController;
+use App\Http\Controllers\Admin\ServiceRecord\ServiceRecordController;
 
 // ========= Landing Page Controller =========
 use App\Http\Controllers\User\About\AboutController;
@@ -181,6 +181,7 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
         Route::get('request/service-record', [RequestServiceRecordController::class, 'ViewRequestServiceRecord'])->name('view.request.servicerecord');
         Route::get('store/service-record', [RequestServiceRecordController::class, 'StoreRequestServiceRecord'])->name('store.request.servicerecord');
         Route::get('delete/service-record/{id}', [RequestServiceRecordController::class, 'DeleteRequestServiceRecord'])->name('delete.request.servicerecord');
+        Route::get('archive/service-record/{id}', [RequestServiceRecordController::class, 'ArchiveRequestServiceRecord'])->name('archive.request.servicerecord');
 
 
         // Profile Route

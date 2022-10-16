@@ -13,7 +13,7 @@ class RequestServiceRecordController extends Controller
 {
     public function ViewRequestServiceRecord()
     {
-        $allData['sr_requests'] = UserRequestServiceRecord::where('user_id', Auth::user()->id)->where('archived', 'No')->orderBy('id', 'DESC')->get();
+        $allData['sr_requests'] = UserRequestServiceRecord::where('user_id', Auth::user()->id)->where('user_archived', 'No')->orderBy('id', 'DESC')->get();
         return view('user.request_servicerecord', $allData);
     } // End Method
 
@@ -35,6 +35,7 @@ class RequestServiceRecordController extends Controller
             'user_id' => Auth::user()->id,
             'service_record_status' => "Pending",
             'archived' => "No",
+            'user_archived' => "No",
             'created_at' => now()
         ]);
 
@@ -58,6 +59,19 @@ class RequestServiceRecordController extends Controller
 
         $notification = array(
             'message' => 'Request cancelled successfully',
+            'alert-type' => 'success',
+        );
+        return redirect()->route('view.request.servicerecord')->with($notification);
+    } // End Method
+
+    public function ArchiveRequestServiceRecord($id)
+    {
+        $sr_request = UserRequestServiceRecord::find($id)->update([
+            'user_archived' => 'Yes'
+        ]);
+
+        $notification = array(
+            'message' => 'Record archived successfully',
             'alert-type' => 'success',
         );
         return redirect()->route('view.request.servicerecord')->with($notification);
