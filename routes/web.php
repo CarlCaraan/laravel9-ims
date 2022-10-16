@@ -183,6 +183,11 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
         Route::get('delete/service-record/{id}', [RequestServiceRecordController::class, 'DeleteRequestServiceRecord'])->name('delete.request.servicerecord');
         Route::get('archive/service-record/{id}', [RequestServiceRecordController::class, 'ArchiveRequestServiceRecord'])->name('archive.request.servicerecord');
 
+        // SR Archives
+        Route::get('archives/service-record/view', [RequestServiceRecordController::class, 'ViewArchiveServiceRecord'])->name('view.archive.servicerecord');
+        Route::get('archives/service-record/restore/{id}', [RequestServiceRecordController::class, 'RestoreArchiveServiceRecord'])->name('restore.archive.servicerecord');
+        Route::get('archives/service-record/delete/{id}', [RequestServiceRecordController::class, 'DeleteArchiveServiceRecord'])->name('delete.archive.servicerecord');
+
 
         // Profile Route
         Route::prefix('profile')->group(function () {

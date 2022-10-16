@@ -13,7 +13,7 @@ class RequestServiceRecordController extends Controller
 {
     public function ViewRequestServiceRecord()
     {
-        $allData['sr_requests'] = UserRequestServiceRecord::where('user_id', Auth::user()->id)->where('user_archived', 'No')->orderBy('id', 'DESC')->get();
+        $allData['sr_requests'] = UserRequestServiceRecord::where('user_id', Auth::user()->id)->where('user_archived', 'No')->orderBy('updated_at', 'DESC')->get();
         return view('user.request_servicerecord', $allData);
     } // End Method
 
@@ -75,5 +75,37 @@ class RequestServiceRecordController extends Controller
             'alert-type' => 'success',
         );
         return redirect()->route('view.request.servicerecord')->with($notification);
+    } // End Method
+
+    // ========= Archive Functionalities =========
+    public function ViewArchiveServiceRecord()
+    {
+        $allData['sr_requests'] = UserRequestServiceRecord::where('user_id', Auth::user()->id)->where('user_archived', 'Yes')->orderBy('id', 'DESC')->get();
+        return view('user.archives.view_archived_servicerecord', $allData);
+    } // End Method
+
+    public function RestoreArchiveServiceRecord($id)
+    {
+        $sr_request = UserRequestServiceRecord::find($id)->update([
+            'user_archived' => 'No'
+        ]);
+
+        $notification = array(
+            'message' => 'Record restored successfully',
+            'alert-type' => 'success',
+        );
+        return redirect()->route('view.archive.servicerecord')->with($notification);
+    } // End Method
+
+    public function DeleteArchiveServiceRecord($id)
+    {
+        $service_record = ServiceRecord::where('service_request_record_id', $id)->delete();
+        $sr_request = UserRequestServiceRecord::find($id)->delete();
+
+        $notification = array(
+            'message' => 'Record deleted successfully',
+            'alert-type' => 'success',
+        );
+        return redirect()->route('view.archive.servicerecord')->with($notification);
     } // End Method
 }
