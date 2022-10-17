@@ -50,6 +50,12 @@
                                     Attachment
                                 </th>
                                 <th>
+                                    Your Comment
+                                </th>
+                                <th>
+                                    HR Comment
+                                </th>
+                                <th>
                                     Date Requested
                                 </th>
                                 <th width="10%">
@@ -87,6 +93,14 @@
                                     <a href="{{ route('generate.servicerecord', $sr_request->id) }}" class="btn custom-btn-secondary btn-sm" target="_blank"><i class="fa-solid fa-up-right-from-square"></i> Attachment</a>
                                     @endif
                                 </td>
+                                <td>
+                                    @if ($sr_request->service_record_status == "Completed")
+                                    <button class="btn custom-btn">
+                                        Add Revision
+                                    </button>
+                                    @endif
+                                </td>
+                                <td></td>
                                 <td>
                                     {{ date('m/d/Y - h:ia', strtotime($sr_request->created_at)) }}
                                 </td>

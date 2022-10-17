@@ -113,6 +113,7 @@ class ServiceRecordController extends Controller
 
     public function UpdateDetailsCompletedSR($id, ServiceRecordRequest $request)
     {
+        // Updating Service Record Table
         ServiceRecord::where('id', $id)->update([
             'sr_from' => $request->sr_from,
             'sr_to' => $request->sr_to,
@@ -125,8 +126,15 @@ class ServiceRecordController extends Controller
             'sr_separation_date_caused' => $request->sr_separation_date_caused,
         ]);
 
+        $get_service_record_id = ServiceRecord::where('id', $id)->first();
+
+        // Updating SR Request Table
+        UserRequestServiceRecord::where('id', $get_service_record_id->service_request_record_id)->update([
+            'created_at' => now(),
+        ]);
+
         $notification = array(
-            'message' => 'Service Record inserted successfully',
+            'message' => 'Service Record updated successfully',
             'alert-type' => 'success',
         );
         return redirect()->back()->with($notification);

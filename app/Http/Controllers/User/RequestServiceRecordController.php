@@ -14,7 +14,7 @@ class RequestServiceRecordController extends Controller
 {
     public function ViewRequestServiceRecord()
     {
-        $allData['sr_requests'] = UserRequestServiceRecord::where('user_id', Auth::user()->id)->where('user_archived', 'No')->orderBy('updated_at', 'DESC')->get();
+        $allData['sr_requests'] = UserRequestServiceRecord::where('user_id', Auth::user()->id)->orderBy('service_record_status', 'DESC')->where('user_archived', 'No')->orderBy('created_at', 'DESC')->get();
         return view('user.request_servicerecord', $allData);
     } // End Method
 
