@@ -50,12 +50,6 @@
                                     Attachment
                                 </th>
                                 <th>
-                                    Your Comment
-                                </th>
-                                <th>
-                                    HR Comment
-                                </th>
-                                <th>
                                     Date Requested
                                 </th>
                                 <th width="10%">
