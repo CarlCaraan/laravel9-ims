@@ -23,7 +23,9 @@
             <div class="col-lg-5 col-12">
                 <div id="auth-left">
                     <div class="center mb-4">
-                        <img class="img-fluid" width="150px" height="150px" src="{{ asset('auth/images/auth_brand.png') }}" alt="Logo">
+                        <a href="{{ route('welcome') }}" title="HOMEPAGE">
+                            <img class="img-fluid" width="150px" height="150px" src="{{ asset('auth/images/auth_brand.png') }}" alt="Logo">
+                        </a>
                     </div>
                     <h3 class="text-custom text-center">Forgot Password</h3>
                     <p class="auth-subtitle mb-5">Input your email and we will send you reset password link.</p>

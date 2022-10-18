@@ -26,7 +26,9 @@
             <div class="col-lg-5 col-12">
                 <div id="auth-left">
                     <div class="center mb-4">
-                        <img class="img-fluid" width="150px" height="150px" src="{{ asset('auth/images/auth_brand.png') }}" alt="Logo">
+                        <a href="{{ route('welcome') }}" title="HOMEPAGE">
+                            <img class="img-fluid" width="150px" height="150px" src="{{ asset('auth/images/auth_brand.png') }}" alt="Logo">
+                        </a>
                     </div>
                     <!-- <h1 class="auth-title">Sign Up</h1> -->
                     <p class="auth-subtitle mb-4">Input your data to register to our website.</p>
