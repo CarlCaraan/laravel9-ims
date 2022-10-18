@@ -92,7 +92,7 @@
 
 <body>
     <!-- ========= Start Header ========= -->
-    <div class="center" style="margin-">
+    <div class="center">
         <span>Republic of the Philippines</span> <br />
         <span>Department of Eduaction</span> <br />
         <span>Region IV</span> <br />

@@ -18,6 +18,7 @@ use App\Http\Controllers\Admin\SiteInfo\UserInquiryController;
 // ========= All HR Controller =========
 use App\Http\Controllers\Admin\PDS\PDSController;
 use App\Http\Controllers\Admin\ServiceRecord\ServiceRecordController;
+use App\Http\Controllers\Admin\Report\ReportController;
 
 // ========= Landing Page Controller =========
 use App\Http\Controllers\User\About\AboutController;
@@ -150,7 +151,9 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
 
         // ========= Report Management =========
         Route::prefix('manage-report')->group(function () {
-            Route::get('admin/generate-report/pds', [ServiceRecordController::class, 'AllRequestView'])->name('all.request.view');
+            Route::get('admin/generate-report', [ReportController::class, 'GenereteReport'])->name('generate.report.view');
+            Route::post('admin/generate-report/pds', [ReportController::class, 'PDSGenereteReport'])->name('generate.report.pds');
+            Route::post('admin/generate-report/sr', [ReportController::class, 'SRGenereteReport'])->name('generate.report.sr');
         });
     }); // End Admin Routes
 

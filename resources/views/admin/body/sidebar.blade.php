@@ -71,7 +71,7 @@ $route = Route::current()->getName();
                 <!-- Start User Inquiry -->
                 <li class="sidebar-item {{ ($route == 'user.inquiries.view') ? 'active' : ''}}">
                     <a href="{{ route('user.inquiries.view') }}" class="sidebar-link {{ ($route == 'user.inquiries.view') ? 'bg-success' : ''}}">
-                        <i class="bi bi-mailbox"></i>
+                        <i class="fas fa-envelope-open-text"></i>
                         <span class="{{ ($route == 'user.inquiries.view') ? 'text-white' : '' }}">User Inquiry</span>
                     </a>
                 </li>
@@ -184,24 +184,11 @@ $route = Route::current()->getName();
                 <!-- End Service Record Management -->
 
                 <!-- Start Report Management -->
-                <li class="sidebar-title fw-bold">REPORT MANAGEMENT</li>
-                <li class="sidebar-item  has-sub {{ ($prefix == '/pds') ? 'active' : '' }}">
-                    <a href="#" class="sidebar-link {{ ($prefix == '/pds') ? 'bg-success' : '' }}">
-                        <i class="fas fa-chart-bar {{ ($prefix == '/pds') ? 'text-white' : '' }}"></i>
-                        <span class="{{ ($prefix == '/pds') ? 'text-white' : '' }}">
-                            Manage Report
-                        </span>
+                <li class="sidebar-item {{ ($route == 'generate.report.view') ? 'active' : ''}}">
+                    <a href="{{ route('generate.report.view') }}" class="sidebar-link {{ ($route == 'generate.report.view') ? 'bg-success' : ''}}">
+                        <i class="fas fa-folder"></i>
+                        <span class="{{ ($route == 'generate.report.view') ? 'text-white' : '' }}">Manage Report</span>
                     </a>
-                    <ul class="submenu {{ ($prefix == '/pds') ? 'active' : '' }}">
-                        <li class="submenu-item {{ ($route == 'pds.pending.view') ? 'active' : '' }}">
-                            <a class="{{ ($route == 'pds.pending.view') ? 'text-success' : '' }}" href="{{ route('pds.pending.view') }}">
-                                PDS Report
-                            </a>
-                        </li>
-                        <li class="submenu-item {{ ($route == 'pds.verified.view') ? 'active' : '' }}">
-                            <a class="{{ ($route == 'pds.verified.view') ? 'text-success' : '' }}" href="{{ route('pds.verified.view') }}">SR Report</a>
-                        </li>
-                    </ul>
                 </li>
                 <!-- End Report Management -->
             </ul>
