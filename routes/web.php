@@ -147,6 +147,11 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
             Route::get('admin/archived/restore/{id}', [ServiceRecordController::class, 'RestoreArchivedView'])->name('restore.archived.view');
             Route::get('admin/archived/delete/{id}', [ServiceRecordController::class, 'DeleteArchivedView'])->name('delete.archived.view');
         });
+
+        // ========= Report Management =========
+        Route::prefix('manage-report')->group(function () {
+            Route::get('admin/pending/view', [ServiceRecordController::class, 'AllRequestView'])->name('all.request.view');
+        });
     }); // End Admin Routes
 
     // ========= ALL User Routes =========

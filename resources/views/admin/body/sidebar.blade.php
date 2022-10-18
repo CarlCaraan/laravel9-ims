@@ -105,7 +105,7 @@ $route = Route::current()->getName();
                         <i class="fas fa-file-alt {{ ($prefix == '/pds') ? 'text-white' : '' }}"></i>
                         <span class="{{ ($prefix == '/pds') ? 'text-white' : '' }}">
                             Manage PDS
-                            <!-- Start For Verification Badge -->
+                            <!-- Start Badge -->
                             @php
                             $for_verification_count = DB::table('pds_form_lists')->where('pds_status', 'For Verification')->where('pds_archived', 'No')->count();
                             @endphp
@@ -114,19 +114,19 @@ $route = Route::current()->getName();
                             <span class="badge bg-warning">{{ $for_verification_count }}</span>
                             @else
                             @endif
-                            <!-- End For Verification Badge -->
+                            <!-- End  Badge -->
                         </span>
                     </a>
                     <ul class="submenu {{ ($prefix == '/pds') ? 'active' : '' }}">
                         <li class="submenu-item {{ ($route == 'pds.pending.view') ? 'active' : '' }}">
                             <a class="{{ ($route == 'pds.pending.view') ? 'text-success' : '' }}" href="{{ route('pds.pending.view') }}">
                                 For Verification
-                                <!-- Start For Verification Badge -->
+                                <!-- Start Badge -->
                                 @if ($for_verification_count > 0)
                                 <span class="text-muted">({{ $for_verification_count }})</span>
                                 @else
                                 @endif
-                                <!-- End For Verification Badge -->
+                                <!-- End Badge -->
                             </a>
                         </li>
                         <li class="submenu-item {{ ($route == 'pds.verified.view') ? 'active' : '' }}">
@@ -149,7 +149,7 @@ $route = Route::current()->getName();
                         <i class="fas fa-file-invoice {{ ($prefix == '/manage-sr') ? 'text-white' : '' }}"></i>
                         <span class="{{ ($prefix == '/manage-sr') ? 'text-white' : '' }}">
                             Manage SR
-                            <!-- Start For Verification Badge -->
+                            <!-- Start Badge -->
                             @php
                             $pending_count = DB::table('user_request_service_records')->where('service_record_status', 'Pending')->where('archived','No')->count();
                             @endphp
@@ -158,19 +158,19 @@ $route = Route::current()->getName();
                             <span class="badge bg-warning">{{ $pending_count }}</span>
                             @else
                             @endif
-                            <!-- End For Verification Badge -->
+                            <!-- End Badge -->
                         </span>
                     </a>
                     <ul class="submenu {{ ($prefix == '/manage-sr') ? 'active' : '' }}">
                         <li class="submenu-item {{ ($route == 'all.request.view' || $route == 'edit.request.sr') ? 'active' : '' }}">
                             <a class="{{ ($route == 'all.request.view' || $route == 'edit.request.sr') ? 'text-success' : '' }}" href="{{ route('all.request.view') }}">
                                 All Request
-                                <!-- Start For Verification Badge -->
+                                <!-- Start Badge -->
                                 @if ($pending_count > 0)
                                 <span class="text-muted">({{ $pending_count }})</span>
                                 @else
                                 @endif
-                                <!-- End For Verification Badge -->
+                                <!-- End Badge -->
                             </a>
                         </li>
                         <li class="submenu-item {{ ($route == 'all.completed.view' || $route == 'viewdetails.completed.sr') ? 'active' : '' }}">
@@ -182,6 +182,28 @@ $route = Route::current()->getName();
                     </ul>
                 </li>
                 <!-- End Service Record Management -->
+
+                <!-- Start Report Management -->
+                <li class="sidebar-title fw-bold">REPORT MANAGEMENT</li>
+                <li class="sidebar-item  has-sub {{ ($prefix == '/pds') ? 'active' : '' }}">
+                    <a href="#" class="sidebar-link {{ ($prefix == '/pds') ? 'bg-success' : '' }}">
+                        <i class="fas fa-chart-bar {{ ($prefix == '/pds') ? 'text-white' : '' }}"></i>
+                        <span class="{{ ($prefix == '/pds') ? 'text-white' : '' }}">
+                            Manage Report
+                        </span>
+                    </a>
+                    <ul class="submenu {{ ($prefix == '/pds') ? 'active' : '' }}">
+                        <li class="submenu-item {{ ($route == 'pds.pending.view') ? 'active' : '' }}">
+                            <a class="{{ ($route == 'pds.pending.view') ? 'text-success' : '' }}" href="{{ route('pds.pending.view') }}">
+                                PDS Report
+                            </a>
+                        </li>
+                        <li class="submenu-item {{ ($route == 'pds.verified.view') ? 'active' : '' }}">
+                            <a class="{{ ($route == 'pds.verified.view') ? 'text-success' : '' }}" href="{{ route('pds.verified.view') }}">SR Report</a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- End Report Management -->
             </ul>
         </div>
     </div>
