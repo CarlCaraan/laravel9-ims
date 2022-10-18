@@ -150,7 +150,7 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
 
         // ========= Report Management =========
         Route::prefix('manage-report')->group(function () {
-            Route::get('admin/pending/view', [ServiceRecordController::class, 'AllRequestView'])->name('all.request.view');
+            Route::get('admin/generate-report/pds', [ServiceRecordController::class, 'AllRequestView'])->name('all.request.view');
         });
     }); // End Admin Routes
 
