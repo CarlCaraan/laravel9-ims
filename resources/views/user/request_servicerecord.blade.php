@@ -52,6 +52,9 @@
                                 <th>
                                     Date Requested
                                 </th>
+                                <th>
+                                    Date Completed
+                                </th>
                                 <th width="10%">
 
                                 </th>
@@ -88,15 +91,14 @@
                                     @endif
                                 </td>
                                 <td>
-                                    @if ($sr_request->service_record_status == "Completed")
-                                    <button class="btn custom-btn">
-                                        Add Revision
-                                    </button>
-                                    @endif
-                                </td>
-                                <td></td>
-                                <td>
                                     {{ date('m/d/Y - h:ia', strtotime($sr_request->created_at)) }}
+                                </td>
+                                <td>
+                                    @if($sr_request->updated_at == NULL)
+                                    Pending for completion...
+                                    @else
+                                    {{ date('m/d/Y - h:ia', strtotime($sr_request->updated_at)) }}
+                                    @endif
                                 </td>
                                 <td>
                                     @if($sr_request->service_record_status == "Completed")

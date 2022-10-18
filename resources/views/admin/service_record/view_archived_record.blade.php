@@ -39,6 +39,7 @@
                                 <th>Email</th>
                                 <th>Name</th>
                                 <th>Status</th>
+                                <th>Date Completed</th>
                                 <th width="20%">Action</th>
                             </tr>
                         </thead>
@@ -56,6 +57,7 @@
                                     <span class="badge bg-success"><i class="fas fa-check-circle"></i> Done</span>
                                     @endif
                                 </td>
+                                <td> {{ date('m/d/Y - h:ia', strtotime($value->updated_at)) }}</td>
                                 <td>
                                     <a href="{{ route('restore.archived.view', $value->id) }}" type="button" class="btn btn-success" id="restore">
                                         Restore

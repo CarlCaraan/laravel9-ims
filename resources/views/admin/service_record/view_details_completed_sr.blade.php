@@ -240,8 +240,8 @@
 
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             <button type="submit" class="btn btn-primary">Add Record</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             </form>
                         </div>
                     </div>
@@ -397,8 +397,8 @@
 
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                             <button type="submit" class="btn btn-primary">Update Record</button>
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                             </form>
                                         </div>
                                     </div>
