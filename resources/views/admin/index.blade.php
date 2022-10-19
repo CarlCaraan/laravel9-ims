@@ -272,6 +272,4 @@
     });
 </script>
 <!-- ========== End Chart Js Section ========== -->
-
-
 @endsection
