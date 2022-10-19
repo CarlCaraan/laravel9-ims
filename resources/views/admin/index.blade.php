@@ -113,64 +113,17 @@
                 <div class="col-12 col-xl-4">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Profile Visit</h4>
+                            <h4>Personal Datasheet Stat</h4>
                         </div>
                         <div class="card-body">
-                            <div class="row">
-                                <div class="col-6">
-                                    <div class="d-flex align-items-center">
-                                        <svg class="bi text-primary" width="32" height="32" fill="blue" style="width:10px">
-                                            <use xlink:href="{{ asset('admin/assets/images/bootstrap-icons.svg#circle-fill') }}" />
-                                        </svg>
-                                        <h5 class="mb-0 ms-3">Europe</h5>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <h5 class="mb-0">862</h5>
-                                </div>
-                                <div class="col-12">
-                                    <div id="chart-europe"></div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-6">
-                                    <div class="d-flex align-items-center">
-                                        <svg class="bi text-success" width="32" height="32" fill="blue" style="width:10px">
-                                            <use xlink:href="{{ asset('admin/assets/images/bootstrap-icons.svg#circle-fill') }}" />
-                                        </svg>
-                                        <h5 class="mb-0 ms-3">America</h5>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <h5 class="mb-0">375</h5>
-                                </div>
-                                <div class="col-12">
-                                    <div id="chart-america"></div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-6">
-                                    <div class="d-flex align-items-center">
-                                        <svg class="bi text-danger" width="32" height="32" fill="blue" style="width:10px">
-                                            <use xlink:href="{{ asset('admin/assets/images/bootstrap-icons.svg#circle-fill') }}" />
-                                        </svg>
-                                        <h5 class="mb-0 ms-3">Indonesia</h5>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <h5 class="mb-0">1025</h5>
-                                </div>
-                                <div class="col-12">
-                                    <div id="chart-indonesia"></div>
-                                </div>
-                            </div>
+                            <canvas id="pds_bar" width="400" height="400"></canvas>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-xl-8">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Latest Comments</h4>
+                            <h4>Latest Inquiries</h4>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -178,37 +131,31 @@
                                     <thead>
                                         <tr>
                                             <th>Name</th>
-                                            <th>Comment</th>
+                                            <th>Message</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach ($inquiries as $inquiry)
                                         <tr>
                                             <td class="col-3">
                                                 <div class="d-flex align-items-center">
                                                     <div class="avatar avatar-md">
-                                                        <img src="{{ asset('admin/assets/images/faces/5.jpg') }}">
+                                                        <span class="avatar-content bg-secondary shadow-sm rounded-circle">{{ substr($inquiry->name,0,1)}}</span>
                                                     </div>
-                                                    <p class="font-bold ms-3 mb-0">Si Cantik</p>
+                                                    <p class="font-bold ms-3 mb-0">{{ $inquiry->name }}
+                                                        <br>
+                                                        <span class="text-muted">
+                                                            {{ $inquiry->email }}
+                                                        </span>
+                                                    </p>
                                                 </div>
                                             </td>
                                             <td class="col-auto">
-                                                <p class=" mb-0">Congratulations on your graduation!</p>
+                                                <p class=" mb-0">{{ $inquiry->message }}</p>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td class="col-3">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="avatar avatar-md">
-                                                        <img src="{{ asset('admin/assets/images/faces/2.jpg') }}">
-                                                    </div>
-                                                    <p class="font-bold ms-3 mb-0">Si Ganteng</p>
-                                                </div>
-                                            </td>
-                                            <td class="col-auto">
-                                                <p class=" mb-0">Wow amazing design! Can you make another tutorial for
-                                                    this design?</p>
-                                            </td>
-                                        </tr>
+                                        @endforeach
+
                                     </tbody>
                                 </table>
                             </div>
@@ -233,50 +180,92 @@
             </div>
             <div class="card">
                 <div class="card-header">
-                    <h4>Recent Messages</h4>
+                    <h4>Recent Registered User</h4>
                 </div>
                 <div class="card-content pb-4">
+                    @foreach ($users as $user)
                     <div class="recent-message d-flex px-4 py-3">
                         <div class="avatar avatar-lg">
-                            <img src="{{ asset('admin/assets/images/faces/4.jpg') }}">
+                            <img src="{{ (!empty($user->profile_photo_path)) ? url('upload/user_images/'.$user->profile_photo_path) : url('upload/user_images/default_photo.png') }}">
                         </div>
                         <div class="name ms-4">
-                            <h5 class="mb-1">Hank Schrader</h5>
-                            <h6 class="text-muted mb-0">@johnducky</h6>
+                            <h5 class="mb-1">{{ $user->first_name . " " . $user->last_name}}</h5>
+                            <h6 class="text-muted mb-0">{{ $user->email }}</h6>
                         </div>
                     </div>
-                    <div class="recent-message d-flex px-4 py-3">
-                        <div class="avatar avatar-lg">
-                            <img src="{{ asset('admin/assets/images/faces/5.jpg') }}">
-                        </div>
-                        <div class="name ms-4">
-                            <h5 class="mb-1">Dean Winchester</h5>
-                            <h6 class="text-muted mb-0">@imdean</h6>
-                        </div>
-                    </div>
-                    <div class="recent-message d-flex px-4 py-3">
-                        <div class="avatar avatar-lg">
-                            <img src="{{ asset('admin/assets/images/faces/1.jpg') }}">
-                        </div>
-                        <div class="name ms-4">
-                            <h5 class="mb-1">John Dodol</h5>
-                            <h6 class="text-muted mb-0">@dodoljohn</h6>
-                        </div>
-                    </div>
+                    @endforeach
+
+
                     <div class="px-4">
-                        <button class='btn btn-block btn-xl btn-outline-primary font-bold mt-3'>Start Conversation</button>
+                        <a href="{{ route('user.view') }}" class='btn btn-block btn-xl btn-outline-primary font-bold mt-3'>Go to Manage Users</a>
                     </div>
                 </div>
             </div>
             <div class="card">
                 <div class="card-header">
-                    <h4>Visitors Profile</h4>
+                    <h4>System Roles</h4>
                 </div>
                 <div class="card-body">
-                    <div id="chart-visitors-profile"></div>
+                    <!-- <div id="chart-visitors-profile"></div> -->
+                    <canvas id="roles_pie" width="400" height="400"></canvas>
                 </div>
             </div>
         </div>
     </section>
 </div>
+
+
+<!-- ========== Start Chart Js Section ========== -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Pie (System Roles)
+    var configPie = document.getElementById('roles_pie');
+    const rolesPie = new Chart(
+        configPie, {
+            type: 'doughnut',
+            data: {
+                labels: [
+                    'Admin',
+                    'HR',
+                    'Users'
+                ],
+                datasets: [{
+                    label: 'User Roles',
+                    data: ['{{ $adminCount }}', '{{ $hrCount }}', '{{ $userCount }}'],
+                    backgroundColor: [
+                        '#465FBA', // Admin
+                        '#6FC4E6', // HR
+                        '#3C8458' // Users
+                    ],
+                    hoverOffset: 4
+                }]
+            },
+        }
+    );
+
+    // Bar (PDS)
+    var configBar = document.getElementById("pds_bar");
+    var PdsBar = new Chart(configBar, {
+        type: 'bar',
+        data: {
+            labels: ['For Verification', 'Verified', 'Invalid'],
+            datasets: [{
+                label: 'For Verification',
+                backgroundColor: "#F8C337",
+                data: [90, 0, 0]
+            }, {
+                label: 'Verified',
+                backgroundColor: "#4EA44F",
+                data: [0, 70, 0]
+            }, {
+                label: 'Invalid',
+                backgroundColor: "#CE4546",
+                data: [0, 0, 45]
+            }]
+        },
+    });
+</script>
+<!-- ========== End Chart Js Section ========== -->
+
+
 @endsection

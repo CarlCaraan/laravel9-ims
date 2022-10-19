@@ -8,6 +8,7 @@ use App\Http\Controllers\FacebookController;
 use App\Http\Controllers\WelcomeController;
 
 // ========= All Admin Controller =========
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\SiteInfo\AdminSiteInfoController;
@@ -59,9 +60,7 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
         'verified',
         'admin'
     ])->group(function () {
-        Route::get('/dashboard', function () {
-            return view('admin.index');
-        })->name('dashboard');
+        Route::get('/dashboard', [DashboardController::class, 'ViewDashboard'])->name('dashboard');
 
         // ========= User Profile and Change Password =========
         Route::prefix('profile')->group(function () {
