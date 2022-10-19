@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\PdsFormList;
 use App\Models\UserRequestServiceRecord;
 use PDF;
+use Carbon\Carbon;
 
 class ReportController extends Controller
 {
@@ -33,6 +34,19 @@ class ReportController extends Controller
         $end_date = $request->end_date_pds;
         $allData['s_date'] = $start_date;
         $allData['e_date'] = $end_date;
+
+        // ========= Start Date Custom Validation =========
+        $formatted_start_date = date('m/d/Y H:i:s', strtotime($start_date));
+        $formatted_end_date = date('m/d/Y H:i:s', strtotime($end_date));
+        $result = Carbon::createFromFormat('m/d/Y H:i:s', $formatted_start_date)->gt(Carbon::createFromFormat('m/d/Y H:i:s', $formatted_end_date));
+        if ($result) {
+            $notification = array(
+                'message' => 'Start Date must be older to end date',
+                'alert-type' => 'error',
+            );
+            return redirect()->back()->with($notification);
+        }
+        // ========= End Date Custom Validation =========
 
         // Total Completed Count
         $allData['total_pds'] = PdsFormList::with(['user'])->where('pds_status', 'Verified')->where('pds_archived', 'No')->where('updated_at', '>=', $start_date)->where('updated_at', '<=', $end_date)->orderBy('updated_at', 'DESC')->count();
@@ -73,6 +87,19 @@ class ReportController extends Controller
         $end_date = $request->end_date;
         $allData['s_date'] = $start_date;
         $allData['e_date'] = $end_date;
+
+        // ========= Start Date Custom Validation =========
+        $formatted_start_date = date('m/d/Y H:i:s', strtotime($start_date));
+        $formatted_end_date = date('m/d/Y H:i:s', strtotime($end_date));
+        $result = Carbon::createFromFormat('m/d/Y H:i:s', $formatted_start_date)->gt(Carbon::createFromFormat('m/d/Y H:i:s', $formatted_end_date));
+        if ($result) {
+            $notification = array(
+                'message' => 'Start Date must be older to end date',
+                'alert-type' => 'error',
+            );
+            return redirect()->back()->with($notification);
+        }
+        // ========= End Date Custom Validation =========
 
         // Total Completed Count
         $allData['total_sr_request'] = UserRequestServiceRecord::with(['user'])->where('service_record_status', 'Completed')->where('archived', 'No')->where('created_at', '>=', $start_date)->where('created_at', '<=', $end_date)->orderBy('created_at', 'DESC')->count();

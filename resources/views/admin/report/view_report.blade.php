@@ -42,7 +42,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="start_date_pds" class="form-label">Start Date</label>
-                                    <input type="datetime-local" name="start_date_pds" class="form-control" required>
+                                    <input type="datetime-local" name="start_date_pds" class="form-control" id="start_date_pds" required>
                                     @error('start_date_pds')
                                     <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -51,7 +51,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="end_date_pds" class="form-label">End Date</label>
-                                    <input type="datetime-local" name="end_date_pds" class="form-control" required>
+                                    <input type="datetime-local" name="end_date_pds" class="form-control" id="end_date_pds" min="2010-01-01T00:00" required>
                                     @error('end_date_pds')
                                     <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -77,7 +77,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="start_date_sr" class="form-label">Start Date</label>
-                                    <input type="datetime-local" name="start_date_sr" class="form-control" required>
+                                    <input type="datetime-local" name="start_date_sr" class="form-control" id="start_date_sr" required>
                                     @error('start_date_sr')
                                     <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -86,7 +86,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="end_date_sr" class="form-label">End Date</label>
-                                    <input type="datetime-local" name="end_date_sr" class="form-control" required>
+                                    <input type="datetime-local" name="end_date_sr" class="form-control" id="end_date_sr" required>
                                     @error('end_date_sr')
                                     <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -105,4 +105,22 @@
     </section>
 </div>
 <!-- End Page Content -->
+
+<!-- JQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#start_date_pds").change(function() {
+            var start_date_pds = $("#start_date_pds").val();
+            var end_date_pds = $("#end_date_pds").attr('min', start_date_pds);
+        });
+    });
+
+    $(document).ready(function() {
+        $("#start_date_sr").change(function() {
+            var start_date_sr = $("#start_date_sr").val();
+            var end_date_sr = $("#end_date_sr").attr('min', start_date_sr);
+        });
+    });
+</script>
 @endsection
