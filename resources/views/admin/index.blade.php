@@ -97,26 +97,23 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4>Profile Visit</h4>
-                        </div>
-                        <div class="card-body">
-                            <div id="chart-profile-visit"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
             <div class="row">
                 <div class="col-12 col-xl-4">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Personal Datasheet Stat</h4>
+                            <h4>Personal Datasheet Statistics</h4>
                         </div>
                         <div class="card-body">
-                            <canvas id="pds_bar" width="400" height="400"></canvas>
+                            <canvas id="pds_bar"></canvas>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Service Record Statistics</h4>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="sr_bar"></canvas>
                         </div>
                     </div>
                 </div>
@@ -166,16 +163,12 @@
         </div>
         <div class="col-12 col-lg-3">
             <div class="card">
-                <div class="card-body py-4 px-5">
-                    <div class="d-flex align-items-center">
-                        <div class="avatar avatar-xl">
-                            <img src="{{ asset('admin/assets/images/faces/1.jpg') }}" alt="Face 1">
-                        </div>
-                        <div class="ms-3 name">
-                            <h5 class="font-bold">John Duck</h5>
-                            <h6 class="text-muted mb-0">@johnducky</h6>
-                        </div>
-                    </div>
+                <div class="card-header">
+                    <h4>System Roles</h4>
+                </div>
+                <div class="card-body">
+                    <!-- <div id="chart-visitors-profile"></div> -->
+                    <canvas id="roles_pie" width="400" height="400"></canvas>
                 </div>
             </div>
             <div class="card">
@@ -199,15 +192,6 @@
                     <div class="px-4">
                         <a href="{{ route('user.view') }}" class='btn btn-block btn-xl btn-outline-primary font-bold mt-3'>Go to Manage Users</a>
                     </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header">
-                    <h4>System Roles</h4>
-                </div>
-                <div class="card-body">
-                    <!-- <div id="chart-visitors-profile"></div> -->
-                    <canvas id="roles_pie" width="400" height="400"></canvas>
                 </div>
             </div>
         </div>
@@ -244,23 +228,45 @@
     );
 
     // Bar (PDS)
-    var configBar = document.getElementById("pds_bar");
-    var PdsBar = new Chart(configBar, {
+    var configBarPDS = document.getElementById("pds_bar");
+    var PdsBar = new Chart(configBarPDS, {
         type: 'bar',
         data: {
             labels: ['For Verification', 'Verified', 'Invalid'],
             datasets: [{
                 label: 'For Verification',
                 backgroundColor: "#F8C337",
-                data: [90, 0, 0]
+                data: ['{{ $pdsPendingCount }}', 0, 0]
             }, {
                 label: 'Verified',
                 backgroundColor: "#4EA44F",
-                data: [0, 70, 0]
+                data: [0, '{{ $pdsVerifiedCount }}', 0]
             }, {
                 label: 'Invalid',
                 backgroundColor: "#CE4546",
-                data: [0, 0, 45]
+                data: [0, 0, '{{ $pdsInvalidCount }}']
+            }]
+        },
+    });
+
+    // Bar (SR)
+    var configBarSR = document.getElementById("sr_bar");
+    var SRBar = new Chart(configBarSR, {
+        type: 'bar',
+        data: {
+            labels: ['Pending', 'Completed', 'Archived By Hr'],
+            datasets: [{
+                label: 'Pending',
+                backgroundColor: "#F8C337",
+                data: ['{{ $srPendingCount }}', 0, 0]
+            }, {
+                label: 'Completed',
+                backgroundColor: "#4EA44F",
+                data: [0, '{{ $srCompletedCount }}', 0]
+            }, {
+                label: 'Archived By Hr',
+                backgroundColor: "#6D757C",
+                data: [0, 0, '{{ $srArchivedCount }}']
             }]
         },
     });

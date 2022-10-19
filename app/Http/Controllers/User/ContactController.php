@@ -20,7 +20,7 @@ class ContactController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required|min:3|max:50',
-            'email' => 'required|min:3|max:50',
+            'email' => 'email|required|min:3|max:50',
             'message' => 'required|min:12|max:400',
         ]);
 
