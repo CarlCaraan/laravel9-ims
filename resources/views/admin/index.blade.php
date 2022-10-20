@@ -27,53 +27,36 @@
 <div class="page-content">
     <section class="row">
         <div class="col-12">
-            <h4>Service Record Statistics</h4>
-            <!-- ========== Start Totals Card Section ========== -->
+            <!-- ========== Start Service Record Statistics Section ========== -->
             <div class="row">
+                <h4><i class="fas fa-chart-bar"></i> Service Record Statistics</h4>
                 <div class="col-lg-6 col-md-6">
                     <div class="card">
                         <div class="card-body px-3 py-4-5">
                             <div class="row">
                                 <div class="col-md-2 col-sm-2">
-                                    <div class="stats-icon purple">
+                                    <div class="stats-icon green">
                                         <i class="fas fa-file-invoice"></i>
                                     </div>
                                 </div>
                                 <div class="col-md-10 col-sm-10">
-                                    <h6 class="text-muted font-semibold">Service Record Request (Monthly Average)</h6>
+                                    <h6 class="text-muted font-semibold">Service Record Completed (Monthly Average)</h6>
                                     <h6 class="font-extrabold mb-0">{{ substr($average_sr_permonth,0,4) }}</h6>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-6 col-md-6">
                     <div class="card">
                         <div class="card-body px-3 py-4-5">
                             <div class="row">
-                                <div class="col-md-4 col-sm-2">
-                                    <div class="stats-icon green">
-                                        <i class="fas fa-check-double"></i>
-                                    </div>
-                                </div>
-                                <div class="col-md-8 col-sm-10">
-                                    <h6 class="text-muted font-semibold">Completed Monthly</h6>
-                                    <h6 class="font-extrabold mb-0">80.000</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="card">
-                        <div class="card-body px-3 py-4-5">
-                            <div class="row">
-                                <div class="col-md-4 col-sm-2">
+                                <div class="col-md-2 col-sm-2">
                                     <div class="stats-icon red">
                                         <i class="fas fa-id-card-alt"></i>
                                     </div>
                                 </div>
-                                <div class="col-md-8 col-sm-10">
+                                <div class="col-md-10 col-sm-10">
                                     <h6 class="text-muted font-semibold">Total Applicants</h6>
                                     <h6 class="font-extrabold mb-0">{{ $sr_total_applicant }}</h6>
                                 </div>
@@ -82,28 +65,100 @@
                     </div>
                 </div>
             </div>
-            <!-- ========== End Totals Card Section ========== -->
-
-            <h4>Montoring</h4>
-            <!-- ========= Start PDS and SR Section ========= -->
             <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Completed Record ({{ date('Y') }})</h4>
+                            <span class="mx-2"><span style="color: #3B72BB">■</span> <small>Q1</small></span>
+                            <span class="mx-2"><span style="color: #57ACED">■</span> <small>Q2</small></span>
+                            <span class="mx-2"><span style="color: #4DA49E">■</span> <small>Q3</small></span>
+                            <span class="mx-2"><span style="color: #5CB155">■</span> <small>Q4</small></span>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="sr_bar_calendar" height="50px"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ========== End Service Record Statistics Section ========== -->
+
+            <!-- ========== Start PDS Statistics Section ========== -->
+            <div class="row mt-5">
+                <h4><i class="fas fa-chart-area"></i> PDS Statistics</h4>
+                <div class="col-lg-6 col-md-6">
+                    <div class="card">
+                        <div class="card-body px-3 py-4-5">
+                            <div class="row">
+                                <div class="col-md-2 col-sm-2">
+                                    <div class="stats-icon green">
+                                        <i class="fas fa-check-square"></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-10 col-sm-10">
+                                    <h6 class="text-muted font-semibold">Verified (Monthly Average)</h6>
+                                    <h6 class="font-extrabold mb-0">{{ substr($average_pds_permonth,0,4) }}</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="card">
+                        <div class="card-body px-3 py-4-5">
+                            <div class="row">
+                                <div class="col-md-2 col-sm-2">
+                                    <div class="stats-icon red">
+                                        <i class="fas fa-id-card-alt"></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-10 col-sm-10">
+                                    <h6 class="text-muted font-semibold">Total Applicants</h6>
+                                    <h6 class="font-extrabold mb-0">{{ $pds_total_applicant }}</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Verfied PDS ({{ date('Y') }})</h4>
+                            <span class="mx-2"><span style="color: #3B72BB">■</span> <small>Q1</small></span>
+                            <span class="mx-2"><span style="color: #57ACED">■</span> <small>Q2</small></span>
+                            <span class="mx-2"><span style="color: #4DA49E">■</span> <small>Q3</small></span>
+                            <span class="mx-2"><span style="color: #5CB155">■</span> <small>Q4</small></span>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="pds_bar_calendar" height="50px"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ========== End PDS Statistics Section ========== -->
+
+            <!-- ========= Start PDS and SR Section ========= -->
+            <div class="row mt-5">
+                <h4><i class="fas fa-eye"></i> Montoring</h4>
                 <div class="col-md-6">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Personal Datasheet</h4>
+                            <h4>Personal Datasheet (Current)</h4>
                         </div>
                         <div class="card-body">
-                            <canvas id="pds_bar" height="200px"></canvas>
+                            <canvas id="pds_bar" height="100px"></canvas>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Service Record</h4>
+                            <h4>Service Record (Current)</h4>
                         </div>
                         <div class="card-body">
-                            <canvas id="sr_bar" height="200px"></canvas>
+                            <canvas id="sr_bar" height="100px"></canvas>
                         </div>
                     </div>
                 </div>
@@ -172,7 +227,7 @@
                         </div>
                         <div class="card-body">
                             <!-- <div id="chart-visitors-profile"></div> -->
-                            <canvas id="roles_pie" width="400" height="400"></canvas>
+                            <canvas id="roles_pie"></canvas>
                         </div>
                     </div>
                 </div>
@@ -280,6 +335,146 @@
                 backgroundColor: "#6D757C",
                 data: [0, 0, '{{ $srArchivedCount }}']
             }]
+        },
+    });
+
+    // Calendary Bar (SR)
+    var configBarSRCalendar = document.getElementById("sr_bar_calendar");
+    var SRBarCalendar = new Chart(configBarSRCalendar, {
+        type: 'bar',
+        data: {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+            datasets: [{
+                    label: 'January',
+                    backgroundColor: "#3B72BB",
+                    data: ['{{ $january_sr }}', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                },
+                {
+                    label: 'February',
+                    backgroundColor: "#3B72BB",
+                    data: [0, '{{ $february_sr }}', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                },
+                {
+                    label: 'March',
+                    backgroundColor: "#3B72BB",
+                    data: [0, 0, '{{ $march_sr }}', 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                },
+                {
+                    label: 'April',
+                    backgroundColor: "#57ACED",
+                    data: [0, 0, 0, '{{ $april_sr }}', 0, 0, 0, 0, 0, 0, 0, 0]
+                },
+                {
+                    label: 'May',
+                    backgroundColor: "#57ACED",
+                    data: [0, 0, 0, 0, '{{ $may_sr }}', 0, 0, 0, 0, 0, 0, 0]
+                },
+                {
+                    label: 'June',
+                    backgroundColor: "#57ACED",
+                    data: [0, 0, 0, 0, 0, '{{ $june_sr }}', 0, 0, 0, 0, 0, 0]
+                },
+                {
+                    label: 'July',
+                    backgroundColor: "#4DA49E",
+                    data: [0, 0, 0, 0, 0, 0, '{{ $july_sr }}', 0, 0, 0, 0, 0]
+                },
+                {
+                    label: 'August',
+                    backgroundColor: "#4DA49E",
+                    data: [0, 0, 0, 0, 0, 0, 0, '{{ $august_sr }}', 0, 0, 0, 0]
+                },
+                {
+                    label: 'September',
+                    backgroundColor: "#4DA49E",
+                    data: [0, 0, 0, 0, 0, 0, 0, 0, '{{ $september_sr }}', 0, 0, 0]
+                },
+                {
+                    label: 'October',
+                    backgroundColor: "#5CB155",
+                    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, '{{ $october_sr }}', 0, 0]
+                },
+                {
+                    label: 'November',
+                    backgroundColor: "#5CB155",
+                    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '{{ $november_sr }}', 0]
+                },
+                {
+                    label: 'December',
+                    backgroundColor: "#5CB155",
+                    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '{{ $december_sr }}']
+                },
+            ]
+        },
+    });
+
+    // Calendary Bar (PDS)
+    var configBarPDSCalendar = document.getElementById("pds_bar_calendar");
+    var PDSBarCalendar = new Chart(configBarPDSCalendar, {
+        type: 'bar',
+        data: {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+            datasets: [{
+                    label: 'January',
+                    backgroundColor: "#3B72BB",
+                    data: ['{{ $january_pds }}', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                },
+                {
+                    label: 'February',
+                    backgroundColor: "#3B72BB",
+                    data: [0, '{{ $february_pds }}', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                },
+                {
+                    label: 'March',
+                    backgroundColor: "#3B72BB",
+                    data: [0, 0, '{{ $march_pds }}', 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                },
+                {
+                    label: 'April',
+                    backgroundColor: "#57ACED",
+                    data: [0, 0, 0, '{{ $april_pds }}', 0, 0, 0, 0, 0, 0, 0, 0]
+                },
+                {
+                    label: 'May',
+                    backgroundColor: "#57ACED",
+                    data: [0, 0, 0, 0, '{{ $may_pds }}', 0, 0, 0, 0, 0, 0, 0]
+                },
+                {
+                    label: 'June',
+                    backgroundColor: "#57ACED",
+                    data: [0, 0, 0, 0, 0, '{{ $june_pds }}', 0, 0, 0, 0, 0, 0]
+                },
+                {
+                    label: 'July',
+                    backgroundColor: "#4DA49E",
+                    data: [0, 0, 0, 0, 0, 0, '{{ $july_pds }}', 0, 0, 0, 0, 0]
+                },
+                {
+                    label: 'August',
+                    backgroundColor: "#4DA49E",
+                    data: [0, 0, 0, 0, 0, 0, 0, '{{ $august_pds }}', 0, 0, 0, 0]
+                },
+                {
+                    label: 'September',
+                    backgroundColor: "#4DA49E",
+                    data: [0, 0, 0, 0, 0, 0, 0, 0, '{{ $september_pds }}', 0, 0, 0]
+                },
+                {
+                    label: 'October',
+                    backgroundColor: "#5CB155",
+                    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, '{{ $october_pds }}', 0, 0]
+                },
+                {
+                    label: 'November',
+                    backgroundColor: "#5CB155",
+                    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '{{ $november_pds }}', 0]
+                },
+                {
+                    label: 'December',
+                    backgroundColor: "#5CB155",
+                    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '{{ $december_pds }}']
+                },
+            ]
         },
     });
 </script>
