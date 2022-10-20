@@ -26,101 +26,103 @@
 
 <div class="page-content">
     <section class="row">
-        <div class="col-12 col-lg-9">
+        <div class="col-12">
+            <h4>Service Record Statistics</h4>
+            <!-- ========== Start Totals Card Section ========== -->
             <div class="row">
-                <div class="col-6 col-lg-3 col-md-6">
+                <div class="col-lg-6 col-md-6">
                     <div class="card">
                         <div class="card-body px-3 py-4-5">
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-2 col-sm-2">
                                     <div class="stats-icon purple">
-                                        <i class="iconly-boldShow"></i>
+                                        <i class="fas fa-file-invoice"></i>
                                     </div>
                                 </div>
-                                <div class="col-md-8">
-                                    <h6 class="text-muted font-semibold">Profile Views</h6>
-                                    <h6 class="font-extrabold mb-0">112.000</h6>
+                                <div class="col-md-10 col-sm-10">
+                                    <h6 class="text-muted font-semibold">Service Record Request (Monthly Average)</h6>
+                                    <h6 class="font-extrabold mb-0">{{ substr($average_sr_permonth,0,4) }}</h6>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-6 col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6">
                     <div class="card">
                         <div class="card-body px-3 py-4-5">
                             <div class="row">
-                                <div class="col-md-4">
-                                    <div class="stats-icon blue">
-                                        <i class="iconly-boldProfile"></i>
-                                    </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <h6 class="text-muted font-semibold">Followers</h6>
-                                    <h6 class="font-extrabold mb-0">183.000</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 col-lg-3 col-md-6">
-                    <div class="card">
-                        <div class="card-body px-3 py-4-5">
-                            <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-4 col-sm-2">
                                     <div class="stats-icon green">
-                                        <i class="iconly-boldAdd-User"></i>
+                                        <i class="fas fa-check-double"></i>
                                     </div>
                                 </div>
-                                <div class="col-md-8">
-                                    <h6 class="text-muted font-semibold">Following</h6>
+                                <div class="col-md-8 col-sm-10">
+                                    <h6 class="text-muted font-semibold">Completed Monthly</h6>
                                     <h6 class="font-extrabold mb-0">80.000</h6>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-6 col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6">
                     <div class="card">
                         <div class="card-body px-3 py-4-5">
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-4 col-sm-2">
                                     <div class="stats-icon red">
-                                        <i class="iconly-boldBookmark"></i>
+                                        <i class="fas fa-id-card-alt"></i>
                                     </div>
                                 </div>
-                                <div class="col-md-8">
-                                    <h6 class="text-muted font-semibold">Saved Post</h6>
-                                    <h6 class="font-extrabold mb-0">112</h6>
+                                <div class="col-md-8 col-sm-10">
+                                    <h6 class="text-muted font-semibold">Total Applicants</h6>
+                                    <h6 class="font-extrabold mb-0">{{ $sr_total_applicant }}</h6>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- ========== End Totals Card Section ========== -->
 
+            <h4>Montoring</h4>
+            <!-- ========= Start PDS and SR Section ========= -->
             <div class="row">
-                <div class="col-12 col-xl-4">
+                <div class="col-md-6">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Personal Datasheet Statistics</h4>
+                            <h4>Personal Datasheet</h4>
                         </div>
                         <div class="card-body">
-                            <canvas id="pds_bar"></canvas>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header">
-                            <h4>Service Record Statistics</h4>
-                        </div>
-                        <div class="card-body">
-                            <canvas id="sr_bar"></canvas>
+                            <canvas id="pds_bar" height="200px"></canvas>
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-xl-8">
+                <div class="col-md-6">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Latest Inquiries</h4>
+                            <h4>Service Record</h4>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="sr_bar" height="200px"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ========= End PDS and SR Section ========= -->
+
+            <!-- ========== Start Lastest Inquiries Section ========== -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <h4>Latest Inquiries</h4>
+                                </div>
+                                <div class="col-md-3">
+                                    <a href="{{ route('user.inquiries.view') }}" class='font-bold float-lg-end float-sm-start'>Go to Manage Inquiries</a>
+                                </div>
+                            </div>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -152,7 +154,6 @@
                                             </td>
                                         </tr>
                                         @endforeach
-
                                     </tbody>
                                 </table>
                             </div>
@@ -160,41 +161,52 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-12 col-lg-3">
-            <div class="card">
-                <div class="card-header">
-                    <h4>System Roles</h4>
-                </div>
-                <div class="card-body">
-                    <!-- <div id="chart-visitors-profile"></div> -->
-                    <canvas id="roles_pie" width="400" height="400"></canvas>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header">
-                    <h4>Recent Registered User</h4>
-                </div>
-                <div class="card-content pb-4">
-                    @foreach ($users as $user)
-                    <div class="recent-message d-flex px-4 py-3">
-                        <div class="avatar avatar-lg">
-                            <img src="{{ (!empty($user->profile_photo_path)) ? url('upload/user_images/'.$user->profile_photo_path) : url('upload/user_images/default_photo.png') }}">
+            <!-- ========== End Lastest Inquiries Section ========== -->
+
+            <!-- ========== Start System Roles and Recent Users Section ========== -->
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>System Roles</h4>
                         </div>
-                        <div class="name ms-4">
-                            <h5 class="mb-1">{{ $user->first_name . " " . $user->last_name}}</h5>
-                            <h6 class="text-muted mb-0">{{ $user->email }}</h6>
+                        <div class="card-body">
+                            <!-- <div id="chart-visitors-profile"></div> -->
+                            <canvas id="roles_pie" width="400" height="400"></canvas>
                         </div>
                     </div>
-                    @endforeach
-
-
-                    <div class="px-4">
-                        <a href="{{ route('user.view') }}" class='btn btn-block btn-xl btn-outline-primary font-bold mt-3'>Go to Manage Users</a>
+                </div>
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <h4>Recent Register User</h4>
+                                </div>
+                                <div class="col-md-4">
+                                    <a href="{{ route('user.view') }}" class='font-bold float-lg-end float-sm-start'>Go to Manage Users</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-content pb-4">
+                            @foreach ($users as $user)
+                            <div class="recent-message d-flex px-4 py-3">
+                                <div class="avatar avatar-lg">
+                                    <img src="{{ (!empty($user->profile_photo_path)) ? url('upload/user_images/'.$user->profile_photo_path) : url('upload/user_images/default_photo.png') }}">
+                                </div>
+                                <div class="name ms-4">
+                                    <h5 class="mb-1">{{ $user->first_name . " " . $user->last_name}}</h5>
+                                    <h6 class="text-muted mb-0">{{ $user->email }}</h6>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
                     </div>
                 </div>
             </div>
+            <!-- ========== End System Roles and Recent Users Section ========== -->
         </div>
+
     </section>
 </div>
 
