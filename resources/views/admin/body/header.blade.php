@@ -15,15 +15,21 @@ $route = Route::current()->getName();
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item dropdown me-3">
-                        <a class="nav-link active dropdown-toggle text-gray-600" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                        <!-- ========= Start Notification ========= -->
+                        <a class="nav-link active dropdown-toggle text-gray-600" id="bell_link" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class='bi bi-bell bi-sub fs-4'></i>
+                            <span id="badge__container">
+
+                            </span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
-                            <li>
-                                <h6 class="dropdown-header">Notifications</h6>
-                            </li>
-                            <li><a class="dropdown-item">No notification available</a></li>
+                            <div id="notification_ul">
+
+                            </div>
+                            <li><a class="dropdown-item text-center text-primary" style="cursor:pointer;" id="resolve_btn">clear all resolved</a></li>
                         </ul>
+                        <!-- ========= End Notification ========= -->
                     </li>
                 </ul>
                 <div class="dropdown">
@@ -65,3 +71,106 @@ $route = Route::current()->getName();
         </div>
     </nav>
 </header>
+
+<!-- Start Json Get Equipment Type Select Options -->
+<script type="text/javascript">
+    $(document).ready(function() {
+        // Notif List Item
+        $.ajax({
+            url: "{{ route('admin.get.notification') }}",
+            type: "GET",
+            // data: {
+            //     facility_id: facility_id
+            // },
+            success: function(data) {
+                var html = '<li><h6 class="dropdown-header">Notifications</h6></li>';
+                $.each(data, function(key, v) {
+                    var formattedTimestamp = new Date(v.timestamp);
+
+                    var simpleDate = (function() {
+                        var measures = {
+                            second: 1,
+                            minute: 60,
+                            hour: 3600,
+                            day: 86400,
+                            week: 604800,
+                            month: 2592000,
+                            year: 31536000
+                        };
+                        var chkMultiple = function(amount, type) {
+                            return (amount > 1) ? amount + " " + type + "s" : "a " + type;
+                        };
+                        return function(thedate) {
+                            var dateStr, amount, denomination,
+                                current = new Date().getTime(),
+                                diff = (current - thedate.getTime()) / 1000; // work with seconds
+                            if (diff > measures.year) {
+                                denomination = "year";
+                            } else if (diff > measures.month) {
+                                denomination = "month";
+                            } else if (diff > measures.week) {
+                                denomination = "week";
+                            } else if (diff > measures.day) {
+                                denomination = "day";
+                            } else if (diff > measures.hour) {
+                                denomination = "hour";
+                            } else if (diff > measures.minute) {
+                                denomination = "minute";
+                            } else {
+                                dateStr = "a few seconds ago";
+                                return dateStr;
+                            }
+                            amount = Math.round(diff / measures[denomination]);
+                            dateStr = chkMultiple(amount, denomination) + " ago";
+                            return dateStr;
+                        };
+                    })();
+
+                    html += '<li><a class="dropdown-item"><strong>' + v.user.first_name + " " + v.user.last_name + " </strong>" + v.description + " <span class='badge badge-pill bg-secondary'>" + v.status + "</span><small> " + simpleDate(formattedTimestamp) + "</small></a></li>";
+                });
+                $('#notification_ul').html(html);
+            },
+        });
+
+        // Notif Badge Get
+        $.ajax({
+            url: "{{ route('admin.get.notification.badge') }}",
+            type: "GET",
+            success: function(data) {
+                var html = '';
+                html += '<badge class="badge badge-pill bg-danger">' + data + '</badge>';
+                $('#badge__container').html(html);
+            },
+        });
+
+    });
+
+    // Update Badge on Click
+    $($('#bell_link')).click(function() {
+        $.ajax({
+            url: "{{ route('admin.get.notification.update') }}",
+            type: "GET",
+            success: function(data) {
+                var html = '';
+                html += '<span>' + data + '</span>';
+                $('#badge__container').html(html);
+            },
+        });
+    });
+
+    // Resolve Click
+    $($('#resolve_btn')).click(function() {
+        $.ajax({
+            url: "{{ route('admin.get.notification.resolve') }}",
+            type: "GET",
+            success: function(data) {
+                var html = '<li><h6 class="dropdown-header">Notifications</h6> </li>';
+                $.each(data, function(key, v) {
+                    html += '<li><a class="dropdown-item"><strong>' + v.user.first_name + " " + v.user.last_name + " </strong>" + v.description + " [" + v.status + "]</a></li>";
+                });
+                $('#notification_ul').html(html);
+            },
+        });
+    });
+</script>
+<!-- End Json Get Equipment Type Select Options -->

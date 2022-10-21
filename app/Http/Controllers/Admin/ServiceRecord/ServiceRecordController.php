@@ -10,6 +10,8 @@ use App\Models\ServiceRecord;
 use App\Models\User;
 use App\Mail\CreateSRMail;
 use Illuminate\Support\Facades\Mail;
+use App\Models\AdminNotification;
+use Auth;
 
 class ServiceRecordController extends Controller
 {
@@ -66,6 +68,11 @@ class ServiceRecordController extends Controller
 
         UserRequestServiceRecord::find($request_id)->update([
             'service_record_status' => 'Completed'
+        ]);
+
+        // Insert Notification for Admin/HR
+        $bell =  AdminNotification::where('sr_id', $request_id)->update([
+            'status' => 'resolved',
         ]);
 
         // ========= Start Working with Email =========

@@ -6,6 +6,7 @@ use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\FacebookController;
 
 use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\NotificationController;
 
 // ========= All Admin Controller =========
 use App\Http\Controllers\Admin\DashboardController;
@@ -154,6 +155,12 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
             Route::post('admin/generate-report/pds', [ReportController::class, 'PDSGenereteReport'])->name('generate.report.pds');
             Route::post('admin/generate-report/sr', [ReportController::class, 'SRGenereteReport'])->name('generate.report.sr');
         });
+
+        // Admin\HR Notification 
+        Route::get('admin/notification/get', [NotificationController::class, 'AdminGetNotification'])->name('admin.get.notification');
+        Route::get('admin/notification/get/badge', [NotificationController::class, 'AdminGetNotificationBadge'])->name('admin.get.notification.badge');
+        Route::get('admin/notification/get/update', [NotificationController::class, 'AdminGetNotificationUpdate'])->name('admin.get.notification.update');
+        Route::get('admin/notification/get/resolve', [NotificationController::class, 'AdminGetNotificationResolve'])->name('admin.get.notification.resolve');
     }); // End Admin Routes
 
     // ========= ALL User Routes =========

@@ -9,6 +9,7 @@ use App\Models\ServiceRecord;
 use Auth;
 use Illuminate\Support\Facades\DB;
 use PDF;
+use App\Models\AdminNotification;
 
 class RequestServiceRecordController extends Controller
 {
@@ -40,11 +41,20 @@ class RequestServiceRecordController extends Controller
             'created_at' => now()
         ]);
 
-
-        // Insert SR Request
+        // Insert Service Record
         $service_record = new ServiceRecord();
         $service_record->service_request_record_id = $sr_request_id;
         $service_record->save();
+
+        // Insert Notification for Admin/HR
+        $bell = new AdminNotification();
+        $bell->user_id = Auth::user()->id;
+        $bell->sr_id = $sr_request_id;
+        $bell->description = "has pending service record request.";
+        $bell->seen_status = "unseen";
+        $bell->status = 'task';
+        $bell->timestamp = now();
+        $bell->save();
 
         $notification = array(
             'message' => 'Request sent successfully',
@@ -57,6 +67,7 @@ class RequestServiceRecordController extends Controller
     {
         $sr_request = UserRequestServiceRecord::find($id)->delete();
         $service_record = ServiceRecord::where('service_request_record_id', $id)->delete();
+        $bell = AdminNotification::where('sr_id', $id)->delete();
 
         $notification = array(
             'message' => 'Request cancelled successfully',
