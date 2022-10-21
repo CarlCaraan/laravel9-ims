@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\PdsFormList;
 use App\Mail\ManagePDSMail;
 use Illuminate\Support\Facades\Mail;
+use App\Models\AdminNotification;
 
 class PDSController extends Controller
 {
@@ -109,6 +110,11 @@ class PDSController extends Controller
         // $pds_form_list->pds_status = $request->pds_status;
         // $pds_form_list->pds_message = $request->pds_message;
         // $pds_form_list->save();
+
+        // Insert Notification for Admin/HR
+        $bell =  AdminNotification::where('pds_id', $id)->update([
+            'status' => 'resolved',
+        ]);
 
         $notification = array(
             'message' => 'User PDS updated successfully',

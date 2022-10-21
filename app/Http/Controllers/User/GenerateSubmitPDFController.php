@@ -15,6 +15,7 @@ use App\Models\VoluntaryWorkInfo;
 use App\Models\LearningProgramInfo;
 use App\Models\OtherSkillInfo;
 use App\Models\PdsFormList;
+use App\Models\AdminNotification;
 use PDF;
 use Auth;
 
@@ -153,6 +154,16 @@ class GenerateSubmitPDFController extends Controller
         }
 
         $pdf->save();
+
+        // Insert Notification for Admin/HR
+        $bell = new AdminNotification();
+        $bell->user_id = Auth::user()->id;
+        $bell->pds_id = $pdf->id;
+        $bell->description = "has pending personal datasheet request.";
+        $bell->seen_status = "unseen";
+        $bell->status = 'task';
+        $bell->timestamp = now();
+        $bell->save();
 
         $notification = array(
             'message' => 'File uploaded successfully',
