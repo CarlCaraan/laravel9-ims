@@ -183,4 +183,15 @@ class ServiceRecordController extends Controller
         );
         return redirect()->route('all.archived.view')->with($notification);
     } // End Method
+
+    public function DeleteArchivedView($id)
+    {
+        UserRequestServiceRecord::find($id)->delete();
+
+        $notification = array(
+            'message' => 'Data Permanently Deleted successfully',
+            'alert-type' => 'success',
+        );
+        return redirect()->route('all.archived.view')->with($notification);
+    } // End Method
 }
