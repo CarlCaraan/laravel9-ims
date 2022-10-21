@@ -10,7 +10,7 @@ class NotificationController extends Controller
 {
     public function AdminGetNotification()
     {
-        $allData = AdminNotification::with(['user'])->get();
+        $allData = AdminNotification::with(['user'])->latest()->get();
 
         return response()->json($allData);
     } // End Method
@@ -47,7 +47,7 @@ class NotificationController extends Controller
     {
         $data = AdminNotification::where('status', 'resolved')->delete();
 
-        $allData = AdminNotification::with(['user'])->get();
+        $allData = AdminNotification::with(['user'])->latest()->get();
 
         return response()->json($allData);
     } // End Method

@@ -126,7 +126,12 @@ $route = Route::current()->getName();
                         };
                     })();
 
-                    html += '<li><a class="dropdown-item"><strong>' + v.user.first_name + " " + v.user.last_name + " </strong>" + v.description + " <span class='badge badge-pill bg-secondary'>" + v.status + "</span><small> " + simpleDate(formattedTimestamp) + "</small></a></li>";
+                    if (v.status == 'task') {
+                        var style = 'warning'
+                    } else {
+                        var style = 'success'
+                    }
+                    html += '<li class="shadow-sm w-100"><a class="dropdown-item"><strong>' + v.user.first_name + " " + v.user.last_name + " </strong>" + v.description + "<br/><small>(" + v.user.email + ")</small> <span class='badge bg-light-" + style + " float-end'>" + v.status + "</span>" + "<small>● " + simpleDate(formattedTimestamp) + "</small></a></li>";
                 });
                 $('#notification_ul').html(html);
             },
@@ -166,7 +171,53 @@ $route = Route::current()->getName();
             success: function(data) {
                 var html = '<li><h6 class="dropdown-header">Notifications</h6> </li>';
                 $.each(data, function(key, v) {
-                    html += '<li><a class="dropdown-item"><strong>' + v.user.first_name + " " + v.user.last_name + " </strong>" + v.description + " [" + v.status + "]</a></li>";
+                    var formattedTimestamp = new Date(v.timestamp);
+
+                    var simpleDate = (function() {
+                        var measures = {
+                            second: 1,
+                            minute: 60,
+                            hour: 3600,
+                            day: 86400,
+                            week: 604800,
+                            month: 2592000,
+                            year: 31536000
+                        };
+                        var chkMultiple = function(amount, type) {
+                            return (amount > 1) ? amount + " " + type + "s" : "a " + type;
+                        };
+                        return function(thedate) {
+                            var dateStr, amount, denomination,
+                                current = new Date().getTime(),
+                                diff = (current - thedate.getTime()) / 1000; // work with seconds
+                            if (diff > measures.year) {
+                                denomination = "year";
+                            } else if (diff > measures.month) {
+                                denomination = "month";
+                            } else if (diff > measures.week) {
+                                denomination = "week";
+                            } else if (diff > measures.day) {
+                                denomination = "day";
+                            } else if (diff > measures.hour) {
+                                denomination = "hour";
+                            } else if (diff > measures.minute) {
+                                denomination = "minute";
+                            } else {
+                                dateStr = "a few seconds ago";
+                                return dateStr;
+                            }
+                            amount = Math.round(diff / measures[denomination]);
+                            dateStr = chkMultiple(amount, denomination) + " ago";
+                            return dateStr;
+                        };
+                    })();
+
+                    if (v.status == 'task') {
+                        var style = 'warning'
+                    } else {
+                        var style = 'success'
+                    }
+                    html += '<li class="shadow-sm w-100"><a class="dropdown-item"><strong>' + v.user.first_name + " " + v.user.last_name + " </strong>" + v.description + "<br/><small>(" + v.user.email + ")</small> <span class='badge bg-light-" + style + " float-end'>" + v.status + "</span>" + "<small>● " + simpleDate(formattedTimestamp) + "</small></a></li>";
                 });
                 $('#notification_ul').html(html);
             },
