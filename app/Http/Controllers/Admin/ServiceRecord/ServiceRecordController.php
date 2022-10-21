@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use App\Models\UserRequestServiceRecord;
 use App\Models\ServiceRecord;
 use App\Models\User;
+use App\Mail\CreateSRMail;
+use Illuminate\Support\Facades\Mail;
 
 class ServiceRecordController extends Controller
 {
@@ -65,6 +67,17 @@ class ServiceRecordController extends Controller
         UserRequestServiceRecord::find($request_id)->update([
             'service_record_status' => 'Completed'
         ]);
+
+        // ========= Start Working with Email =========
+        $user = UserRequestServiceRecord::with(['user'])->find($request_id)->first();
+        $data = [
+            'name' => $user['user']['first_name'] . " " . $user['user']['last_name'],
+            'email' => $user['user']['email'],
+            'title' => "Service Record Created",
+            'message' => "Update! Your Service Record has been created to your account",
+        ];
+        Mail::to("bannedefused@gmail.com")->send(new CreateSRMail($data)); //  Sends Email
+        // ========= End Working with Email =========
 
         $notification = array(
             'message' => 'Service Record created successfully',
@@ -187,6 +200,7 @@ class ServiceRecordController extends Controller
     public function DeleteArchivedView($id)
     {
         UserRequestServiceRecord::find($id)->delete();
+        ServiceRecord::where('service_request_record_id', $id)->delete();
 
         $notification = array(
             'message' => 'Data Permanently Deleted successfully',
