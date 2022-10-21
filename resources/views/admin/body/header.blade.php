@@ -23,7 +23,7 @@ $route = Route::current()->getName();
 
                             </span>
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                        <ul class="dropdown-menu dropdown-menu-end" style="height: 400px; overflow-y: scroll;" aria-labelledby="dropdownMenuButton">
                             <div id="notification_ul">
 
                             </div>
