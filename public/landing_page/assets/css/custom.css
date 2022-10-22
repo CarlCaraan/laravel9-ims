@@ -9,12 +9,17 @@
 }
 
 /* ========= GLOBAL CSS ========= */
-
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 .html,
 body {
     font-family: "Inter", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    box-sizing: border-box;
     top: 0px !important;
 
     display: grid;

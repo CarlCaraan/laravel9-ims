@@ -59,7 +59,7 @@
             </div>
             <div class="col-xl-7 d-none d-xl-block">
                 <div id="auth-right">
-                    <img class="img-fluid h-100" src="{{ asset('auth/images/auth_background.jpg') }}" alt="background">
+                    <div class="auth-background" id="auth-right"></div>
                 </div>
             </div>
         </div>
