@@ -30,6 +30,7 @@ body {
         ),
         url("../../auth/images/auth_background.jpg") !important;
     background-size: cover !important;
+    background-position: center !important;
 }
 .auth-subtitle {
     font-family: "Montserrat", sans-serif;
