@@ -6,7 +6,6 @@ use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\FacebookController;
 
 use App\Http\Controllers\WelcomeController;
-use App\Http\Controllers\NotificationController;
 
 // ========= All Admin Controller =========
 use App\Http\Controllers\Admin\DashboardController;
@@ -16,6 +15,7 @@ use App\Http\Controllers\Admin\SiteInfo\AdminSiteInfoController;
 use App\Http\Controllers\Admin\SiteInfo\UserSiteInfoController;
 use App\Http\Controllers\Admin\SiteInfo\UserHerosectionController;
 use App\Http\Controllers\Admin\SiteInfo\UserInquiryController;
+use App\Http\Controllers\Admin\NotificationController;
 
 // ========= All HR Controller =========
 use App\Http\Controllers\Admin\PDS\PDSController;

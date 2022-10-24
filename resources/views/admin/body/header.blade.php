@@ -23,7 +23,7 @@ $route = Route::current()->getName();
 
                             </span>
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-end" style="height: 400px; overflow-y: scroll;" aria-labelledby="dropdownMenuButton">
+                        <ul class="dropdown-menu dropdown-menu-end" style="max-height: 400px; overflow-y: scroll;" aria-labelledby="dropdownMenuButton">
                             <div id="notification_ul">
 
                             </div>
@@ -72,7 +72,7 @@ $route = Route::current()->getName();
     </nav>
 </header>
 
-<!-- Start Json Get Equipment Type Select Options -->
+<!-- Start Json Get Notifications -->
 <script type="text/javascript">
     $(document).ready(function() {
         // Notif List Item
@@ -147,7 +147,6 @@ $route = Route::current()->getName();
                 $('#badge__container').html(html);
             },
         });
-
     });
 
     // Update Badge on Click
@@ -163,7 +162,7 @@ $route = Route::current()->getName();
         });
     });
 
-    // Resolve Click
+    // Clear Resolve Click
     $($('#resolve_btn')).click(function() {
         $.ajax({
             url: "{{ route('admin.get.notification.resolve') }}",
@@ -224,4 +223,4 @@ $route = Route::current()->getName();
         });
     });
 </script>
-<!-- End Json Get Equipment Type Select Options -->
+<!-- End Json Get Notifications -->
