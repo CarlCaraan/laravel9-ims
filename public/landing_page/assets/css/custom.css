@@ -121,6 +121,11 @@ a:focus {
 
 #hero {
     height: 70vh !important;
+    background-image: linear-gradient(
+        rgba(68, 146, 195, 0.3),
+        rgba(68, 146, 195, 0.5),
+        rgba(34, 67, 137, 0.7)
+    );
 }
 #hero .hero-slider {
     height: 70vh !important;
