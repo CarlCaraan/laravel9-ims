@@ -76,7 +76,7 @@
                                         <span class="badge bg-success py-2"><i class="bi bi-check-circle-fill"></i> Email Linked | {{ $editData->email }}</span>
                                         <input type="hidden" class="form-control" name="email" id="email" placeholder="Email Address" value="{{ $editData->email }}">
                                         @else
-                                        <input type="text" class="form-control mb-1" name="email" id="email" placeholder="Email Address" value="{{ $editData->email }}">
+                                        <input type="email" class="form-control mb-1" name="email" id="email" placeholder="Email Address" value="{{ $editData->email }}">
                                         @error('email')
                                         <small class="text-danger">{{ $message }}</small><br />
                                         @enderror
@@ -128,21 +128,21 @@
                             @csrf
                             <div class="form-group mb-2">
                                 <label for="current_password" class="form-label fw-bold">Current Password</label>
-                                <input type="password" class="form-control" name="old_password" id="current_password">
+                                <input type="password" class="form-control" minlength="8" maxlength="24" name="old_password" id="current_password">
                                 @error('old_password')
                                 <small class="text-danger">{{ $message }}</small>
                                 @enderror
                             </div>
                             <div class="form-group mb-2">
                                 <label for="password" class="form-label fw-bold">New Password</label>
-                                <input type="password" class="form-control" name="password" id="password">
+                                <input type="password" class="form-control" minlength="8" maxlength="24" name="password" id="password">
                                 @error('password')
                                 <small class="text-danger">{{ $message }}</small>
                                 @enderror
                             </div>
                             <div class="form-group mb-2">
                                 <label for="password_confirmation" class="form-label fw-bold">Confirm Password</label>
-                                <input type="password" class="form-control" name="password_confirmation" id="password_confirmation">
+                                <input type="password" class="form-control" minlength="8" maxlength="24" name="password_confirmation" id="password_confirmation">
                                 @error('password_confirmation')
                                 <small class="text-danger">{{ $message }}</small>
                                 @enderror

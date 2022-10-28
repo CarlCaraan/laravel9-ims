@@ -39,7 +39,7 @@
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" /> -->
 
     <!-- Filepond CSS CDN -->
-    <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
+    <link href="{{ asset('landing_page/assets/css/filepond.min.css') }}" rel="stylesheet" />
 
     <!-- SnackBar CSS -->
     <link href="{{ asset('landing_page/assets/css/snackbar.min.css') }}" rel="stylesheet">
@@ -360,7 +360,6 @@
 
     <!-- Datatable JS CDN -->
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-
 
     <!-- Start of Async Drift Code -->
     <script>

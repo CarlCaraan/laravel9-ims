@@ -145,8 +145,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 <!-- Filepond JS CDN -->
-<script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
-<script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
+<script src="{{ asset('landing_page/assets/js/filepond.min.js') }}"></script>
+<script src="{{ asset('landing_page/assets/js/filepond-plugin-file-validate-type.min.js') }}"></script>
 
 <!-- Start Filepond Script -->
 <script>

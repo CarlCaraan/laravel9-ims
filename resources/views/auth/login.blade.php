@@ -71,7 +71,7 @@
                             <label class="ms-5" for="email">Email Address</label>
                         </div>
                         <div class="form-group form-floating position-relative has-icon-left">
-                            <input type="password" id="password" name="password" class="form-control form-control-xl" placeholder="Password" autocomplete="current-password">
+                            <input type="password" id="password" minlength="8" maxlength="24" name="password" class="form-control form-control-xl" placeholder="Password" autocomplete="current-password">
                             <div class="form-control-icon">
                                 <i class="bi bi-shield-lock"></i>
                             </div>

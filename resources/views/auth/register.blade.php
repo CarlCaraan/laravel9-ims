@@ -61,14 +61,14 @@
                             <label class="ms-5" for="email">Email Address</label>
                         </div>
                         <div class="form-group form-floating position-relative has-icon-left">
-                            <input type="password" class="form-control form-control-xl" placeholder="Password" id="password" name="password" autocomplete="new-password">
+                            <input type="password" class="form-control form-control-xl" minlength="8" maxlength="24" placeholder="Password" id="password" name="password" autocomplete="new-password">
                             <div class="form-control-icon">
                                 <i class="bi bi-shield-lock"></i>
                             </div>
                             <label class="ms-5" for="password">Password</label>
                         </div>
                         <div class="form-group form-floating position-relative has-icon-left">
-                            <input type="password" class="form-control form-control-xl" placeholder="Confirm Password" id="password_confirmation" name="password_confirmation" autocomplete="new-password">
+                            <input type="password" class="form-control form-control-xl" minlength="8" maxlength="24" placeholder="Confirm Password" id="password_confirmation" name="password_confirmation" autocomplete="new-password">
                             <div class=" form-control-icon">
                                 <i class="bi bi-shield-lock"></i>
                             </div>
