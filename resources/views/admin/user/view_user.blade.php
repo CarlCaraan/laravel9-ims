@@ -78,7 +78,7 @@
                                     <div class="modal-content">
                                         <div class="modal-body">
                                             <div class="text-center">
-                                                <img class="img-fluid" src="{{ (!empty($user->profile_photo_path)) ? url('upload/user_images/'.$user->profile_photo_path) : url('upload/user_images/default_photo.png') }}" alt="Profile Photo" data-bs-toggle="modal" data-bs-target="#galleryModal-{{ $user->id }}">
+                                                <img class="img-fluid" src="{{ (!empty($user->profile_photo_path)) ? url('upload/user_images/'.$user->profile_photo_path) : url('upload/user_images/default_photo.png') }}" alt="Profile Photo">
                                             </div>
                                         </div>
                                     </div>
