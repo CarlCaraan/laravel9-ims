@@ -157,14 +157,21 @@ a:focus {
 }
 
 /* ========= Mission Vision ========= */
+.card {
+    box-shadow: 0px 4px 11px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+.custom-card-body {
+    padding: 2rem 4rem;
+}
 .custom-serif-paragraph {
     font-family: "Merriweather", serif;
     font-size: 20px;
-    /* font-weight: 700; */
     text-align: justify;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     letter-spacing: 1px;
+    margin: 0;
 }
 
 /* ======================================= */

@@ -25,14 +25,12 @@
         <div class="section-header">
             <h2>Quality Policy</h2>
         </div>
-        <div class="card border-0 shadow-sm">
-            <div class="card-body">
-                <div class="card-content p-5">
-                    <p class="custom-serif-paragraph">
-                        We, at School Division Office of Laguna, are committed to provide effective and efficient basic education services to schools and learning centers in compliance with quality standards, existing statutory, and regulatory policies. <br /><br />
-                        We continuously uphold to improve quality management system through highly competent personnel adhering to Transparent, Ethical and Accountable governance for total customer satisfaction.
-                    </p>
-                </div>
+        <div class="card border-0">
+            <div class="card-body custom-card-body">
+                <p class="custom-serif-paragraph">
+                    We, at School Division Office of Laguna, are committed to provide effective and efficient basic education services to schools and learning centers in compliance with quality standards, existing statutory, and regulatory policies. <br /><br />
+                    We continuously uphold to improve quality management system through highly competent personnel adhering to Transparent, Ethical and Accountable governance for total customer satisfaction.
+                </p>
             </div>
         </div>
 
