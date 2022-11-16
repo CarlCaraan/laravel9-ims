@@ -2,7 +2,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter&family=Merriweather&family=Playfair+Display&family=Poppins&family=Raleway&display=swap");
 
 /* ========= ALL VARIABLES ========= */
-
 :root {
     --primary-app-color: #4492c3;
     --secondary-app-color: #224389;
@@ -112,13 +111,11 @@ a:focus {
 }
 
 /* ========= Google Translate Api ========= */
-
 .goog-te-banner-frame.skiptranslate {
     display: none !important;
 }
 
 /* ========= Herosection ========= */
-
 #hero {
     height: 70vh !important;
     background-image: linear-gradient(
@@ -132,7 +129,6 @@ a:focus {
 }
 
 /* ========= Navigation ========= */
-
 #header #logo h1 a span {
     color: var(--primary-app-color);
 }
@@ -144,13 +140,11 @@ a:focus {
 }
 
 /* ========= Message From SDS ========= */
-
 #about .content h2 {
     color: var(--secondary-app-color);
 }
 
 /* ========= Carousel Bullet Pagination ========= */
-
 .swiper-pagination .swiper-pagination-bullet {
     border: 1px solid var(--primary-app-color) !important;
 }
@@ -159,7 +153,6 @@ a:focus {
 }
 
 /* ========= Mission Vision ========= */
-
 .card {
     box-shadow: 0px 4px 11px 0px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
@@ -182,7 +175,6 @@ a:focus {
 /* ======================================= */
 
 /* ========= Side Navigation ========= */
-
 .side-navlink {
     font-family: "Raleway", sans-serif !important;
     border-left: 4px solid #fff !important;
@@ -205,7 +197,6 @@ a:focus {
 }
 
 /* ========= Request Form ========= */
-
 .request-form-label {
     font-weight: 700;
     font-size: 12.5px;
@@ -230,7 +221,6 @@ a:focus {
 }
 
 /* ========= SUBMIT PAGE ========= */
-
 #btn-invalid {
     cursor: pointer;
 }
@@ -274,7 +264,6 @@ a:focus {
 }
 
 /* ========= SCROLL TO TOP ========= */
-
 .back-to-top {
     background: var(--primary-app-color);
 }
