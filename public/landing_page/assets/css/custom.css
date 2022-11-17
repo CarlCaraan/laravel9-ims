@@ -40,7 +40,6 @@ h6 {
     justify-content: center;
     display: flex;
 }
-
 .color-primary {
     color: var(--primary-app-color);
 }
