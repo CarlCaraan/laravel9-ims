@@ -7,7 +7,7 @@ use App\Http\Controllers\FacebookController;
 
 use App\Http\Controllers\WelcomeController;
 
-// ========= All Admin Controllers =========
+// ========= All Admin Controller =========
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\UserController;
