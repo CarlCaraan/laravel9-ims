@@ -195,9 +195,9 @@
     });
 
     /**
-     * Clients Slider
+     * Affiliates Slider
      */
-    new Swiper(".clients-slider", {
+    new Swiper(".affiliates-slider", {
         speed: 400,
         loop: true,
         autoplay: {

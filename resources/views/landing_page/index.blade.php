@@ -55,7 +55,7 @@
             <h2>Our Affiliates</h2>
         </div>
 
-        <div class="clients-slider swiper" data-aos="fade-up" data-aos-delay="100">
+        <div class="affiliates-slider swiper" data-aos="fade-up" data-aos-delay="100">
             <div class="swiper-wrapper align-items-center">
                 <div class="swiper-slide"><img src="{{ asset('landing_page/assets/img/affiliates/1.png') }}" class="img-fluid" alt=""></div>
                 <div class="swiper-slide"><img src="{{ asset('landing_page/assets/img/affiliates/2.png') }}" class="img-fluid" alt=""></div>
