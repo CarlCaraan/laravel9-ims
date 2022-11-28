@@ -127,9 +127,9 @@ a:focus {
     height: 70vh !important;
 }
 .hero__container--mobile {
-    display: grid;
     grid-template-columns: auto;
     display: none;
+    padding-block: 0;
 }
 
 /* ========= Navigation ========= */
