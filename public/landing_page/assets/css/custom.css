@@ -126,6 +126,11 @@ a:focus {
 #hero .hero-slider {
     height: 70vh !important;
 }
+.hero__container--mobile {
+    display: grid;
+    grid-template-columns: auto;
+    display: none;
+}
 
 /* ========= Navigation ========= */
 #header #logo h1 a span {
@@ -141,6 +146,11 @@ a:focus {
 /* ========= Message From SDS ========= */
 #about .content h2 {
     color: var(--secondary-app-color);
+}
+
+/* ======== Affiliates ======== */
+.affiliates__container {
+    display: none;
 }
 
 /* ========= Carousel Bullet Pagination ========= */
@@ -275,6 +285,32 @@ a:focus {
 @media (max-width: 575.98px) {
     .custom-serif-paragraph {
         padding-inline: 0px !important;
+    }
+    .swiper-wrapper,
+    .swiper-pagination {
+        display: none;
+    }
+    .affiliates__container {
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+    }
+    #hero {
+        display: none;
+    }
+    .hero__container--mobile {
+        display: block;
+    }
+    /* ========= Top Bar ========= */
+    .contact-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+    }
+    .contact-info > * {
+        margin-top: 0.3rem;
+    }
+    #topbar {
+        height: 4rem;
     }
 }
 

@@ -9,7 +9,7 @@ class WelcomeController extends Controller
 {
     public function WelcomeView()
     {
-        $data['herosections'] = UserHerosection::first();
+        $data['herosections'] = UserHerosection::get();
         return view('landing_page.index', $data);
     }
 }

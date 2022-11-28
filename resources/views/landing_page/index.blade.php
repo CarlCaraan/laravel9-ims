@@ -7,14 +7,20 @@
 <section id="hero">
     <div class="hero-slider swiper">
         <div class="swiper-wrapper align-items-center">
-            <div class="swiper-slide" style="background-image: url('/upload/user_siteinfo/herosection/{{ (!empty($herosections->image)) ? $herosections->image : 'default_photo.png' }}');"></div>
+            @foreach ($herosections as $herosection)
+            <div class="swiper-slide" style="background-image: url('/upload/user_siteinfo/herosection/{{ (!empty($herosection->image)) ? $herosection->image : 'default_photo.png' }}');"></div>
+            @endforeach
         </div>
-        <div class="swiper-pagination"></div>
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
     </div>
-
 </section><!-- End Hero Section -->
+
+<section class="hero__container--mobile">
+    @foreach ($herosections as $herosection)
+    <img class="img-fluid" src="{{ url('upload/user_siteinfo/herosection/'.$herosection->image) }}" alt="">
+    @endforeach
+</section>
 
 <!-- ======= Start Message From SDS Section ======= -->
 <section id="about">
@@ -71,6 +77,21 @@
                 <div class="swiper-slide"><img src="{{ asset('landing_page/assets/img/affiliates/12.png') }}" class="img-fluid" alt=""></div>
             </div>
             <div class="swiper-pagination"></div>
+
+            <div class="affiliates__container">
+                <div class="swiper-slide"><img src="{{ asset('landing_page/assets/img/affiliates/1.png') }}" class="img-fluid" alt=""></div>
+                <div class="swiper-slide"><img src="{{ asset('landing_page/assets/img/affiliates/2.png') }}" class="img-fluid" alt=""></div>
+                <div class="swiper-slide"><img src="{{ asset('landing_page/assets/img/affiliates/3.png') }}" class="img-fluid" alt=""></div>
+                <div class="swiper-slide"><img src="{{ asset('landing_page/assets/img/affiliates/4.png') }}" class="img-fluid" alt=""></div>
+                <div class="swiper-slide"><img src="{{ asset('landing_page/assets/img/affiliates/5.png') }}" class="img-fluid" alt=""></div>
+                <div class="swiper-slide"><img src="{{ asset('landing_page/assets/img/affiliates/6.png') }}" class="img-fluid" alt=""></div>
+                <div class="swiper-slide"><img src="{{ asset('landing_page/assets/img/affiliates/7.png') }}" class="img-fluid" alt=""></div>
+                <div class="swiper-slide"><img src="{{ asset('landing_page/assets/img/affiliates/8.png') }}" class="img-fluid" alt=""></div>
+                <div class="swiper-slide"><img src="{{ asset('landing_page/assets/img/affiliates/9.png') }}" class="img-fluid" alt=""></div>
+                <div class="swiper-slide"><img src="{{ asset('landing_page/assets/img/affiliates/10.png') }}" class="img-fluid" alt=""></div>
+                <div class="swiper-slide"><img src="{{ asset('landing_page/assets/img/affiliates/11.png') }}" class="img-fluid" alt=""></div>
+                <div class="swiper-slide"><img src="{{ asset('landing_page/assets/img/affiliates/12.png') }}" class="img-fluid" alt=""></div>
+            </div>
         </div>
 
     </div>
