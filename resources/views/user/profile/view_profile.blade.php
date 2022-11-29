@@ -29,7 +29,7 @@
                     <div class="card-header py-3 bg-white border-bottom">
                         <a href="{{ route('user.profile.edit') }}" class="btn custom-btn">Go to Account Settings</a>
                         <!-- <small class="text-muted float-end mt-2">Last Updated: {{ date('d-m-Y', strtotime($user->updated_at)) }}</small> -->
-                        <small class="text-muted float-end mt-2">Last Updated: {{ Carbon\Carbon::parse($user->updated_at)->diffForHumans() }}</small>
+                        <small class="text-muted float-end mt-2 leftcard__headings--mobile">Last Updated: {{ Carbon\Carbon::parse($user->updated_at)->diffForHumans() }}</small>
                     </div>
                     <div class="card-body px-4 pt-4 pb-5">
                         <h4 class="mb-4 color-primary"><i class="fas fa-address-card"></i> Basic Information</h4>

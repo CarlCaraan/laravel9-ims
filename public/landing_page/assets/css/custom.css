@@ -312,6 +312,32 @@ a:focus {
     #topbar {
         height: 4rem;
     }
+    /* Card */
+    .leftcard__headings--mobile {
+        display: block;
+        float: left !important;
+        margin-top: 1rem !important;
+    }
+    /* ========= Custom Btn ========= */
+    .custom-btn {
+        display: block;
+        width: 100%;
+        margin-top: 1rem;
+    }
+    .section-header h2 {
+        font-size: 1.2rem;
+    }
+    .content h2 {
+        font-size: 1.2rem !important;
+    }
+    /* ========= Mission Vision ========= */
+    .custom-card-body {
+        padding: 1rem 2rem;
+    }
+    .custom-serif-paragraph {
+        font-size: 0.8rem;
+        text-align: left;
+    }
 }
 
 /* // Small devices (landscape phones, less than 768px) */
