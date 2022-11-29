@@ -322,7 +322,9 @@ a:focus {
     .custom-btn {
         display: block;
         width: 100%;
-        margin-top: 1rem;
+    }
+    .btn-edit {
+        margin-top: 0.5rem !important;
     }
     .section-header h2 {
         font-size: 1.2rem;
