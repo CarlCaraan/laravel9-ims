@@ -63,34 +63,34 @@
 
         <div class="affiliates-slider swiper" data-aos="fade-up" data-aos-delay="100">
             <div class="swiper-wrapper align-items-center">
-                <div class="swiper-slide"><img src="{{ asset('landing_page/assets/img/affiliates/1.png') }}" class="img-fluid" alt=""></div>
-                <div class="swiper-slide"><img src="{{ asset('landing_page/assets/img/affiliates/2.png') }}" class="img-fluid" alt=""></div>
-                <div class="swiper-slide"><img src="{{ asset('landing_page/assets/img/affiliates/3.png') }}" class="img-fluid" alt=""></div>
-                <div class="swiper-slide"><img src="{{ asset('landing_page/assets/img/affiliates/4.png') }}" class="img-fluid" alt=""></div>
-                <div class="swiper-slide"><img src="{{ asset('landing_page/assets/img/affiliates/5.png') }}" class="img-fluid" alt=""></div>
-                <div class="swiper-slide"><img src="{{ asset('landing_page/assets/img/affiliates/6.png') }}" class="img-fluid" alt=""></div>
-                <div class="swiper-slide"><img src="{{ asset('landing_page/assets/img/affiliates/7.png') }}" class="img-fluid" alt=""></div>
-                <div class="swiper-slide"><img src="{{ asset('landing_page/assets/img/affiliates/8.png') }}" class="img-fluid" alt=""></div>
-                <div class="swiper-slide"><img src="{{ asset('landing_page/assets/img/affiliates/9.png') }}" class="img-fluid" alt=""></div>
-                <div class="swiper-slide"><img src="{{ asset('landing_page/assets/img/affiliates/10.png') }}" class="img-fluid" alt=""></div>
-                <div class="swiper-slide"><img src="{{ asset('landing_page/assets/img/affiliates/11.png') }}" class="img-fluid" alt=""></div>
-                <div class="swiper-slide"><img src="{{ asset('landing_page/assets/img/affiliates/12.png') }}" class="img-fluid" alt=""></div>
+                <div class="swiper-slide"><img src="{{ asset('landing_page/assets/img/affiliates/1.png') }}" class="img-fluid" loading="lazy" alt="logo1"></div>
+                <div class="swiper-slide"><img src="{{ asset('landing_page/assets/img/affiliates/2.png') }}" class="img-fluid" loading="lazy" alt="logo2"></div>
+                <div class="swiper-slide"><img src="{{ asset('landing_page/assets/img/affiliates/3.png') }}" class="img-fluid" loading="lazy" alt="logo3"></div>
+                <div class="swiper-slide"><img src="{{ asset('landing_page/assets/img/affiliates/4.png') }}" class="img-fluid" loading="lazy" alt="logo4"></div>
+                <div class="swiper-slide"><img src="{{ asset('landing_page/assets/img/affiliates/5.png') }}" class="img-fluid" loading="lazy" alt="logo5"></div>
+                <div class="swiper-slide"><img src="{{ asset('landing_page/assets/img/affiliates/6.png') }}" class="img-fluid" loading="lazy" alt="logo6"></div>
+                <div class="swiper-slide"><img src="{{ asset('landing_page/assets/img/affiliates/7.png') }}" class="img-fluid" loading="lazy" alt="logo7"></div>
+                <div class="swiper-slide"><img src="{{ asset('landing_page/assets/img/affiliates/8.png') }}" class="img-fluid" loading="lazy" alt="logo8"></div>
+                <div class="swiper-slide"><img src="{{ asset('landing_page/assets/img/affiliates/9.png') }}" class="img-fluid" loading="lazy" alt="logo9"></div>
+                <div class="swiper-slide"><img src="{{ asset('landing_page/assets/img/affiliates/10.png') }}" class="img-fluid" loading="lazy" alt="logo10"></div>
+                <div class="swiper-slide"><img src="{{ asset('landing_page/assets/img/affiliates/11.png') }}" class="img-fluid" loading="lazy" alt="logo11"></div>
+                <div class="swiper-slide"><img src="{{ asset('landing_page/assets/img/affiliates/12.png') }}" class="img-fluid" loading="lazy" alt="logo12"></div>
             </div>
             <div class="swiper-pagination"></div>
 
             <div class="affiliates__container">
-                <div class="swiper-slide"><img src="{{ asset('landing_page/assets/img/affiliates/1.png') }}" class="img-fluid" alt=""></div>
-                <div class="swiper-slide"><img src="{{ asset('landing_page/assets/img/affiliates/2.png') }}" class="img-fluid" alt=""></div>
-                <div class="swiper-slide"><img src="{{ asset('landing_page/assets/img/affiliates/3.png') }}" class="img-fluid" alt=""></div>
-                <div class="swiper-slide"><img src="{{ asset('landing_page/assets/img/affiliates/4.png') }}" class="img-fluid" alt=""></div>
-                <div class="swiper-slide"><img src="{{ asset('landing_page/assets/img/affiliates/5.png') }}" class="img-fluid" alt=""></div>
-                <div class="swiper-slide"><img src="{{ asset('landing_page/assets/img/affiliates/6.png') }}" class="img-fluid" alt=""></div>
-                <div class="swiper-slide"><img src="{{ asset('landing_page/assets/img/affiliates/7.png') }}" class="img-fluid" alt=""></div>
-                <div class="swiper-slide"><img src="{{ asset('landing_page/assets/img/affiliates/8.png') }}" class="img-fluid" alt=""></div>
-                <div class="swiper-slide"><img src="{{ asset('landing_page/assets/img/affiliates/9.png') }}" class="img-fluid" alt=""></div>
-                <div class="swiper-slide"><img src="{{ asset('landing_page/assets/img/affiliates/10.png') }}" class="img-fluid" alt=""></div>
-                <div class="swiper-slide"><img src="{{ asset('landing_page/assets/img/affiliates/11.png') }}" class="img-fluid" alt=""></div>
-                <div class="swiper-slide"><img src="{{ asset('landing_page/assets/img/affiliates/12.png') }}" class="img-fluid" alt=""></div>
+                <div><img src="{{ asset('landing_page/assets/img/affiliates/1.png') }}" class="img-fluid" loading="lazy" alt="logo1"></div>
+                <div><img src="{{ asset('landing_page/assets/img/affiliates/2.png') }}" class="img-fluid" loading="lazy" alt="logo2"></div>
+                <div><img src="{{ asset('landing_page/assets/img/affiliates/3.png') }}" class="img-fluid" loading="lazy" alt="logo3"></div>
+                <div><img src="{{ asset('landing_page/assets/img/affiliates/4.png') }}" class="img-fluid" loading="lazy" alt="logo4"></div>
+                <div><img src="{{ asset('landing_page/assets/img/affiliates/5.png') }}" class="img-fluid" loading="lazy" alt="logo5"></div>
+                <div><img src="{{ asset('landing_page/assets/img/affiliates/6.png') }}" class="img-fluid" loading="lazy" alt="logo6"></div>
+                <div><img src="{{ asset('landing_page/assets/img/affiliates/7.png') }}" class="img-fluid" loading="lazy" alt="logo7"></div>
+                <div><img src="{{ asset('landing_page/assets/img/affiliates/8.png') }}" class="img-fluid" loading="lazy" alt="logo8"></div>
+                <div><img src="{{ asset('landing_page/assets/img/affiliates/9.png') }}" class="img-fluid" loading="lazy" alt="logo9"></div>
+                <div><img src="{{ asset('landing_page/assets/img/affiliates/10.png') }}" class="img-fluid" loading="lazy" alt="logo10"></div>
+                <div><img src="{{ asset('landing_page/assets/img/affiliates/11.png') }}" class="img-fluid" loading="lazy" alt="logo11"></div>
+                <div><img src="{{ asset('landing_page/assets/img/affiliates/12.png') }}" class="img-fluid" loading="lazy" alt="logo12"></div>
             </div>
         </div>
 
