@@ -8,7 +8,7 @@
     <title>@yield('title')</title>
     <meta name="title" content="sdo laguna">
     <meta name="description" content="School Division Office of Laguna Official Website - DepEd Building, Provincial Capitol Compound, Santa Cruz, Laguna">
-    <meta name="keywords" content="sdo, deped, laguna, school division office, deped sdo, deped laguna, sdo laguna">
+    <meta name="keywords" content="sdo-laguna, sdo, deped, laguna, school division office, deped sdo, deped laguna, sdo laguna">
     <meta name="robots" content="index, follow">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="language" content="English">
