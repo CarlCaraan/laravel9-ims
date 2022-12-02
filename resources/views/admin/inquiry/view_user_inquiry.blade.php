@@ -28,6 +28,9 @@
 <div class="page-content">
     <section class="row">
         <div class="col-12">
+            <div class="w-100 mb-2">
+                <a class="btn btn-primary" href="https://app.drift.com/conversations" target="_blank">Go to User Concerns</a>
+            </div>
             <div class="card">
                 <div class="card-header border-bottom">
                     <small class="text-muted ms-2">Note: All User Inquiries will be automatically deleted Quarterly.</small>

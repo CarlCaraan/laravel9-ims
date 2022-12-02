@@ -29,9 +29,6 @@
 <div class="page-content">
     <section class="row">
         <div class="col-12">
-            <div class="w-100 mb-2">
-                <a class="btn btn-primary" href="https://app.drift.com/conversations" target="_blank">Go to User Concerns</a>
-            </div>
             <div class="card">
                 <div class="card-body px-4 py-4-5">
                     <table class="table table-striped" id="table1">
