@@ -43,6 +43,7 @@
                                 <th>Email</th>
                                 <th>Gender</th>
                                 <th>Role</th>
+                                <th>Status</th>
                                 <th>Joined Date</th>
                                 <th>Action</th>
                             </tr>
@@ -65,7 +66,14 @@
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->gender }}</td>
                                 <td>{{ $user->user_type }}</td>
-                                <td>{{ date('m-d-Y', strtotime($user->created_at)) }}</td>
+                                <td>
+                                    @if ($user->email_verified_at == NULL)
+                                    <span class="badge bg-warning text-dark">Not Verified</span>
+                                    @else
+                                    <span class="badge bg-success">Verified</span>
+                                    @endif
+                                </td>
+                                <td><small class="text-muted">{{ date('m/d/Y', strtotime($user->created_at)) }}</small></td>
                                 <td>
                                     <a href="{{ route('user.edit', $user->id) }}" class="btn icon btn-primary"><i class="bi bi-pencil"></i></a>
                                     <a href="{{ route('user.delete', $user->id) }}" class="btn icon btn-danger" id="delete"><i class="bi bi-trash"></i></a>
