@@ -2,7 +2,7 @@
      <div class="container">
          <div class="row pt-4">
              <div class="col-md-8">
-                 <div class="center mb-3">
+                 <div class="mb-3 text-md-start text-center">
                      {!! $userSiteInfos->footer !!}
                  </div>
              </div>
