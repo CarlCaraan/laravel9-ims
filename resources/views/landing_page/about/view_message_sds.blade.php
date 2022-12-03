@@ -27,7 +27,7 @@
         </div>
         <div class="row">
             <div class="col-lg-4 about-img">
-                <img src="http://depedbenguet.com/wp-content/uploads/2017/03/SDS-grad-pics-300x300.png}" alt="image">
+                <img class="img-fluid sds_image" src="{{ asset('landing_page/assets/img/about-img.png') }}" alt="message-from-sds">
             </div>
 
             <div class="col-lg-8 content">
