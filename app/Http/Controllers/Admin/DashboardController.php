@@ -103,7 +103,7 @@ class DashboardController extends Controller
             ]
         )->avg();
 
-        $allData['pds_total_applicant'] = PdsFormList::select('user_id')->get()->count();
+        $allData['pds_total_applicant'] = PdsFormList::select('user_id')->whereNotNull('pds_tracking_no')->get()->count();
         // ========= End PDS =======
 
         return view('admin.index', $allData);
