@@ -40,6 +40,7 @@
                                 <th>Name</th>
                                 <th>Status</th>
                                 <th>Date Completed</th>
+                                <th>File</th>
                                 <th width="20%">Action</th>
                             </tr>
                         </thead>
@@ -58,6 +59,11 @@
                                     @endif
                                 </td>
                                 <td> {{ date('m/d/Y - h:ia', strtotime($value->updated_at)) }}</td>
+                                <td>
+                                    <a href="{{ route('generate.completed.sr', [$value['user']['email'], $value->id]) }}" type="button" class="btn btn-primary" target="_blank">
+                                        Pdf Format
+                                    </a>
+                                </td>
                                 <td>
                                     <a href="{{ route('restore.archived.view', $value->id) }}" type="button" class="btn btn-success" id="restore">
                                         Restore
