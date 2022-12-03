@@ -39,6 +39,7 @@
                                 <th>Email</th>
                                 <th>Name</th>
                                 <th>Date Completed</th>
+                                <th>File</th>
                                 <th width="20%">Action</th>
                             </tr>
                         </thead>
@@ -51,8 +52,13 @@
                                 <td>{{ $value['user']['first_name'] . ' ' . $value['user']['last_name'] }}</td>
                                 <td> {{ date('m/d/Y - h:ia', strtotime($value->updated_at)) }}</td>
                                 <td>
+                                    <a href="{{ route('generate.completed.sr', [$value['user']['email'], $value->id]) }}" type="button" class="btn btn-primary" target="_blank">
+                                        Pdf Format
+                                    </a>
+                                </td>
+                                <td>
                                     <a href="{{ route('viewdetails.completed.sr', [$value['user']['email'], $value->id]) }}" type="button" class="btn btn-primary">
-                                        View Details
+                                        Modify
                                     </a>
                                     <a href="{{ route('archivedetails.completed.sr', [$value['user']['email'], $value->id]) }}" class="btn icon btn-danger" id="archive">Archive</a>
                                 </td>

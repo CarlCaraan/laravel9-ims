@@ -12,6 +12,7 @@ use App\Mail\CreateSRMail;
 use Illuminate\Support\Facades\Mail;
 use App\Models\AdminNotification;
 use Auth;
+use PDF;
 
 class ServiceRecordController extends Controller
 {
@@ -211,5 +212,26 @@ class ServiceRecordController extends Controller
             'alert-type' => 'success',
         );
         return redirect()->route('all.archived.view')->with($notification);
+    } // End Method
+
+    // ========= Generate PDF =========
+    public function GenerateCompletedSR($email, $id)
+    {
+        $alldata['allSr'] = ServiceRecord::where('service_request_record_id', $id)->orderBy('updated_at', 'DESC')->get();
+        $alldata['allRequest'] = UserRequestServiceRecord::where('id', $id)->first();
+        $alldata['user'] = User::where('email', $email)->first();
+
+        // Generate PDF
+        $pdf = PDF::loadView('admin.service_record.generate_sr_pdf', $alldata, [], [
+            'format' => 'A4-P',
+            'margin_left' => 8,
+            'margin_right' => 8,
+            'margin_top' => 16,
+            'margin_bottom' => 16,
+            // 'margin_header' => 0,
+            // 'margin_footer' => 0,
+        ]);
+        $pdf->SetProtection(['copy', 'print'], '', 'pass');
+        return $pdf->stream('Completed_Service_Record.pdf');
     } // End Method
 }

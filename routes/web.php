@@ -139,6 +139,7 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
             Route::post('admin/completed/store', [ServiceRecordController::class, 'StoreDetailsCompletedSR'])->name('storedetails.completed.sr');
             Route::post('admin/completed/update/{id}', [ServiceRecordController::class, 'UpdateDetailsCompletedSR'])->name('updatedetails.completed.sr');
             Route::get('admin/completed/delete/{email}/{id}', [ServiceRecordController::class, 'DeleteDetailsCompletedSR'])->name('deletedetails.completed.sr');
+            Route::get('admin/completed/generate/{email}/{id}', [ServiceRecordController::class, 'GenerateCompletedSR'])->name('generate.completed.sr');
 
             // Archived Function
             Route::get('admin/completed/archive/{email}/{id}', [ServiceRecordController::class, 'ArchivedDetailsCompletedSR'])->name('archivedetails.completed.sr');

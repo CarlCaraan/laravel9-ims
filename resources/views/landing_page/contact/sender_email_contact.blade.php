@@ -39,7 +39,7 @@
 <body>
     <div class="bg-gray">
         <!-- Start Header Image -->
-        <img class="img-container" src="https://i.ibb.co/M6vmyQs/auth-brand.png" width="80px" alt="">
+        <img class="img-container" src="https://i.ibb.co/hmnZp9G/auth-brand.png" width="80px" alt="">
         <!-- End Header Image -->
 
         <!-- Start Card -->
