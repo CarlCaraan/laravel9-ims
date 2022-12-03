@@ -175,10 +175,6 @@
 
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <label class="form-label" for="sr_leave_of_absence">Leave of Absence w/o pay</label>
-                                        <input type="text" class="form-control" name="sr_leave_of_absence[]">
-                                    </div>
-                                    <div class="col-md-4">
                                         <label class="form-label" for="sr_separation_date_caused">Separation Date Caused</label>
                                         <input type="text" class="form-control" name="sr_separation_date_caused[]">
                                     </div>
@@ -223,6 +219,36 @@
                         <select class="form-select" name="sr_designation[]" required>
                             <option value="" disabled selected>Select</option>
                             <option value="Administrative Aide I">Administrative Aide I</option>
+                            <option value="Administrative Aide II">Administrative Aide II</option>
+                            <option value="Administrative Aide III">Administrative Aide III</option>
+                            <option value="Administrative Aide IV">Administrative Aide IV</option>
+                            <option value="Administrative Aide V">Administrative Aide V</option>
+                            <option value="Administrative Aide VI">Administrative Aide VI</option>
+                            <option value="Administrative Asst. II">Administrative Asst. II</option>
+                            <option value="Administrative Asst. III">Administrative Asst. III</option>
+                            <option value="Administrative Officer II">Administrative Officer II</option>
+                            <option value="Asst. Principal">Asst. Principal</option>
+                            <option value="Disbursing Officer II">Disbursing Officer II</option>
+                            <option value="Head Teacher I">Head Teacher I</option>
+                            <option value="Head Teacher II">Head Teacher II</option>
+                            <option value="Head Teacher III">Head Teacher III</option>
+                            <option value="Head Teacher IV">Head Teacher IV</option>
+                            <option value="Head Teacher V">Head Teacher V</option>
+                            <option value="Head Teacher VI">Head Teacher VI</option>
+                            <option value="Head Teacher VII">Head Teacher VII</option>
+                            <option value="Master Teacher I">Master Teacher I</option>
+                            <option value="Master Teacher II">Master Teacher II</option>
+                            <option value="PSDS">PSDS</option>
+                            <option value="Registrar I">Registrar I</option>
+                            <option value="School Principal I">School Principal I</option>
+                            <option value="School Principal II">School Principal II</option>
+                            <option value="School Principal III">School Principal III</option>
+                            <option value="School Principal IV">School Principal IV</option>
+                            <option value="Senior Bookkeeper">Senior Bookkeeper</option>
+                            <option value="Special Science Teacher I">Special Science Teacher I</option>
+                            <option value="Teacher I">Teacher I</option>
+                            <option value="Teacher II">Teacher II</option>
+                            <option value="Teacher III">Teacher III</option>
                         </select>
                     </div>
                 </div>
@@ -259,10 +285,6 @@
             </div> <!-- End Row -->
 
             <div class="row">
-                <div class="col-md-4">
-                    <label class="form-label" for="sr_leave_of_absence">Leave of Absence w/o pay</label>
-                    <input type="text" class="form-control" name="sr_leave_of_absence[]">
-                </div>
                 <div class="col-md-4">
                     <label class="form-label" for="sr_separation_date_caused">Separation Date Caused</label>
                     <input type="text" class="form-control" name="sr_separation_date_caused[]">

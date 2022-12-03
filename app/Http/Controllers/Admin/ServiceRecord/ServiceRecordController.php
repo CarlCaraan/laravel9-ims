@@ -61,7 +61,6 @@ class ServiceRecordController extends Controller
             $service_record->sr_salary = $request->sr_salary[$i];
             $service_record->sr_place_of_assignment = $request->sr_place_of_assignment[$i];
             $service_record->sr_branch = $request->sr_branch[$i];
-            $service_record->sr_leave_of_absence = $request->sr_leave_of_absence[$i];
             $service_record->sr_separation_date_caused = $request->sr_separation_date_caused[$i];
             $service_record->save();
         } // End For
@@ -120,7 +119,6 @@ class ServiceRecordController extends Controller
             'sr_salary' => $request->sr_salary,
             'sr_place_of_assignment' => $request->sr_place_of_assignment,
             'sr_branch' => $request->sr_branch,
-            'sr_leave_of_absence' => $request->sr_leave_of_absence,
             'sr_separation_date_caused' => $request->sr_separation_date_caused,
         ]);
 
@@ -142,7 +140,6 @@ class ServiceRecordController extends Controller
             'sr_salary' => $request->sr_salary,
             'sr_place_of_assignment' => $request->sr_place_of_assignment,
             'sr_branch' => $request->sr_branch,
-            'sr_leave_of_absence' => $request->sr_leave_of_absence,
             'sr_separation_date_caused' => $request->sr_separation_date_caused,
         ]);
 

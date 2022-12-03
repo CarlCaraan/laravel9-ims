@@ -229,10 +229,6 @@
 
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <label class="form-label" for="sr_leave_of_absence">Leave of Absence w/o pay</label>
-                                        <input type="text" class="form-control" name="sr_leave_of_absence">
-                                    </div>
-                                    <div class="col-md-4">
                                         <label class="form-label" for="sr_separation_date_caused">Separation Date Caused</label>
                                         <input type="text" class="form-control" name="sr_separation_date_caused">
                                     </div>
@@ -385,10 +381,6 @@
                                                 </div> <!-- End Row -->
 
                                                 <div class="row">
-                                                    <div class="col-md-4">
-                                                        <label class="form-label" for="sr_leave_of_absence">Leave of Absence w/o pay</label>
-                                                        <input type="text" class="form-control" name="sr_leave_of_absence" value="{{ $value->sr_leave_of_absence }}">
-                                                    </div>
                                                     <div class="col-md-4">
                                                         <label class="form-label" for="sr_separation_date_caused">Separation Date Caused</label>
                                                         <input type="text" class="form-control" name="sr_separation_date_caused" value="{{ $value->sr_separation_date_caused }}">

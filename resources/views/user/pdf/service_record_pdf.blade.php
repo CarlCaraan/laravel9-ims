@@ -188,9 +188,6 @@
                 <td class="center" rowspan="2" width="7%">
                     Branch
                 </td>
-                <td class="center" rowspan="2">
-                    Leave of Absence w/o pay
-                </td>
                 <td class="center" rowspan="2" width="12%">
                     Separation Date
                     Caused
@@ -214,7 +211,6 @@
                 <td class="center">{{ $service_record->sr_salary }}</td>
                 <td class="center">{{ $service_record->sr_place_of_assignment }}</td>
                 <td class="center">{{ $service_record->sr_branch }}</td>
-                <td>{{ $service_record->sr_leave_of_absence }}</td>
                 <td class="center">{{ $service_record->sr_separation_date_caused }}</td>
             </tr>
             @endforeach
