@@ -16,7 +16,7 @@
              </div>
              <div class="copyright">
                  <span class="text-muted">
-                     Copyright &copy; {{ date('Y', strtotime(now())) }} <strong>Division of Laguna</strong> All Rights Reserved
+                     Copyright &copy; {{ date('Y', strtotime(now())) }} <strong>Division of Laguna.</strong> All Rights Reserved
                  </span>
              </div>
          </div>
