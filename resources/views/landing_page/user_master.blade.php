@@ -59,8 +59,8 @@
             <div class="social-links d-none d-md-flex align-items-center">
                 <a href="{{ route('terms.show') }}" target="_blank">Terms</a>
                 <a href="{{ route('policy.show') }}" target="_blank">Policy</a>
-                <a href="{{ $userSiteInfos->facebook_link }}" class="facebook"><i class="bi bi-facebook"></i></a>
-                <a href="{{ $userSiteInfos->website_link }}" class="instagram"><i class="bi bi-globe"></i></a>
+                <a href="{{ $userSiteInfos->facebook_link }}" class="facebook" target="_blank"><i class="bi bi-facebook"></i></a>
+                <a href="{{ $userSiteInfos->website_link }}" class="instagram" target="_blank"><i class="bi bi-globe"></i></a>
             </div>
         </div>
     </section>

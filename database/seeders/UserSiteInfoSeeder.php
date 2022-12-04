@@ -19,7 +19,7 @@ class UserSiteInfoSeeder extends Seeder
             'email' => 'laguna@deped.gov.ph',
             'mobile' => '(049) 831-9062 | 831-9064',
             'facebook_link' => 'https://www.facebook.com/',
-            'website_link' => 'sdo.com',
+            'website_link' => 'https://www.sdo-laguna.com/',
             'address' => 'DepEd Building, Provincial Capitol Compound,<br/> Santa Cruz, Laguna',
             'footer' => "Education in the Philippines has undergone several stages of development from the pre-Spanish times to the present. In meeting the needs of the society, education serves as focus of emphases/priorities of the leadership at certain periods/epochs in our national struggle as a race.",
             'auth_brand' => NULL,
