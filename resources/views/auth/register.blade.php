@@ -40,35 +40,35 @@
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
                         <div class="form-group form-floating position-relative has-icon-left">
-                            <input type="text" class="form-control form-control-xl" placeholder="First Name" type="text" id="first_name" name="first_name" value="{{old('first_name')}}" autofocus autocomplete="first_name">
+                            <input type="text" class="form-control form-control-xl" placeholder="First Name" type="text" id="first_name" name="first_name" value="{{old('first_name')}}" autofocus autocomplete="first_name" required>
                             <div class="form-control-icon">
                                 <i class="bi bi-person"></i>
                             </div>
                             <label class="ms-5" for="name">First Name</label>
                         </div>
                         <div class="form-group form-floating position-relative has-icon-left">
-                            <input type="text" class="form-control form-control-xl" placeholder="Last Name" type="text" id="last_name" name="last_name" value="{{old('last_name')}}" autocomplete="first_name">
+                            <input type="text" class="form-control form-control-xl" placeholder="Last Name" type="text" id="last_name" name="last_name" value="{{old('last_name')}}" autocomplete="first_name" required>
                             <div class="form-control-icon">
                                 <i class="bi bi-person"></i>
                             </div>
                             <label class="ms-5" for="name">Last Name</label>
                         </div>
                         <div class="form-group form-floating position-relative has-icon-left">
-                            <input type="email" class="form-control form-control-xl" placeholder="Email Address" id="email" type="email" name="email" value="{{old('email')}}">
+                            <input type="email" class="form-control form-control-xl" placeholder="Email Address" id="email" type="email" name="email" value="{{old('email')}}" required>
                             <div class="form-control-icon">
                                 <i class="bi bi-envelope"></i>
                             </div>
                             <label class="ms-5" for="email">Email Address</label>
                         </div>
                         <div class="form-group form-floating position-relative has-icon-left">
-                            <input type="password" class="form-control form-control-xl" minlength="8" maxlength="24" placeholder="Password" id="password" name="password" autocomplete="new-password">
+                            <input type="password" class="form-control form-control-xl" minlength="8" maxlength="24" placeholder="Password" id="password" name="password" autocomplete="new-password" required>
                             <div class="form-control-icon">
                                 <i class="bi bi-shield-lock"></i>
                             </div>
                             <label class="ms-5" for="password">Password</label>
                         </div>
                         <div class="form-group form-floating position-relative has-icon-left">
-                            <input type="password" class="form-control form-control-xl" minlength="8" maxlength="24" placeholder="Confirm Password" id="password_confirmation" name="password_confirmation" autocomplete="new-password">
+                            <input type="password" class="form-control form-control-xl" minlength="8" maxlength="24" placeholder="Confirm Password" id="password_confirmation" name="password_confirmation" autocomplete="new-password" required>
                             <div class=" form-control-icon">
                                 <i class="bi bi-shield-lock"></i>
                             </div>
@@ -76,7 +76,7 @@
                         </div>
                         <div class="input-group">
                             <label class="input-group-text" for="inputGroupSelect01">Gender</label>
-                            <select class="form-select form-select-xl" id="inputGroupSelect01" name="gender">
+                            <select class="form-select form-select-xl" id="inputGroupSelect01" name="gender" required>
                                 <option selected value="">Select</option>
                                 <option value="Male">Male</option>
                                 <option value="Female">Female</option>
@@ -89,7 +89,7 @@
                         <div class="mt-4">
                             <x-jet-label for="terms">
                                 <div class="flex items-center">
-                                    <x-jet-checkbox name="terms" id="terms" />
+                                    <x-jet-checkbox name="terms" id="terms" required />
 
                                     {!! __('I agree to the :terms_of_service and :privacy_policy', [
                                     'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-custom hover:text-gray-900">'.__('Terms of Service').'</a>',

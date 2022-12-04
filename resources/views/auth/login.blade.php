@@ -64,14 +64,14 @@
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
                         <div class="form-group form-floating position-relative has-icon-left">
-                            <input type="email" id="email" name="email" class="form-control form-control-xl" placeholder="Email Address" value="{{ old('email') }}" autofocus>
+                            <input type="email" id="email" name="email" class="form-control form-control-xl" placeholder="Email Address" value="{{ old('email') }}" autofocus required>
                             <div class="form-control-icon">
                                 <i class="bi bi-person"></i>
                             </div>
                             <label class="ms-5" for="email">Email Address</label>
                         </div>
                         <div class="form-group form-floating position-relative has-icon-left">
-                            <input type="password" id="password" minlength="8" maxlength="24" name="password" class="form-control form-control-xl" placeholder="Password" autocomplete="current-password">
+                            <input type="password" id="password" minlength="8" maxlength="24" name="password" class="form-control form-control-xl" placeholder="Password" autocomplete="current-password" required>
                             <div class="form-control-icon">
                                 <i class="bi bi-shield-lock"></i>
                             </div>
