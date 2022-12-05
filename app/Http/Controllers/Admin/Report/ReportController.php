@@ -83,8 +83,8 @@ class ReportController extends Controller
             ]
         );
 
-        $start_date = $request->start_date;
-        $end_date = $request->end_date;
+        $start_date = $request->start_date_sr;
+        $end_date = $request->end_date_sr;
         $allData['s_date'] = $start_date;
         $allData['e_date'] = $end_date;
 
@@ -103,10 +103,11 @@ class ReportController extends Controller
 
         // Total Completed Count
         $allData['total_sr_request'] = UserRequestServiceRecord::with(['user'])->where('service_record_status', 'Completed')->where('archived', 'No')->where('created_at', '>=', $start_date)->where('created_at', '<=', $end_date)->orderBy('created_at', 'DESC')->count();
+        // dd($allData['total_sr_request']);
 
         // Fetching SR Completed
         $allData['sr_requests'] = UserRequestServiceRecord::with(['user'])->where('service_record_status', 'Completed')->where('archived', 'No')->where('created_at', '>=', $start_date)->where('created_at', '<=', $end_date)->orderBy('created_at', 'DESC')->get();
-        // dd($allData['sr_request']);
+        // dd($allData['sr_requests']);
 
         // Generate PDF
         $pdf = PDF::loadView('admin.report.sr_pdf_template', $allData, [], [
