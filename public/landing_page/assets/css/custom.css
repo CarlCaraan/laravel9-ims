@@ -13,7 +13,6 @@
     padding: 0;
     box-sizing: border-box;
 }
-.html,
 body {
     font-family: "Inter", sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -126,10 +125,9 @@ a:focus {
 #hero .hero-slider {
     height: 70vh !important;
 }
-.hero__container--mobile {
-    grid-template-columns: auto;
-    display: none;
-    padding-block: 0;
+.swiper-button-next,
+.swiper-button-prev {
+    color: var(--primary-app-color);
 }
 
 /* ========= Navigation ========= */
@@ -288,22 +286,11 @@ a:focus {
 /* ========= BOOTSTRAP BREAKPOINTS ========= */
 /* // X-Small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
+    body {
+        display: block !important;
+    }
     .custom-serif-paragraph {
         padding-inline: 0px !important;
-    }
-    .swiper-wrapper,
-    .swiper-pagination {
-        display: none;
-    }
-    .affiliates__container {
-        display: grid;
-        grid-template-columns: auto auto auto auto;
-    }
-    #hero {
-        display: none;
-    }
-    .hero__container--mobile {
-        display: block;
     }
     /* ========= Top Bar ========= */
     .contact-info {
@@ -344,6 +331,10 @@ a:focus {
     .custom-serif-paragraph {
         font-size: 0.8rem;
         text-align: left;
+    }
+    /* Slider JS */
+    .swiper-pagination {
+        display: none;
     }
 }
 
