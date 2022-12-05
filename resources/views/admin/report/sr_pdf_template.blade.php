@@ -119,7 +119,7 @@
                 <th>Date of Birth</th>
                 <th>Place of Birth</th>
                 <th>Sex</th>
-                <th>Date Completed</th>
+                <th>Date Requested</th>
             </tr>
 
             <!-- Start Dynamic Row -->

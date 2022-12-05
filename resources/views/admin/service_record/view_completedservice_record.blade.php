@@ -38,7 +38,7 @@
                                 <th>User Secret ID</th>
                                 <th>Email</th>
                                 <th>Name</th>
-                                <th>Date Completed</th>
+                                <th>Date Requested</th>
                                 <th>File</th>
                                 <th width="20%">Action</th>
                             </tr>
@@ -50,7 +50,7 @@
                                 <td>{{ $value['user']['tracking_id'] }}</td>
                                 <td>{{ $value['user']['email'] }}</td>
                                 <td>{{ $value['user']['first_name'] . ' ' . $value['user']['last_name'] }}</td>
-                                <td> {{ date('m/d/Y - h:ia', strtotime($value->updated_at)) }}</td>
+                                <td>{{ date('m/d/Y - h:ia', strtotime($value->created_at)) }}</td>
                                 <td>
                                     <a href="{{ route('generate.completed.sr', [$value['user']['email'], $value->id]) }}" type="button" class="btn btn-primary" target="_blank">
                                         Pdf Format

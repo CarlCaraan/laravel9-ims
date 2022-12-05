@@ -39,7 +39,7 @@
                                 <th>Email</th>
                                 <th>Name</th>
                                 <th>Status</th>
-                                <th>Date Completed</th>
+                                <th>Date Requested</th>
                                 <th>File</th>
                                 <th width="20%">Action</th>
                             </tr>
@@ -52,13 +52,13 @@
                                 <td>{{ $value['user']['email'] }}</td>
                                 <td>{{ $value['user']['first_name'] . ' ' . $value['user']['last_name'] }}</td>
                                 <td>
-                                    @if ($value->service_record_status == "Pending")
+                                    @if($value->service_record_status == "Pending")
                                     <span class="badge bg-warning text-dark"><i class="fas fa-info-circle"></i> Pending Request</span>
-                                    @else ($value->service_record_status == "Done")
+                                    @elseif($value->service_record_status == "Completed")
                                     <span class="badge bg-success"><i class="fas fa-check-circle"></i> Done</span>
                                     @endif
                                 </td>
-                                <td> {{ date('m/d/Y - h:ia', strtotime($value->updated_at)) }}</td>
+                                <td> {{ date('m/d/Y - h:ia', strtotime($value->created_at)) }}</td>
                                 <td>
                                     <a href="{{ route('generate.completed.sr', [$value['user']['email'], $value->id]) }}" type="button" class="btn btn-primary" target="_blank">
                                         Pdf Format

@@ -17,7 +17,7 @@ class AdminSiteInfoSeeder extends Seeder
     {
         DB::table('admin_site_infos')->insert([
             'admin_brand' => NULL,
-            'footer' => "Copyright &copy; 2022 <strong>Division of Lagun</strong>a All Rights Reserved",
+            'footer' => "Copyright &copy; 2022 <strong>Division of Laguna</strong>. All Rights Reserved",
         ]);
     }
 }

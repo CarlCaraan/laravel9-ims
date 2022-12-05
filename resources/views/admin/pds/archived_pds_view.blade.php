@@ -37,6 +37,8 @@
                                 <th>Tracking ID No.</th>
                                 <th>Email</th>
                                 <th>Name</th>
+                                <th>Status</th>
+                                <th>Message</th>
                                 <th>Date Uploaded</th>
                                 <th width="20%">Action</th>
                             </tr>
@@ -48,6 +50,14 @@
                                 <td>{{ $value->pds_tracking_no }}</td>
                                 <td>{{ $value['user']['email'] }}</td>
                                 <td>{{ $value['user']['first_name'] . ' ' . $value['user']['last_name'] }}</td>
+                                <td>
+                                    @if($value->pds_status == "Invalid")
+                                    <span class="badge bg-danger"><i class="fas fa-info-circle"></i> Invalid</span>
+                                    @elseif($value->pds_status == "Verified")
+                                    <span class="badge bg-success"><i class="fas fa-check-circle"></i> Verified</span>
+                                    @endif
+                                </td>
+                                <td>{{ $value->pds_message }}</td>
                                 <td>{{ $value->pds_date_uploaded }}</td>
                                 <td>
                                     <a href="{{ route('pds.restore', $value->id) }}" class="btn icon btn-success" id="restore">Restore</a>
