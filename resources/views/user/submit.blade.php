@@ -7,9 +7,9 @@
 <section class="breadcrumbs">
     <div class="container mt-2">
         <div class="d-flex justify-content-between align-items-center">
-            <h2>Submit Form</h2>
+            <h2>Submit Scanned Copy of Accomplished PDS</h2>
             <ol>
-                <li>Submit PDS Form</li>
+                <li>Submit (PDS)</li>
             </ol>
         </div>
     </div>

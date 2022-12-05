@@ -7,7 +7,7 @@
 <section class="breadcrumbs">
     <div class="container mt-2">
         <div class="d-flex justify-content-between align-items-center">
-            <h2>Request Form</h2>
+            <h2>Fill Up Information</h2>
             <ol>
                 <li>Home</li>
             </ol>
@@ -249,7 +249,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="alert alert-info">
-                                    <strong>Note::</strong> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit temporibus ex distinctio rerum. Voluptas officia dolorem, pariatur id natus, reprehenderit veniam delectus voluptatem quaerat sit, molestias fuga accusantium voluptatibus ad?
+                                    <strong>Note:</strong> Compile All Pages with a <strong>Single Pdf File</strong> Before Submitting
                                 </div>
                                 <div class="row">
                                     <div class="col-md-3 center">
@@ -265,7 +265,7 @@
                                             <span class="fw-bold">PAGE 2</span>
                                             <hr />
                                             <a class="btn custom-btn-secondary text-light w-100 mb-2" href="{{ route('page_two_front.generate.pdf') }}" target="_blank">Front Page</a>
-                                            <a class="btn custom-btn-secondary text-light w-100" href="{{ asset('pdf/c4.pdf') }}" target="_blank">Back Page</a>
+                                            <a class="btn custom-btn-secondary text-light w-100" href="{{ asset('pdf/C4.pdf') }}" target="_blank">Back Page</a>
                                         </div>
                                     </div>
                                 </div>

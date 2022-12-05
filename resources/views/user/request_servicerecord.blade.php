@@ -52,9 +52,6 @@
                                 <th>
                                     Date Requested
                                 </th>
-                                <th>
-                                    Date Completed
-                                </th>
                                 <th width="10%">
 
                                 </th>
@@ -92,13 +89,6 @@
                                 </td>
                                 <td>
                                     {{ date('m/d/Y - h:ia', strtotime($sr_request->created_at)) }}
-                                </td>
-                                <td>
-                                    @if($sr_request->updated_at == NULL)
-                                    Pending for completion...
-                                    @else
-                                    {{ date('m/d/Y - h:ia', strtotime($sr_request->updated_at)) }}
-                                    @endif
                                 </td>
                                 <td>
                                     @if($sr_request->service_record_status == "Completed")
