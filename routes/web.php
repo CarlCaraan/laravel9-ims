@@ -73,6 +73,7 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
         });
 
         // ========= Account Management =========
+
         Route::prefix('accounts')->middleware('adminOnly')->group(function () {
             Route::get('admin/view', [UserController::class, 'UserView'])->name('user.view');
             Route::get('admin/add', [UserController::class, 'UserAdd'])->name('user.add');
