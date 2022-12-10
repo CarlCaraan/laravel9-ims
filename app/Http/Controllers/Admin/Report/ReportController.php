@@ -49,10 +49,10 @@ class ReportController extends Controller
         // ========= End Date Custom Validation =========
 
         // Total Completed Count
-        $allData['total_pds'] = PdsFormList::with(['user'])->where('pds_status', 'Verified')->where('pds_archived', 'No')->where('updated_at', '>=', $start_date)->where('updated_at', '<=', $end_date)->orderBy('updated_at', 'DESC')->count();
+        $allData['total_pds'] = PdsFormList::with(['user'])->where('pds_status', 'Verified')->where('pds_archived', 'No')->where('created_at', '>=', $start_date)->where('created_at', '<=', $end_date)->orderBy('created_at', 'DESC')->count();
 
         // Fetching SR Completed
-        $allData['pds_lists'] = PdsFormList::with(['user'])->where('pds_status', 'Verified')->where('pds_archived', 'No')->where('updated_at', '>=', $start_date)->where('updated_at', '<=', $end_date)->orderBy('updated_at', 'DESC')->get();
+        $allData['pds_lists'] = PdsFormList::with(['user'])->where('pds_status', 'Verified')->where('pds_archived', 'No')->where('created_at', '>=', $start_date)->where('created_at', '<=', $end_date)->orderBy('created_at', 'DESC')->get();
         // dd($allData['sr_request']);
 
         // Generate PDF

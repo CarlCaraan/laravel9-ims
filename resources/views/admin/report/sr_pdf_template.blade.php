@@ -132,7 +132,7 @@
                 <td>{{ $sr_request->sr_dob }}</td>
                 <td>{{ $sr_request->sr_pob }}</td>
                 <td>{{ $sr_request['user']['gender'] }}</td>
-                <td>{{ date('m/d/Y', strtotime($sr_request->updated_at)) }}</td>
+                <td>{{ date('m/d/Y', strtotime($sr_request->created_at)) }}</td>
             </tr>
             @endforeach
             <!-- End Dynamic Row -->
