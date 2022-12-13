@@ -94,6 +94,9 @@ $route = Route::current()->getName();
                         <li class="submenu-item {{ ($route == 'user.add') ? 'active' : '' }}">
                             <a class="{{ ($route == 'user.add') ? 'text-success' : '' }}" href="{{ route('user.add') }}">Add User</a>
                         </li>
+                        <li class="submenu-item {{ ($route == 'user.archive.view') ? 'active' : '' }}">
+                            <a class="{{ ($route == 'user.archive.view') ? 'text-success' : '' }}" href="{{ route('user.archive.view') }}">Archived</a>
+                        </li>
                     </ul>
                 </li>
                 @endif

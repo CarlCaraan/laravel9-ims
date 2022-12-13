@@ -79,7 +79,11 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
             Route::post('admin/store', [UserController::class, 'UserStore'])->name('user.store');
             Route::get('admin/edit/{id}', [UserController::class, 'UserEdit'])->name('user.edit');
             Route::post('admin/update/{id}', [UserController::class, 'UserUpdate'])->name('user.update');
-            Route::get('admin/delete/{id}', [UserController::class, 'UserDelete'])->name('user.delete');
+            // Route::get('admin/delete/{id}', [UserController::class, 'UserDelete'])->name('user.delete');
+            Route::get('admin/archive/{id}', [UserController::class, 'UserArchive'])->name('user.archive');
+            // Archive
+            Route::get('admin/view-archive', [UserController::class, 'UserViewArchive'])->name('user.archive.view');
+            Route::get('admin/restore/{id}', [UserController::class, 'UserRestore'])->name('user.restore');
         });
 
         // ========= SiteInfo Management =========

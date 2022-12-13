@@ -1,6 +1,6 @@
 @extends('admin.admin_master')
 
-@section('title') View Users | Division of Laguna @endsection
+@section('title') Archived Users | Division of Laguna @endsection
 
 @section('content')
 <!-- Start Breadcrumb -->
@@ -8,14 +8,14 @@
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3 class="text-success">View Users</h3>
+                <h3 class="text-secondary">View Archived Users</h3>
                 <p class="text-subtitle text-muted">All List of Accounts.</p>
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a class="text-success" href="{{ route('dashboard') }}">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">View Users</li>
+                        <li class="breadcrumb-item active" aria-current="page">View Archived Users</li>
                     </ol>
                 </nav>
             </div>
@@ -75,8 +75,7 @@
                                 </td>
                                 <td><small class="text-muted">{{ date('m/d/Y', strtotime($user->created_at)) }}</small></td>
                                 <td>
-                                    <a href="{{ route('user.edit', $user->id) }}" class="btn icon btn-primary"><i class="bi bi-pencil"></i></a>
-                                    <a href="{{ route('user.archive', $user->id) }}" class="btn icon btn-secondary" id="archive"><i class="bi bi-archive"></i></a>
+                                    <a href="{{ route('user.restore', $user->id) }}" class="btn icon btn-success" id="restore">Restore</a>
                                 </td>
                             </tr>
 

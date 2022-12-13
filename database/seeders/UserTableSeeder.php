@@ -21,7 +21,7 @@ class UserTableSeeder extends Seeder
             'first_name' => "Admin",
             'last_name' => "Account",
             'gender' => "Male",
-            'email' => "bannedefused@gmail.com",
+            'email' => "admin@gmail.com",
             'user_type' => "Admin",
             'identifier' => "local",
             'tracking_id' => "2022-00001",

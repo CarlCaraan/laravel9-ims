@@ -12,7 +12,7 @@ class UserController extends Controller
     public function UserView()
     {
         // $allData = User::all();
-        $data['allData'] = User::all();
+        $data['allData'] = User::where('archived', 'No')->get();
         return view('admin.user.view_user', $data);
     }
 
@@ -155,16 +155,48 @@ class UserController extends Controller
         }
     } // End Method
 
-    public function UserDelete($id)
+    // public function UserDelete($id)
+    // {
+    //     $data = User::find($id);
+    //     @unlink(public_path('upload/user_images/' . $data->profile_photo_path));
+    //     $data->delete();
+
+    //     $notification = array(
+    //         'message' => 'User Deleted Successfully',
+    //         'alert-type' => 'success',
+    //     );
+    //     return redirect()->route('user.view')->with($notification);
+    // }
+
+    public function UserArchive($id)
     {
         $data = User::find($id);
-        @unlink(public_path('upload/user_images/' . $data->profile_photo_path));
-        $data->delete();
+        $data->archived = 'Yes';
+        $data->save();
 
         $notification = array(
-            'message' => 'User Deleted Successfully',
+            'message' => 'User Archived Successfully',
             'alert-type' => 'success',
         );
         return redirect()->route('user.view')->with($notification);
+    } // End Method
+
+    public function UserViewArchive()
+    {
+        $data['allData'] = User::where('archived', 'Yes')->get();
+        return view('admin.user.view_archived', $data);
+    } // End Method
+
+    public function UserRestore($id)
+    {
+        $data = User::find($id);
+        $data->archived = 'No';
+        $data->save();
+
+        $notification = array(
+            'message' => 'User Archived Successfully',
+            'alert-type' => 'success',
+        );
+        return redirect()->route('user.archive.view')->with($notification);
     }
 }
