@@ -249,9 +249,9 @@
                             </div>
                             <div class="card-body">
                                 <div class="alert alert-info">
-                                    <strong>Note:</strong> Compile All Pages with a <strong>Single Pdf File</strong> Before Submitting
+                                    <strong>Note:</strong> Fill out all the <strong>signature boxes</strong> before scanning all pages. Must submit with a <strong>single pdf file</strong>.
                                 </div>
-                                <div class="row">
+                                <!-- <div class="row">
                                     <div class="col-md-3 center">
                                         <div class="border p-3">
                                             <span class="fw-bold">PAGE 1</span>
@@ -268,6 +268,11 @@
                                             <a class="btn custom-btn-secondary text-light w-100" href="{{ asset('pdf/C4.pdf') }}" target="_blank">Back Page</a>
                                         </div>
                                     </div>
+                                </div> -->
+                                <div class="border">
+                                    <h4 class="text-center mt-3 mb-2">Generate Accomplished PDS Form</h4>
+                                    <hr>
+                                    <a class="btn custom-btn-secondary text-light d-block mb-2 mx-2" href="{{ route('page_one_front.generate.pdf') }}" target="_blank">Generate PDF</a>
                                 </div>
                             </div>
                         </div>

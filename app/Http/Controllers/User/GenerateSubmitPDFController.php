@@ -32,6 +32,13 @@ class GenerateSubmitPDFController extends Controller
         $allData['children'] = FamilyChildrenList::where('family_id', $family_id)->get();
         $allData['educational'] = EducationalInfo::where('user_id', $id)->first();
 
+        $allData['civils'] = CivilServiceInfo::where('user_id', $id)->get();
+        $allData['works'] = WorkExperienceInfo::where('user_id', $id)->get();
+
+        $allData['voluntaries'] = VoluntaryWorkInfo::where('user_id', $id)->get();
+        $allData['learnings'] = LearningProgramInfo::where('user_id', $id)->get();
+        $allData['others'] = OtherSkillInfo::where('user_id', $id)->get();
+
         // Generate PDF
         $pdf = PDF::loadView('user.pdf.part_one_front', $allData, [], [
             'format' => 'Legal',
