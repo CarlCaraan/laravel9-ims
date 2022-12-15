@@ -161,7 +161,7 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
             Route::post('admin/generate-report/sr', [ReportController::class, 'SRGenereteReport'])->name('generate.report.sr');
         });
 
-        // Admin\HR Notification 
+        // Admin & HR Notification 
         Route::get('admin/notification/get', [NotificationController::class, 'AdminGetNotification'])->name('admin.get.notification');
         Route::get('admin/notification/get/badge', [NotificationController::class, 'AdminGetNotificationBadge'])->name('admin.get.notification.badge');
         Route::get('admin/notification/get/update', [NotificationController::class, 'AdminGetNotificationUpdate'])->name('admin.get.notification.update');
