@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\FacebookController;
-
 use App\Http\Controllers\WelcomeController;
 
 // ========= All Admin Controller =========
