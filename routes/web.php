@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\FacebookController;
-use App\Http\Controllers\WelcomeController;
 
 // ========= All Admin Controller =========
 use App\Http\Controllers\Admin\DashboardController;
@@ -22,6 +21,7 @@ use App\Http\Controllers\Admin\ServiceRecord\ServiceRecordController;
 use App\Http\Controllers\Admin\Report\ReportController;
 
 // ========= Landing Page Controller =========
+use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\User\About\AboutController;
 use App\Http\Controllers\User\ContactController;
 
