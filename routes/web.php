@@ -6,7 +6,6 @@ use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\FacebookController;
 
 // ========= All Admin Controller =========
-
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\UserController;
