@@ -54,6 +54,7 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
     });
 
     // ========= ALL Admin Routes =========
+
     Route::middleware([
         'auth:sanctum',
         config('jetstream.auth_session'),
